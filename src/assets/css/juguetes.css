@@ -1,0 +1,45 @@
+
+    * {
+      box-sizing: border-box;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fdfdfd;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+      text-align: center;
+     
+    }
+
+    .coming-soon {
+      margin-top: 100px;
+      width: 800px;
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .coming-soon h1 {
+      font-size: 4rem;
+      color: #333;
+      margin-bottom: 1rem;
+    }
+
+    .coming-soon p {
+      font-size: 2.2rem;
+      color: #666;
+    }
+
+    @media (max-width: 600px) {
+      .coming-soon h1 {
+        font-size: 1.5rem;
+      }
+      .coming-soon p {
+        font-size: 1rem;
+      }
+    }

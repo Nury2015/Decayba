@@ -118,7 +118,11 @@
   <div class="card-container" id="card-container"></div>
 
   <script type="module" src="../../assets/js/main.js"></script>
-  <script>
+  <script>  
+ 
+
+  document.addEventListener("DOMContentLoaded", () => {
+     let cart = JSON.parse(localStorage.getItem("carrito")) || [];
     /* === Estado & referencias === */
     const sugerencia = document.getElementById("sugerencia");
     const graciasCompra = document.getElementById("gracias-compra");
@@ -246,6 +250,30 @@ if (selectAll) {
         }
       });
     }
+
+    /* === WhatsApp === */
+    btnWhatsapp.addEventListener('click', e => {
+      e.preventDefault();
+
+      const numero = '573154380079'; // Tu número de WhatsApp
+      let mensaje = "🛍️ *Resumen de tu pedido* 💕\n\n";
+
+      cart.forEach(item => {
+        const subtotal = item.precio * item.cantidad;
+        mensaje += ` *${item.nombre}*\n`;
+        mensaje += `Cantidad: ${item.cantidad}\n`;
+        mensaje += `Precio unitario: $${item.precio.toLocaleString()}\n`;
+        mensaje += `Subtotal: $${subtotal.toLocaleString()}\n\n`;
+      });
+
+      const total = cart.reduce((acc, item) => acc + item.precio * item.cantidad, 0);
+      mensaje += `💰 *Total a pagar:* $${total.toLocaleString()}\n\n`;
+      mensaje += `✅Gracias por tu compra 💖✨`;
+
+      const msg = encodeURIComponent(mensaje);
+      window.open(`https://wa.me/${numero}?text=${msg}`, '_blank');
+    });
+    
     /**
        * Renderiza un ítem del carrito en la lista de compras
        * @param {Object} item - Objeto que representa un ítem en el carrito
@@ -301,10 +329,11 @@ if (selectAll) {
         `;
     }
 
-
+  
     // Inicializar la página
     renderDetalle();
     setupAddToCartListeners();
+    });
   </script>
 </body>
 
