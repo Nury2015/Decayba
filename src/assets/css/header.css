@@ -1,0 +1,118 @@
+nav {
+    background-color: var(--white);
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--very-light-pink);
+    margin-bottom: 12px;
+    position: sticky;
+    width: 100%;
+    height: 55px;
+    top: 0;
+    z-index: 100;
+  }
+  
+  nav > a {
+    display: none;
+  }
+  
+  .menu {
+    display: none;
+  }
+  
+  .logo {
+    width: 134px;
+    margin-bottom: 16px;
+    height: 50px;
+  }
+  
+  .navbar-left {
+    display: flex;
+    align-items: center;
+    margin-left: 12px;
+  }
+  
+  .navbar-right {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-left a {
+    display: flex;
+    margin-left: 12px;
+  }
+  
+  .navbar-left img {
+    height: 56%;
+    object-fit: cover;
+  }
+  
+  .navbar-left ul,
+  .navbar-right ul {
+    list-style: none;
+    padding: 0px 25px;
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    height: 60px;
+  }
+  
+  .navbar-left ul li a,
+  .navbar-right ul li {
+    text-decoration: none;
+    color: var(--very-light-pink);
+    border: 1px solid var(--white);
+    padding: 8px;
+    border-radius: 8px;
+  }
+  
+  .navbar-left ul li a:hover,
+  .navbar-right ul li:hover {
+    border: 1px solid var(--hospital-green);
+    color: var(--hospital-green);
+  }
+  
+  .navbar-shopping-cart {
+    position: relative;
+  }
+  
+  .navbar-shopping-cart div {
+    position: absolute;
+    color: var(--black);
+    width: 14px;
+    height: 14px;
+    background-color: var(--hospital-green);
+    border-radius: 50px;
+    font-size: var(--sm);
+    font-weight: bold;
+    top: 4px;
+    right: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .navbar-email {
+    color: var(--very-light-pink);
+    font-size: var(--sm);
+  }
+  
+  .navbar-email a {
+    text-decoration: none;
+    font-size: var(--sm);
+    color: var(--very-light-pink);
+  }
+  
+  @media (max-width: 640px) {
+    .menu {
+      display: block;
+    }
+  
+    .navbar-left ul {
+      display: none;
+    }
+  
+    .navbar-email {
+      display: none;
+    }
+  }
+  

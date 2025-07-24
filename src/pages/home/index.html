@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DECAYBA - Tienda de Mascotas</title>
+
+    <link rel="stylesheet" href="../../assets/css/global.css" />
+    <link rel="stylesheet" href="../../assets/css/header.css" />
+    <link rel="stylesheet" href="../../assets/css/home.css" />
+    <link rel="stylesheet" href="../../assets/css/footer.css" />
+    <link rel="stylesheet" href="../../assets/css/carrito.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="toast" class="toast"></div>
+
+    <nav>
+      <a href="menumobile.html">
+        <img src="../../assets/icon/icon_menu.svg" alt="menu" class="menu" />
+      </a>
+
+      <div class="navbar-left">
+        <a href="index.html">
+          <img
+            src="../../assets/logos/logodecayba.png"
+            alt="logo"
+            class="logo"
+          />
+        </a>
+
+        <ul>
+          <li>
+            <a href="Misordenes.html"> Tus pedidos </a>
+          </li>
+
+          <li>
+            <a href="index.html">Clothes</a>
+          </li>
+
+          <li>
+            <a href="index.html">Electronics</a>
+          </li>
+
+          <li>
+            <a href="index.html">Furnitures</a>
+          </li>
+
+          <li>
+            <a href="index.html">Toys</a>
+          </li>
+
+          <li>
+            <a href="index.html">Others</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="navbar-right">
+        <ul>
+          <li class="navbar-email">
+            <a href="editar-cuenta.html"> camila@gmail.com </a>
+          </li>
+
+          <li class="navbar-shopping-cart">
+            <a id="ver-carrito">
+              <img
+                src="../../assets/icon/icon_shopping_cart.svg"
+                alt="shopping cart"
+              />
+              <div>0</div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <section class="main-container">
+      <div class="card-container" id="card-container"></div>
+
+      <aside class="product-detail" id="product-detail">
+        <div class="title-container">
+          <a href="index.html"
+            ><img src="../../assets/icon/flechita.svg" alt="Volver"
+          /></a>
+          <p class="title">Resumen del pedido</p>
+        </div>
+
+        <p id="gracias-compra" class="gracias">¡Gracias por tu compra 💖!</p>
+
+        <!-- Carrito -->
+        <div class="my-order-content" id="cart-content"></div>
+
+        <!-- Botón WhatsApp -->
+        <div class="verificar">
+          <a href="#" class="boton" id="btn-whatsapp">Enviar por WhatsApp</a>
+        </div>
+
+        <!-- Botón Ver Carrito -->
+        <div class="verificar">
+          <a href="./../cart/carrito.html" class="boton" id="btn-carrito">Ver Carrito</a>
+        </div>
+
+        
+      </aside>
+    </section>
+
+    <footer>© <span id="year"></span> DECAYBA · Hecho con ❤</footer>
+
+    <!-- Scripts -->
+
+    <script type="module" src="../../assets/js/main.js"></script>
+
+  </body>
+</html>

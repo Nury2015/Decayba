@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Decayba ‑ Carrito</title>
+  <link rel="stylesheet" href="../../assets/css/global.css" />
+  <link rel="stylesheet" href="../../assets/css/carrito.css" />
+  <link rel="stylesheet" href="../../assets/css/header.css" />
+  <link rel="stylesheet" href="../../assets/css/footer.css" />
+  <link rel="stylesheet" href="../../assets/css/home.css" />
+  <link rel="stylesheet" href="../../assets/css/cart.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <div id="toast" class="toast"></div>
+  <nav>
+    <a href="../../pages/home/index.html">
+      <img src="../../assets/icon/icon_menu.svg" alt="menu" class="menu" />
+    </a>
+
+    <div class="navbar-left">
+      <a href="../../pages/home/index.html">
+        <img src="../../assets/logos/logodecayba.png" alt="logo" class="logo" />
+      </a>
+
+      <ul>
+        <li>
+          <a href="../../pages/home/Misordenes.html"> Tus pedidos </a>
+        </li>
+
+        <li>
+          <a href="../../pages/home/index.html">Clothes</a>
+        </li>
+
+        <li>
+          <a href="../../pages/home/index.html">Electronics</a>
+        </li>
+
+        <li>
+          <a href="../../pages/home/index.html">Furnitures</a>
+        </li>
+
+        <li>
+          <a href="../../pages/home/index.html">Toys</a>
+        </li>
+
+        <li>
+          <a href="../../pages/home/index.html">Others</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="navbar-right">
+      <ul>
+        <li class="navbar-email">
+          <a href="editar-cuenta.html"> camila@gmail.com </a>
+        </li>
+
+        <li class="navbar-shopping-cart">
+          <a id="ver-carrito">
+            <img src="../../assets/icon/icon_shopping_cart.svg" alt="shopping cart" />
+            <div>0</div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="contenedor-carrito">
+    <div class="my-order" id="my-order">
+      <div class="my-order-container">
+        <div class="cabecera">
+          <h1 class="title">Total de artículos</h1>
+        </div>
+        <div class="shopping-cart">
+          <div class="list-shopping" id="list-shopping"></div>
+          <div class="order" id="resumen-pedido"></div>
+        </div>
+      </div>
+    </div>
+
+    <aside class="product-detail" id="product-detail">
+      <div class="title-container">
+        <a href="index.html"><img class=".btn-remove" src="../../assets/icon/icon_close.png" alt="Volver" /></a>
+        <p class="title">Resumen del pedido</p>
+      </div>
+
+      <p id="gracias-compra" class="gracias">¡Gracias por tu compra 💖!</p>
+
+      <!-- Carrito -->
+      <div class="my-order-content" id="cart-content"></div>
+
+      <!-- Botón WhatsApp -->
+      <div class="verificar">
+        <a href="#" class="boton" id="btn-whatsapp">Enviar por WhatsApp</a>
+      </div>
+
+      <!-- Botón Ver Carrito -->
+      <div class="verificar">
+        <a href="./../cart/carrito.html" class="boton" id="btn-carrito">Ver Carrito</a>
+      </div>
+
+    </aside>
+  </div>
+
+  <div class="my-order-content" id="sugerencia"></div>
+
+  <div class="card-container" id="card-container"></div>
+
+  <script type="module" src="../../assets/js/main.js"></script>
+  <script>
+    /* === Estado & referencias === */
+    const sugerencia = document.getElementById("sugerencia");
+    const graciasCompra = document.getElementById("gracias-compra");
+    const btnWhatsapp = document.getElementById("btn-whatsapp");
+    const myOrder = document.getElementById("my-order");
+    const listShopping = document.getElementById("list-shopping");
+    const resumen = document.getElementById("resumen-pedido");
+    const productosDisponibles =
+      JSON.parse(localStorage.getItem("productosDisponibles")) || [];
+    console.log(productosDisponibles);
+
+    const miniCards = document.querySelector(".card-container");
+
+    listShopping.innerHTML = "";
+
+    /**
+     * Muestra el mensaje de carrito vacío y oculta elementos innecesarios
+     */
+    function showEmptyCart() {
+      myOrder.style.display = "none";
+      if (graciasCompra) graciasCompra.style.display = "none";
+      if (btnWhatsapp) btnWhatsapp.style.display = "none";
+      return `
+          <div style="text-align:center;margin-top:2rem;">
+            <img src="../../assets/img/carritoVacio.png" alt="Carrito vacío" style="max-width:100px;">
+            <p>Tu carrito está vacío</p>
+          </div>`;
+    }
+
+    /**
+     * Muestra los elementos del carrito y oculta el mensaje de carrito vacío
+     */
+    function showFullCart() {
+      myOrder.style.display = "block";
+      if (graciasCompra) graciasCompra.style.display = "block";
+      if (btnWhatsapp) btnWhatsapp.style.display = "flex";
+      return true;
+    }
+
+    function renderDetalle() {
+      const cart = JSON.parse(localStorage.getItem("carrito")) || [];
+      sugerencia.innerHTML = "";
+      listShopping.innerHTML = "";
+
+      setupRemoveListeners();
+      console.log("cart");
+      console.log(cart);
+
+
+      if (cart.length === 0) {
+        sugerencia.innerHTML = showEmptyCart();
+        return;
+      }
+
+      showFullCart();
+      
+      let total = 0;
+      let resumenItemsHTML = "";
+
+      const hoy = new Date();
+      const fecha = hoy.toLocaleDateString("es-CO");
+      const totalArticulos = cart.reduce(
+        (acc, item) => acc + item.cantidad,
+        0
+      );
+
+      // Renderizar todos los ítems del carrito
+      cart.forEach((item, index) => {
+        total += renderCartItem(item, index);
+      });
+
+      renderTotalCart(total);
+      renderOrderSummary(fecha, totalArticulos);
+    }
+
+
+    /**
+     * Configura los event listeners para los botones de agregar al carrito
+     */
+    function setupAddToCartListeners() {
+      // Usamos event delegation para manejar clics en los botones de agregar al carrito
+      document.addEventListener('click', function(event) {
+        // Verificamos si el clic fue en un botón con la clase 'agregar-al-carrito' o en un hijo de dicho botón
+        const addToCartBtn = event.target.closest('.agregar-al-carrito');
+        
+        if (addToCartBtn) {
+          // Prevenir el comportamiento por defecto del botón
+          event.preventDefault();
+          
+          // Pequeño retraso para asegurar que el carrito se haya actualizado en el localStorage
+          setTimeout(() => {
+            // Volver a renderizar el carrito
+            renderDetalle();
+          }, 100);
+        }
+      });
+    }
+
+    function setupRemoveListeners() {
+      // Usamos event delegation para manejar clics en los botones de agregar al carrito
+      document.addEventListener('click', function(event) {
+        // Verificamos si el clic fue en un botón con la clase 'agregar-al-carrito' o en un hijo de dicho botón
+        const removeBtn = event.target.closest('.btn-remove');
+        
+        if (removeBtn) {
+          // Prevenir el comportamiento por defecto del botón
+          event.preventDefault();
+          
+          // Pequeño retraso para asegurar que el carrito se haya actualizado en el localStorage
+          setTimeout(() => {
+            // Volver a renderizar el carrito
+            renderDetalle();
+          }, 100);
+        }
+      });
+    }
+    /**
+       * Renderiza un ítem del carrito en la lista de compras
+       * @param {Object} item - Objeto que representa un ítem en el carrito
+       * @param {number} index - Índice del ítem en el array del carrito
+       * @returns {number} - Subtotal del ítem (precio × cantidad)
+       */
+    function renderCartItem(item, index) {
+      const subtotal = item.precio * item.cantidad;
+      const itemElement = document.createElement("div");
+      itemElement.classList.add("shopping-cart");
+
+      itemElement.innerHTML = `
+        <label class="label-product">   
+          <input type="checkbox" name="item" value="${item.nombre}" data-index="${index}">
+          <figure>
+            <img src="${item.img}" alt="${item.nombre}">
+          </figure>
+          <div>
+            <p><strong>${item.nombre}</strong></p>
+            <p>Subtotal: $${subtotal.toLocaleString()}</p>
+            <small>($${item.precio.toLocaleString()} c/u × ${item.cantidad})</small>
+          </div>
+          <img src="../../assets/icon/icon_close.png" alt="Eliminar" 
+               data-index="${index}" class="btn-remove">
+        `;
+
+      listShopping.appendChild(itemElement);
+      return subtotal;
+    }
+
+    /**
+       * Muestra el total del carrito
+       * @param {number} total - Total a pagar
+       */
+    function renderTotalCart(total) {
+      const totalDiv = document.createElement("div");
+      totalDiv.classList.add("shopping-cart-total");
+      totalDiv.innerHTML = `<p><strong>Total: $${total.toLocaleString()}</strong></p>`;
+      listShopping.appendChild(totalDiv);
+    }
+
+    /**
+     * Muestra el resumen del pedido con fecha y cantidad de artículos
+     * @param {string} fecha - Fecha del pedido
+     * @param {number} totalArticulos - Cantidad total de artículos
+     */
+    function renderOrderSummary(fecha, totalArticulos) {
+      resumen.innerHTML = `
+          <p>
+            <span>${fecha}</span><br>
+            <span>${totalArticulos} artículo${totalArticulos > 1 ? "s" : ""}</span>
+          </p>
+        `;
+    }
+
+
+    // Inicializar la página
+    renderDetalle();
+    setupAddToCartListeners();
+  </script>
+</body>
+
+</html>
