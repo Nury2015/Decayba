@@ -75,7 +75,12 @@
     <div class="my-order" id="my-order">
       <div class="my-order-container">
         <div class="cabecera">
-          <h1 class="title">Total de artículos</h1>
+         <h1 class="title">
+          <div class="seleccionar-todo">
+  <input type="checkbox" id="select-all" style="margin-right: 10px;" /></div>
+  Total de artículos
+</h1>
+
         </div>
         <div class="shopping-cart">
           <div class="list-shopping" id="list-shopping"></div>
@@ -185,10 +190,21 @@
         total += renderCartItem(item, index);
       });
 
-      renderTotalCart(total);
-      renderOrderSummary(fecha, totalArticulos);
-    }
+    
+    renderTotalCart(total);
+renderOrderSummary(fecha, totalArticulos);
 
+// 🆕 Reiniciar y configurar checkbox de "Seleccionar todo"
+const selectAll = document.getElementById("select-all");
+if (selectAll) {
+  selectAll.checked = false; 
+  selectAll.addEventListener("change", function () {
+    const itemCheckboxes = document.querySelectorAll('input[type="checkbox"][name="item"]');
+    itemCheckboxes.forEach(cb => cb.checked = this.checked);
+  });
+}
+
+}
 
     /**
      * Configura los event listeners para los botones de agregar al carrito

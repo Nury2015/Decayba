@@ -20,7 +20,7 @@
   width: 360px;
   padding: 24px;
   background-color: white;
-  box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
   display: none;
   z-index: 1000;
   overflow-y: auto;
@@ -37,8 +37,8 @@
 
 .shopping-cart figure {
   margin: 0;
-  width: 70px;
-  height: 70px;
+  width: 80px;
+  height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -47,7 +47,7 @@
   background: var(--text-input-field);
 }
 
-img.btn-remove{
+img.btn-remove {
   cursor: pointer;
   width: 20px;
   height: 20px;
@@ -80,9 +80,17 @@ img.btn-remove{
 }
 
 .title {
+  width: 100%;
   font-size: var(--lg);
   font-weight: bold;
   margin: 0;
+  margin-bottom: 30px;
+  height: 50px;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 🌟 Sombra suave */
+
 }
 
 .title-container img {
@@ -106,7 +114,8 @@ img.btn-remove{
   text-align: center;
 }
 
-.verificar, .detalle-compra {
+.verificar,
+.detalle-compra {
   display: flex;
   justify-content: center;
   margin: 10px 0;
@@ -143,7 +152,8 @@ img.btn-remove{
 
 /* Estilos para el botón de carrito */
 #btn-carrito {
-  background-color: #4a90e2; /* Azul más claro */
+  background-color: #4a90e2;
+  /* Azul más claro */
 }
 
 #btn-carrito:hover {
@@ -175,17 +185,17 @@ img.btn-remove {
     width: 100%;
     padding: 15px;
   }
-  
+
   .boton {
     font-size: var(--md);
     height: 46px;
   }
-  
+
   .shopping-cart {
     grid-template-columns: 60px 1fr auto auto;
     gap: 12px;
   }
-  
+
   .shopping-cart figure {
     width: 60px;
     height: 60px;

@@ -19,12 +19,18 @@ body {
   background: #fff;
   margin-top: 10px;
 }
-
+.cabecera{
+      width: 671px;
+    display: flex;
+    justify-content: space-between;
+}
 .label-product{
       display: flex;
     align-items: center;
     width: 600px;
     justify-content: space-between;
+        margin-left: 10px;
+
 }
 .my-order-container {
   padding: 60px 60px;
@@ -114,6 +120,10 @@ body {
   overflow-y: auto;
 }
 
+.seleccionar-todo{
+  margin-right: 20px;
+  margin-left: 10px;
+}
 
 .title-container {
   display: flex;
@@ -127,6 +137,7 @@ body {
 .title {
   font-size: var(--lg);
   font-weight: bold;
+  width: 100%;
 }
 
 .order {
@@ -172,8 +183,8 @@ body {
 }
 
 .shopping-cart figure img {
-  width: 70px;
-  height: 70px;
+  width: 80px;
+  height: 80px;
   border-radius: 20px;
   object-fit: cover;
 }
