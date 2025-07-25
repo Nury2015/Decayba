@@ -162,6 +162,7 @@
       return true;
     }
 
+ 
     function renderDetalle() {
       const cart = JSON.parse(localStorage.getItem("carrito")) || [];
       sugerencia.innerHTML = "";
@@ -251,28 +252,42 @@ if (selectAll) {
       });
     }
 
-    /* === WhatsApp === */
-    btnWhatsapp.addEventListener('click', e => {
-      e.preventDefault();
+  // 🟢 Asegúrate de que este código esté después de que el DOM haya cargado
+document.addEventListener('DOMContentLoaded', () => {
+  const btnWhatsapp = document.getElementById('btn-whatsapp');
+  if (!btnWhatsapp) return;
 
-      const numero = '573154380079'; // Tu número de WhatsApp
-      let mensaje = "🛍️ *Resumen de tu pedido* 💕\n\n";
+  btnWhatsapp.addEventListener('click', e => {
+    e.preventDefault();
 
-      cart.forEach(item => {
-        const subtotal = item.precio * item.cantidad;
-        mensaje += ` *${item.nombre}*\n`;
-        mensaje += `Cantidad: ${item.cantidad}\n`;
-        mensaje += `Precio unitario: $${item.precio.toLocaleString()}\n`;
-        mensaje += `Subtotal: $${subtotal.toLocaleString()}\n\n`;
-      });
+    const numero = '573154380079'; // Tu número de WhatsApp
+    const cart = JSON.parse(localStorage.getItem("carrito")) || [];
 
-      const total = cart.reduce((acc, item) => acc + item.precio * item.cantidad, 0);
-      mensaje += `💰 *Total a pagar:* $${total.toLocaleString()}\n\n`;
-      mensaje += `✅Gracias por tu compra 💖✨`;
+    if (cart.length === 0) {
+      alert("Tu carrito está vacío.");
+      return;
+    }
 
-      const msg = encodeURIComponent(mensaje);
-      window.open(`https://wa.me/${numero}?text=${msg}`, '_blank');
+    let mensaje = "🛍️ *Resumen de tu pedido* 💕\n\n";
+
+    cart.forEach(item => {
+      const subtotal = item.precio * item.cantidad;
+      mensaje += `*${item.nombre}*\n`;
+      mensaje += `Cantidad: ${item.cantidad}\n`;
+      mensaje += `Precio unitario: $${item.precio.toLocaleString()}\n`;
+      mensaje += `Subtotal: $${subtotal.toLocaleString()}\n\n`;
     });
+
+    const total = cart.reduce((acc, item) => acc + item.precio * item.cantidad, 0);
+    mensaje += `💰 *Total a pagar:* $${total.toLocaleString()}\n\n`;
+    mensaje += `✅ Gracias por tu compra 💖✨`;
+
+    const msg = encodeURIComponent(mensaje);
+    window.open(`https://wa.me/${numero}?text=${msg}`, '_blank');
+  });
+});
+
+    
     
     /**
        * Renderiza un ítem del carrito en la lista de compras
@@ -332,7 +347,22 @@ if (selectAll) {
   
     // Inicializar la página
     renderDetalle();
+    renderCartPreview(); 
     setupAddToCartListeners();
+
+    // Desactivar botón del carrito si estamos en carrito.html
+const carritoBtn = document.getElementById("ver-carrito");
+
+if (carritoBtn && window.location.pathname.includes("carrito.html")) {
+  // Clona el nodo sin eventos
+  const newCarritoBtn = carritoBtn.cloneNode(true);
+  carritoBtn.parentNode.replaceChild(newCarritoBtn, carritoBtn);
+
+  // Opcional: hacer que se vea desactivado
+  newCarritoBtn.style.opacity = "0.5";
+  newCarritoBtn.style.cursor = "not-allowed";
+}
+
     });
   </script>
 </body>

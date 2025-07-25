@@ -122,6 +122,10 @@ body {
   /* Initially hidden */
   z-index: 1000;
   overflow-y: auto;
+  flex-direction: column;
+  gap: 20px;
+  padding: 30px;
+  height: 100%;
 }
 
 .seleccionar-todo {
@@ -264,9 +268,5 @@ body {
 
   }
 
-  .product-detail {
-    flex-direction: column;
-    gap: 20px;
-    padding: 30px;
-  }
+
 }

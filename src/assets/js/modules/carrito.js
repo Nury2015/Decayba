@@ -3,6 +3,8 @@ import { mostrarToast } from "../utils/toast.js";
 
 export let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
+// ----------------- FUNCIONES PRINCIPALES -----------------
+
 export function agregarAlCarrito(nombre, precio, img, cantidad = 1) {
   const producto = productos.find((p) => p.nombre === nombre);
   if (!producto) return mostrarToast("Producto no encontrado", "error");
@@ -34,110 +36,108 @@ export function actualizarCarritoVisual() {
   renderCart2();
 }
 
+// ----------------- RENDER DEL CARRITO -----------------
+
 function renderCart2() {
-  const cart = JSON.parse(localStorage.getItem("carrito")) || [];
   const cartContent = document.getElementById("cart-content");
   const productDetail = document.getElementById("product-detail");
 
+  cartContent.innerHTML = ""; // 🔸 Limpiar el contenedor
 
-  if(cart.length === 0){
-    cartContent.innerHTML = "";
+  if (carrito.length === 0) {
     productDetail.style.display = "none";
+    return;
   }
-  cart.forEach((item, index) => {
+
+  carrito.forEach((item, index) => {
     const div = document.createElement("div");
-
-    // Limpia el contenido existente antes de agregar
-    if (cartContent.firstChild) {
-      cartContent.innerHTML = "";
-    }
-
     div.classList.add("shopping-cart");
     div.innerHTML = `
-            <figure>
-              <img src="${item.img}" alt="${item.nombre}">
-            </figure>
-            <div>
-              <p><strong>${item.nombre}</strong></p>
-              <p>Precio: $${item.precio.toLocaleString()}</p>
-              <label>   
-                <input type="number" min="1" value="${item.cantidad}" data-index="${index}" class="input-cantidad">   
-              </label>
-            </div>
-            <img src="../../assets/icon/icon_close.png" alt="Eliminar" data-index="${index}" class="btn-remove">
-          `;
-    // Agrega el nuevo contenido
+      <figure>
+        <img src="${item.img}" alt="${item.nombre}">
+      </figure>
+      <div>
+        <p><strong>${item.nombre}</strong></p>
+        <p>Precio: $${item.precio.toLocaleString()}</p>
+        <label>
+          <input type="number" min="1" value="${item.cantidad}" data-index="${index}" class="input-cantidad">
+        </label>
+      </div>
+      <img src="../../assets/icon/icon_close.png" alt="Eliminar" data-index="${index}" class="btn-remove">
+    `;
     cartContent.appendChild(div);
+  });
 
-    document.querySelectorAll(".input-cantidad").forEach((input) => {
-      input.addEventListener("change", (e) => {
-        const idx = Number(e.target.dataset.index);
-        const nuevaCantidad = Number(e.target.value);
-        if (nuevaCantidad < 1) return; // prevenir valores inválidos
-        cart[idx].cantidad = nuevaCantidad;
-        localStorage.setItem("carrito", JSON.stringify(cart));
-        renderCart2(); // vuelve a pintar todo
-      });
+  // 🔸 Eventos para cambiar la cantidad
+  document.querySelectorAll(".input-cantidad").forEach((input) => {
+    input.addEventListener("change", (e) => {
+      const idx = Number(e.target.dataset.index);
+      const nuevaCantidad = Number(e.target.value);
+
+      if (nuevaCantidad < 1) return;
+
+      // Validar stock desde el catálogo
+      const productoOriginal = productos.find(p => p.nombre === carrito[idx].nombre);
+      if (!productoOriginal) return mostrarToast("Producto no encontrado", "error");
+
+      if (nuevaCantidad > productoOriginal.stock) {
+        mostrarToast(`Solo hay ${productoOriginal.stock} disponibles`, "warning");
+        e.target.value = carrito[idx].cantidad; // volver al valor anterior
+        return;
+      }
+
+      carrito[idx].cantidad = nuevaCantidad;
+      localStorage.setItem("carrito", JSON.stringify(carrito));
+      actualizarCarritoVisual();
+      renderCart2(); // volver a pintar
     });
   });
 }
 
+
+// ----------------- CAPTURAR PRODUCTOS DEL HTML -----------------
+
 function obtenerListaDeProductos() {
-  // Selecciona TODAS las tarjetas dentro de .card-container
-  return Array.from(
-    document.querySelectorAll(".card-container .product-card")
-  ).map((card) => {
-    // Imagen principal (la primera dentro del <a>)
+  return Array.from(document.querySelectorAll(".card-container .product-card")).map((card) => {
     const img = card.querySelector("a img")?.src || "";
-
-    // Nombre (primer <p> dentro de .informacion-producto)
-    const nombre = card
-      .querySelector(".informacion-producto p:nth-child(1)")
-      .textContent.trim();
-
-    // Precio (segundo <p> → quitamos símbolos y puntos)
-    const precioTexto = card.querySelector(
-      ".informacion-producto p:nth-child(2)"
-    ).textContent;
+    const nombre = card.querySelector(".informacion-producto p:nth-child(1)")?.textContent.trim();
+    const precioTexto = card.querySelector(".informacion-producto p:nth-child(2)")?.textContent || "";
     const precio = Number(precioTexto.replace(/[^0-9]/g, ""));
 
     return { img, nombre, precio };
   });
 }
 
+// ----------------- EVENTO BOTÓN CARRITO -----------------
+
 document.getElementById("ver-carrito").addEventListener("click", function (e) {
-  console.log("Botón de carrito clickeado");
-  e.preventDefault(); // Detiene el comportamiento por defecto del enlace
+  e.preventDefault();
 
   const productDetail = document.getElementById("product-detail");
-  console.log("Elemento del carrito encontrado:", productDetail);
-
   if (!productDetail) {
     console.error('No se encontró el elemento con ID "product-detail"');
     return;
   }
 
-  if(carrito.length === 0){
+  if (carrito.length === 0) {
     productDetail.style.display = "none";
     window.location.href = "./../cart/carrito.html";
     return;
   }
 
-  // Alternar la visibilidad del carrito
   if (productDetail.style.display === "block") {
     productDetail.style.display = "none";
-    console.log("Carrito oculto");
   } else {
     const productos = obtenerListaDeProductos();
     localStorage.setItem("productosDisponibles", JSON.stringify(productos));
 
     productDetail.style.display = "block";
-    console.log("Carrito mostrado");
     renderCart2();
   }
 });
 
-// Delegación de eventos para eliminar productos
+// ----------------- EVENTO ELIMINAR PRODUCTO -----------------
+
 document.addEventListener('click', (e) => {
   if (e.target.classList.contains('btn-remove')) {
     e.preventDefault();
@@ -148,5 +148,3 @@ document.addEventListener('click', (e) => {
     renderCart2();
   }
 });
-
-
