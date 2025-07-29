@@ -3,6 +3,6 @@ export function verDetalleProducto(producto) {
       ? producto.imgs
       : producto.imgs.split(",");
     localStorage.setItem("productoSeleccionado", JSON.stringify(producto));
-    window.location.href = "detalleprod.html";
+    window.location.href = "../product/detalleprod.html";
   }
   
