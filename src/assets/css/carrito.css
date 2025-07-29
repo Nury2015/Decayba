@@ -178,7 +178,6 @@ body {
 }
 
 .product-detail img {
-  transform: rotate(180deg);
   margin-right: 14px;
   width: 14px;
   height: 14px;

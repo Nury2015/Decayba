@@ -79,7 +79,9 @@
         </ul>
       </div>
     </nav>
-
+  <section class="main-container">
+    <div class="card-container" id="card-container"></div>
+  </section>
     <section class="main-container">
       <div class="card-container" id="card-container"></div>
 
@@ -96,7 +98,7 @@
 
       <!-- Botón WhatsApp -->
       <div class="verificar">
-        <a href="#" class="btn-whatsapp" id="btn-whatsapp">Ir a WhatsApp</a>
+        <a href="#" class="btn-whatsapp" id="btn-whatsapp">WhatsApp</a>
       </div>
 
       <!-- Botón Ver Carrito -->
@@ -105,6 +107,7 @@
       </div>
 
     </aside>
+
     </section>
 
     <footer>© <span id="year"></span> DECAYBA · Hecho con ❤</footer>
@@ -112,6 +115,10 @@
     <!-- Scripts -->
 
     <script type="module" src="../../assets/js/main.js"></script>
+    <script type="module" src="../../services/productos.js"></script>
+    <script type="module" src="../../detalleproducto.js"></script>
+    
+
 
     <script>
             const btnWhatsapp = document.getElementById('btn-whatsapp');

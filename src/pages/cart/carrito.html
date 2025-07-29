@@ -91,6 +91,11 @@
           <div class="order" id="resumen-pedido"></div>
         </div>
       </div>
+
+       <!-- Botón WhatsApp -->
+      <div class="verificar">
+        <a href="#" class="btn-whatsapp" id="btn-whatsapp">Ir a WhatsApp</a>
+      </div>
     </div>
 
   
@@ -152,10 +157,7 @@
         listShopping.innerHTML = "";
 
         setupRemoveListeners();
-        console.log("cart");
-        console.log(cart);
-
-
+    
         if (cart.length === 0) {
           sugerencia.innerHTML = showEmptyCart();
           return;
@@ -209,9 +211,13 @@
               setTimeout(() => {
                 // Volver a renderizar el carrito
                 renderDetalle();
+                
+                
               }, 100);
             }
           });
+
+          
         }
 
         function setupRemoveListeners() {
@@ -330,7 +336,6 @@
 
       // Inicializar la página
       renderDetalle();
-      // renderCartPreview(); 
       setupAddToCartListeners();
 
       // Desactivar botón del carrito si estamos en carrito.html
