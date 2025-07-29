@@ -56,10 +56,10 @@ function renderCart2() {
       <figure>
         <img src="${item.img}" alt="${item.nombre}">
       </figure>
-      <div>
+      <div class="productos">
         <p><strong>${item.nombre}</strong></p>
         <p>Precio: $${item.precio.toLocaleString()}</p>
-        <label>
+        <label class="cantidad">
           <input type="number" min="1" value="${item.cantidad}" data-index="${index}" class="input-cantidad">
         </label>
       </div>

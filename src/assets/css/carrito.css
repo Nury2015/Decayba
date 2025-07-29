@@ -36,21 +36,17 @@ body {
 }
 
 .my-order-container {
-  padding: 60px 60px;
+  padding: 20px 60px;
   width: 50rem;
   height: auto;
 }
 
-.gracias {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
 
-}
 
 .btn-remove {
-  width: 16px;
-  height: 16px;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
 }
 
 .contenedor-carrito {
@@ -111,11 +107,11 @@ body {
 .product-detail {
   box-sizing: border-box;
   position: absolute;
-  right: 0;
+  right: 5px;
   top: 60px;
-  bottom: 0;
   width: 360px;
-  padding: 24px;
+  padding: 10px;
+  padding-left: 30px;
   background-color: rgb(255, 255, 255);
   box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
   display: none;
@@ -124,14 +120,15 @@ body {
   overflow-y: auto;
   flex-direction: column;
   gap: 20px;
-  padding: 30px;
   height: 100%;
 }
-.btn-remove{
+
+.btn-remove {
   width: 14px;
   height: 14px;
 }
-.btn-whatsapp{
+
+.btn-whatsapp {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -149,7 +146,7 @@ body {
   text-align: center;
 }
 
-.btn-carrito{
+.btn-carrito {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -175,17 +172,25 @@ body {
 
 .title-container {
   display: flex;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  margin: 40px 0px;
 }
 
-.title-container img {
+.product-detail img {
   transform: rotate(180deg);
   margin-right: 14px;
+  width: 14px;
+  height: 14px;
+
+
 }
 
 .title {
   font-size: var(--lg);
   font-weight: bold;
   width: 100%;
+  margin-left: 50px;
 }
 
 .order {
@@ -221,6 +226,7 @@ body {
   gap: 16px;
   margin-bottom: 24px;
   align-items: center;
+
 }
 
 .shopping-cart {
@@ -247,6 +253,14 @@ body {
   font-weight: bold;
 }
 
+.productos {
+  width: 120px;
+}
+
+.cantidad {
+  width: 120px;
+}
+
 .my-order-content {
   display: flex;
   flex-direction: column;
@@ -267,7 +281,7 @@ body {
 }
 
 
-.inf-product{
+.inf-product {
   width: 200px;
 }
 

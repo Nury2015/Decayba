@@ -69,11 +69,14 @@ nav {
   .navbar-right ul li:hover {
     border: 1px solid var(--hospital-green);
     color: var(--hospital-green);
+     cursor: pointer;
   }
   
   .navbar-shopping-cart {
     position: relative;
   }
+
+ 
   
   .navbar-shopping-cart div {
     position: absolute;
@@ -89,6 +92,7 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
   }
   
   .navbar-email {

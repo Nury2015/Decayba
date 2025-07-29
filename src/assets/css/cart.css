@@ -109,10 +109,11 @@ img.btn-remove {
 .gracias {
   display: flex;
   justify-content: center;
-  margin: 15px 0;
+
   font-size: var(--md);
-  color: var(--hospital-green);
+  color: var(--black);
   text-align: center;
+  font-size: var(--lg);
 }
 
 .verificar,
@@ -121,24 +122,6 @@ img.btn-remove {
   justify-content: center;
   margin: 10px 0;
   width: 100%;
-}
-
-.boton {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 12px 20px;
-  font-size: var(--md);
-  font-weight: bold;
-  color: var(--white);
-  width: 100%;
-  height: 48px;
-  cursor: pointer;
-  border: none;
-  border-radius: 8px;
-  text-decoration: none;
-  text-align: center;
-  transition: all 0.3s ease;
 }
 
 #btn-whatsapp {
