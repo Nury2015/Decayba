@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../../assets/css/home.css" />
     <link rel="stylesheet" href="../../assets/css/footer.css" />
     <link rel="stylesheet" href="../../assets/css/carrito.css" />
+    <link rel="stylesheet" href="cart.css">
 
     <link
       href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap"
@@ -83,30 +84,28 @@
       <div class="card-container" id="card-container"></div>
 
       <aside class="product-detail" id="product-detail">
-        <div class="title-container">
-          <a href="index.html"
-            ><img src="../../assets/icon/flechita.svg" alt="Volver"
-          /></a>
-          <p class="title">Resumen del pedido</p>
-        </div>
+      <div class="title-container">
+        <a href="index.html"><img class="btn-remove" src="../../assets/icon/icon_close.png" alt="Volver" /></a>
+        <p class="title">Resumen del pedido</p>
 
-        <p id="gracias-compra" class="gracias">¡Gracias por tu compra 💖!</p>
+      </div>
 
-        <!-- Carrito -->
-        <div class="my-order-content" id="cart-content"></div>
+      <p id="gracias-compra" class="gracias">¡Gracias por tu compra 💖!</p>
 
-        <!-- Botón WhatsApp -->
-        <div class="verificar">
-          <a href="#" class="boton" id="btn-whatsapp">Enviar por WhatsApp</a>
-        </div>
+      <!-- Carrito -->
+      <div class="my-order-content" id="cart-content"></div>
 
-        <!-- Botón Ver Carrito -->
-        <div class="verificar">
-          <a href="./../cart/carrito.html" class="boton" id="btn-carrito">Ver Carrito</a>
-        </div>
+      <!-- Botón WhatsApp -->
+      <div class="verificar">
+        <a href="#" class="btn-whatsapp" id="btn-whatsapp">Ir a WhatsApp</a>
+      </div>
 
-        
-      </aside>
+      <!-- Botón Ver Carrito -->
+      <div class="verificar">
+        <a href="./../cart/carrito.html" class="btn-carrito" id="btn-carrito">Ver Carrito</a>
+      </div>
+
+    </aside>
     </section>
 
     <footer>© <span id="year"></span> DECAYBA · Hecho con ❤</footer>
@@ -114,6 +113,41 @@
     <!-- Scripts -->
 
     <script type="module" src="../../assets/js/main.js"></script>
+
+    <script>
+            const btnWhatsapp = document.getElementById('btn-whatsapp');
+        // if (!btnWhatsapp) return false;
+
+        btnWhatsapp.addEventListener('click', e => {
+          e.preventDefault();
+
+          const numero = '573154380079'; // Tu número de WhatsApp
+          const cart = JSON.parse(localStorage.getItem("carrito")) || [];
+
+          if (cart.length === 0) {
+            alert("Tu carrito está vacío.");
+            return;
+          }
+
+          let mensaje = "🛍️ *Resumen de tu pedido* 💕\n\n";
+
+          cart.forEach(item => {
+            const subtotal = item.precio * item.cantidad;
+            mensaje += `*${item.nombre}*\n`;
+            mensaje += `Cantidad: ${item.cantidad}\n`;
+            mensaje += `Precio unitario: $${item.precio.toLocaleString()}\n`;
+            mensaje += `Subtotal: $${subtotal.toLocaleString()}\n\n`;
+          });
+
+          const total = cart.reduce((acc, item) => acc + item.precio * item.cantidad, 0);
+          mensaje += `💰 *Total a pagar:* $${total.toLocaleString()}\n\n`;
+          mensaje += `✅ Gracias por tu compra 💖✨`;
+
+          const msg = encodeURIComponent(mensaje);
+          window.open(`https://wa.me/${numero}?text=${msg}`, '_blank');
+        });
+      
+    </script>
 
   </body>
 </html>

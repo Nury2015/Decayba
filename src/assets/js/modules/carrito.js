@@ -147,4 +147,6 @@ document.addEventListener('click', (e) => {
     actualizarCarritoVisual();
     renderCart2();
   }
+
+  
 });

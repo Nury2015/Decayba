@@ -19,7 +19,7 @@
   bottom: 0;
   width: 360px;
   padding: 24px;
-  background-color: white;
+  background-color: rgb(155, 56, 56);
   box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
   display: none;
   z-index: 1000;

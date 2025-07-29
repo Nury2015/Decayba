@@ -116,7 +116,7 @@ body {
   bottom: 0;
   width: 360px;
   padding: 24px;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
   display: none;
   /* Initially hidden */
@@ -127,6 +127,46 @@ body {
   padding: 30px;
   height: 100%;
 }
+.btn-remove{
+  width: 14px;
+  height: 14px;
+}
+.btn-whatsapp{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  font-size: var(--lg);
+  font-weight: bold;
+  color: var(--white);
+  width: 70%;
+  height: 50px;
+  cursor: pointer;
+  background-color: var(--hospital-green);
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.btn-carrito{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  font-size: var(--lg);
+  font-weight: bold;
+  color: var(--white);
+  width: 70%;
+  height: 50px;
+  cursor: pointer;
+  background-color: rgb(132, 124, 255);
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  text-align: center;
+}
+
 
 .seleccionar-todo {
   margin-right: 20px;
@@ -226,24 +266,10 @@ body {
 
 }
 
-.boton {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 20px;
-  font-size: var(--lg);
-  font-weight: bold;
-  color: var(--white);
-  width: 70%;
-  height: 50px;
-  cursor: pointer;
-  background-color: var(--hospital-green);
-  border: none;
-  border-radius: 8px;
-  text-decoration: none;
-  text-align: center;
-}
 
+.inf-product{
+  width: 200px;
+}
 
 @media (max-width: 640px) {
 
