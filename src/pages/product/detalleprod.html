@@ -15,65 +15,58 @@
 </head>
 <body>
 
-    <nav>
-        <a href="menumobile.html">
+<nav>
+    <a href="../../pages/home/index.html">
+      <img src="../../assets/icon/icon_menu.svg" alt="menu" class="menu" />
+    </a>
 
-            <img src="icons/icon_menu.svg" alt="menu" class="menu">
-        </a>
+    <div class="navbar-left">
+      <a href="../../pages/home/index.html">
+        <img src="../../assets/logos/logodecayba.png" alt="logo" class="logo" />
+      </a>
 
+      <ul>
+        <li>
+          <a href="../../pages/home/Misordenes.html"> Tus pedidos </a>
+        </li>
 
-        <div class="navbar-left">
-            <a href="index.html">
-                <img src="logos/logodecayba (2).png" alt="logo" class="logo">
-            </a>
+        <li>
+          <a href="../../pages/home/index.html">Clothes</a>
+        </li>
 
-            <ul>
-                <li>
-                    <a href="Misordenes.html">
-                        Tus pedidos
-                    </a>
-                </li>
+        <li>
+          <a href="../../pages/home/index.html">Electronics</a>
+        </li>
 
-                <li>
-                    <a href="index.html">Clothes</a>
-                </li>
+        <li>
+          <a href="../../pages/home/index.html">Furnitures</a>
+        </li>
 
-                <li>
-                    <a href="index.html">Electronics</a>
-                </li>
+        <li>
+          <a href="../../pages/home/index.html">Toys</a>
+        </li>
 
-                <li>
-                    <a href="index.html">Furnitures</a>
-                </li>
+        <li>
+          <a href="../../pages/home/index.html">Others</a>
+        </li>
+      </ul>
+    </div>
 
-                <li>
-                    <a href="index.html">Toys</a>
-                </li>
+    <div class="navbar-right">
+      <ul>
+        <li class="navbar-email">
+          <a href="editar-cuenta.html"> camila@gmail.com </a>
+        </li>
 
-                <li>
-                    <a href="index.html">Others</a>
-                </li>
-            </ul>
-        </div>
-
-        <div class="navbar-right">
-            <ul>
-
-                <li class="navbar-email">
-                    <a href="editar-cuenta.html">
-                        camila@gmail.com
-                    </a>
-                </li>
-
-                <li class="navbar-shopping-cart">
-                    <a id="ver-carrito">
-                        <img src="icons/icon_shopping_cart.svg" alt="shopping cart">
-                        <div>0</div>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+        <li class="navbar-shopping-cart">
+          <a id="ver-carrito">
+            <img src="../../assets/icon/icon_shopping_cart.svg" alt="shopping cart" />
+            <div>0</div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
     <div class="product-detail" id="product-detail">
         <aside class="imagen">
@@ -87,6 +80,7 @@
     </div>
 
     <script>
+
         const cart = JSON.parse(localStorage.getItem('carrito')) || [];
         const carouselImages = document.querySelector('.carousel-images');
         const prevBtn = document.querySelector('.prev');
