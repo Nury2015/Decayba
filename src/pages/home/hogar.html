@@ -5,8 +5,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hogar</title>
-  <link rel="stylesheet" href="index.css" />
-  <link rel="stylesheet" href="hogar.css">
+
+    <link rel="stylesheet" href="../../assets/css/global.css" />
+    <link rel="stylesheet" href="../../assets/css/header.css" />
+    <link rel="stylesheet" href="../../assets/css/home.css" />
+    <link rel="stylesheet" href="../../assets/css/footer.css" />
+    <link rel="stylesheet" href="../../assets/css/carrito.css" />
+    <link rel="stylesheet" href="../../assets/css/hogar.css">
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet" />
  
 </head>
@@ -18,93 +23,39 @@
   <span></span>
 </div>
 
-    <div class="mobile-menu">
-        <ul>
-        <li>
-          <a href="Misordenes.html"> Tus pedidos </a>
-        </li>
-
-        <li>
-          <a href="mascotas.html">Mascotas</a>
-        </li>
-
-        <li>
-        <a href="hogar.html">Hogar</a>
-        </li>
-
-        <li>
-          <a href="belleza.html">Belleza</a>
-        </li>
-
-        <li>
-          <a href="juguetes.html">Juguetes</a>
-        </li>
-
-        <li>
-          <a href="otros.html">Otros</a>
-        </li>
-      </ul>
-        <ul>
-            
-            <li>
-                <a href="Misordenes.html">Mis compras</a>
-            </li>
-
-            
-            <li>
-                <a href="Cuenta.html">Mi cuenta</a>
-            </li>
-        </ul>
-
-        <ul>
-            
-            <li>
-                <a href="editar-cuenta.html" class="email">camila@ejemplo.com</a>
-            </li>
-
-            
-            <li>
-                <a href="index.html" class="sign-out">salir</a>
-            </li>
-        </ul>
-    </div>
-<div>
-
-</div>
-   <nav>
-    <a href="menumobile.html">
-      <img src="icons/icon_menu.svg" alt="menu" class="menu" />
+  
+ <nav>
+    <a href="../../pages/home/index.html">
+      <img src="../../assets/icon/icon_menu.svg" alt="menu" class="menu" />
     </a>
 
     <div class="navbar-left">
-      <a href="index.html">
-        <img src="logos/logodecayba (2).png" alt="logo" class="logo" />
+      <a href="../../pages/home/index.html">
+        <img src="../../assets/logos/logodecayba.png" alt="logo" class="logo" />
       </a>
 
       <ul>
         <li>
-          <a href="Misordenes.html"> Tus pedidos </a>
+          <a href="../../pages/home/Misordenes.html"> Tus pedidos </a>
         </li>
 
         <li>
-          <a href="mascotas.html">Mascotas</a>
+          <a href="../../pages/cosmetic/belleza.html">Belleza</a>
         </li>
 
         <li>
-        <a href="hogar.html">Hogar</a>
+          <a href="../../pages/home/hogar.html">Hogar</a>
         </li>
 
         <li>
-          <a href="belleza.html">Belleza</a>
+          <a href="../../pages/pets/mascotas.html">Mascotas</a>
         </li>
 
         <li>
-          <a href="juguetes.html">Juguetes</a>
+          <a href="../../pages/Toys/juguetes.html">Juguetes</a>
         </li>
 
-        <li>
-          <a href="otros.html">Otros</a>
-        </li>
+       
       </ul>
     </div>
 
@@ -116,7 +67,7 @@
 
         <li class="navbar-shopping-cart">
           <a id="ver-carrito">
-            <img src="icons/icon_shopping_cart.svg" alt="shopping cart" />
+            <img src="../../assets/icon/icon_shopping_cart.svg" alt="shopping cart" />
             <div>0</div>
           </a>
         </li>
@@ -128,16 +79,46 @@
     <h1>🏠 Muy pronto</h1>
     <p>Próximamente artículos para tu hogar: decoración, cocina, y bienestar.</p>
   </div>
+<!-- Carrito desplegable -->
+  <aside class="product-detail" id="product-detail">
+          <a href="index.html"><img class="cerrar" src="../../assets/icon/icon_close.png" alt="Volver" /></a>
+      <div class="title-container">
+      
+        <p class="title">Resumen del pedido</p>
 
-  <script>
-    const hamburger = document.getElementById("hamburger");
+      </div>
+
+      <!-- Carrito -->
+      <div class="my-order-content" id="cart-content"></div>
+
+      <!-- Botón WhatsApp -->
+      <div class="verificar">
+        <a href="#" class="btn-whatsapp" id="btn-whatsapp">WhatsApp</a>
+      </div>
+
+      <!-- Botón Ver Carrito -->
+      <div class="verificar">
+        <a href="./../cart/carrito.html" class="btn-carrito" id="btn-carrito">Ver Carrito</a>
+      </div>
+
+    </aside>
+
+
+
+
+<script type="module">
+  import { inicializarAsideCarrito } from "../../assets/js/modules/carrito.js";
+  inicializarAsideCarrito();
+
+  const hamburger = document.getElementById("hamburger");
   const mobileMenu = document.querySelector(".mobile-menu");
 
   hamburger.addEventListener("click", () => {
-    hamburger.classList.toggle("active");     // Aquí la magia
+    hamburger.classList.toggle("active");
     mobileMenu.classList.toggle("active");
   });
 </script>
+
 </body>
 </html>
 

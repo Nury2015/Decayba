@@ -1,5 +1,5 @@
 // asideCarrito.js
-import { carrito, actualizarCarritoVisual } from "./carrito.js";
+import { carrito, actualizarCarritoVisual } from "../../assets/js/modules/carrito";
 
 export function inicializarAsideCarrito() {
   const productDetail = document.getElementById("product-detail");

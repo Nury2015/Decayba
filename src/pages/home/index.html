@@ -10,14 +10,19 @@
     <link rel="stylesheet" href="../../assets/css/home.css" />
     <link rel="stylesheet" href="../../assets/css/footer.css" />
     <link rel="stylesheet" href="../../assets/css/carrito.css" />
-    <link rel="stylesheet" href="cart.css">
+     <link rel="stylesheet" href="../../assets/css/mobile.css" />
 
     <link
       href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap"
       rel="stylesheet"
     />
   </head>
+
+
   <body>
+    <div id="contenedor-hamburguesa"></div>
+
+    <div id="contenedor-menu"></div>
     <div id="toast" class="toast"></div>
  <nav>
     <a href="../../pages/home/index.html">
@@ -35,24 +40,22 @@
         </li>
 
         <li>
-          <a href="../../pages/home/index.html">Clothes</a>
+          <a href="../../pages/cosmetic/belleza.html">Belleza</a>
         </li>
 
         <li>
-          <a href="../../pages/home/index.html">Electronics</a>
+          <a href="../../pages/home/hogar.html">Hogar</a>
         </li>
 
         <li>
-          <a href="../../pages/home/index.html">Furnitures</a>
+          <a href="../../pages/pets/mascotas.html">Mascotas</a>
         </li>
 
         <li>
-          <a href="../../pages/home/index.html">Toys</a>
+          <a href="../../pages/Toys/juguetes.html">Juguetes</a>
         </li>
 
-        <li>
-          <a href="../../pages/home/index.html">Others</a>
-        </li>
+       
       </ul>
     </div>
 
@@ -78,7 +81,7 @@
       <div class="card-container" id="card-container"></div>
 
       <aside class="product-detail" id="product-detail">
-          <a href="index.html"><img class="cerrar" src="../../assets/icon/icon_close.png" alt="Volver" /></a>
+          <a href="../../pages/home/index.html"><img class="cerrar" src="../../assets/icon/icon_close.png" alt="Volver" /></a>
       <div class="title-container">
       
         <p class="title">Resumen del pedido</p>
@@ -109,10 +112,12 @@
     <script type="module" src="../../assets/js/main.js"></script>
     <script type="module" src="../../services/productos.js"></script>
     <script type="module" src="../../detalleproducto.js"></script>
+   <script type="module" src="../../assets/js/modules/mobile.js"></script>
+
     
 
 
-    <script>
+    <script type="module">
             const btnWhatsapp = document.getElementById('btn-whatsapp');
         // if (!btnWhatsapp) return false;
 
@@ -144,8 +149,21 @@
           const msg = encodeURIComponent(mensaje);
           window.open(`https://wa.me/${numero}?text=${msg}`, '_blank');
         });
-      
-    </script>
+
+
+
+  // Cargar el HTML del menú hamburguesa
+  fetch('../../components/menuMobile.html')
+    .then(response => response.text())
+    .then(async html => {
+      document.getElementById('contenedor-hamburguesa').innerHTML = html;
+
+      // importar la función desde el módulo
+      const { activarMenuHamburguesa } = await import('../../assets/js/modules/mobile.js');
+      activarMenuHamburguesa();
+    });
+</script>
+ 
 
   </body>
 </html>
