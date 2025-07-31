@@ -1,4 +1,4 @@
-import { productos } from "../../../services/productos.js";
+import { productos } from "../../../services/productos";
 
    const cartContent = document.getElementById("card-container");
    

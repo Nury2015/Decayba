@@ -67,6 +67,7 @@ body {
 .product-detail {
   display: flex;
   height: 100vh;
+  width: auto;
   padding-bottom: 24px;
   right: 0;
   top: -24px;
