@@ -154,8 +154,11 @@
           window.open(`https://wa.me/${numero}?text=${msg}`, '_blank');
         });
 
-
-
+fetch('./src/components/menuMobile.html')
+    .then(response => response.text())
+    .then(async html => {
+      document.getElementById('contenedor-hamburguesa').innerHTML = html;
+  });
   // Cargar el HTML del menú hamburguesa
   fetch('./src/components/menuMobile.html')
     .then(response => response.text())

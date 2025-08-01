@@ -8,9 +8,9 @@ export function renderCart() {
   productos.forEach((item) => {
     const div = document.createElement("div");
     const ruta = window.location.pathname;
-    const rutaFinal = (ruta.includes("index.html") || ruta === "/") ? 
+    const rutaFinal = (ruta.includes("index.html") || ruta === "/" || ruta.includes("Decayba")) ? 
           item.imagen : item.imagen.replace("./src", "../..");
-    const rutaCarritoImg =  (ruta.includes("index.html") || ruta === "/") ? 
+    const rutaCarritoImg =  (ruta.includes("index.html") || ruta === "/" || ruta.includes("Decayba")) ? 
           "./src/assets/icon/bt_add_to_cart.svg" : "../../assets/icon/bt_add_to_cart.svg";
     
     div.classList.add("product-card");
