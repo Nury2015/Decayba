@@ -26,57 +26,9 @@
     <div id="toast" class="toast"></div>
 
     
- <nav >
-    <a href="./src/pages/home/index.html">
-      <img src="./src/assets/icon/icon_menu.svg" alt="menu" class="menu" />
-    </a>
-
-    <div class="navbar-left">
-      <a href="./src/pages/home/index.html">
-        <img src="./src/assets/logos/logodecayba.png" alt="logo" class="logo" />
-      </a>
-
-      <ul>
-       
-
-        <li>
-          <a href="./src/pages/cosmetic/belleza.html">Belleza</a>
-        </li>
-
-        <li>
-          <a href="./src/pages/home/hogar.html">Hogar</a>
-        </li>
-
-        <li>
-          <a href="./src/pages/pets/mascotas.html">Mascotas</a>
-        </li>
-
-        <li>
-          <a href="./src/pages/Toys/juguetes.html">Juguetes</a>
-        </li>
-
-       
-      </ul>
-    </div>
-
-    <div class="navbar-right">
-      <ul>
-      
-
-        <li class="navbar-shopping-cart">
-          <a id="ver-carrito">
-            <img src="./src/assets/icon/icon_shopping_cart.svg" alt="shopping cart" />
-            <div>0</div>
-          </a>
-        </li>
-      </ul>
-    </div>
+ <nav id="header">
+    
   </nav>
-
-
-
-
-
 
   <section class="main-container">
     <div class="card-container" id="card-container"></div>
@@ -95,10 +47,10 @@
       <!-- Carrito -->
       <div class="my-order-content" id="cart-content"></div>
 
-      <!-- Botón WhatsApp -->
+      <!-- Botón WhatsApp
       <div class="verificar">
         <a href="#" class="btn-whatsapp" id="btn-whatsapp">WhatsApp</a>
-      </div>
+      </div> -->
 
       <!-- Botón Ver Carrito -->
       <div class="verificar">
@@ -112,6 +64,13 @@
     <footer>© <span id="year"></span> DECAYBA · Hecho con ❤</footer>
 
     <!-- Scripts -->
+     <script>
+      fetch('./src/components/header.html')
+    .then(response => response.text())
+    .then(async html => {
+      document.getElementById('header').innerHTML = html;
+  });
+     </script>
 
     <script type="module" src="./src/assets/js/main.js"></script>
     <script type="module" src="./src/services/productos.js"></script>
@@ -154,11 +113,7 @@
           window.open(`https://wa.me/${numero}?text=${msg}`, '_blank');
         });
 
-fetch('./src/components/menuMobile.html')
-    .then(response => response.text())
-    .then(async html => {
-      document.getElementById('contenedor-hamburguesa').innerHTML = html;
-  });
+
   // Cargar el HTML del menú hamburguesa
   fetch('./src/components/menuMobile.html')
     .then(response => response.text())
