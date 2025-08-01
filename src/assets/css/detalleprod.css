@@ -25,7 +25,7 @@ body {
   margin-left: 40px;
   overflow: hidden;
   border-radius: 8px;
-  height: 500px;
+  height: auto;
 }
 
 
@@ -141,11 +141,15 @@ body {
 /* para celular */
 @media (max-width:640px) {
 
+  .product-detail {
+    flex-direction: column;
+  }
+
   .carousel {
     overflow: hidden;
-    margin-left: 0px;
-    
+    margin-left: 0px;    
   }
+  
   .carousel-images {
     display: flex;
     flex-flow: row;

@@ -36,7 +36,7 @@ body {
 }
 
 .my-order-container {
-  padding: 20px 60px;
+  padding: 20px 40px;
   width: 50rem;
   height: auto;
 }
@@ -193,11 +193,13 @@ body {
 }
 
 .order {
-  display: grid;
-  grid-template-columns: auto 1fr;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
   gap: 16px;
   align-items: center;
   background-color: var(--text-input-field);
+  margin: 20px;
   margin-bottom: 50px;
   border-radius: 8px;
   padding-left: 10px;
@@ -220,8 +222,7 @@ body {
 }
 
 .shopping-cart {
-  display: grid;
-  grid-template-columns: auto 1fr auto auto;
+ display: flex;
   gap: 16px;
   margin-bottom: 24px;
   align-items: center;
@@ -263,7 +264,7 @@ body {
 .my-order-content {
   display: flex;
   flex-direction: column;
-
+ 
 }
 
 .my-order-content .boton {
@@ -285,6 +286,12 @@ body {
 }
 
 @media (max-width: 640px) {
+
+  .label-product{
+      justify-content: left;
+      gap: 12px;
+      width: 311px;
+  }
 
   .my-order-container {
     width: 17rem;
