@@ -7,10 +7,16 @@ export function renderCart() {
 
   productos.forEach((item) => {
     const div = document.createElement("div");
+    const ruta = window.location.pathname;
+    const rutaFinal = (ruta.includes("index.html") || ruta === "/") ? 
+          item.imagen : item.imagen.replace("./src", "../..");
+    const rutaCarritoImg =  (ruta.includes("index.html") || ruta === "/") ? 
+          "./src/assets/icon/bt_add_to_cart.svg" : "../../assets/icon/bt_add_to_cart.svg";
+    
     div.classList.add("product-card");
     div.innerHTML = `
       <a onclick='verDetalleProducto(${JSON.stringify(item)})'>
-        <img src="${item.imagen}" alt="${item.nombre}">
+        <img src="${rutaFinal}" alt="${item.nombre}">
       </a>
       <div class="informacion-producto">
         <div>
@@ -27,8 +33,8 @@ export function renderCart() {
           <a href="#" class="agregar-al-carrito"
             data-nombre="${item.nombre}"
             data-precio="${item.valor.replace(/\D/g, '')}"
-            data-img="${item.imagen}">
-            <img src="./src/assets/icon/bt_add_to_cart.svg" alt="carrito de compra">
+            data-img="${rutaFinal}">
+            <img src="${rutaCarritoImg}" alt="carrito de compra">
           </a>
         </figure>
       </div>
