@@ -13,25 +13,24 @@
     <link rel="stylesheet" href="../../assets/css/home.css" />
     <link rel="stylesheet" href="../../assets/css/footer.css" />
     <link rel="stylesheet" href="../../assets/css/detalleprod.css" />
+    <link rel="stylesheet" href="../../assets/css/carrito.css" />
    
     
 </head>
 <body>
 
  <nav>
-    <a href="../../pages/home/index.html">
+    <a href="../../../index.html">
       <img src="../../assets/icon/icon_menu.svg" alt="menu" class="menu" />
     </a>
 
     <div class="navbar-left">
-      <a href="../../pages/home/index.html">
+      <a href="../../../index.html">
         <img src="../../assets/logos/logodecayba.png" alt="logo" class="logo" />
       </a>
 
       <ul>
-        <li>
-          <a href="../../pages/home/Misordenes.html"> Tus pedidos </a>
-        </li>
+       
 
         <li>
           <a href="../../pages/cosmetic/belleza.html">Belleza</a>
@@ -55,9 +54,7 @@
 
     <div class="navbar-right">
       <ul>
-        <li class="navbar-email">
-          <a href="editar-cuenta.html"> camila@gmail.com </a>
-        </li>
+       
 
         <li class="navbar-shopping-cart">
           <a id="ver-carrito">
@@ -69,7 +66,7 @@
     </div>
   </nav>
 
-    <div class="product-detail" id="product-detail">
+    <div class="product-detaill" id="product-detaill">
         <aside class="imagen">
                     <div class="carousel">
                 <button class="prev">&#10094;</button>
@@ -81,6 +78,29 @@
     </div>
   <div class="card-container" id="card-container"></div>
 
+   <aside class="product-detail" id="product-detail">
+          <a href="./src/pages/home/index.html"><img class="cerrar" src="./src/assets/icon/icon_close.png" alt="Volver" /></a>
+      <div class="title-container">
+      
+        <p class="title">Resumen del pedido</p>
+
+      </div>
+
+      <!-- Carrito -->
+      <div class="my-order-content" id="cart-content"></div>
+
+      <!-- Botón WhatsApp -->
+      <div class="verificar">
+        <a href="#" class="btn-whatsapp" id="btn-whatsapp">WhatsApp</a>
+      </div>
+
+      <!-- Botón Ver Carrito -->
+      <div class="verificar">
+        <a href="./src/pages/cart/carrito.html" class="btn-carrito" id="btn-carrito">Ver Carrito</a>
+      </div>
+
+    </aside>
+
   <script type="module" src="../../assets/js/main.js"></script>
   <script>
     
@@ -89,14 +109,16 @@
         const prevBtn = document.querySelector('.prev');
         const nextBtn = document.querySelector('.next');
         const item = JSON.parse(localStorage.getItem('productoSeleccionado')) || [];
-        const productDetail = document.getElementById('product-detail');
+        const productDetail = document.getElementById('product-detaill');
         const carrousel = document.getElementById('carousel');
 
         item.imagenes.forEach(src => {
              const div = document.createElement("div");
           div.classList.add("carousel-item");
+          const rutaFinal = src.replace("./src", "../..");
+          console.log(rutaFinal)
           div.innerHTML = `
-                 <img src="${src}" alt="carrito de compra">       
+                 <img src="${rutaFinal}" alt="carrito de compra">       
             `;
           carrousel.appendChild(div);
         });
@@ -175,10 +197,10 @@
     const hamburger = document.getElementById("hamburger");
   const mobileMenu = document.querySelector(".mobile-menu");
 
-  hamburger.addEventListener("click", () => {
+  /*hamburger.addEventListener("click", () => {
     hamburger.classList.toggle("active");     // Aquí la magia
     mobileMenu.classList.toggle("active");
-  });
+  });*/
  
     </script>
 

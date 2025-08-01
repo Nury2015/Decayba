@@ -28,7 +28,7 @@ export function renderCart() {
             data-nombre="${item.nombre}"
             data-precio="${item.valor.replace(/\D/g, '')}"
             data-img="${item.imagen}">
-            <img src="../../assets/icon/bt_add_to_cart.svg" alt="carrito de compra">
+            <img src="./src/assets/icon/bt_add_to_cart.svg" alt="carrito de compra">
           </a>
         </figure>
       </div>

@@ -64,7 +64,7 @@ body {
   right: 10px;
 }
 
-.product-detail {
+.product-detaill {
   display: flex;
   height: 100vh;
   width: auto;
@@ -73,11 +73,11 @@ body {
   top: -24px;
 }
 
-.product-detail-close:hover {
+.product-detaill-close:hover {
   cursor: pointer;
 }
 
-.product-detail-close {
+.product-detaill-close {
 
   display: flex;
   width: 24px;
@@ -141,7 +141,7 @@ body {
 /* para celular */
 @media (max-width:640px) {
 
-  .product-detail {
+  .product-detaill {
     flex-direction: column;
   }
 
