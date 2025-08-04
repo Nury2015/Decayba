@@ -25,12 +25,21 @@
   <span></span>
 </div>
 
- 
+   <nav id="header">
+
+  </nav>
 
   <div class="coming-soon">
     <h1>💅 Muy pronto</h1>
     <p>Aquí encontrarás todo sobre belleza: cuidado personal, skin care y más.</p>
   </div>
+    <script>
+    fetch('../../components/headerglobal.html')
+      .then(response => response.text())
+      .then(async html => {
+        document.getElementById('header').innerHTML = html;
+      });
+  </script>
 <script>
     const hamburger = document.getElementById("hamburger");
   const mobileMenu = document.querySelector(".mobile-menu");

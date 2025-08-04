@@ -22,7 +22,9 @@
   <span></span>
   <span></span>
 </div>
+  <nav id="header">
 
+  </nav>
   
 
 
@@ -54,7 +56,13 @@
 
     </aside>
 
-
+  <script>
+    fetch('../../components/headerglobal.html')
+      .then(response => response.text())
+      .then(async html => {
+        document.getElementById('header').innerHTML = html;
+      });
+  </script>
 
 
 <script type="module">

@@ -24,13 +24,23 @@
   <span></span>
   <span></span>
 </div>
+ <nav id="header">
 
+  </nav>
 
 
   <div class="coming-soon">
     <h1>🧸 Muy pronto</h1>
     <p>Estamos preparando una sección con juguetes y diversión para todos.</p>
   </div>
+
+    <script>
+    fetch('../../components/headerglobal.html')
+      .then(response => response.text())
+      .then(async html => {
+        document.getElementById('header').innerHTML = html;
+      });
+  </script>
   <script>
     const hamburger = document.getElementById("hamburger");
   const mobileMenu = document.querySelector(".mobile-menu");
@@ -40,6 +50,7 @@
     mobileMenu.classList.toggle("active");
   });
 </script>
+
 </body>
 </html>
 
