@@ -81,37 +81,7 @@
 
 
     <script type="module">
-            const btnWhatsapp = document.getElementById('btn-whatsapp');
-        // if (!btnWhatsapp) return false;
-
-        btnWhatsapp.addEventListener('click', e => {
-          e.preventDefault();
-
-          const numero = '573154380079'; // Tu número de WhatsApp
-          const cart = JSON.parse(localStorage.getItem("carrito")) || [];
-
-          if (cart.length === 0) {
-            alert("Tu carrito está vacío.");
-            return;
-          }
-
-          let mensaje = "🛍️ *Resumen de tu pedido* 💕\n\n";
-
-          cart.forEach(item => {
-            const subtotal = item.precio * item.cantidad;
-            mensaje += `*${item.nombre}*\n`;
-            mensaje += `Cantidad: ${item.cantidad}\n`;
-            mensaje += `Precio unitario: $${item.precio.toLocaleString()}\n`;
-            mensaje += `Subtotal: $${subtotal.toLocaleString()}\n\n`;
-          });
-
-          const total = cart.reduce((acc, item) => acc + item.precio * item.cantidad, 0);
-          mensaje += `💰 *Total a pagar:* $${total.toLocaleString()}\n\n`;
-          mensaje += `✅ Gracias por tu compra 💖✨`;
-
-          const msg = encodeURIComponent(mensaje);
-          window.open(`https://wa.me/${numero}?text=${msg}`, '_blank');
-        });
+       
 
 
   // Cargar el HTML del menú hamburguesa

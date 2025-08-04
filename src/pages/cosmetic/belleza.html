@@ -18,6 +18,10 @@
 </head>
 
 <body>
+  <div id="contenedor-hamburguesa"></div>
+   <nav id="header">
+
+  </nav>
 
      <div class="hamburger" id="hamburger">
   <span></span>
@@ -25,30 +29,19 @@
   <span></span>
 </div>
 
-   <nav id="header">
-
-  </nav>
-
-  <div class="coming-soon">
-    <h1>💅 Muy pronto</h1>
-    <p>Aquí encontrarás todo sobre belleza: cuidado personal, skin care y más.</p>
-  </div>
-    <script>
+ <script>
     fetch('../../components/headerglobal.html')
       .then(response => response.text())
       .then(async html => {
         document.getElementById('header').innerHTML = html;
       });
   </script>
-<script>
-    const hamburger = document.getElementById("hamburger");
-  const mobileMenu = document.querySelector(".mobile-menu");
 
-  hamburger.addEventListener("click", () => {
-    hamburger.classList.toggle("active");     // Aquí la magia
-    mobileMenu.classList.toggle("active");
-  });
-  </script>
+  <div class="coming-soon">
+    <h1>💅 Muy pronto</h1>
+    <p>Aquí encontrarás todo sobre belleza: cuidado personal, skin care y más.</p>
+  </div>
+
 </body>
 
 </html>
