@@ -12,7 +12,6 @@ export function renderCart() {
           item.imagen : item.imagen.replace("./src", "../..");
     const rutaCarritoImg =  (ruta.includes("index.html") || ruta === "/" || ruta.includes("Decayba")) ? 
           "./src/assets/icon/bt_add_to_cart.svg" : "../../assets/icon/bt_add_to_cart.svg";
-    
     div.classList.add("product-card");
     div.innerHTML = `
       <a onclick='verDetalleProducto(${JSON.stringify(item)})'>

@@ -127,7 +127,7 @@
       });
 
       renderTotalCart(total);
-      renderOrderSummary(fecha, totalArticulos);
+      // renderOrderSummary(fecha, totalArticulos);
       renderResumenPedido();
 
       // Checkbox "Seleccionar todo"
@@ -175,18 +175,22 @@
       const itemElement = document.createElement("div");
       itemElement.classList.add("shopping-cart");
 
+      const ruta = window.location.pathname;
+      const rutaFinal = (ruta.includes("index.html") || ruta === "/" || ruta.includes("Decayba")) ? 
+          item.img.replace("../..", "./src") : item.img.replace("./src", "../..");
+
       itemElement.innerHTML = `
         <label class="label-product">   
           <input type="checkbox" name="item" value="${item.nombre}" data-index="${index}">
           <figure>
-            <img src="${item.img}" alt="${item.nombre}">
+            <img src="${rutaFinal}" alt="${item.nombre}">
           </figure>
           <div class="inf-product">
             <p><strong>${item.nombre}</strong></p>
             <p>Subtotal: $${subtotal.toLocaleString()}</p>
             <small>($${item.precio.toLocaleString()} c/u × ${item.cantidad})</small>
           </div>
-          <img src="../../assets/icon/icon_close.png" alt="Eliminar" 
+          <img src="../../../src/assets/icon/icon_close.png" alt="Eliminar" 
                data-index="${index}" class="btn-remove">
         </label>
       `;

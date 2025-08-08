@@ -97,21 +97,21 @@ body {
   padding: 30px 50px;
 }
 
-.product-inf p:nth-child(1) {
+.product-inf h3 {
   font-weight: bold;
-  font-size: var(--md);
+  font-size: var(--lg);
   margin-top: 0;
-  margin-bottom: 4px;
+  margin-bottom: 50px;
 }
 
-.product-inf p:nth-child(2) {
+.product-inf p {
   color: var(--very-light-pink);
   font-size: var(--md);
   margin-top: 0;
   margin-bottom: 36px;
 }
 
-.product-inf p:nth-child(3) {
+.product-inf p:nth-child(2) {
   color: var(--very-light-pink);
   font-size: var(--md);
   margin-top: 0;

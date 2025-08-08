@@ -34,7 +34,7 @@ export function actualizarCarritoVisual() {
   const total = carrito.reduce((acc, item) => acc + item.cantidad, 0);
   contador.textContent = total;
 
-  renderCart2();
+  //renderCart2();
 }
 
 // ----------------- RENDER DEL CARRITO -----------------
@@ -51,11 +51,14 @@ function renderCart2() {
   }
 
   carrito.forEach((item, index) => {
+    const ruta = window.location.pathname;
+    const rutaFinal = (ruta.includes("index.html") || ruta === "/" || ruta.includes("Decayba")) ? 
+          item.img.replace("../..", "./src") : item.img.replace("./src", "../..");
     const div = document.createElement("div");
     div.classList.add("shopping-cart");
     div.innerHTML = `
       <figure>
-        <img src="${item.img}" alt="${item.nombre}">
+        <img src="${rutaFinal}" alt="${item.nombre}">
       </figure>
       <div class="productos">
         <p><strong>${item.nombre}</strong></p>
@@ -64,7 +67,7 @@ function renderCart2() {
           <input type="number" min="1" value="${item.cantidad}" data-index="${index}" class="input-cantidad">
         </label>
       </div>
-      <img src="../../assets/icon/icon_close.png" alt="Eliminar" data-index="${index}" class="btn-remove">
+      <img src="../../../src/assets/icon/icon_close.png" alt="Eliminar" data-index="${index}" class="btn-remove">
     `;
     cartContent.appendChild(div);
   });

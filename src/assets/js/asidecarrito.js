@@ -55,7 +55,13 @@ function renderAside() {
     return;
   }
 
+  const ruta = window.location.pathname;
+  const rutaFinal = (ruta.includes("index.html") || ruta === "/" || ruta.includes("Decayba")) ? 
+    item.imagen : item.imagen.replace("./src", "../..");
+
   cart.forEach((item, index) => {
+    console.log(item.img)
+    console.log("oeo")
     const div = document.createElement("div");
     div.classList.add("shopping-cart");
     div.innerHTML = `
@@ -69,7 +75,7 @@ function renderAside() {
           <input type="number" min="1" value="${item.cantidad}" data-index="${index}" class="input-cantidad">
         </label>
       </div>
-      <img src="../../assets/icon/icon_close.png" alt="Eliminar" data-index="${index}" class="btn-remove">
+      <img src="../../icon/icon_close.png" alt="Eliminar" data-index="${index}" class="btn-remove">
     `;
     cartContent.appendChild(div);
   });

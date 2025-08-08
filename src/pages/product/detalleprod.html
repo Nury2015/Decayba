@@ -37,7 +37,7 @@
   <div class="card-container" id="card-container"></div>
 
   <aside class="product-detail" id="product-detail">
-    <a href="./src/pages/home/index.html"><img class="cerrar" src="./src/assets/icon/icon_close.png" alt="Volver" /></a>
+    <a href="./detalleprod.html"><img class="cerrar" src="../../assets/icon/icon_close.png" alt="Volver" /></a>
     <div class="title-container">
 
       <p class="title">Resumen del pedido</p>
@@ -47,14 +47,14 @@
     <!-- Carrito -->
     <div class="my-order-content" id="cart-content"></div>
 
-    <!-- Botón WhatsApp -->
+    <!-- Botón WhatsApp
     <div class="verificar">
       <a href="#" class="btn-whatsapp" id="btn-whatsapp">WhatsApp</a>
-    </div>
+    </div> -->
 
     <!-- Botón Ver Carrito -->
     <div class="verificar">
-      <a href="./src/pages/cart/carrito.html" class="btn-carrito" id="btn-carrito">Ver Carrito</a>
+      <a href="../cart/carrito.html" class="btn-carrito" id="btn-carrito">Ver Carrito</a>
     </div>
 
   </aside>
@@ -94,10 +94,9 @@
     const div = document.createElement('aside');
     div.classList.add('product-inf');
     div.innerHTML = `
-          <h3>${item.nombre}</h3>
-            <p>${item.precio}</p>
-            <p>${item.descripcion}
-            </p>
+          <h2>${item.nombre}</h2>
+            <p>${item.descripcion}</p>
+                <p>${item.valor}</p>
 
         
              <figure>
@@ -161,7 +160,7 @@
     function actualizarCarritoVisual() {
       const cartCountDiv = document.querySelector('.navbar-shopping-cart div');
       const totalItems = cart.reduce((acc, item) => acc + item.cantidad, 0);
-      cartCountDiv.textContent = totalItems;
+      //cartCountDiv.textContent = totalItems;
     }
     window.addEventListener('resize', updateCarousel);
     actualizarCarritoVisual()
