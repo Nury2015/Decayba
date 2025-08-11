@@ -124,7 +124,7 @@ export const productos = [
           valor: "$72.000",
           imagen: "./src/assets/img/Boton/seis.webp",
           descripcion:
-            "Botón de comunicación para mascotas, perro que habla, botón interactivo de entrenamiento de sonido, grabador de sonido, NO incluye baterias",
+            "Botón de comunicación para mascotas, perro que habla, botón interactivo de entrenamiento de sonido, grabador de sonido,\nNO incluye baterias",
           stock: 1,
           categoria: "mascotas",
           imgs: [
