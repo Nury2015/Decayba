@@ -13,34 +13,39 @@
     <link rel="stylesheet" href="../../assets/css/carrito.css" />
     <link rel="stylesheet" href="../../assets/css/cart.css">
     <link rel="stylesheet" href="../../assets/css/belleza.css">
+    <link rel="stylesheet" href="../../assets/css/mobile.css">
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet" />
  
 </head>
 
 <body>
+ <!-- Contenedor del menú hamburguesa -->
   <div id="contenedor-hamburguesa"></div>
-   <nav id="header">
 
-  </nav>
-
-     <div class="hamburger" id="hamburger">
-  <span></span>
-  <span></span>
-  <span></span>
-</div>
-
- <script>
-    fetch('../../components/headerglobal.html')
-      .then(response => response.text())
-      .then(async html => {
-        document.getElementById('header').innerHTML = html;
-      });
-  </script>
+  <!-- Contenedor del header global -->
+  <div id="contenedor-menu"></div>
+  <div id="toast" class="toast"></div>
+  <nav id="header"></nav>
 
   <div class="coming-soon">
     <h1>💅 Muy pronto</h1>
     <p>Aquí encontrarás todo sobre belleza: cuidado personal, skin care y más.</p>
   </div>
+
+  <script type="module">
+    // Cargar el header global
+    fetch('../../components/headerglobal.html')
+      .then(response => response.text())
+      .then(html => {
+        document.getElementById('header').innerHTML = html;
+      });
+
+    // Cargar y activar menú hamburguesa
+     import { cargarMenuHamburguesa } from '../../assets/js/modules/menu-loader.js';
+  cargarMenuHamburguesa();
+  </script>
+
+
 
 </body>
 

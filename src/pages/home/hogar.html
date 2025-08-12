@@ -12,71 +12,39 @@
     <link rel="stylesheet" href="../../assets/css/footer.css" />
     <link rel="stylesheet" href="../../assets/css/carrito.css" />
     <link rel="stylesheet" href="../../assets/css/hogar.css">
+    <link rel="stylesheet" href="../../assets/css/mobile.css">
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet" />
  
 </head>
 
 <body>
- <div class="hamburger" id="hamburger">
-  <span></span>
-  <span></span>
-  <span></span>
-</div>
-  <nav id="header">
+<div id="contenedor-hamburguesa"></div>
 
-  </nav>
+  <!-- Contenedor del header global -->
+  <div id="contenedor-menu"></div>
+  <div id="toast" class="toast"></div>
+  <nav id="header"></nav>
+
   
-
 
   <div class="coming-soon">
     <h1>🏠 Muy pronto</h1>
     <p>Próximamente artículos para tu hogar: decoración, cocina, y bienestar.</p>
   </div>
-<!-- Carrito desplegable -->
-  <aside class="product-detail" id="product-detail">
-          <a href="index.html"><img class="cerrar" src="../../assets/icon/icon_close.png" alt="Volver" /></a>
-      <div class="title-container">
-      
-        <p class="title">Resumen del pedido</p>
 
-      </div>
-
-      <!-- Carrito -->
-      <div class="my-order-content" id="cart-content"></div>
-
-      <!-- Botón WhatsApp -->
-      <div class="verificar">
-        <a href="#" class="btn-whatsapp" id="btn-whatsapp">WhatsApp</a>
-      </div>
-
-      <!-- Botón Ver Carrito -->
-      <div class="verificar">
-        <a href="./../cart/carrito.html" class="btn-carrito" id="btn-carrito">Ver Carrito</a>
-      </div>
-
-    </aside>
-
-  <script>
+  <script type="module">
+    // Cargar el header global
     fetch('../../components/headerglobal.html')
       .then(response => response.text())
-      .then(async html => {
+      .then(html => {
         document.getElementById('header').innerHTML = html;
       });
+
+    // Cargar y activar menú hamburguesa
+     import { cargarMenuHamburguesa } from '../../assets/js/modules/menu-loader.js';
+  cargarMenuHamburguesa();
   </script>
 
-
-<script type="module">
-  import { inicializarAsideCarrito } from "../../assets/js/modules/carrito.js";
-  inicializarAsideCarrito();
-
-  const hamburger = document.getElementById("hamburger");
-  const mobileMenu = document.querySelector(".mobile-menu");
-
-  hamburger.addEventListener("click", () => {
-    hamburger.classList.toggle("active");
-    mobileMenu.classList.toggle("active");
-  });
-</script>
 
 </body>
 </html>

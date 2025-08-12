@@ -34,6 +34,11 @@
     }
 
     @media (max-width: 600px) {
+
+      .coming-soon
+      {
+        width: 327px;
+      }
       .coming-soon h1 {
         font-size: 1.5rem;
       }
