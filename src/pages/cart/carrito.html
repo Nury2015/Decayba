@@ -18,12 +18,13 @@
 </head>
 
 <body>
-   <div id="contenedor-hamburguesa"></div>
+   <!-- Contenedor del menú hamburguesa -->
+  <div id="contenedor-hamburguesa"></div>
+
+  <!-- Contenedor del header global -->
+  <div id="contenedor-menu"></div>
   <div id="toast" class="toast"></div>
-  
-   <nav id="header">
-    
-  </nav>
+  <nav id="header"></nav>
 
   <div class="contenedor-carrito">
     <div class="my-order" id="my-order">
@@ -53,13 +54,7 @@
   <div class="my-order-content" id="sugerencia"></div>
 
   <div class="card-container" id="card-container"></div>
- <script>
-      fetch('../../components/headerglobal.html')
-    .then(response => response.text())
-    .then(async html => {
-      document.getElementById('header').innerHTML = html;
-  });
-     </script>
+
  <script type="module" src="../../assets/js/main.js"></script>
 <script>
   document.addEventListener("DOMContentLoaded", () => {
@@ -281,18 +276,18 @@
   
  
 </script>
-<script>
-   // Cargar el HTML del menú hamburguesa
-  fetch('../../components/menuMobile.html')
-    .then(response => response.text())
-    .then(async html => {
-      document.getElementById('contenedor-hamburguesa').innerHTML = html;
+<script type="module">
+    // Cargar el header global
+    fetch('../../components/headerglobal.html')
+      .then(response => response.text())
+      .then(html => {
+        document.getElementById('header').innerHTML = html;
+      });
 
-      // importar la función desde el módulo
-      const { activarMenuHamburguesa } = await import('./src/assets/js/modules/mobile.js');
-      activarMenuHamburguesa();
-    });
-</script>
+    // Cargar y activar menú hamburguesa
+     import { cargarMenuHamburguesa } from '../../assets/js/modules/menu-loader.js';
+  cargarMenuHamburguesa();
+  </script>
 </body>
 
 </html>

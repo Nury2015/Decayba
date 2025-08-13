@@ -117,28 +117,73 @@ function obtenerListaDeProductos() {
 document.getElementById("ver-carrito").addEventListener("click", function (e) {
   e.preventDefault();
 
-  const productDetail = document.getElementById("product-detail");
-  if (!productDetail) {
-    console.error('No se encontró el elemento con ID "product-detail"');
-    return;
-  }
+  // Buscar el carrito por ID o clase (funciona en ambos headers)
+const btnCarrito = document.querySelector("#ver-carrito, .navbar-shopping-cart");
+if (btnCarrito) {
+  btnCarrito.addEventListener("click", function (e) {
+    e.preventDefault();
 
-  if (carrito.length === 0) {
-    productDetail.style.display = "none";
-    window.location.href = "./../cart/carrito.html";
-    return;
-  }
+    const productDetail = document.getElementById("product-detail");
 
-  if (productDetail.style.display === "block") {
-    productDetail.style.display = "none";
-  } else {
-    const productos = obtenerListaDeProductos();
-    localStorage.setItem("productosDisponibles", JSON.stringify(productos));
+    // Si estamos en mobile o no existe aside, ir al carrito
+    if (window.innerWidth < 768 || !productDetail) {
+      window.location.href = "/src/pages/cart/carrito.html"; // Ajusta ruta absoluta
+      return;
+    }
 
-    productDetail.style.display = "block";
-    renderCart2();
-  }
+    // Si carrito vacío, también ir a carrito.html
+    if (carrito.length === 0) {
+      productDetail.style.display = "none";
+      window.location.href = "/src/pages/cart/carrito.html";
+      return;
+    }
+
+    // Si tiene aside, mostrarlo o cerrarlo
+    if (productDetail.style.display === "block") {
+      productDetail.style.display = "none";
+    } else {
+      const productos = obtenerListaDeProductos();
+      localStorage.setItem("productosDisponibles", JSON.stringify(productos));
+      productDetail.style.display = "block";
+      renderCart2();
+    }
+  });
+}
+
 });
+const btnCarrito = document.getElementById("ver-carrito");
+
+if (btnCarrito) {
+  btnCarrito.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    const productDetail = document.getElementById("product-detail");
+
+    // Si NO hay aside o estamos en mobile → ir a carrito.html
+    if (!productDetail || window.innerWidth < 768) {
+      window.location.href = "/src/pages/cart/carrito.html"; // Ruta absoluta para que funcione en cualquier página
+      return;
+    }
+
+    // Si hay aside pero el carrito está vacío → ir a carrito.html
+    if (carrito.length === 0) {
+      productDetail.style.display = "none";
+      window.location.href = "/src/pages/cart/carrito.html";
+      return;
+    }
+
+    // Si hay aside y productos → abrir/cerrar
+    if (productDetail.style.display === "block") {
+      productDetail.style.display = "none";
+    } else {
+      const productos = obtenerListaDeProductos();
+      localStorage.setItem("productosDisponibles", JSON.stringify(productos));
+      productDetail.style.display = "block";
+      renderCart2();
+    }
+  });
+}
+
 
 // ----------------- EVENTO ELIMINAR PRODUCTO -----------------
 
