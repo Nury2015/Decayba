@@ -12,21 +12,30 @@
     <link rel="stylesheet" href="../../assets/css/footer.css" />
     <link rel="stylesheet" href="../../assets/css/carrito.css" />
     <link rel="stylesheet" href="../../assets/css/cart.css">
+    <link rel="stylesheet" href="../../assets/css/mobile.css">
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet" />
  
 </head>
 <body>
-  
- <nav id="header">
+ <!-- Contenedor del menú hamburguesa -->
+  <div id="contenedor-hamburguesa"></div>
 
-  </nav>
+  <!-- Contenedor del header global -->
+  <div id="contenedor-menu"></div>
+  <div id="toast" class="toast"></div>
+  <nav id="header"></nav>
 
-    <script>
+    <script type="module">
+    // Cargar el header global
     fetch('../../components/headerglobal.html')
       .then(response => response.text())
-      .then(async html => {
+      .then(html => {
         document.getElementById('header').innerHTML = html;
       });
+
+    // Cargar y activar menú hamburguesa
+     import { cargarMenuHamburguesa } from '../../assets/js/modules/menu-loader.js';
+  cargarMenuHamburguesa();
   </script>
 </body>
 </html>
