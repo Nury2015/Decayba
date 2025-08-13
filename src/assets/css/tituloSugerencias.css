@@ -1,0 +1,26 @@
+.sugerencias-titulo {
+  font-size: 2rem;
+  font-weight: 800;
+  text-align: center;
+  margin: 50px 0 30px;
+  color: #333;
+  font-family: 'Quicksand', sans-serif;
+  position: relative;
+}
+
+.sugerencias-titulo::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -8px;
+  transform: translateX(-50%);
+  width: 140px;
+  height: 6px;
+  background: url("data:image/svg+xml;utf8,<svg width='140' height='6' xmlns='http://www.w3.org/2000/svg'><path d='M0 3 Q 35 0 70 3 T 140 3' stroke='%23ff9800' stroke-width='4' fill='transparent' stroke-linecap='round'/></svg>") no-repeat center;
+  animation: wave 2s infinite ease-in-out;
+}
+
+@keyframes wave {
+  0%, 100% { transform: translateX(-50%) scaleX(1); }
+  50% { transform: translateX(-50%) scaleX(1.1); }
+}

@@ -1,15 +1,4 @@
-:root {
-  --very-light-pink: #918888;
-  --text-input-field: #F7F7F7;
-  --hospital-green: #ACD9B2;
-  --white: #FFFFFF;
-  --black: #000000;
-  --dark: #232830;
-  --sm: 14px;
-  --md: 16px;
-  --lg: 18px;
 
-}
 
 body {
   font-family: "Quicksand", sans-serif;
@@ -279,11 +268,10 @@ display: flex;
   margin-top: 20px;
 
 }
-
-
 .inf-product {
   width: 200px;
 }
+
 
 @media (max-width: 640px) {
 

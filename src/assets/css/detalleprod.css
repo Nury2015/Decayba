@@ -1,15 +1,4 @@
-:root {
-  --very-light-pink: #C7C7C7;
-  --text-input-field: #F7F7F7;
-  --hospital-green: #ACD9B2;
-  --white: #FFFFFF;
-  --black: #000000;
-  --dark: #232830;
-  --sm: 14px;
-  --md: 16px;
-  --lg: 18px;
 
-}
 
 body {
   font-family: "Quicksand", sans-serif;
@@ -98,6 +87,7 @@ body {
 }
 
 .product-inf h3 {
+  
   font-weight: bold;
   font-size: var(--lg);
   margin-top: 0;
@@ -118,6 +108,11 @@ body {
   margin-bottom: 20px;
   text-align: justify;
 }
+.card-infor{
+  display: flex;
+  align-items: start;
+flex-direction: column;}
+
 
 .primary-button {
   background-color: var(--hospital-green);

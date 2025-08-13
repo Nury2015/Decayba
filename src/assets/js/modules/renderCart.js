@@ -18,7 +18,7 @@ export function renderCart() {
         <img src="${rutaFinal}" alt="${item.nombre}">
       </a>
       <div class="informacion-producto">
-        <div>
+        <div class="card-infor">
           <p>${item.nombre}</p>
           <p>${item.valor}</p>
           ${item.stock > 0

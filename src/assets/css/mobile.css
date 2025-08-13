@@ -18,16 +18,7 @@ body {
     font-style: normal;
 }
 /* ESTILO BASE DEL BOTÓN */
-.hamburger {
-  width: 30px;
-  height: 25px;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  position: relative;
-  z-index: 1000;
-}
+
 
 .hamburger span {
   display: block;
@@ -62,7 +53,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   z-index: 999;
-  position: absolute;
+  position: fixed;
   top: 20px;
   right: 74px;
 }
