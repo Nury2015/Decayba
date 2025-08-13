@@ -21,14 +21,7 @@ export const productos = [
           imagen: "./src/assets/img/frisbi/principal.webp",
           descripcion: "Disco Volador Duradero para Entrenamiento de Perros - Resistente a Mordidas, Juguete de Nudo de Cuerda para Limpieza Dental para Todas las Razas",
           categoria: "mascotas",
-          stock: {
-            azul: 1,
-            morado: 1,
-            naranja: 1,
-            verde: 2,
-            amarillo: 1,
-            rojo: 1
-          },
+          stock:  6,
 
           imgs: [
             "./src/assets/img/frisbi/principal.webp",
@@ -84,11 +77,7 @@ export const productos = [
           imagen: "./src/assets/img/Disco volador/principal.webp",
           descripcion:
             "Disco Volador Duradero para Entrenamiento de Perros - Resistente a Mordidas, Juguete de Nudo de Cuerda para Limpieza Dental para Todas las Razas ",
-          stock: {
-            naranja: 2,
-            rojo: 1,
-            verde: 3,
-          },
+          stock: 2,
           categoria: "mascotas",
           imgs: [
             "./src/assets/img/Disco volador/principal.webp",
@@ -107,7 +96,7 @@ export const productos = [
           imagen: "./src/assets/img/Boton/cuatro.webp",
           descripcion:
             "Botón de comunicación para mascotas, perro que habla, botón interactivo de entrenamiento de sonido, grabador de sonido, NO incluye baterias",
-          stock: 1,
+          stock:2,
           categoria: "mascotas",
           imgs: [
             "./src/assets/img/Boton/cuatro.webp",
@@ -125,7 +114,7 @@ export const productos = [
           imagen: "./src/assets/img/Boton/seis.webp",
           descripcion:
             "Botón de comunicación para mascotas, perro que habla, botón interactivo de entrenamiento de sonido, grabador de sonido,\nNO incluye baterias",
-          stock: 1,
+          stock: 2,
           categoria: "mascotas",
           imgs: [
             "./src/assets/img/Boton/seis.webp",
@@ -168,7 +157,7 @@ export const productos = [
           imagen: "./src/assets/img/Pelotas/Principal.webp",
           descripcion:
             "3 piezas de juguetes de pelota para perros, juguete de goma resistente y sonoro para mascotas, no tóxico y masticable, juego interactivo y salud dental, sin necesidad de batería para razas pequeñas",
-          stock: 3,
+          stock: 1,
           categoria: "mascotas",
           imgs: [
             "./src/assets/img/Pelotas/Principal.webp",
@@ -184,10 +173,7 @@ export const productos = [
           imagen: "./src/assets/img/Cepillo/pelo.webp",
           descripcion:
             "Peine para Mascotas de Fácil Limpieza y Confort Diario, Adecuado para Perros y Gatos con Función Desenredante, Mango Ergonómico, Peine para Pelaje y Cuidado, Gran Ayudante en la Higiene Canina",
-          stock: {
-            naranja: 1,
-            purpura: 1,
-          },
+          stock:2,
           categoria: "mascotas",
           imgs: [
             "./src/assets/img/Cepillo/prrincipal.webp",
@@ -206,14 +192,7 @@ export const productos = [
           imagen: "./src/assets/img/contenedorbolsa/principal.webp",
           descripcion:
             "Suministros Creativos para Mascotas: Recolector de Excrementos para Paseos de Perros, Práctico y Hermoso Distribuidor de Bolsas de Basura Portátil, Carcasa de Basura Esencial para Amantes de las Mascotas",
-          stock: {
-            blanco: 1,
-            verde: 1,
-            rojo: 1,
-            amarillo: 1,
-            azul: 1,
-            cafe: 1,
-          },
+          stock:5,
           categoria: "mascotas",
           imgs: [
             "./src/assets/img/contenedorbolsa/princi.webp",
@@ -264,10 +243,7 @@ export const productos = [
           imagen: "./src/assets/img/cepillobaño/principal.webp",
           descripcion:
             "Herramienta de masaje de silicona para perros y gatos, accesorio multifuncional de baño y limpieza para animales, esenciales para el cuidado de mascotas",
-          stock: {
-            azul: 1,
-            amarillo: 1,
-          },
+          stock:2,
           categoria: "mascotas",
           imgs: [
             "./src/assets/img/cepillobaño/principal.webp",
@@ -316,10 +292,7 @@ export const productos = [
           imagen: "./src/assets/img/comedero/negro.webp",
           descripcion:
             " 1 Juego de Comederos Elevados para Perros, Estante con 4 Alturas Ajustables y 2 Boles de Acero Inoxidable, Sin Deslizamiento para Razas Pequeñas",
-          stock: {
-            rosa: 1,
-            negro: 1,
-          },
+          stock: 0,
           categoria: "mascotas",
           imgs: [
             "./src/assets/img/comedero/principal.webp",
@@ -333,11 +306,11 @@ export const productos = [
 
         {
           nombre: "Bolsas para excrementos de Perro",
-          valor: "$40.000",
+          valor: "30.000",
           imagen: "./src/assets/img/bolsas/principal.webp",
           descripcion:
             "210 Bolsas para Excrementos de Perro a Prueba de Fugas con Diseño de Huellas, 14 Rollos-210 bolsas - Bolsas de Plástico Duraderas para Limpieza de Mascotas y Uso Exterior",
-          stock: 2,
+          stock:3,
           categoria: "mascotas",
           imgs: [
             "./src/assets/img/bolsas/division.webp",
@@ -353,7 +326,7 @@ export const productos = [
           imagen: "./src/assets/img/balsamo/principal.webp",
           descripcion:
             "Crema Anti-Grietas para Garras y Uñas de Mascotas - Bálsamo Hidratante Rápido para Perros y Gatos, Fijación Fuerte, Previene Grietas y Roturas, Suaviza Patas y Nariz - Tubo de 20g para Mascotas Pequeñas a Grandes, Textura Suave, Fórmula Nutritiva, Amigable con las Mascotas, Para Dueños de Perros",
-          stock: 1,
+          stock: 3,
           categoria: "mascotas",
           imgs: [
             "./src/assets/img/balsamo/principal.webp",
@@ -370,7 +343,7 @@ export const productos = [
           imagen: "./src/assets/img/cepillodientes/principal.webp",
           descripcion:
             "Conjunto de 4 Cepillos para Dientes de Mascotas con Cerdas Suaves y Mangos Ergonómicos Antideslizantes para un Cuidado Dental Amable - Rosa, Verde, Amarillo, Blanco",
-          stock: 5,
+          stock: 6,
           categoria: "mascotas",
           imgs: [
             "./src/assets/img/cepillodientes/principal.webp",

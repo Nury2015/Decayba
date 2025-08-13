@@ -1,217 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Decayba ‑ Carrito</title>
+    <link rel="stylesheet" href="../../assets/css/global.css" />
+    <link rel="stylesheet" href="../../assets/css/carrito.css" />
+    <link rel="stylesheet" href="../../assets/css/mobile.css" />
+    <link rel="stylesheet" href="../../assets/css/header.css" />
+    <link rel="stylesheet" href="../../assets/css/footer.css" />
+    <link rel="stylesheet" href="../../assets/css/home.css" />
+    <link rel="stylesheet" href="../../assets/css/cart.css" />
+    <link rel="stylesheet" href="../../assets/css/tituloSugerencias.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Decayba ‑ Carrito</title>
-  <link rel="stylesheet" href="../../assets/css/global.css" />
-  <link rel="stylesheet" href="../../assets/css/carrito.css" />
-  <link rel="stylesheet" href="../../assets/css/mobile.css" />
-  <link rel="stylesheet" href="../../assets/css/header.css" />
-  <link rel="stylesheet" href="../../assets/css/footer.css" />
-  <link rel="stylesheet" href="../../assets/css/home.css" />
-  <link rel="stylesheet" href="../../assets/css/cart.css" />
-  <link rel="stylesheet" href="../../assets/css/tituloSugerencias.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet" />
-</head>
+  <body>
+    <!-- Contenedor del menú hamburguesa -->
+    <div id="contenedor-hamburguesa"></div>
 
-<body>
-   <!-- Contenedor del menú hamburguesa -->
-  <div id="contenedor-hamburguesa"></div>
+    <!-- Contenedor del header global -->
+    <div id="contenedor-menu"></div>
+    <div id="toast" class="toast"></div>
+    <nav id="header"></nav>
 
-  <!-- Contenedor del header global -->
-  <div id="contenedor-menu"></div>
-  <div id="toast" class="toast"></div>
-  <nav id="header"></nav>
-
-  <div class="contenedor-carrito">
-    <div class="my-order" id="my-order">
-      <div class="my-order-container">
-        <p id="gracias-compra" class="gracias">¡Gracias por tu compra 💖!</p>
-        <div class="cabecera">
-
-          <h1 class="title">
-
-            <div class="seleccionar-todo">
-              <input type="checkbox" id="select-all" style="margin-right: 10px;" />
-            </div>
-            Total de artículos
-          </h1>
-
-        </div>
-        <div class="shopping-cart">
-          <div class="list-shopping" id="list-shopping"></div>
+    <div class="contenedor-carrito">
+      <div class="my-order" id="my-order">
+        <div class="my-order-container">
+          <p id="gracias-compra" class="gracias">¡Gracias por tu compra 💖!</p>
+          <div class="cabecera">
+            <h1 class="title">
+              <div class="seleccionar-todo">
+                <input
+                  type="checkbox"
+                  id="select-all"
+                  style="margin-right: 10px"
+                />
+              </div>
+              Total de artículos
+            </h1>
+          </div>
+          <div class="shopping-cart">
+            <div class="list-shopping" id="list-shopping"></div>
+          </div>
         </div>
       </div>
+      <div class="order" id="resumen"></div>
     </div>
-    <div class="order" id="resumen">
-      
-      </div>
-  </div>
 
-  <div class="my-order-content" id="sugerencia"></div>
-  <h2 class="sugerencias-titulo">Algunas sugerencias para ti</h2>
-  <div class="card-container" id="card-container"></div>
+    <div class="my-order-content" id="sugerencia"></div>
+    <h2 class="sugerencias-titulo">Algunas sugerencias para ti</h2>
+    <div class="card-container" id="card-container"></div>
 
- <script type="module" src="../../assets/js/main.js"></script>
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    let cart = JSON.parse(localStorage.getItem("carrito")) || [];
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        let cart = JSON.parse(localStorage.getItem("carrito")) || [];
 
-    const sugerencia = document.getElementById("sugerencia");
-    const graciasCompra = document.getElementById("gracias-compra");
-    const btnWhatsapp = document.getElementById("btn-whatsapp");
-    const myOrder = document.getElementById("my-order");
-    const listShopping = document.getElementById("list-shopping");
-    const resumen = document.getElementById("resumen");
-    const productosDisponibles = JSON.parse(localStorage.getItem("productosDisponibles")) || [];
+        const sugerencia = document.getElementById("sugerencia");
+        const graciasCompra = document.getElementById("gracias-compra");
+        const btnWhatsapp = document.getElementById("btn-whatsapp");
+        const myOrder = document.getElementById("my-order");
+        const listShopping = document.getElementById("list-shopping");
+        const resumen = document.getElementById("resumen");
+        const productosDisponibles =
+          JSON.parse(localStorage.getItem("productosDisponibles")) || [];
 
-    listShopping.innerHTML = "";
+        listShopping.innerHTML = "";
 
-    // ✅ Mostrar carrito vacío
-    function showEmptyCart() {
-      myOrder.style.display = "none";
-      if (graciasCompra) graciasCompra.style.display = "none";
-      if (btnWhatsapp) btnWhatsapp.style.display = "none";
-      return `
+        // ✅ Mostrar carrito vacío
+        function showEmptyCart() {
+          myOrder.style.display = "none";
+          if (graciasCompra) graciasCompra.style.display = "none";
+          if (btnWhatsapp) btnWhatsapp.style.display = "none";
+          return `
         <div style="text-align:center;margin-top:2rem;">
           <img src="../../assets/img/carritoVacio.png" alt="Carrito vacío" style="max-width:100px;">
           <p>Tu carrito está vacío</p>
         </div>`;
-    }
-
-    // ✅ Mostrar carrito lleno
-    function showFullCart() {
-      myOrder.style.display = "block";
-      if (graciasCompra) graciasCompra.style.display = "block";
-      if (btnWhatsapp) btnWhatsapp.style.display = "flex";
-    }
-
-    // ✅ Actualiza el contador del carrito en el header
-    function actualizarCarritoVisual() {
-      const cartCountDiv = document.querySelector(".navbar-shopping-cart div");
-      const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-      const totalItems = carrito.reduce((acc, item) => acc + item.cantidad, 0);
-      if (cartCountDiv) cartCountDiv.textContent = totalItems;
-    }
-
-    // ✅ Renderiza el detalle del carrito
-    function renderDetalle() {
-      const cart = JSON.parse(localStorage.getItem("carrito")) || [];
-      sugerencia.innerHTML = "";
-      listShopping.innerHTML = "";
-
-      setupRemoveListeners();
-
-      if (cart.length === 0) {
-        sugerencia.innerHTML = showEmptyCart();
-        return;
-      }
-
-      showFullCart();
-
-      let total = 0;
-      const hoy = new Date();
-      const fecha = hoy.toLocaleDateString("es-CO");
-      const totalArticulos = cart.reduce((acc, item) => acc + item.cantidad, 0);
-
-      cart.forEach((item, index) => {
-        total += renderCartItem(item, index);
-      });
-
-      renderTotalCart(total);
-      // renderOrderSummary(fecha, totalArticulos);
-      renderResumenPedido();
-
-      // Checkbox "Seleccionar todo"
-      const selectAll = document.getElementById("select-all");
-      if (selectAll) {
-        selectAll.checked = false;
-        selectAll.addEventListener("change", function () {
-          const itemCheckboxes = document.querySelectorAll('input[type="checkbox"][name="item"]');
-          itemCheckboxes.forEach(cb => cb.checked = this.checked);
-        });
-      }
-    }
-
-    // ✅ Escucha clics para agregar productos
-    function setupAddToCartListeners() {
-      document.addEventListener("click", function (event) {
-        const addToCartBtn = event.target.closest(".agregar-al-carrito");
-        if (addToCartBtn) {
-          event.preventDefault();
-          setTimeout(() => {
-            renderDetalle();
-            actualizarCarritoVisual();
-          }, 100);
         }
-      });
-    }
 
-    // ✅ Escucha clics para eliminar productos
-    function setupRemoveListeners() {
-      document.addEventListener("click", function (event) {
-        const removeBtn = event.target.closest(".btn-remove");
-        if (removeBtn) {
-          event.preventDefault();
-          setTimeout(() => {
-            renderDetalle();
-            actualizarCarritoVisual();
-          }, 100);
+        // ✅ Mostrar carrito lleno
+        function showFullCart() {
+          myOrder.style.display = "block";
+          if (graciasCompra) graciasCompra.style.display = "block";
+          if (btnWhatsapp) btnWhatsapp.style.display = "flex";
         }
-      });
-    }
 
-    // ✅ Renderiza un producto en el carrito
-    function renderCartItem(item, index) {
-      const subtotal = item.precio * item.cantidad;
-      const itemElement = document.createElement("div");
-      itemElement.classList.add("shopping-cart");
+        // ✅ Actualiza el contador del carrito en el header
+        function actualizarCarritoVisual() {
+          const cartCountDiv = document.querySelector(
+            ".navbar-shopping-cart div"
+          );
+          const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+          const totalItems = carrito.reduce(
+            (acc, item) => acc + item.cantidad,
+            0
+          );
+          if (cartCountDiv) cartCountDiv.textContent = totalItems;
+        }
 
-      const ruta = window.location.pathname;
-      const rutaFinal = (ruta.includes("index.html") || ruta === "/" || ruta.includes("Decayba")) ? 
-          item.img.replace("../..", "./src") : item.img.replace("./src", "../..");
+        // ✅ Renderiza el detalle del carrito
+        function renderDetalle() {
+          const cart = JSON.parse(localStorage.getItem("carrito")) || [];
+          sugerencia.innerHTML = "";
+          listShopping.innerHTML = "";
 
-      itemElement.innerHTML = `
+          setupRemoveListeners();
+
+          if (cart.length === 0) {
+            sugerencia.innerHTML = showEmptyCart();
+            return;
+          }
+
+          showFullCart();
+
+          let total = 0;
+          const hoy = new Date();
+          const fecha = hoy.toLocaleDateString("es-CO");
+          const totalArticulos = cart.reduce(
+            (acc, item) => acc + item.cantidad,
+            0
+          );
+
+          cart.forEach((item, index) => {
+            total += renderCartItem(item, index);
+          });
+
+          renderTotalCart(total);
+          // renderOrderSummary(fecha, totalArticulos);
+          renderResumenPedido();
+
+          // Checkbox "Seleccionar todo"
+          const selectAll = document.getElementById("select-all");
+          if (selectAll) {
+            selectAll.checked = false;
+            selectAll.addEventListener("change", function () {
+              const itemCheckboxes = document.querySelectorAll(
+                'input[type="checkbox"][name="item"]'
+              );
+              itemCheckboxes.forEach((cb) => (cb.checked = this.checked));
+            });
+          }
+        }
+
+        // ✅ Escucha clics para agregar productos
+        function setupAddToCartListeners() {
+          document.addEventListener("click", function (event) {
+            const addToCartBtn = event.target.closest(".agregar-al-carrito");
+            if (addToCartBtn) {
+              event.preventDefault();
+              setTimeout(() => {
+                renderDetalle();
+                actualizarCarritoVisual();
+              }, 100);
+            }
+          });
+        }
+
+        // ✅ Escucha clics para eliminar productos
+        function setupRemoveListeners() {
+          document.addEventListener("click", function (event) {
+            const removeBtn = event.target.closest(".btn-remove");
+            if (removeBtn) {
+              event.preventDefault();
+              setTimeout(() => {
+                renderDetalle();
+                actualizarCarritoVisual();
+              }, 100);
+            }
+          });
+        }
+
+        // ✅ Renderiza un producto en el carrito
+        function renderCartItem(item, index) {
+          const subtotal = item.precio * item.cantidad;
+          const itemElement = document.createElement("div");
+          itemElement.classList.add("shopping-cart");
+
+          const ruta = window.location.pathname;
+          const rutaFinal =
+            ruta.includes("index.html") ||
+            ruta === "/" ||
+            ruta.includes("Decayba")
+              ? item.img.replace("../..", "./src")
+              : item.img.replace("./src", "../..");
+
+          itemElement.innerHTML = `
         <label class="label-product">   
-          <input type="checkbox" name="item" value="${item.nombre}" data-index="${index}">
+          <input type="checkbox" name="item" value="${
+            item.nombre
+          }" data-index="${index}">
           <figure>
             <img src="${rutaFinal}" alt="${item.nombre}">
           </figure>
           <div class="inf-product">
             <p><strong>${item.nombre}</strong></p>
             <p>Subtotal: $${subtotal.toLocaleString()}</p>
-            <small>($${item.precio.toLocaleString()} c/u × ${item.cantidad})</small>
+            <small>($${item.precio.toLocaleString()} c/u × ${
+            item.cantidad
+          })</small>
           </div>
           <img src="../../../src/assets/icon/icon_close.png" alt="Eliminar" 
                data-index="${index}" class="btn-remove">
         </label>
       `;
 
-      listShopping.appendChild(itemElement);
-      return subtotal;
-    }
+          listShopping.appendChild(itemElement);
+          return subtotal;
+        }
 
-    // ✅ Renderiza total
-    function renderTotalCart(total) {
-      const totalDiv = document.createElement("div");
-      totalDiv.classList.add("shopping-cart-total");
-      totalDiv.innerHTML = `<p><strong>Total: $${total.toLocaleString()}</strong></p>`;
-      listShopping.appendChild(totalDiv);
-    }
+        // ✅ Renderiza total
+        function renderTotalCart(total) {
+          const totalDiv = document.createElement("div");
+          totalDiv.classList.add("shopping-cart-total");
+          totalDiv.innerHTML = `<p><strong>Total: $${total.toLocaleString()}</strong></p>`;
+          listShopping.appendChild(totalDiv);
+        }
 
-    // ✅ Renderiza resumen derecha con subtotal, envío, total y botón WhatsApp
-    function renderResumenPedido() {
-      const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+        // ✅ Renderiza resumen derecha con subtotal, envío, total y botón WhatsApp
+        function renderResumenPedido() {
+          const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-      const subtotal = carrito.reduce((acc, item) => acc + item.precio * item.cantidad, 0);
-      const envio = subtotal >= 50000 ? 0 : 8000;
-      const total = subtotal + envio;
+          const subtotal = carrito.reduce(
+            (acc, item) => acc + item.precio * item.cantidad,
+            0
+          );
+          const envio = subtotal >= 50000 ? 0 : 8000;
+          const total = subtotal + envio;
 
-      resumen.innerHTML = `
+          resumen.innerHTML = `
         <div class="resumen-box">
           <p><strong>Subtotal:</strong> $${subtotal.toLocaleString()}</p>
           <p><strong>Envío:</strong> $${envio.toLocaleString()}</p>
@@ -229,66 +251,69 @@
           </a>
         </div>
       `;
-    }
-
-    // ✅ WhatsApp con mensaje detallado
-    document.addEventListener("click", function (e) {
-      const target = e.target.closest("#btn-whatsapp");
-      if (target) {
-        e.preventDefault();
-        const cart = JSON.parse(localStorage.getItem("carrito")) || [];
-        const numero = "573154380079";
-
-        if (cart.length === 0) {
-          alert("Tu carrito está vacío.");
-          return;
         }
 
-        let mensaje = "🛍️ *Resumen de tu pedido* 💕\n\n";
-        cart.forEach(item => {
-          const subtotal = item.precio * item.cantidad;
-          mensaje += `*${item.nombre}*\nCantidad: ${item.cantidad}\nPrecio unitario: $${item.precio.toLocaleString()}\nSubtotal: $${subtotal.toLocaleString()}\n\n`;
+        // ✅ WhatsApp con mensaje detallado
+        document.addEventListener("click", function (e) {
+          const target = e.target.closest("#btn-whatsapp");
+          if (target) {
+            e.preventDefault();
+            const cart = JSON.parse(localStorage.getItem("carrito")) || [];
+            const numero = "573154380079";
+
+            if (cart.length === 0) {
+              alert("Tu carrito está vacío.");
+              return;
+            }
+
+            let mensaje = "🛍️ *Resumen de tu pedido* 💕\n\n";
+            cart.forEach((item) => {
+              const subtotal = item.precio * item.cantidad;
+              mensaje += `*${item.nombre}*\nCantidad: ${
+                item.cantidad
+              }\nPrecio unitario: $${item.precio.toLocaleString()}\nSubtotal: $${subtotal.toLocaleString()}\n\n`;
+            });
+
+            const total = cart.reduce(
+              (acc, item) => acc + item.precio * item.cantidad,
+              0
+            );
+            mensaje += `💰 *Total a pagar:* $${total.toLocaleString()}\n\n✅ Gracias por tu compra 💖✨`;
+
+            const msg = encodeURIComponent(mensaje);
+            window.open(`https://wa.me/${numero}?text=${msg}`, "_blank");
+          }
         });
 
-        const total = cart.reduce((acc, item) => acc + item.precio * item.cantidad, 0);
-        mensaje += `💰 *Total a pagar:* $${total.toLocaleString()}\n\n✅ Gracias por tu compra 💖✨`;
+        // ✅ Inicializar
+        renderResumenPedido();
+        renderDetalle();
+        setupAddToCartListeners();
+        actualizarCarritoVisual();
 
-        const msg = encodeURIComponent(mensaje);
-        window.open(`https://wa.me/${numero}?text=${msg}`, "_blank");
-      }
-    });
-
-    // ✅ Inicializar
-    renderResumenPedido();
-    renderDetalle();
-    setupAddToCartListeners();
-    actualizarCarritoVisual();
-
-    // ✅ Desactivar botón si estamos en carrito.html
-    const carritoBtn = document.getElementById("ver-carrito");
-    if (carritoBtn && window.location.pathname.includes("carrito.html")) {
-      carritoBtn.removeAttribute("href");
-      carritoBtn.style.pointerEvents = "none";
-      carritoBtn.style.opacity = "0.5";
-      carritoBtn.style.cursor = "not-allowed";
-    }
-  });
-
-  
- 
-</script>
-<script type="module">
-    // Cargar el header global
-    fetch('../../components/headerglobal.html')
-      .then(response => response.text())
-      .then(html => {
-        document.getElementById('header').innerHTML = html;
+        // ✅ Desactivar botón si estamos en carrito.html
+        const carritoBtn = document.getElementById("ver-carrito");
+        if (carritoBtn && window.location.pathname.includes("carrito.html")) {
+          carritoBtn.removeAttribute("href");
+          carritoBtn.style.pointerEvents = "none";
+          carritoBtn.style.opacity = "0.5";
+          carritoBtn.style.cursor = "not-allowed";
+        }
       });
+    </script>
+    <script type="module">
+      // Cargar el header global
+      fetch("../../components/headerglobal.html")
+        .then((response) => response.text())
+        .then((html) => {
+          document.getElementById("header").innerHTML = html;
+        });
 
-    // Cargar y activar menú hamburguesa
-     import { cargarMenuHamburguesa } from '../../assets/js/modules/menu-loader.js';
-  cargarMenuHamburguesa();
-  </script>
-</body>
+      // Cargar y activar menú hamburguesa
+      import { cargarMenuHamburguesa } from "../../assets/js/modules/menu-loader.js";
+      cargarMenuHamburguesa();
+    </script>
 
+    <script type="module" src="../../assets/js/main.js"></script>
+  </body>
 </html>
