@@ -26,7 +26,32 @@
   <div id="toast" class="toast"></div>
   <nav id="header"></nav>
 
-  
+  <aside class="product-detail" id="product-detail">
+      <a href="./hogar.html"
+        ><img
+          class="cerrar"
+          src="../../assets/icon/icon_close.png"
+          alt="Volver"
+      /></a>
+      <div class="title-container">
+        <p class="title">Resumen del pedido</p>
+      </div>
+
+      <!-- Carrito -->
+      <div class="my-order-content" id="cart-content"></div>
+
+      <!-- Botón WhatsApp
+    <div class="verificar">
+      <a href="#" class="btn-whatsapp" id="btn-whatsapp">WhatsApp</a>
+    </div> -->
+
+      <!-- Botón Ver Carrito -->
+      <div class="verificar">
+        <a href="../cart/carrito.html" class="btn-carrito" id="btn-carrito"
+          >Ver Carrito</a
+        >
+      </div>
+    </aside>
 
   <div class="coming-soon">
     <h1>🏠 Muy pronto</h1>
@@ -34,6 +59,7 @@
   </div>
 
  
+    <div class="card-container" id="card-container"></div>
   <script type="module">
     // Cargar el header global
     fetch('../../components/headerglobal.html')
@@ -47,7 +73,7 @@
   cargarMenuHamburguesa();
   </script>
 
-
+ <script type="module" src="../../assets/js/main.js"></script>
 </body>
 </html>
 
