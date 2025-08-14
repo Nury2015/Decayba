@@ -302,24 +302,28 @@ body {
 
   .my-order-container {
     width: 17rem;
-    padding: 40px 40px;
+    padding: 10px 40px;
   }
-
   .contenedor-carrito {
     flex-direction: column;
   }
-
 
   .mini-cards {
     grid-template-columns: repeat(auto-fill, 140px);
   }
 
-
   .mini-cards img {
     width: 100%;
     height: 140px;
-
   }
 
+.cabecera{
+  width: 331px;
+}
 
+.order{
+  margin-top: 0;
+  margin-left: 40px;
+  height: 407px;
+}
 }
