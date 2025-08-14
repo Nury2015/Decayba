@@ -50,7 +50,10 @@
           </div>
         </div>
       </div>
+      <div>
+        
       <div class="order" id="resumen"></div>
+      </div>
     </div>
 
     <div class="my-order-content" id="sugerencia"></div>
@@ -101,20 +104,31 @@
     }
 
     // --- Resumen basado SOLO en seleccionados ---
-    function renderResumenSeleccionados() {
-      const subtotal = listaSeleccionados.reduce(
-        (acc, item) => acc + item.precio * item.cantidad,
-        0
-      );
-      const envio = subtotal >= 70000 ? 0 : 8000;
-      const total = subtotal + envio;
+ function renderResumenSeleccionados() {
+  const subtotal = listaSeleccionados.reduce(
+    (acc, item) => acc + item.precio * item.cantidad,
+    0
+  );
 
-      resumen.innerHTML = `
-        <div class="resumen-box">
-          <p><strong>Subtotal:</strong> $${subtotal.toLocaleString()}</p>
-          <p><strong>Envío:</strong> $${envio.toLocaleString()}</p>
-          <p><strong>Total:</strong> $${total.toLocaleString()}</p>
-        </div>
+  let envio = 0;
+  let total = subtotal;
+
+  if (subtotal > 0) {
+    envio = subtotal >= 50000 ? 0 : 15000;
+    total += envio;
+  }
+
+  resumen.innerHTML = `
+  <h2 class="resumen-titulo"> Resumen del pedido 🛍️</h2>
+    <div class="resumen-box">
+      <p><strong>Subtotal:</strong> $${subtotal.toLocaleString()}</p>
+      <p><strong>Envío:</strong> $${envio.toLocaleString()}</p>
+      <p><strong>Total:</strong> $${total.toLocaleString()}</p>
+    </div>
+
+    ${
+      subtotal > 0
+        ? `
         <div class="verificar">
           <a 
             href="https://wa.me/573154380079?text=Hola%2C%20quiero%20realizar%20mi%20pedido%20por%20un%20total%20de%20$${total.toLocaleString()}"
@@ -124,9 +138,12 @@
           >
             Ir a WhatsApp
           </a>
-        </div>
-      `;
+        </div>`
+        : ""
     }
+  `;
+}
+
 
     // Mantener selección consistente tras renders / cambios de carrito
     function reconcileSeleccionadosConCarrito() {
@@ -188,28 +205,35 @@
 
     // Render lista de ítems
     function renderItems() {
-      const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-      listShopping.innerHTML = "";
-      sugerencia.innerHTML = "";
+  const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+  listShopping.innerHTML = "";
+  sugerencia.innerHTML = "";
 
-      if (carrito.length === 0) {
-        sugerencia.innerHTML = showEmptyCart();
-        // Limpia selección y resumen si queda vacío
-        listaSeleccionados = [];
-        selectAllFlag = false;
-        renderResumenSeleccionados();
-        syncCheckmarks();
-        return;
-      }
+  if (carrito.length === 0) {
+    // Mostrar imagen carrito vacío
+    sugerencia.innerHTML = showEmptyCart();
 
-      showFullCart();
-      carrito.forEach((item, index) => renderCartItem(item, index));
+    // Limpia selección y resumen si queda vacío
+    listaSeleccionados = [];
+    selectAllFlag = false;
 
-      // Reconciliar selección y pintar estados
-      reconcileSeleccionadosConCarrito();
-      syncCheckmarks();
-      renderResumenSeleccionados();
-    }
+    // Ocultar y limpiar resumen
+    resumen.innerHTML = "";
+    resumen.style.display = "none";
+
+    return;
+  }
+
+  // Si hay productos, mostramos todo
+  showFullCart();
+  resumen.style.display = "block"; // aseguramos que reaparezca
+  carrito.forEach((item, index) => renderCartItem(item, index));
+
+  reconcileSeleccionadosConCarrito();
+  syncCheckmarks();
+  renderResumenSeleccionados();
+}
+
 
     // --- Delegación de eventos ---
     // Cambios en cada checkbox de producto
