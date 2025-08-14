@@ -58,9 +58,13 @@
     <div class="card-container" id="card-container"></div>
 
     <script>
+
+      window.listaSeleccionados = [];
       document.addEventListener("DOMContentLoaded", () => {
         let cart = JSON.parse(localStorage.getItem("carrito")) || [];
-
+  // Estado global
+  let listaSeleccionados = [];
+  let selectAllFlag = true; // iniciar con todo seleccionado
         const sugerencia = document.getElementById("sugerencia");
         const graciasCompra = document.getElementById("gracias-compra");
         const btnWhatsapp = document.getElementById("btn-whatsapp");
@@ -70,176 +74,47 @@
         const productosDisponibles =
           JSON.parse(localStorage.getItem("productosDisponibles")) || [];
 
-        listShopping.innerHTML = "";
+    
 
-        // ✅ Mostrar carrito vacío
-        function showEmptyCart() {
-          myOrder.style.display = "none";
-          if (graciasCompra) graciasCompra.style.display = "none";
-          if (btnWhatsapp) btnWhatsapp.style.display = "none";
-          return `
+
+ 
+
+    // --- Utilidades UI ---
+    function showEmptyCart() {
+      myOrder.style.display = "none";
+      if (graciasCompra) graciasCompra.style.display = "none";
+      return `
         <div style="text-align:center;margin-top:2rem;">
           <img src="../../assets/img/carritoVacio.png" alt="Carrito vacío" style="max-width:100px;">
           <p>Tu carrito está vacío</p>
         </div>`;
-        }
+    }
+    function showFullCart() {
+      myOrder.style.display = "block";
+      if (graciasCompra) graciasCompra.style.display = "block";
+    }
+    function actualizarCarritoVisual() {
+      const cartCountDiv = document.querySelector(".navbar-shopping-cart div");
+      const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+      const totalItems = carrito.reduce((acc, item) => acc + item.cantidad, 0);
+      if (cartCountDiv) cartCountDiv.textContent = totalItems;
+    }
 
-        // ✅ Mostrar carrito lleno
-        function showFullCart() {
-          myOrder.style.display = "block";
-          if (graciasCompra) graciasCompra.style.display = "block";
-          if (btnWhatsapp) btnWhatsapp.style.display = "flex";
-        }
+    // --- Resumen basado SOLO en seleccionados ---
+    function renderResumenSeleccionados() {
+      const subtotal = listaSeleccionados.reduce(
+        (acc, item) => acc + item.precio * item.cantidad,
+        0
+      );
+      const envio = subtotal >= 70000 ? 0 : 8000;
+      const total = subtotal + envio;
 
-        // ✅ Actualiza el contador del carrito en el header
-        function actualizarCarritoVisual() {
-          const cartCountDiv = document.querySelector(
-            ".navbar-shopping-cart div"
-          );
-          const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-          const totalItems = carrito.reduce(
-            (acc, item) => acc + item.cantidad,
-            0
-          );
-          if (cartCountDiv) cartCountDiv.textContent = totalItems;
-        }
-
-        // ✅ Renderiza el detalle del carrito
-        function renderDetalle() {
-          const cart = JSON.parse(localStorage.getItem("carrito")) || [];
-          sugerencia.innerHTML = "";
-          listShopping.innerHTML = "";
-
-          setupRemoveListeners();
-
-          if (cart.length === 0) {
-            sugerencia.innerHTML = showEmptyCart();
-            return;
-          }
-
-          showFullCart();
-
-          let total = 0;
-          const hoy = new Date();
-          const fecha = hoy.toLocaleDateString("es-CO");
-          const totalArticulos = cart.reduce(
-            (acc, item) => acc + item.cantidad,
-            0
-          );
-
-          cart.forEach((item, index) => {
-            total += renderCartItem(item, index);
-          });
-
-          renderTotalCart(total);
-          // renderOrderSummary(fecha, totalArticulos);
-          renderResumenPedido();
-
-          // Checkbox "Seleccionar todo"
-          const selectAll = document.getElementById("select-all");
-          if (selectAll) {
-            selectAll.checked = false;
-            selectAll.addEventListener("change", function () {
-              const itemCheckboxes = document.querySelectorAll(
-                'input[type="checkbox"][name="item"]'
-              );
-              itemCheckboxes.forEach((cb) => (cb.checked = this.checked));
-            });
-          }
-        }
-
-        // ✅ Escucha clics para agregar productos
-        function setupAddToCartListeners() {
-          document.addEventListener("click", function (event) {
-            const addToCartBtn = event.target.closest(".agregar-al-carrito");
-            if (addToCartBtn) {
-              event.preventDefault();
-              setTimeout(() => {
-                renderDetalle();
-                actualizarCarritoVisual();
-              }, 100);
-            }
-          });
-        }
-
-        // ✅ Escucha clics para eliminar productos
-        function setupRemoveListeners() {
-          document.addEventListener("click", function (event) {
-            const removeBtn = event.target.closest(".btn-remove");
-            if (removeBtn) {
-              event.preventDefault();
-              setTimeout(() => {
-                renderDetalle();
-                actualizarCarritoVisual();
-              }, 100);
-            }
-          });
-        }
-
-        // ✅ Renderiza un producto en el carrito
-        function renderCartItem(item, index) {
-          const subtotal = item.precio * item.cantidad;
-          const itemElement = document.createElement("div");
-          itemElement.classList.add("shopping-cart");
-
-          const ruta = window.location.pathname;
-          const rutaFinal =
-            ruta.includes("index.html") ||
-            ruta === "/" ||
-            ruta.includes("Decayba")
-              ? item.img.replace("../..", "./src")
-              : item.img.replace("./src", "../..");
-
-          itemElement.innerHTML = `
-        <label class="label-product">   
-          <input type="checkbox" name="item" value="${
-            item.nombre
-          }" data-index="${index}">
-          <figure>
-            <img src="${rutaFinal}" alt="${item.nombre}">
-          </figure>
-          <div class="inf-product">
-            <p><strong>${item.nombre}</strong></p>
-            <p>Subtotal: $${subtotal.toLocaleString()}</p>
-            <small>($${item.precio.toLocaleString()} c/u × ${
-            item.cantidad
-          })</small>
-          </div>
-          <img src="../../../src/assets/icon/icon_close.png" alt="Eliminar" 
-               data-index="${index}" class="btn-remove">
-        </label>
-      `;
-
-          listShopping.appendChild(itemElement);
-          return subtotal;
-        }
-
-        // ✅ Renderiza total
-        function renderTotalCart(total) {
-          const totalDiv = document.createElement("div");
-          totalDiv.classList.add("shopping-cart-total");
-          totalDiv.innerHTML = `<p><strong>Total: $${total.toLocaleString()}</strong></p>`;
-          listShopping.appendChild(totalDiv);
-        }
-
-        // ✅ Renderiza resumen derecha con subtotal, envío, total y botón WhatsApp
-        function renderResumenPedido() {
-          const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-
-          const subtotal = carrito.reduce(
-            (acc, item) => acc + item.precio * item.cantidad,
-            0
-          );
-          const envio = subtotal >= 50000 ? 0 : 8000;
-          const total = subtotal + envio;
-
-          resumen.innerHTML = `
+      resumen.innerHTML = `
         <div class="resumen-box">
           <p><strong>Subtotal:</strong> $${subtotal.toLocaleString()}</p>
           <p><strong>Envío:</strong> $${envio.toLocaleString()}</p>
           <p><strong>Total:</strong> $${total.toLocaleString()}</p>
         </div>
-
         <div class="verificar">
           <a 
             href="https://wa.me/573154380079?text=Hola%2C%20quiero%20realizar%20mi%20pedido%20por%20un%20total%20de%20$${total.toLocaleString()}"
@@ -251,69 +126,212 @@
           </a>
         </div>
       `;
-        }
+    }
 
-        // ✅ WhatsApp con mensaje detallado
-        document.addEventListener("click", function (e) {
-          const target = e.target.closest("#btn-whatsapp");
-          if (target) {
-            e.preventDefault();
-            const cart = JSON.parse(localStorage.getItem("carrito")) || [];
-            const numero = "573154380079";
+    // Mantener selección consistente tras renders / cambios de carrito
+    function reconcileSeleccionadosConCarrito() {
+      const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+      const nombres = new Set(carrito.map(i => i.nombre));
+      // Quita seleccionados que ya no existan
+      listaSeleccionados = listaSeleccionados.filter(p => nombres.has(p.nombre));
+      // Si select-all está activo, selecciona todo
+      if (selectAllFlag) listaSeleccionados = [...carrito];
+    }
 
-            if (cart.length === 0) {
-              alert("Tu carrito está vacío.");
-              return;
-            }
-
-            let mensaje = "🛍️ *Resumen de tu pedido* 💕\n\n";
-            cart.forEach((item) => {
-              const subtotal = item.precio * item.cantidad;
-              mensaje += `*${item.nombre}*\nCantidad: ${
-                item.cantidad
-              }\nPrecio unitario: $${item.precio.toLocaleString()}\nSubtotal: $${subtotal.toLocaleString()}\n\n`;
-            });
-
-            const total = cart.reduce(
-              (acc, item) => acc + item.precio * item.cantidad,
-              0
-            );
-            mensaje += `💰 *Total a pagar:* $${total.toLocaleString()}\n\n✅ Gracias por tu compra 💖✨`;
-
-            const msg = encodeURIComponent(mensaje);
-            window.open(`https://wa.me/${numero}?text=${msg}`, "_blank");
-          }
-        });
-
-        // ✅ Inicializar
-        renderResumenPedido();
-        renderDetalle();
-        setupAddToCartListeners();
-        actualizarCarritoVisual();
-
-        // ✅ Desactivar botón si estamos en carrito.html
-        const carritoBtn = document.getElementById("ver-carrito");
-        if (carritoBtn && window.location.pathname.includes("carrito.html")) {
-          carritoBtn.removeAttribute("href");
-          carritoBtn.style.pointerEvents = "none";
-          carritoBtn.style.opacity = "0.5";
-          carritoBtn.style.cursor = "not-allowed";
-        }
+    // Sincroniza checkboxes e "indeterminate" del select-all según listaSeleccionados
+    function syncCheckmarks() {
+      const checkboxes = document.querySelectorAll('input[name="item"]');
+      const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+      checkboxes.forEach(cb => {
+        const idx = parseInt(cb.dataset.index);
+        const item = carrito[idx];
+        cb.checked = !!item && listaSeleccionados.some(p => p.nombre === item.nombre);
       });
-    </script>
-    <script type="module">
-      // Cargar el header global
-      fetch("../../components/headerglobal.html")
-        .then((response) => response.text())
-        .then((html) => {
-          document.getElementById("header").innerHTML = html;
-        });
 
-      // Cargar y activar menú hamburguesa
-      import { cargarMenuHamburguesa } from "../../assets/js/modules/menu-loader.js";
-      cargarMenuHamburguesa();
-    </script>
+      const selectAll = document.getElementById("select-all");
+      if (selectAll) {
+        const total = checkboxes.length;
+        const sel = listaSeleccionados.length;
+        selectAll.checked = total > 0 && sel === total;
+        selectAll.indeterminate = sel > 0 && sel < total;
+      }
+    }
 
-    <script type="module" src="../../assets/js/main.js"></script>
-  </body>
+    // Render de un ítem
+    function renderCartItem(item, index) {
+      const subtotal = item.precio * item.cantidad;
+      const itemElement = document.createElement("div");
+      itemElement.classList.add("shopping-cart");
+
+      const ruta = window.location.pathname;
+      const rutaFinal =
+        ruta.includes("index.html") || ruta === "/" || ruta.includes("Decayba")
+          ? item.img.replace("../..", "./src")
+          : item.img.replace("./src", "../..");
+
+      itemElement.innerHTML = `
+        <label class="label-product">   
+          <input type="checkbox" name="item" value="${item.nombre}" data-index="${index}">
+          <figure>
+            <img src="${rutaFinal}" alt="${item.nombre}">
+          </figure>
+          <div class="inf-product">
+            <p><strong>${item.nombre}</strong></p>
+            <p>Subtotal: $${subtotal.toLocaleString()}</p>
+            <small>($${item.precio.toLocaleString()} c/u × ${item.cantidad})</small>
+          </div>
+          <img src="../../../src/assets/icon/icon_close.png" alt="Eliminar" data-index="${index}" class="btn-remove">
+        </label>
+      `;
+      listShopping.appendChild(itemElement);
+    }
+
+    // Render lista de ítems
+    function renderItems() {
+      const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+      listShopping.innerHTML = "";
+      sugerencia.innerHTML = "";
+
+      if (carrito.length === 0) {
+        sugerencia.innerHTML = showEmptyCart();
+        // Limpia selección y resumen si queda vacío
+        listaSeleccionados = [];
+        selectAllFlag = false;
+        renderResumenSeleccionados();
+        syncCheckmarks();
+        return;
+      }
+
+      showFullCart();
+      carrito.forEach((item, index) => renderCartItem(item, index));
+
+      // Reconciliar selección y pintar estados
+      reconcileSeleccionadosConCarrito();
+      syncCheckmarks();
+      renderResumenSeleccionados();
+    }
+
+    // --- Delegación de eventos ---
+    // Cambios en cada checkbox de producto
+    document.addEventListener("change", (e) => {
+      if (e.target && e.target.name === "item") {
+        const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+        const idx = parseInt(e.target.dataset.index);
+        const item = carrito[idx];
+        if (!item) return;
+
+        if (e.target.checked) {
+          if (!listaSeleccionados.some(p => p.nombre === item.nombre)) {
+            listaSeleccionados.push({ ...item });
+          }
+        } else {
+          listaSeleccionados = listaSeleccionados.filter(p => p.nombre !== item.nombre);
+        }
+
+        // Actualiza estado del select-all
+        const total = document.querySelectorAll('input[name="item"]').length;
+        selectAllFlag = (listaSeleccionados.length === total && total > 0);
+
+        renderResumenSeleccionados();
+        syncCheckmarks();
+      }
+    });
+
+    // Seleccionar todo
+    document.addEventListener("change", (e) => {
+      if (e.target && e.target.id === "select-all") {
+        const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+        selectAllFlag = e.target.checked;
+        listaSeleccionados = selectAllFlag ? [...carrito] : [];
+        // Marcar visualmente todos
+        document.querySelectorAll('input[name="item"]').forEach(cb => cb.checked = selectAllFlag);
+        renderResumenSeleccionados();
+        syncCheckmarks();
+      }
+    });
+
+    // Agregar desde sugerencias (o donde uses .agregar-al-carrito)
+    function setupAddToCartListeners() {
+      document.addEventListener("click", function (event) {
+        const addToCartBtn = event.target.closest(".agregar-al-carrito");
+        if (!addToCartBtn) return;
+        event.preventDefault();
+        setTimeout(() => {
+          renderItems();              // reconstruye la lista
+          actualizarCarritoVisual();  // contador en header
+        }, 100);
+      });
+    }
+
+    // Eliminar con la X (asumiendo que tu lógica de borrado ya actualiza localStorage)
+    function setupRemoveListeners() {
+      document.addEventListener("click", function (event) {
+        const removeBtn = event.target.closest(".btn-remove");
+        if (!removeBtn) return;
+        event.preventDefault();
+        setTimeout(() => {
+          renderItems();              // reconstruye la lista
+          actualizarCarritoVisual();  // contador en header
+        }, 100);
+      });
+    }
+
+    // WhatsApp (igual que lo tenías, envía TODO el carrito; si deseas, luego lo paso a solo seleccionados)
+    document.addEventListener("click", function (e) {
+      const target = e.target.closest("#btn-whatsapp");
+      if (!target) return;
+
+      e.preventDefault();
+      const cart = JSON.parse(localStorage.getItem("carrito")) || [];
+      const numero = "573154380079";
+
+      if (cart.length === 0) {
+        alert("Tu carrito está vacío.");
+        return;
+      }
+
+      let mensaje = "🛍️ *Resumen de tu pedido* 💕\n\n";
+      cart.forEach((item) => {
+        const subtotal = item.precio * item.cantidad;
+        mensaje += `*${item.nombre}*\nCantidad: ${item.cantidad}\nPrecio unitario: $${item.precio.toLocaleString()}\nSubtotal: $${subtotal.toLocaleString()}\n\n`;
+      });
+
+      const total = cart.reduce((acc, item) => acc + item.precio * item.cantidad, 0);
+      mensaje += `💰 *Total a pagar:* $${total.toLocaleString()}\n\n✅ Gracias por tu compra 💖✨`;
+
+      const msg = encodeURIComponent(mensaje);
+      window.open(`https://wa.me/${numero}?text=${msg}`, "_blank");
+    });
+
+    // --- Inicialización ---
+    renderItems();                // pinta la lista y selecciona todo de entrada
+    setupAddToCartListeners();    // reacciona al agregar
+    setupRemoveListeners();       // reacciona al eliminar
+    actualizarCarritoVisual();    // contador del header
+
+    // Desactivar botón si estamos en carrito.html (como lo tenías)
+    const carritoBtn = document.getElementById("ver-carrito");
+    if (carritoBtn && window.location.pathname.includes("carrito.html")) {
+      carritoBtn.removeAttribute("href");
+      carritoBtn.style.pointerEvents = "none";
+      carritoBtn.style.opacity = "0.5";
+      carritoBtn.style.cursor = "not-allowed";
+    }
+  });
+</script>
+
+
+  <script type="module">
+    fetch("../../components/headerglobal.html")
+      .then((response) => response.text())
+      .then((html) => {
+        document.getElementById("header").innerHTML = html;
+      });
+
+    import { cargarMenuHamburguesa } from "../../assets/js/modules/menu-loader.js";
+    cargarMenuHamburguesa();
+  </script>
+
+  <script type="module" src="../../assets/js/main.js"></script>
+</body>
 </html>
