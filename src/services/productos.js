@@ -58,7 +58,7 @@ export const productos = [
           valor: "$20.000",
           imagen: "./src/assets/img/pulpo/principal.webp",
           descripcion:
-            "Juguete para Perros de Pato Peluche con Sonido - Resistente al Mordisco, Juguete Suave para Masticar para Razas Medianas y Pequeñas con efectos de Sonido Interactivos, Ideal para Jugar y Entrenamiento, Juguetes para Perros",
+            "Juguete para Perros de pulpo Peluche con Sonido - Resistente al Mordisco, Juguete Suave para Masticar para Razas Medianas y Pequeñas con efectos de Sonido Interactivos, Ideal para Jugar y Entrenamiento, Juguetes para Perros",
           stock: 1,
           categoria: "mascotas",
           imgs: [
@@ -156,7 +156,7 @@ export const productos = [
           valor: "$15.000",
           imagen: "./src/assets/img/Pelotas/Principal.webp",
           descripcion:
-            "3 piezas de juguetes de pelota para perros, juguete de goma resistente y sonoro para mascotas, no tóxico y masticable, juego interactivo y salud dental, sin necesidad de batería para razas pequeñas",
+            "1 pieza de juguete de pelota para perros, juguete de goma resistente y sonoro para mascotas, no tóxico y masticable, juego interactivo y salud dental, sin necesidad de batería para razas pequeñas",
           stock: 1,
           categoria: "mascotas",
           imgs: [
