@@ -70,7 +70,7 @@ function renderCart2() {
           <input type="number" min="1" value="${item.cantidad}" data-index="${index}" class="input-cantidad">
         </label>
       </div>
-      <img src="../../../src/assets/icon/icon_close.png" alt="Eliminar" data-index="${index}" class="btn-remove">
+      <img src="/Decayba/src/assets/icon/icon_close.png" alt="Eliminar" data-index="${index}" class="btn-remove">
     `;
     cartContent.appendChild(div);
   });
