@@ -11,8 +11,10 @@ export function renderCart() {
     console.log(ruta)
     const rutaFinal = (ruta.includes("index.html") || ruta === "/" || ruta.includes("Decayba")) ? 
           item.imagen : item.imagen.replace("./src", "../..");
+    console.log(rutaFinal)      
     const rutaCarritoImg =  (ruta.includes("index.html") || ruta === "/" || ruta.includes("Decayba")) ? 
           "./src/assets/icon/bt_add_to_cart.svg" : "../../assets/icon/bt_add_to_cart.svg";
+    console.log(rutaCarritoImg)
     div.classList.add("product-card");
     div.innerHTML = `
       <a onclick='verDetalleProducto(${JSON.stringify(item)})'>
