@@ -32,7 +32,8 @@ export function agregarAlCarrito(nombre, precio, img, cantidad = 1) {
 export function actualizarCarritoVisual() {
   const contador = document.querySelector(".navbar-shopping-cart div");
   const total = carrito.reduce((acc, item) => acc + item.cantidad, 0);
-  //contador.textContent = total;
+  if (contador)
+    contador.textContent = total;
 
   //renderCart2();
 }
