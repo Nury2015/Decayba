@@ -9,11 +9,9 @@ export function renderCart() {
     const div = document.createElement("div");
     const ruta = window.location.pathname;
     console.log(ruta)
-    const rutaFinal = (ruta.includes("index.html") || ruta === "/" || ruta.includes("Decayba")) ? 
-          item.imagen : item.imagen.replace("./src", "/Decayba/src");
+    const rutaFinal = item.imagen.replace("./src", "/Decayba/src");
     console.log(rutaFinal)      
     const rutaCarritoImg = "/Decayba/src/assets/icon/bt_add_to_cart.svg"
-    console.log(rutaCarritoImg)
     div.classList.add("product-card");
     div.innerHTML = `
       <a onclick='verDetalleProducto(${JSON.stringify(item)})'>
