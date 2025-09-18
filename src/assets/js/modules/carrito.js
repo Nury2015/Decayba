@@ -55,7 +55,7 @@ function renderCart2() {
     const ruta = window.location.pathname;
     console.log(ruta)
     const rutaFinal = (ruta.includes("index.html") || ruta === "/" || ruta.includes("Decayba")) ? 
-          item.img.replace("../..", "./src") : item.img.replace("./src", "../..");
+          item.img.replace("../..", "./src") : item.img.replace("./src", "/Decayba/src");
     console.log(rutaFinal)      
     const div = document.createElement("div");
     div.classList.add("shopping-cart");

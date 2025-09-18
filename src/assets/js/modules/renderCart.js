@@ -10,7 +10,7 @@ export function renderCart() {
     const ruta = window.location.pathname;
     console.log(ruta)
     const rutaFinal = (ruta.includes("index.html") || ruta === "/" || ruta.includes("Decayba")) ? 
-          item.imagen : item.imagen.replace("./src", "../..");
+          item.imagen : item.imagen.replace("./src", "/Decayba/src");
     console.log(rutaFinal)      
     const rutaCarritoImg = "/Decayba/src/assets/icon/bt_add_to_cart.svg"
     console.log(rutaCarritoImg)
