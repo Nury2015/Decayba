@@ -52,11 +52,7 @@ function renderCart2() {
   }
 
   carrito.forEach((item, index) => {
-    const ruta = window.location.pathname;
-    console.log(ruta)
-    const rutaFinal = (ruta.includes("index.html") || ruta === "/" || ruta.includes("Decayba")) ? 
-          item.img.replace("../..", "./src") : item.img.replace("./src", "/Decayba/src");
-    console.log(rutaFinal)      
+    const rutaFinal = item.imagen.replace("./src", "/Decayba/src");    
     const div = document.createElement("div");
     div.classList.add("shopping-cart");
     div.innerHTML = `

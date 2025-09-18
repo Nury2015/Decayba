@@ -7,10 +7,7 @@ export function renderCart() {
 
   productos.forEach((item) => {
     const div = document.createElement("div");
-    const ruta = window.location.pathname;
-    console.log(ruta)
     const rutaFinal = item.imagen.replace("./src", "/Decayba/src");
-    console.log(rutaFinal)      
     const rutaCarritoImg = "/Decayba/src/assets/icon/bt_add_to_cart.svg"
     div.classList.add("product-card");
     div.innerHTML = `
