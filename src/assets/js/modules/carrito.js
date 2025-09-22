@@ -35,7 +35,7 @@ export function actualizarCarritoVisual() {
   if (contador)
     contador.textContent = total;
 
-  //renderCart2();
+  renderCart2();
 }
 
 // ----------------- RENDER DEL CARRITO -----------------
@@ -147,10 +147,10 @@ if (btnCarrito) {
         const productos = obtenerListaDeProductos();
         localStorage.setItem("productosDisponibles", JSON.stringify(productos));
         productDetail.style.display = "block";
-        renderCart2();
       }
     }
   });
+renderCart2();
 }
 
 // ----------------- EVENTO ELIMINAR PRODUCTO -----------------
