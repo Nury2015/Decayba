@@ -1,6 +1,6 @@
-import { renderCart } from "/Decayba/src/js/modules/renderCart.js";
-import { actualizarCarritoVisual } from "/Decayba/src/js/modules/carrito.js";
-import { verDetalleProducto } from "/Decayba/src/js/modules/detalleProducto.js";
+import { renderCart } from "/Decayba/src/assets/js/modules/renderCart.js";
+import { actualizarCarritoVisual } from "/Decayba/src/assets/js/modules/carrito.js";
+import { verDetalleProducto } from "/Decayba/src/js/assets/modules/detalleProducto.js";
 
 
 document.addEventListener("DOMContentLoaded", () => {
