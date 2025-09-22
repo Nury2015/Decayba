@@ -53,7 +53,7 @@ function renderCart2() {
 
   carrito.forEach((item, index) => {
     //const rutaFinal = item.imagen.replace("./src", "/Decayba/src");    
-    const rutaFinal = item.imagen;   
+    const rutaFinal = item.img;   
     console.log(rutaFinal)
     const div = document.createElement("div");
     div.classList.add("shopping-cart");
