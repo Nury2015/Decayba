@@ -1,4 +1,4 @@
-import { productos } from "/Decayba/src/services/productos";
+import { productos } from "/Decayba/src/services/productos.js";
 
 const cartContent = document.getElementById("card-container");
    
