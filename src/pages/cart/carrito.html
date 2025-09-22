@@ -346,16 +346,16 @@
 
 
   <script type="module">
-    fetch("../../components/headerglobal.html")
+    fetch("/Decayba/src/components/headerglobal.html")
       .then((response) => response.text())
       .then((html) => {
         document.getElementById("header").innerHTML = html;
       });
 
-    import { cargarMenuHamburguesa } from "../../assets/js/modules/menu-loader.js";
+    import { cargarMenuHamburguesa } from "/Decayba/src/assets/js/modules/menu-loader.js";
     cargarMenuHamburguesa();
   </script>
 
-  <script type="module" src="../../assets/js/main.js"></script>
+  <script type="module" src="/Decayba/src/assets/js/main.js"></script>
 </body>
 </html>

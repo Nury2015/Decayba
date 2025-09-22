@@ -55,19 +55,19 @@
 
     <!-- Botón Ver Carrito -->
     <div class="verificar">
-      <a href="../cart/carrito.html" class="btn-carrito" id="btn-carrito">Ver Carrito</a>
+      <a href="/Decayba/src/pages/cart/carrito.html" class="btn-carrito" id="btn-carrito">Ver Carrito</a>
     </div>
 
   </aside>
   
   <script>
-    fetch('../../components/headerglobal.html')
+    fetch('/Decayba/src/components/headerglobal.html')
       .then(response => response.text())
       .then(async html => {
         document.getElementById('header').innerHTML = html;
       });
   </script>
-  <script type="module" src="../../assets/js/main.js"></script>
+  <script type="module" src="/Decayba/src/assets/js/main.js"></script>
   <script>
 
     const cart = JSON.parse(localStorage.getItem('carrito')) || [];
