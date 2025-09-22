@@ -5,65 +5,63 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Juguetes</title>
-    
 
-    <link rel="stylesheet" href="../../assets/css/global.css" />
-    <link rel="stylesheet" href="../../assets/css/juguetes.css" />
-    <link rel="stylesheet" href="../../assets/css/header.css" />
-    <link rel="stylesheet" href="../../assets/css/home.css" />
-    <link rel="stylesheet" href="../../assets/css/footer.css" />
-    <link rel="stylesheet" href="../../assets/css/carrito.css" />
-    <link rel="stylesheet" href="../../assets/css/tituloSugerencias.css">
-    <link rel="stylesheet" href="../../assets/css/home.css">
-    <link rel="stylesheet" href="../../assets/css/detalleprod.css" />
-  
-    
-    <link rel="stylesheet" href="../../assets/css/mobile.css">
+
+  <link rel="stylesheet" href="../../assets/css/global.css" />
+  <link rel="stylesheet" href="../../assets/css/juguetes.css" />
+  <link rel="stylesheet" href="../../assets/css/header.css" />
+  <link rel="stylesheet" href="../../assets/css/home.css" />
+  <link rel="stylesheet" href="../../assets/css/footer.css" />
+  <link rel="stylesheet" href="../../assets/css/carrito.css" />
+  <link rel="stylesheet" href="../../assets/css/tituloSugerencias.css">
+  <link rel="stylesheet" href="../../assets/css/home.css">
+  <link rel="stylesheet" href="../../assets/css/detalleprod.css" />
+  <link rel="stylesheet" href="../../assets/css/mobile.css">
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet" />
-  
+
 </head>
 
 <body>
 
- <!-- Contenedor del menú hamburguesa -->
+  <!-- Contenedor del menú hamburguesa -->
   <div id="contenedor-hamburguesa"></div>
 
   <!-- Contenedor del header global -->
   <div id="contenedor-menu"></div>
   <div id="toast" class="toast"></div>
   <nav id="header"></nav>
- <aside class="product-detail" id="product-detail">
-      <a href="./juguetes.html"
-        ><img
-          class="cerrar"
-          src="../../assets/icon/icon_close.png"
-          alt="Volver"
-      /></a>
-      <div class="title-container">
-        <p class="title">Resumen del pedido</p>
-      </div>
 
-      <!-- Carrito -->
-      <div class="my-order-content" id="cart-content"></div>
+  <aside class="product-detail" id="product-detail">
+    <a href="./juguetes.html"><img class="cerrar" src="../../assets/icon/icon_close.png" alt="Volver" /></a>
+    <div class="title-container">
+      <p class="title">Resumen del pedido</p>
+    </div>
 
-      <!-- Botón WhatsApp
+    <!-- Carrito -->
+    <div class="my-order-content" id="cart-content"></div>
+
+    <!-- Botón WhatsApp
     <div class="verificar">
       <a href="#" class="btn-whatsapp" id="btn-whatsapp">WhatsApp</a>
     </div> -->
 
-      <!-- Botón Ver Carrito -->
-      <div class="verificar">
-        <a href="../cart/carrito.html" class="btn-carrito" id="btn-carrito"
+    <!-- Botón Ver Carrito -->
+     <div class="verificar">
+        <a
+          href="/Decayba/src/pages/cart/carrito.html"
+          class="btn-carrito"
+          id="btn-carrito"
           >Ver Carrito</a
         >
       </div>
-    </aside>
+  </aside>
   <div class="coming-soon">
     <h1>🧸 Muy pronto</h1>
     <p>Estamos preparando una sección con juguetes y diversión para todos.</p>
   </div>
   <h2 class="sugerencias-titulo">Algunas sugerencias para ti</h2>
-<div class="card-container" id="card-container"></div>
+  <div class="card-container" id="card-container"></div>
+  
   <script type="module">
     // Cargar el header global
     fetch('/Decayba/src/components/headerglobal.html')
@@ -73,12 +71,11 @@
       });
 
     // Cargar y activar menú hamburguesa
-     import { cargarMenuHamburguesa } from '/Decayba/src/assets/js/modules/menu-loader.js';
-  cargarMenuHamburguesa();
+    import { cargarMenuHamburguesa } from '/Decayba/src/assets/js/modules/menu-loader.js';
+    cargarMenuHamburguesa();
   </script>
- <script type="module" src="/Decayba/src/assets/js/main.js"></script>
-  </body>
+  <script type="module" src="/Decayba/src/assets/js/main.js"></script>
 </body>
+</body>
+
 </html>
-
-

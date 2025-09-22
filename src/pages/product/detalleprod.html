@@ -1,101 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detalles del producto</title>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Detalles del producto</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../assets/css/global.css" />
-  <link rel="stylesheet" href="../../assets/css/header.css" />
-  <link rel="stylesheet" href="../../assets/css/home.css" />
-  <link rel="stylesheet" href="../../assets/css/footer.css" />
-  <link rel="stylesheet" href="../../assets/css/detalleprod.css" />
-  <link rel="stylesheet" href="../../assets/css/carrito.css" />
- <link rel="stylesheet" href="../../assets/css/tituloSugerencias.css">
- <link rel="stylesheet" href="../../assets/css/detalleprod.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/global.css" />
+    <link rel="stylesheet" href="../../assets/css/header.css" />
+    <link rel="stylesheet" href="../../assets/css/home.css" />
+    <link rel="stylesheet" href="../../assets/css/footer.css" />
+    <link rel="stylesheet" href="../../assets/css/carrito.css" />
+    <link rel="stylesheet" href="../../assets/css/tituloSugerencias.css" />
+    <link rel="stylesheet" href="../../assets/css/detalleprod.css" />
+  </head>
 
+  <body>
+    <div id="toast" class="toast"></div>
+    <nav id="header"></nav>
 
-</head>
-
-<body>
-  <div id="toast" class="toast"></div>
-  <nav id="header"></nav>
-
-  <div class="product-detaill" id="product-detaill">
-    <aside class="imagen">
-      <div class="carousel">
-        <button class="prev">&#10094;</button>
-        <div class="carousel-images" id="carousel">
+    <div class="product-detaill" id="product-detaill">
+      <aside class="imagen">
+        <div class="carousel">
+          <button class="prev">&#10094;</button>
+          <div class="carousel-images" id="carousel"></div>
+          <button class="next">&#10095;</button>
         </div>
-        <button class="next">&#10095;</button>
-      </div>
-    </aside>
-  </div>
-  <h2 class="sugerencias-titulo">Algunas sugerencias para ti</h2>
-  <div class="card-container" id="card-container"></div>
-
-  <aside class="product-detail" id="product-detail">
-    <a href="./detalleprod.html"><img class="cerrar" src="../../assets/icon/icon_close.png" alt="Volver" /></a>
-    <div class="title-container">
-
-      <p class="title">Resumen del pedido</p>
-
+      </aside>
     </div>
+    <h2 class="sugerencias-titulo">Algunas sugerencias para ti</h2>
+    <div class="card-container" id="card-container"></div>
 
-    <!-- Carrito -->
-    <div class="my-order-content" id="cart-content"></div>
+    <aside class="product-detail" id="product-detail">
+      <a href="./detalleprod.html"
+        ><img
+          class="cerrar"
+          src="../../assets/icon/icon_close.png"
+          alt="Volver"
+      /></a>
+      <div class="title-container">
+        <p class="title">Resumen del pedido</p>
+      </div>
 
-    <!-- Botón WhatsApp
+      <!-- Carrito -->
+      <div class="my-order-content" id="cart-content"></div>
+
+      <!-- Botón WhatsApp
     <div class="verificar">
       <a href="#" class="btn-whatsapp" id="btn-whatsapp">WhatsApp</a>
     </div> -->
 
-    <!-- Botón Ver Carrito -->
-    <div class="verificar">
-      <a href="/Decayba/src/pages/cart/carrito.html" class="btn-carrito" id="btn-carrito">Ver Carrito</a>
-    </div>
+      <!-- Botón Ver Carrito -->
+      <div class="verificar">
+        <a
+          href="/Decayba/src/pages/cart/carrito.html"
+          class="btn-carrito"
+          id="btn-carrito"
+          >Ver Carrito</a
+        >
+      </div>
+    </aside>
 
-  </aside>
-  
-  <script>
-    fetch('/Decayba/src/components/headerglobal.html')
-      .then(response => response.text())
-      .then(async html => {
-        document.getElementById('header').innerHTML = html;
-      });
-  </script>
-  <script type="module" src="/Decayba/src/assets/js/main.js"></script>
-  <script>
+    <script>
+      fetch("/Decayba/src/components/headerglobal.html")
+        .then((response) => response.text())
+        .then(async (html) => {
+          document.getElementById("header").innerHTML = html;
+        });
+    </script>
+    <script type="module" src="/Decayba/src/assets/js/main.js"></script>
+    <script>
+      const cart = JSON.parse(localStorage.getItem("carrito")) || [];
+      const carouselImages = document.querySelector(".carousel-images");
+      const prevBtn = document.querySelector(".prev");
+      const nextBtn = document.querySelector(".next");
+      const item =
+        JSON.parse(localStorage.getItem("productoSeleccionado")) || [];
+      const productDetail = document.getElementById("product-detaill");
+      const carrousel = document.getElementById("carousel");
 
-    const cart = JSON.parse(localStorage.getItem('carrito')) || [];
-    const carouselImages = document.querySelector('.carousel-images');
-    const prevBtn = document.querySelector('.prev');
-    const nextBtn = document.querySelector('.next');
-    const item = JSON.parse(localStorage.getItem('productoSeleccionado')) || [];
-    const productDetail = document.getElementById('product-detaill');
-    const carrousel = document.getElementById('carousel');
-
-    item.imagenes.forEach(src => {
-      const div = document.createElement("div");
-      div.classList.add("carousel-item");
-      const rutaFinal = src.replace("./src", "../..");
-      console.log(rutaFinal)
-      div.innerHTML = `
+      item.imagenes.forEach((src) => {
+        const div = document.createElement("div");
+        div.classList.add("carousel-item");
+        const rutaFinal = src.replace("./src", "../..");
+        console.log(rutaFinal);
+        div.innerHTML = `
                  <img src="${rutaFinal}" alt="carrito de compra">       
             `;
-      carrousel.appendChild(div);
-    });
+        carrousel.appendChild(div);
+      });
 
-    const images = document.querySelectorAll('.carousel-images img');
-    const ruta = window.location.pathname;
-    const rutaFinal = (ruta.includes("index.html") || ruta === "/" || ruta.includes("Decayba")) ?
-      item.imagen : item.imagen.replace("./src", "../..");
-    const div = document.createElement('aside');
-    div.classList.add('product-inf');
-    div.innerHTML = `
+      const images = document.querySelectorAll(".carousel-images img");
+      const ruta = window.location.pathname;
+      const rutaFinal =
+        ruta.includes("index.html") || ruta === "/" || ruta.includes("Decayba")
+          ? item.imagen
+          : item.imagen.replace("./src", "../..");
+      const div = document.createElement("aside");
+      div.classList.add("product-inf");
+      div.innerHTML = `
           <h2>${item.nombre}</h2>
             <p>${item.descripcion}</p>
                 <p>${item.valor}</p>
@@ -104,7 +112,7 @@
              <figure>
           <a href="#" class="agregar-al-carrito primary-button add-to-cart-button"
             data-nombre="${item.nombre}"
-            data-precio="${item.valor.replace(/\D/g, '')}"
+            data-precio="${item.valor.replace(/\D/g, "")}"
             data-img="${rutaFinal}">
             <img src="../../assets/icon/bt_add_to_cart.svg" 
             alt="add to card">
@@ -112,73 +120,72 @@
           </a>
         </figure>
           `;
-    productDetail.appendChild(div);
+      productDetail.appendChild(div);
 
-    // carrusel para celular
-    document.addEventListener("DOMContentLoaded", () => {
-      const carousel = document.querySelector('.carousel-images');
+      // carrusel para celular
+      document.addEventListener("DOMContentLoaded", () => {
+        const carousel = document.querySelector(".carousel-images");
 
-      // Solo activar si estamos en pantalla pequeña (celular)
-      function isMobile() {
-        return window.innerWidth <= 640;
+        // Solo activar si estamos en pantalla pequeña (celular)
+        function isMobile() {
+          return window.innerWidth <= 640;
+        }
+
+        let isAtEnd = false;
+
+        carousel.addEventListener("scroll", () => {
+          const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
+
+          if (
+            carousel.scrollLeft >= maxScrollLeft - 10 &&
+            isMobile() &&
+            !isAtEnd
+          ) {
+            isAtEnd = true;
+
+            // Esperar un poco antes de volver al inicio
+            setTimeout(() => {
+              carousel.scrollTo({ left: 0, behavior: "smooth" });
+              isAtEnd = false;
+            }, 1200); // puedes ajustar el tiempo aquí
+          }
+        });
+      });
+
+      let counter = 0;
+      const total = document.querySelectorAll(".carousel-images img").length;
+      nextBtn.addEventListener("click", () => {
+        counter = (counter + 1) % total;
+        updateCarousel();
+      });
+
+      prevBtn.addEventListener("click", () => {
+        counter = (counter - 1 + total) % total;
+        updateCarousel();
+      });
+
+      function updateCarousel() {
+        const size = images[0].clientWidth;
+        carouselImages.style.transform = `translateX(${-size * counter}px)`;
       }
 
-      let isAtEnd = false;
+      function actualizarCarritoVisual() {
+        const cartCountDiv = document.querySelector(
+          ".navbar-shopping-cart div"
+        );
+        const totalItems = cart.reduce((acc, item) => acc + item.cantidad, 0);
+        //cartCountDiv.textContent = totalItems;
+      }
+      window.addEventListener("resize", updateCarousel);
+      actualizarCarritoVisual();
 
-      carousel.addEventListener('scroll', () => {
-        const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
+      const hamburger = document.getElementById("hamburger");
+      const mobileMenu = document.querySelector(".mobile-menu");
 
-        if (carousel.scrollLeft >= maxScrollLeft - 10 && isMobile() && !isAtEnd) {
-          isAtEnd = true;
-
-          // Esperar un poco antes de volver al inicio
-          setTimeout(() => {
-            carousel.scrollTo({ left: 0, behavior: 'smooth' });
-            isAtEnd = false;
-          }, 1200); // puedes ajustar el tiempo aquí
-        }
-      });
-    });
-
-    let counter = 0;
-    const total = document.querySelectorAll('.carousel-images img').length;
-    nextBtn.addEventListener('click', () => {
-      counter = (counter + 1) % total;
-      updateCarousel();
-    });
-
-    prevBtn.addEventListener('click', () => {
-      counter = (counter - 1 + total) % total;
-      updateCarousel();
-    });
-
-    function updateCarousel() {
-      const size = images[0].clientWidth;
-      carouselImages.style.transform = `translateX(${-size * counter}px)`;
-    }
-
-
-
-    function actualizarCarritoVisual() {
-      const cartCountDiv = document.querySelector('.navbar-shopping-cart div');
-      const totalItems = cart.reduce((acc, item) => acc + item.cantidad, 0);
-      //cartCountDiv.textContent = totalItems;
-    }
-    window.addEventListener('resize', updateCarousel);
-    actualizarCarritoVisual()
-
-
-    const hamburger = document.getElementById("hamburger");
-    const mobileMenu = document.querySelector(".mobile-menu");
-
-    /*hamburger.addEventListener("click", () => {
+      /*hamburger.addEventListener("click", () => {
       hamburger.classList.toggle("active");     // Aquí la magia
       mobileMenu.classList.toggle("active");
     });*/
-
-  </script>
-
-
-</body>
-
+    </script>
+  </body>
 </html>
