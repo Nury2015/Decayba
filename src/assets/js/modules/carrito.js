@@ -43,7 +43,7 @@ export function actualizarCarritoVisual() {
 function renderCart2() {
   const cartContent = document.getElementById("cart-content");
   const productDetail = document.getElementById("product-detail");
-
+  console.log(carrito)
   cartContent.innerHTML = ""; // 🔸 Limpiar el contenedor
 
   if (carrito.length === 0) {
