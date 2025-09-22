@@ -1,6 +1,6 @@
-import { productos } from "../../../services/productos";
+import { productos } from "/Decayba/src/services/productos";
 
-   const cartContent = document.getElementById("card-container");
+const cartContent = document.getElementById("card-container");
    
 function renderCart() {
   productos.forEach((item, index) => {
