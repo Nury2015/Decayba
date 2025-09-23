@@ -31,7 +31,7 @@ export function agregarAlCarrito(nombre, precio, img, cantidad = 1) {
 
 
 export function actualizarCarritoVisual() {
-  const contador = document.querySelector(".navbar-shopping-cart div");
+  let contador = document.querySelector(".navbar-shopping-cart div");
   console.log("el tema debe ser aui ñero, buscame Nury")
   console.log(carrito)
   console.log("contador",contador)
