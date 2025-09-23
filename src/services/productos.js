@@ -1,3 +1,4 @@
+console.log(2, "prodcutos global")
 export const productos = [
   {
     nombre: "Peluche para perro",

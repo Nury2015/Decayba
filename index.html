@@ -69,19 +69,15 @@
       .then(async html => {
         document.getElementById('header').innerHTML = html;
       });
+      console.log(1, "index cargamos header")
   </script>
 
   <script type="module" src="./src/services/productos.js"></script>
   <script type="module" src="./src/assets/js/detalleproducto.js"></script>
   <script type="module" src="./src/assets/js/modules/mobile.js"></script>
 
-
-
-
   <script type="module">
-
-
-
+    console.log(6, "activacion menu hamburguesa mobile")
     // Cargar el HTML del menú hamburguesa
     fetch('./src/components/menuMobile.html')
       .then(response => response.text())

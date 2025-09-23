@@ -12,3 +12,5 @@ export function activarMenuHamburguesa() {
     mobileMenu.classList.toggle("active");
   });
 }
+
+console.log(5, "mobile")
