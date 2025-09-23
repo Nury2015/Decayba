@@ -34,12 +34,11 @@ export function actualizarCarritoVisual() {
   const contador = document.querySelector(".navbar-shopping-cart div");
   console.log("el tema debe ser aui ñero, buscame Nury")
   console.log(carrito)
+  console.log("contador",contador)
   const total = carrito.reduce((acc, item) => acc + item.cantidad, 0);
+  console.log("total", total)
   if (contador)
     contador.textContent = total;
-
-  
-  renderCart2();
 }
 
 // ----------------- RENDER DEL CARRITO -----------------
