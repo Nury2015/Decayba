@@ -35,7 +35,7 @@ export function actualizarCarritoVisual() {
   console.log("el tema debe ser aui ñero, buscame Nury")
   console.log(carrito)
   console.log("contador",contador)
-  contador = contador ? contador : document.querySelector(".navbar-shopping-cart a div");
+  contador = contador != null ? contador : document.querySelector(".navbar-shopping-cart a div");
   console.log("contador ok",contador)
   const total = carrito.reduce((acc, item) => acc + item.cantidad, 0);
   console.log("total", total)
