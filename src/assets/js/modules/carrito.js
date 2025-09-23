@@ -38,6 +38,7 @@ export function actualizarCarritoVisual() {
   if (contador)
     contador.textContent = total;
 
+  
   renderCart2();
 }
 
