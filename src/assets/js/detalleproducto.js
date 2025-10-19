@@ -46,6 +46,4 @@ function renderCart() {
   }); 
 }
 
-console.log(3, "detalle Prod render cart")
 renderCart()
-console.log(4, "detalle Prod render cart finish")

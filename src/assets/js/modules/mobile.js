@@ -13,4 +13,3 @@ export function activarMenuHamburguesa() {
   });
 }
 
-console.log(5, "mobile")
