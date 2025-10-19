@@ -31,8 +31,12 @@ export function agregarAlCarrito(nombre, precio, img, cantidad = 1) {
 
 
 export function actualizarCarritoVisual() {
+  let prueb = document.querySelector(".navbar-right")
+  let prueba = document.querySelector(".navbar-shopping-cart")
   let contador = document.querySelector(".navbar-shopping-cart div");
   console.log("el tema debe ser aui ñero, buscame Nury")
+  console.log("prueba ", prueb)
+  console.log("prueba 2 ",prueba)
   console.log(carrito)
   console.log("contador",contador)
   contador = contador != null ? contador : document.querySelector(".navbar-shopping-cart a div");
@@ -41,7 +45,6 @@ export function actualizarCarritoVisual() {
   console.log("total", total)
   if (contador)
     contador.textContent = total;
-    renderCart2()
 }
 
 // ----------------- RENDER DEL CARRITO -----------------
