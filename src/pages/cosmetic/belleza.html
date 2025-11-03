@@ -73,18 +73,39 @@
     <div class="card-container" id="card-container"></div>
 
     <script type="module">
-      // Cargar el header global
-      fetch("/Decayba/src/components/headerglobal.html")
-        .then((response) => response.text())
-        .then((html) => {
-          document.getElementById("header").innerHTML = html;
-        });
+      async function inicializarPagina() {
+        try {
+          // 1. Cargar header PRIMERO
+          const headerResponse = await fetch('/Decayba/src/components/headerglobal.html');
+          const headerHtml = await headerResponse.text();
+          document.getElementById('header').innerHTML = headerHtml;
+          console.log('✅ Header cargado');
 
-      // Cargar y activar menú hamburguesa
-      import { cargarMenuHamburguesa } from "/Decayba/src/assets/js/modules/menu-loader.js";
-      cargarMenuHamburguesa();
+          // 2. Cargar menú hamburguesa
+          const { cargarMenuHamburguesa } = await import('/Decayba/src/assets/js/modules/menu-loader.js');
+          await cargarMenuHamburguesa();
+          console.log('✅ Menú hamburguesa cargado');
+
+          // 3. Inicializar aplicación principal
+          const { renderCart } = await import('/Decayba/src/assets/js/modules/renderCart.js');
+          const { actualizarCarritoVisual } = await import('/Decayba/src/assets/js/modules/carrito.js');
+          const { verDetalleProducto } = await import('/Decayba/src/assets/js/modules/detalleProducto.js');
+          
+          window.verDetalleProducto = verDetalleProducto;
+          renderCart();
+          actualizarCarritoVisual();
+          
+          console.log('✅ Página inicializada');
+        } catch (error) {
+          console.error('❌ Error al inicializar:', error);
+        }
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', inicializarPagina);
+      } else {
+        inicializarPagina();
+      }
     </script>
-
-    <script type="module" src="/Decayba/src/assets/js/main.js"></script>
   </body>
 </html>
