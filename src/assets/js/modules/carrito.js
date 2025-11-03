@@ -2,7 +2,6 @@ import { productos } from "../../../services/productos.js";
 import { mostrarToast } from "../utils/toast.js";
 
 export let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-console.log(carrito)
 
 // ----------------- FUNCIONES PRINCIPALES -----------------
 
@@ -26,44 +25,50 @@ export function agregarAlCarrito(nombre, precio, img, cantidad = 1) {
 
   localStorage.setItem("carrito", JSON.stringify(carrito));
   actualizarCarritoVisual();
+  
+  // ✅ Actualizar el aside del carrito si está visible
+  const productDetail = document.getElementById("product-detail");
+  if (productDetail && productDetail.style.display === "block") {
+    renderCart2();
+  }
+  
   mostrarToast(`"${nombre}" agregado al carrito 🛒`, "success");
 }
 
 
 export function actualizarCarritoVisual() {
-  let prueb = document.querySelector(".navbar-right")
-  let prueba = document.querySelector(".navbar-shopping-cart")
   let contador = document.querySelector(".navbar-shopping-cart div");
-  console.log("el tema debe ser aui ñero, buscame Nury")
-  console.log("prueba ", prueb)
-  console.log("prueba 2 ",prueba)
-  console.log(carrito)
-  console.log("contador",contador)
   contador = contador != null ? contador : document.querySelector(".navbar-shopping-cart a div");
-  console.log("contador ok",contador)
+  
   const total = carrito.reduce((acc, item) => acc + item.cantidad, 0);
-  console.log("total", total)
-  if (contador)
+  
+  if (contador) {
     contador.textContent = total;
+  } else {
+    console.warn('⚠️ No se encontró el elemento contador del carrito en el DOM');
+  }
 }
 
 // ----------------- RENDER DEL CARRITO -----------------
 
-function renderCart2() {
+export function renderCart2() {
   const cartContent = document.getElementById("cart-content");
   const productDetail = document.getElementById("product-detail");
-  console.log(carrito)
+  
+  if (!cartContent) {
+    console.warn('⚠️ No se encontró el elemento cart-content');
+    return;
+  }
+  
   cartContent.innerHTML = ""; // 🔸 Limpiar el contenedor
 
   if (carrito.length === 0) {
-    productDetail.style.display = "none";
+    if (productDetail) productDetail.style.display = "none";
     return;
   }
 
   carrito.forEach((item, index) => {
-    //const rutaFinal = item.imagen.replace("./src", "/Decayba/src");    
-    const rutaFinal = item.img;   
-    console.log(rutaFinal)
+    const rutaFinal = item.img;
     const div = document.createElement("div");
     div.classList.add("shopping-cart");
     div.innerHTML = `
@@ -155,11 +160,12 @@ if (btnCarrito) {
       } else {
         const productos = obtenerListaDeProductos();
         localStorage.setItem("productosDisponibles", JSON.stringify(productos));
+        renderCart2(); // ✅ Renderizar el contenido antes de mostrar
         productDetail.style.display = "block";
-      }
-    }
-  });
-renderCart2();
+      }
+    }
+  });
+  renderCart2();
 }
 
 // ----------------- EVENTO ELIMINAR PRODUCTO -----------------
