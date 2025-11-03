@@ -59,31 +59,55 @@
 
   <footer>© <span id="year"></span> DECAYBA · Hecho con ❤</footer>
 
-  <!-- Scripts -->
-  <script>
-    fetch('./src/components/header.html')
-      .then(response => response.text())
-      .then(async html => {
-        document.getElementById('header').innerHTML = html;
-      })
-  </script>
-
-  <script type="module" src="./src/services/productos.js"></script>
-  <script type="module" src="./src/assets/js/modules/mobile.js"></script>
-
+  <!-- Scripts - Carga secuencial con async/await -->
   <script type="module">
-    fetch('./src/components/menuMobile.html')
-      .then(response => response.text())
-      .then(async html => {
-        document.getElementById('contenedor-hamburguesa').innerHTML = html;
+    async function inicializarApp() {
+      try {
+        // 1. Cargar header PRIMERO (crítico para el contador del carrito)
+        const headerResponse = await fetch('./src/components/header.html');
+        const headerHtml = await headerResponse.text();
+        document.getElementById('header').innerHTML = headerHtml;
+        console.log('✅ Header cargado');
 
-        // importar la función desde el módulo
+        // 2. Cargar menú móvil
+        const menuResponse = await fetch('./src/components/menuMobile.html');
+        const menuHtml = await menuResponse.text();
+        document.getElementById('contenedor-hamburguesa').innerHTML = menuHtml;
+        console.log('✅ Menú móvil cargado');
+
+        // 3. Activar funcionalidad del menú hamburguesa
         const { activarMenuHamburguesa } = await import('./src/assets/js/modules/mobile.js');
         activarMenuHamburguesa();
-      });
+        console.log('✅ Menú hamburguesa activado');
+
+        // 4. Inicializar aplicación principal (renderizar productos y carrito)
+        const { renderCart } = await import('./src/assets/js/modules/renderCart.js');
+        const { actualizarCarritoVisual } = await import('./src/assets/js/modules/carrito.js');
+        const { verDetalleProducto } = await import('./src/assets/js/modules/detalleProducto.js');
+        
+        // Hacer verDetalleProducto disponible globalmente
+        window.verDetalleProducto = verDetalleProducto;
+        
+        // Renderizar productos y actualizar contador del carrito
+        renderCart();
+        actualizarCarritoVisual();
+        
+        console.log('✅ Aplicación inicializada correctamente');
+      } catch (error) {
+        console.error('❌ Error al inicializar aplicación:', error);
+      }
+    }
+
+    // Inicializar cuando el DOM esté listo
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', inicializarApp);
+    } else {
+      inicializarApp();
+    }
   </script>
 
-  <script type="module" src="./src/assets/js/main.js"></script>
+  <!-- Cargar productos -->
+  <script type="module" src="./src/services/productos.js"></script>
 
 
 </body>
