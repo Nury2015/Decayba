@@ -238,18 +238,18 @@ export const productos = [
   {
     nombre: "1pc Cepillo de baño suave para mascotas",
     valor: "$15.000",
-    imagen: "/Decayba/src/assets/img/cepillobaño/principal.webp",
+    imagen: "/Decayba/src/assets/img/cepillojabon/principal.webp",
     descripcion:
       "Herramienta de masaje de silicona para perros y gatos, accesorio multifuncional de baño y limpieza para animales, esenciales para el cuidado de mascotas",
     stock: 2,
     categoria: "mascotas",
     imgs: [
-      "/Decayba/src/assets/img/cepillobaño/principal.webp",
-      "/Decayba/src/assets/img/cepillobaño/jabon.webp",
-      "/Decayba/src/assets/img/cepillobaño/perros.webp",
-      "/Decayba/src/assets/img/cepillobaño/medidas.webp",
-      "/Decayba/src/assets/img/cepillobaño/suave.webp",
-      "/Decayba/src/assets/img/cepillobaño/tapa.webp",
+      "/Decayba/src/assets/img/cepillojabon/principal.webp",
+      "/Decayba/src/assets/img/cepillojabon/jabon.webp",
+      "/Decayba/src/assets/img/cepillojabon/medidas.webp",
+      "/Decayba/src/assets/img/cepillojabon/perros.webp",
+      "/Decayba/src/assets/img/cepillojabon/suave.webp",
+      "/Decayba/src/assets/img/cepillojabon/tapa.webp",
     ],
   },
   {
