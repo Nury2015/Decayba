@@ -1,8 +1,11 @@
 footer {
+  
+    display: flex;
+    justify-content: center;
     text-align: center;
     padding: 1rem;
     font-size: 0.85rem;
-    background: #fafafa;
-    color: #666;
+    background: #ffffff;
+    color: #000000;
   }
   
