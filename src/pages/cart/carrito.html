@@ -301,31 +301,46 @@
     }
 
     // WhatsApp (igual que lo tenías, envía TODO el carrito; si deseas, luego lo paso a solo seleccionados)
-    document.addEventListener("click", function (e) {
-      const target = e.target.closest("#btn-whatsapp");
-      if (!target) return;
+document.addEventListener("click", function (e) {
+  const target = e.target.closest("#btn-whatsapp");
+  if (!target) return;
 
-      e.preventDefault();
-      const cart = JSON.parse(localStorage.getItem("carrito")) || [];
-      const numero = "573154380079";
+  e.preventDefault();
 
-      if (cart.length === 0) {
-        alert("Tu carrito está vacío.");
-        return;
-      }
+  const cart = JSON.parse(localStorage.getItem("carrito")) || [];
+  const numero = "573154380079"; // Tu número de WhatsApp
 
-      let mensaje = "🛍️ *Resumen de tu pedido* 💕\n\n";
-      cart.forEach((item) => {
-        const subtotal = item.precio * item.cantidad;
-        mensaje += `*${item.nombre}*\nCantidad: ${item.cantidad}\nPrecio unitario: $${item.precio.toLocaleString()}\nSubtotal: $${subtotal.toLocaleString()}\n\n`;
-      });
+  if (cart.length === 0) {
+    alert("Tu carrito está vacío.");
+    return;
+  }
 
-      const total = cart.reduce((acc, item) => acc + item.precio * item.cantidad, 0);
-      mensaje += `💰 *Total a pagar:* $${total.toLocaleString()}\n\n✅ Gracias por tu compra 💖✨`;
+  // 🗓️ Fecha del pedido
+  const fecha = new Date().toLocaleDateString("es-CO", {
+    day: "2-digit",
+    month: "long",
+    year: "numeric",
+  });
 
-      const msg = encodeURIComponent(mensaje);
-      window.open(`https://wa.me/${numero}?text=${msg}`, "_blank");
-    });
+  // 🧾 Construcción del mensaje
+  let mensaje = `📅 *Fecha del pedido:* ${fecha}\n\n🛍️ *Resumen de tu pedido* 💕\n\n`;
+
+  cart.forEach((item) => {
+    const subtotal = item.precio * item.cantidad;
+    mensaje += `*${item.nombre}*\nCantidad: ${item.cantidad}\nPrecio unitario: $${item.precio.toLocaleString("es-CO")}\nSubtotal: $${subtotal.toLocaleString("es-CO")}\n\n`;
+  });
+
+  const total = cart.reduce((acc, item) => acc + item.precio * item.cantidad, 0);
+  mensaje += `💰 *Total a pagar:* $${total.toLocaleString("es-CO")}\n\n✅ Gracias por tu compra 💖✨`;
+
+  // ✅ Codificación correcta que mantiene emojis y saltos de línea
+  const msg = encodeURI(mensaje.trim());
+
+  // 🔗 Abre WhatsApp con el mensaje limpio
+  window.open(`https://api.whatsapp.com/send?phone=${numero}&text=${msg}`, "_blank");
+});
+
+
 
     // --- Inicialización ---
     renderItems();                // pinta la lista y selecciona todo de entrada

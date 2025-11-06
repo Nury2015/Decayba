@@ -1,4 +1,21 @@
 export const productos = [
+   {
+    nombre: "Álbum para mascota",
+    valor: "$89.900",
+    descripcion:
+      "Este álbum está hecho para guardar los momentos más especiales con tu mascota, 100% personalizado con la foto, nombre y detalles únicos de tu peludito. Pasta dura y resistente, 100 hojas a color, Papel grueso de 90 gramos (¡no se trasluce!), Hoja especial de stickers, Espacios para controles de salud, citas veterinarias y muuuchos recuerdos. Tiempo elaboración: 5 días hábiles",
+    stock: 20,
+    categoria: "mascotas",
+    imagen: "/Decayba/src/assets/img/agenda/principal.png",
+    imgs: [
+      "/Decayba/src/assets/img/agenda/portada.png",
+      "/Decayba/src/assets/img/agenda/stiker.png",
+      "/Decayba/src/assets/img/agenda/foto.png",
+      "/Decayba/src/assets/img/agenda/vacunas.png",
+      "/Decayba/src/assets/img/agenda/citas.png",
+      "/Decayba/src/assets/img/agenda/recuerdos.png",
+    ],
+  },
   {
     nombre: "Peluche para perro",
     valor: "$35.000",
