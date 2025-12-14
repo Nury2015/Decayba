@@ -29,7 +29,7 @@ export const productos = [
       "/Decayba/src/assets/img/agneda2/stiker.jpeg",
       "/Decayba/src/assets/img/agneda2/consul.jpeg",
       "/Decayba/src/assets/img/agneda2/vacuna.jpeg",
-      "/Decayba/src/assets/img/agneda2/desp.jpeg",
+      "/Decayba/src/assets/img/agneda2/desp.png",
       "/Decayba/src/assets/img/agneda2/cumple.jpeg",
       "/Decayba/src/assets/img/agneda2/nqvid.jpeg",
     ],
