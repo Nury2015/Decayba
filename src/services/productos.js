@@ -41,8 +41,9 @@ export const productos = [
       "Este álbum está hecho para guardar los momentos más especiales de tus viajes, 21 paises, 2 páginas por país. Tamaño carta, hojas en opalina gruesa. Portada y contraportada personalizadas. Envío gratis. Tiempo elaboración: 5 días hábiles",
     stock: 20,
     categoria: "viajes",
-    imagen: "/Decayba/src/assets/img/viajero/portadqa.jpeg",
+    imagen:   "/Decayba/src/assets/img/viajero/globo.jpeg",
     imgs: [
+      "/Decayba/src/assets/img/viajero/portadqa.jpeg",
       "/Decayba/src/assets/img/viajero/colombia.jpeg",
       "/Decayba/src/assets/img/viajero/bras.jpeg",
       "/Decayba/src/assets/img/viajero/chil.jpeg",
