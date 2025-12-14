@@ -34,6 +34,27 @@ export const productos = [
       "/src/assets/img/agneda2/nqvid.jpeg",
     ],
   },
+    {
+    nombre: "Álbum viajeroo",
+    valor: "$150.000",
+    descripcion:
+      "Este álbum está hecho para guardar los momentos más especiales de tus viajes, 21 paises, 2 páginas por país. Tamaño carta, hojas en opalina gruesa. Portada y contraportada personalizadas. Envío gratis. Tiempo elaboración: 5 días hábiles",
+    stock: 20,
+    categoria: "viajes",
+    imagen: "/src/assets/img/viajero/portadqa.jpeg",
+    imgs: [
+      "/src/assets/img/viajero/colombia.jpeg",
+      "/src/assets/img/viajero/bras.jpeg",
+      "/src/assets/img/viajero/chil.jpeg",
+     "/src/assets/img/viajero/chin.jpeg",
+   "/src/assets/img/viajero/germ.jpeg",
+      "/src/assets/img/viajero/globo.jpeg",
+      "/src/assets/img/viajero/ooo.jpeg",
+      "/src/assets/img/viajero/otro.jpeg",
+      "/src/assets/img/viajero/pais.jpeg",
+      "/src/assets/img/viajero/panam.jpeg",
+    ],
+  },
   {
     nombre: "Peluche para perro",
     valor: "$35.000",
