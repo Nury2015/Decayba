@@ -1,7 +1,7 @@
 export const productos = [
    {
     nombre: "Álbum para mascota",
-    valor: "$89.900",
+    valor: "$139.900",
     descripcion:
       "Este álbum está hecho para guardar los momentos más especiales con tu mascota, 100% personalizado con la foto, nombre y detalles únicos de tu peludito. Pasta dura y resistente, 100 hojas a color, Papel grueso de 90 gramos (¡no se trasluce!), Hoja especial de stickers, Espacios para controles de salud, citas veterinarias y muuuchos recuerdos. Tiempo elaboración: 5 días hábiles",
     stock: 20,
@@ -14,6 +14,24 @@ export const productos = [
       "/Decayba/src/assets/img/agenda/vacunas.png",
       "/Decayba/src/assets/img/agenda/citas.png",
       "/Decayba/src/assets/img/agenda/recuerdos.png",
+    ],
+  },
+  {
+    nombre: "Álbum para mascota",
+    valor: "$139.900",
+    descripcion:
+      "Este álbum está hecho para guardar los momentos más especiales con tu mascota, 100% personalizado con la foto, nombre y detalles únicos de tu peludito. Pasta dura y resistente, 100 hojas a color, Papel grueso de 90 gramos (¡no se trasluce!), Hoja especial de stickers, Espacios para controles de salud, citas veterinarias y muuuchos recuerdos. Tiempo elaboración: 5 días hábiles",
+    stock: 20,
+    categoria: "mascotas",
+    imagen: "/src/assets/img/agneda2/portada.jpeg",
+    imgs: [
+      "/src/assets/img/agneda2/portada.jpeg",
+      "/src/assets/img/agneda2/stiker.jpeg",
+      "/src/assets/img/agneda2/consul.jpeg",
+      "/src/assets/img/agneda2/vacuna.jpeg",
+      "/src/assets/img/agneda2/desp.jpeg",
+      "/src/assets/img/agneda2/cumple.jpeg",
+      "/src/assets/img/agneda2/nqvid.jpeg",
     ],
   },
   {
