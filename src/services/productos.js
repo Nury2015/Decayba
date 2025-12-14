@@ -23,7 +23,7 @@ export const productos = [
       "Este álbum está hecho para guardar los momentos más especiales con tu mascota, 100% personalizado con la foto, nombre y detalles únicos de tu peludito. Pasta dura y resistente, 100 hojas a color, Papel grueso de 90 gramos (¡no se trasluce!), Hoja especial de stickers, Espacios para controles de salud, citas veterinarias y muuuchos recuerdos. Tiempo elaboración: 5 días hábiles",
     stock: 20,
     categoria: "mascotas",
-    imagen: "/src/assets/img/agneda2/portada.jpeg",
+    imagen: "Decayba/src/assets/img/agneda2/portada.jpeg",
     imgs: [
       "/Decayba/src/assets/img/agneda2/portada.jpeg",
       "/Decayba/src/assets/img/agneda2/stiker.jpeg",
@@ -41,7 +41,7 @@ export const productos = [
       "Este álbum está hecho para guardar los momentos más especiales de tus viajes, 21 paises, 2 páginas por país. Tamaño carta, hojas en opalina gruesa. Portada y contraportada personalizadas. Envío gratis. Tiempo elaboración: 5 días hábiles",
     stock: 20,
     categoria: "viajes",
-    imagen: "/src/assets/img/viajero/portadqa.jpeg",
+    imagen: "Decayba/src/assets/img/viajero/portadqa.jpeg",
     imgs: [
       "/Decayba/src/assets/img/viajero/colombia.jpeg",
       "/Decayba/src/assets/img/viajero/bras.jpeg",
