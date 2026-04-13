@@ -81,13 +81,31 @@
   color: var(--very-light-pink);
   margin-top: 0;
   margin-bottom: 0;
+  font-weight: bold;
 }
 
 .informacion-producto figure img {
   width: 40px;
   height: 40px;
 }
+.whatsapp-btn{
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  color: white;
+  font-size: 24px;
+  padding: 15px;
+  border-radius: 50%;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  z-index: 1000;
+  transition: 0.3s;
+}
 
+.whatsapp-btn:hover{
+  transform: scale(1.1);
+}
 
 
 .footer-title{
