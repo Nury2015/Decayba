@@ -1,4 +1,5 @@
 nav {
+  font-size: large;
     background-color: var(--white);
     display: flex;
     justify-content: space-between;
@@ -20,8 +21,8 @@ nav {
   }
   
   .logo {
-    width: 134px;
-    margin-bottom: 16px;
+       width: 187px;
+    margin-bottom: 23px;
     height: 50px;
   }
   
@@ -76,7 +77,10 @@ nav {
     position: relative;
   }
 
- 
+ .carrito-imagen{
+  width: 37px;
+  height: 37px;
+ }
   
   .navbar-shopping-cart div {
     position: absolute;
