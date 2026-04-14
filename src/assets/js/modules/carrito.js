@@ -38,8 +38,16 @@ export function agregarAlCarrito(nombre, precio, img, cantidad = 1) {
 
 export function actualizarCarritoVisual() {
   let contador = document.querySelector(".navbar-shopping-cart div");
+<<<<<<< HEAD
   contador = contador != null ? contador : document.querySelector(".navbar-shopping-cart a div");
   
+=======
+  console.log("el tema debe ser aui ñero, buscame Nury")
+  console.log(carrito)
+  console.log("contador",contador)
+  contador = contador || document.querySelector(".navbar-shopping-cart a div");
+  console.log("contador ok",contador)
+>>>>>>> 78ab946 (se ajusta responsive)
   const total = carrito.reduce((acc, item) => acc + item.cantidad, 0);
   
   if (contador) {

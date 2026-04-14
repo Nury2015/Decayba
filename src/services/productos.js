@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+console.log()
+>>>>>>> 78ab946 (se ajusta responsive)
 export const productos = [
    {
     nombre: "Álbum para mascota",
@@ -98,7 +102,7 @@ export const productos = [
     valor: "$40.000",
     imagen: "/Decayba/src/assets/img/docepelotas/principal.webp",
     descripcion:
-      "6/12pcs Juguetes para Masticar con Sonido para Cachorros - Bolas Interactivas de Plástico Duradero y Estrellas Texturadas, Colores Variados para Perros Pequeños y Medianos, Diseños Divertidos para Mascotas",
+      "6pcs Juguetes para Masticar con Sonido para Cachorros - Bolas Interactivas de Plástico Duradero y Estrellas Texturadas, Colores Variados para Perros Pequeños y Medianos, Diseños Divertidos para Mascotas",
     stock: 1,
     categoria: "mascotas",
     imgs: [
@@ -398,10 +402,10 @@ export const productos = [
   },
   {
     nombre: "3 piezas Cepillo de dientes para mascotas",
-    valor: "$10.000",
+    valor: "$5.000",
     imagen: "/Decayba/src/assets/img/cepillodientes/principal.webp",
     descripcion:
-      "Conjunto de 4 Cepillos para Dientes de Mascotas con Cerdas Suaves y Mangos Ergonómicos Antideslizantes para un Cuidado Dental Amable - Rosa, Verde, Amarillo, Blanco",
+      "Cepillo De Dientes De Silicona Para Mascotas, Cepillo De Dientes Para Gatos Y Perros, Accesorios Para Cepillar Dientes De Mascotas, Productos De Limpieza Bucal",
     stock: 6,
     categoria: "mascotas",
     imgs: [
