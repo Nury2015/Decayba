@@ -229,13 +229,19 @@ text-align: right;
   }
 
   .card-container {
-    /* Usar 100vw en lugar de 100% para que sea siempre el viewport real */
-    width: calc(100vw - 0px);
-    max-width: 100vw;
-    grid-template-columns: repeat(2, calc(50vw - 11px));
-    gap: 12px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
     padding: 0 10px;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  /* min-width:0 es crítico: evita que el grid item desborde su columna */
+  .product-card {
     min-width: 0;
+    overflow: hidden;
+    max-width: 100%;
   }
 
   .product-card img {
@@ -247,12 +253,15 @@ text-align: right;
   .informacion-producto {
     flex-direction: column;
     align-items: stretch;
-    padding: 8px 10px 10px;
-    gap: 6px;
+    padding: 6px 8px 8px;
+    gap: 4px;
+    min-width: 0;
   }
 
   .card-infor {
     width: 100%;
+    min-width: 0;
+    overflow: hidden;
   }
 
   .informacion-producto div p:nth-child(1) {
