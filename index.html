@@ -332,24 +332,16 @@
       try {
         const B = window.location.pathname.startsWith('/Decayba') ? '/Decayba' : '';
 
-        // 1. Cargar header PRIMERO (crítico para el contador del carrito)
-        const headerResponse = await fetch('./src/components/header.html', { cache: 'reload' });
+        // 1. Cargar nav unificado
+        const headerResponse = await fetch('./src/components/headerglobal.html', { cache: 'reload' });
         const headerHtml = (await headerResponse.text()).replaceAll('/Decayba/', `${B}/`);
         document.getElementById('header').innerHTML = headerHtml;
-        console.log('✅ Header cargado');
 
-        // 2. Cargar menú móvil
-        const menuResponse = await fetch('./src/components/menuMobile.html', { cache: 'reload' });
-        const menuHtml = (await menuResponse.text()).replaceAll('/Decayba/', `${B}/`);
-        document.getElementById('contenedor-hamburguesa').innerHTML = menuHtml;
-        console.log('✅ Menú móvil cargado');
-
-        // 3. Activar funcionalidad del menú hamburguesa
+        // 2. Activar menú hamburguesa (ya viene embebido en el nav)
         const { activarMenuHamburguesa } = await import('./src/assets/js/modules/mobile.js');
         activarMenuHamburguesa();
-        console.log('✅ Menú hamburguesa activado');
 
-        // 4. Inicializar aplicación principal (renderizar productos y carrito)
+        // 3. Inicializar aplicación principal (renderizar productos y carrito)
         const { renderCart } = await import('./src/assets/js/modules/renderCart.js');
         const { actualizarCarritoVisual } = await import('./src/assets/js/modules/carrito.js');
         const { verDetalleProducto } = await import('./src/assets/js/modules/detalleProducto.js');

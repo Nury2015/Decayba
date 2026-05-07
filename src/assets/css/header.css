@@ -1,126 +1,202 @@
+/* ═══════════════════════════════════════════════════════════
+   NAV SHELL  (<nav id="header"> wraps the injected content)
+═══════════════════════════════════════════════════════════ */
 nav {
-  font-size: large;
-    background-color: var(--white);
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid var(--very-light-pink);
-    margin-bottom: 12px;
-    position: sticky;
-    width: 100%;
-    height: 55px;
-    top: 0;
-    z-index: 100;
-  }
-  
-  nav > a {
-    display: none;
-  }
-  
-  .menu {
-    display: none;
-  }
-  
-  .logo {
-       width: 187px;
-    margin-bottom: 23px;
-    height: 50px;
-  }
-  
-  .navbar-left {
-    display: flex;
-    align-items: center;
-    margin-left: 12px;
-  }
-  
-  .navbar-right {
-    display: flex;
-    align-items: center;
-  }
-  
-  .navbar-left a {
-    display: flex;
-    margin-left: 12px;
-  }
-  
-  .navbar-left img {
-    height: 56%;
-    object-fit: cover;
-  }
-  
-  .navbar-left ul,
-  .navbar-right ul {
-    list-style: none;
-    padding: 0px 25px;
-    margin-top: 0;
-    display: flex;
-    align-items: center;
-    height: 60px;
-  }
-  
-  .navbar-left ul li a,
-  .navbar-right ul li {
-    text-decoration: none;
-    color: var(--very-light-pink);
-    border: 1px solid var(--white);
-    padding: 8px;
-    border-radius: 8px;
-  }
-  
-  .navbar-left ul li a:hover,
-  .navbar-right ul li:hover {
-    border: 1px solid var(--hospital-green);
-    color: var(--hospital-green);
-     cursor: pointer;
-  }
-  
-  .navbar-shopping-cart {
-    position: relative;
-  }
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #ffffff;
+  border-bottom: 1px solid #e8e8e8;
+  width: 100%;
+  box-sizing: border-box;
+  /* overflow visible so the mobile dropdown can escape */
+  overflow: visible;
+}
 
- .carrito-imagen{
-  width: 37px;
-  height: 37px;
- }
-  
-  .navbar-shopping-cart div {
-    position: absolute;
-    color: var(--black);
-    width: 14px;
-    height: 14px;
-    background-color: var(--hospital-green);
-    border-radius: 50px;
-    font-size: var(--sm);
-    font-weight: bold;
-    top: 4px;
-    right: 7px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-  }
-  
-  .navbar-email {
-    color: var(--very-light-pink);
-    font-size: var(--sm);
-  }
-  
-  .navbar-email a {
-    text-decoration: none;
-    font-size: var(--sm);
-    color: var(--very-light-pink);
-  }
-  
-  @media (max-width: 640px) {
-    .menu {
-      display: block;
-    }
-  
-    .navbar-left ul {
-      display: none;
-    }
-  
-    .navbar-email {
-      display: none;
-    }
-  }
-  
+/* ── Inner flex row ─────────────────────────────────────── */
+.nav-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+  padding: 0 24px;
+}
+
+/* ── Logo ───────────────────────────────────────────────── */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.logo {
+  height: 44px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* ── Desktop nav links ──────────────────────────────────── */
+.nav-links {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 2px;
+}
+
+.nav-links li a {
+  display: block;
+  text-decoration: none;
+  color: #5e5c5c;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 7px 13px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+  white-space: nowrap;
+}
+
+.nav-links li a:hover {
+  border-color: #ACD9B2;
+  color: #4caf77;
+  background: #f5fdf5;
+}
+
+/* ── Right side (cart + hamburger) ─────────────────────── */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-shrink: 0;
+}
+
+/* ── Cart badge ─────────────────────────────────────────── */
+.navbar-shopping-cart {
+  position: relative;
+}
+
+.navbar-shopping-cart a {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.carrito-imagen {
+  width: 30px;
+  height: 30px;
+}
+
+.navbar-shopping-cart div {
+  position: absolute;
+  top: -5px;
+  right: -7px;
+  background: #ACD9B2;
+  color: #232830;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+/* ── Hamburger button ───────────────────────────────────── */
+.hamburger {
+  display: none;           /* hidden on desktop */
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #232830;
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform-origin: center;
+}
+
+.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(0, 9px); }
+.hamburger.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(0, -9px); }
+
+/* ── Mobile dropdown ────────────────────────────────────── */
+.mobile-menu {
+  position: fixed;
+  top: 56px;          /* matches .nav-wrap height */
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  border-bottom: 1px solid #e8e8e8;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  z-index: 99;
+
+  /* hidden via transform + opacity (no display:none so transition works) */
+  transform: translateY(-8px);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.mobile-menu.active {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobile-menu ul {
+  list-style: none;
+  padding: 10px 20px 14px;
+  margin: 0;
+}
+
+.mobile-menu ul li {
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.mobile-menu ul li:last-child {
+  border-bottom: none;
+}
+
+.mobile-menu ul li a {
+  display: block;
+  padding: 13px 8px;
+  text-decoration: none;
+  color: #232830;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+.mobile-menu ul li a:hover {
+  color: #4caf77;
+  padding-left: 14px;
+}
+
+/* ── Responsive: show hamburger, hide desktop links ─────── */
+@media (max-width: 768px) {
+  .hamburger  { display: flex; }
+  .nav-links  { display: none; }
+  .nav-wrap   { padding: 0 16px; }
+}
+
+/* ── Legacy selectors (carrito.js + animaciones.js still use these) ── */
+.navbar-left  { display: flex; align-items: center; }
+.navbar-right { display: flex; align-items: center; }
