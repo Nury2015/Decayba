@@ -24,14 +24,14 @@ html { scroll-behavior: smooth; }
 ═══════════════════════════════════════════════════════════════ */
 .hero-section {
   background: linear-gradient(135deg, #e8f7ec 0%, #f4fbf5 50%, #ffffff 100%);
-  padding: 72px 56px 60px;
+  /* responsive horizontal padding: at least 40px, grows to center content at ~1100px */
+  padding: 52px max(40px, calc((100% - 1100px) / 2)) 44px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 48px;
+  gap: 40px;
   overflow: hidden;
   position: relative;
-  min-height: 420px;
 }
 
 /* subtle radial glow in the top-right corner */
@@ -138,21 +138,21 @@ html { scroll-behavior: smooth; }
 .hero-bubbles {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 18px;
   flex-shrink: 0;
   z-index: 2;
 }
 
 .hero-bubble {
-  width: 90px;
-  height: 90px;
+  width: 130px;
+  height: 130px;
   background: #ffffff;
   border-radius: 50%;
-  box-shadow: 0 8px 28px rgba(0,0,0,0.09);
+  box-shadow: 0 10px 32px rgba(0,0,0,0.10);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 40px;
+  font-size: 54px;
   animation: floatUp 4s ease-in-out infinite;
 }
 
@@ -441,10 +441,9 @@ html { scroll-behavior: smooth; }
   /* hero stacks vertically */
   .hero-section {
     flex-direction: column;
-    padding: 52px 24px 44px;
+    padding: 44px 20px 36px;
     text-align: center;
-    min-height: unset;
-    gap: 32px;
+    gap: 28px;
   }
   .hero-section::before { display: none; }
   .hero-content  { max-width: 100%; }
@@ -457,7 +456,7 @@ html { scroll-behavior: smooth; }
     gap: 12px;
     width: 100%;
   }
-  .hero-bubble { width: 62px; height: 62px; font-size: 26px; }
+  .hero-bubble { width: 72px; height: 72px; font-size: 30px; }
 
   /* categories 2-col */
   .categorias-grid { gap: 14px; }
