@@ -3,8 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Detalles del producto - DECAYBA</title>
-
+    <title>Producto - DECAYBA</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet" />
@@ -15,6 +14,7 @@
     <link rel="stylesheet" href="../../assets/css/carrito.css" />
     <link rel="stylesheet" href="../../assets/css/tituloSugerencias.css" />
     <link rel="stylesheet" href="../../assets/css/detalleprod.css" />
+    <link rel="stylesheet" href="../../assets/css/sections.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   </head>
 
@@ -22,31 +22,78 @@
     <div id="toast" class="toast"></div>
     <nav id="header"></nav>
 
-    <div class="product-detaill" id="product-detaill">
-      <aside class="imagen">
-        <div class="carousel">
-          <button class="prev">&#10094;</button>
-          <div class="carousel-images" id="carousel"></div>
-          <button class="next">&#10095;</button>
+    <!-- ═══ PRODUCT LAYOUT ════════════════════════════ -->
+    <div class="dp-wrap">
+      <div class="dp-card">
+
+        <!-- Gallery -->
+        <div class="dp-gallery">
+          <div class="dp-main-wrap">
+            <button class="dp-arrow dp-prev" aria-label="Anterior">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <img id="dp-main-img" src="" alt="" class="dp-main-img" />
+            <button class="dp-arrow dp-next" aria-label="Siguiente">
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
+          <div class="dp-thumbs" id="dp-thumbs"></div>
         </div>
-      </aside>
-    </div>
 
-    <h2 class="sugerencias-titulo">Algunas sugerencias para ti</h2>
-    <div class="card-container" id="card-container"></div>
+        <!-- Info -->
+        <div class="dp-info">
+          <a href="javascript:history.back()" class="dp-back">
+            <i class="fa-solid fa-arrow-left"></i> Volver
+          </a>
 
-    <aside class="product-detail" id="product-detail">
-      <a href="./detalleprod.html">
-        <img class="cerrar" src="../../assets/icon/icon_close.png" alt="Volver" />
-      </a>
-      <div class="title-container">
-        <p class="title">Resumen del pedido</p>
+          <span class="dp-badge" id="dp-badge"></span>
+
+          <h1 class="dp-nombre" id="dp-nombre">—</h1>
+
+          <div class="dp-precio" id="dp-precio"></div>
+
+          <p class="dp-stock" id="dp-stock"></p>
+
+          <p class="dp-desc" id="dp-desc"></p>
+
+          <div>
+            <span class="dp-qty-label">Cantidad</span>
+            <div class="dp-qty-row">
+              <button class="dp-qty-btn" id="dp-minus">−</button>
+              <input type="number" id="dp-qty" value="1" min="1" max="99" class="dp-qty-input" />
+              <button class="dp-qty-btn" id="dp-plus">+</button>
+            </div>
+          </div>
+
+          <button class="dp-btn-cart" id="dp-btn-cart">
+            <i class="fa-solid fa-bag-shopping"></i>
+            Agregar al carrito
+          </button>
+
+          <div class="dp-trust">
+            <div class="dp-trust-item">
+              <i class="fa-solid fa-truck-fast"></i>
+              <span>Envío a Colombia</span>
+            </div>
+            <div class="dp-trust-item">
+              <i class="fa-solid fa-shield-halved"></i>
+              <span>Producto garantizado</span>
+            </div>
+            <div class="dp-trust-item">
+              <i class="fa-solid fa-rotate-left"></i>
+              <span>Devolución fácil</span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /.dp-card -->
+
+      <!-- Suggestions -->
+      <div class="dp-suggestions">
+        <h2 class="sugerencias-titulo">Algunas sugerencias para ti</h2>
+        <div class="card-container" id="card-container"></div>
       </div>
-      <div class="my-order-content" id="cart-content"></div>
-      <div class="verificar">
-        <a href="../cart/carrito.html" class="btn-carrito" id="btn-carrito">Ver Carrito</a>
-      </div>
-    </aside>
+    </div><!-- /.dp-wrap -->
 
     <footer>
       <div class="pieDePagina">
@@ -73,39 +120,36 @@
       </div>
     </footer>
 
-    <!-- Module script: header + suggestions -->
+    <!-- Module: header + suggestions + cart module -->
     <script type="module">
       async function inicializarPagina() {
         try {
           const B = window.location.pathname.startsWith('/Decayba') ? '/Decayba' : '';
-
           const headerResponse = await fetch(`${B}/src/components/headerglobal.html`, { cache: 'reload' });
-          const headerHtml = (await headerResponse.text()).replaceAll('/Decayba/', `${B}/`);
-          document.getElementById('header').innerHTML = headerHtml;
+          document.getElementById('header').innerHTML =
+            (await headerResponse.text()).replaceAll('/Decayba/', `${B}/`);
 
-          const { renderSuggestions } = await import(`${B}/src/assets/js/modules/renderCart.js`);
+          const { cargarMenuHamburguesa } = await import(`${B}/src/assets/js/modules/menu-loader.js`);
+          await cargarMenuHamburguesa();
+
+          const { renderSuggestions }    = await import(`${B}/src/assets/js/modules/renderCart.js`);
           const { actualizarCarritoVisual, agregarAlCarrito } = await import(`${B}/src/assets/js/modules/carrito.js`);
-          const { verDetalleProducto } = await import(`${B}/src/assets/js/modules/detalleProducto.js`);
+          const { verDetalleProducto }   = await import(`${B}/src/assets/js/modules/detalleProducto.js`);
 
           window.verDetalleProducto = verDetalleProducto;
-          window.agregarAlCarrito = agregarAlCarrito;
+          window.agregarAlCarrito   = agregarAlCarrito;
 
           const productoActual = JSON.parse(localStorage.getItem("productoSeleccionado")) || {};
           renderSuggestions(productoActual.nombre, productoActual.categoria);
           actualizarCarritoVisual();
-        } catch (error) {
-          console.error('❌ Error al inicializar:', error);
-        }
+        } catch (err) { console.error('❌', err); }
       }
-
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', inicializarPagina);
-      } else {
-        inicializarPagina();
-      }
+      document.readyState === 'loading'
+        ? document.addEventListener('DOMContentLoaded', inicializarPagina)
+        : inicializarPagina();
     </script>
 
-    <!-- Inline script: product detail display & carousel -->
+    <!-- Inline: gallery + product info -->
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
 
@@ -117,81 +161,103 @@
         return path;
       }
 
-      const carouselImages = document.querySelector(".carousel-images");
-      const prevBtn = document.querySelector(".prev");
-      const nextBtn = document.querySelector(".next");
       const item = JSON.parse(localStorage.getItem("productoSeleccionado")) || {};
-      const productDetail = document.getElementById("product-detaill");
-      const carrousel = document.getElementById("carousel");
 
-      // Build carousel images
-      if (item.imagenes && carrousel) {
-        item.imagenes.forEach((src) => {
-          const div = document.createElement("div");
-          div.classList.add("carousel-item");
-          div.innerHTML = `<img src="${resolveImg(src)}" alt="${item.nombre || ''}">`;
-          carrousel.appendChild(div);
+      if (item.nombre) {
+        document.title = `${item.nombre} - DECAYBA`;
+
+        // Fill text fields
+        document.getElementById('dp-nombre').textContent = item.nombre;
+        document.getElementById('dp-precio').textContent = item.valor || '';
+        document.getElementById('dp-desc').textContent   = item.descripcion || '';
+
+        // Category badge
+        const catEmoji = { mascotas:'🐾', personalizado:'🎁', belleza:'💅', juguetes:'🧸', viajes:'✈️' };
+        const badgeEl = document.getElementById('dp-badge');
+        if (item.categoria) badgeEl.textContent = `${catEmoji[item.categoria] || ''} ${item.categoria}`;
+
+        // Stock
+        const stockNum = typeof item.stock === 'number'
+          ? item.stock
+          : Object.values(item.stock || {}).reduce((a, b) => a + b, 0);
+        const stockEl = document.getElementById('dp-stock');
+        if (stockNum > 0) {
+          stockEl.textContent = `✓ Disponible (${stockNum} en stock)`;
+          stockEl.className = 'dp-stock in';
+        } else {
+          stockEl.textContent = '✗ Agotado';
+          stockEl.className = 'dp-stock out';
+        }
+
+        // ── Gallery ──────────────────────────────────────
+        const imagenes = item.imagenes || (item.imgs ? (Array.isArray(item.imgs) ? item.imgs : item.imgs.split(',')) : []);
+        const mainImg  = document.getElementById('dp-main-img');
+        const thumbsEl = document.getElementById('dp-thumbs');
+        let currentIdx = 0;
+
+        function setImage(idx) {
+          currentIdx = idx;
+          mainImg.style.opacity = '0.6';
+          mainImg.src = resolveImg(imagenes[idx]);
+          mainImg.alt = item.nombre;
+          mainImg.onload = () => { mainImg.style.opacity = '1'; };
+          thumbsEl.querySelectorAll('.dp-thumb').forEach((t, i) =>
+            t.classList.toggle('active', i === idx)
+          );
+        }
+
+        imagenes.forEach((src, i) => {
+          const div = document.createElement('div');
+          div.className = 'dp-thumb';
+          div.innerHTML = `<img src="${resolveImg(src)}" alt="${item.nombre}">`;
+          div.addEventListener('click', () => setImage(i));
+          thumbsEl.appendChild(div);
+        });
+
+        if (imagenes.length > 0) setImage(0);
+
+        // Hide arrows if only 1 image
+        if (imagenes.length <= 1) {
+          document.querySelector('.dp-prev').style.display = 'none';
+          document.querySelector('.dp-next').style.display = 'none';
+        }
+
+        document.querySelector('.dp-prev')?.addEventListener('click', () =>
+          setImage((currentIdx - 1 + imagenes.length) % imagenes.length)
+        );
+        document.querySelector('.dp-next')?.addEventListener('click', () =>
+          setImage((currentIdx + 1) % imagenes.length)
+        );
+
+        // ── Quantity stepper ─────────────────────────────
+        const qtyInput = document.getElementById('dp-qty');
+        qtyInput.max = stockNum || 1;
+
+        document.getElementById('dp-minus').addEventListener('click', () => {
+          const v = parseInt(qtyInput.value);
+          if (v > 1) qtyInput.value = v - 1;
+        });
+        document.getElementById('dp-plus').addEventListener('click', () => {
+          const v = parseInt(qtyInput.value);
+          if (v < stockNum) qtyInput.value = v + 1;
+        });
+
+        // ── Add to cart ──────────────────────────────────
+        const btnCart = document.getElementById('dp-btn-cart');
+
+        if (stockNum <= 0) {
+          btnCart.disabled = true;
+          btnCart.innerHTML = '<i class="fa-solid fa-ban"></i> Agotado';
+        }
+
+        btnCart.addEventListener('click', () => {
+          if (typeof window.agregarAlCarrito !== 'function') return;
+          const qty    = Math.max(1, parseInt(qtyInput.value) || 1);
+          const precio = parseInt((item.valor || '').replace(/\D/g, ''));
+          const img    = resolveImg(item.imagen || (imagenes[0] || ''));
+          window.agregarAlCarrito(item.nombre, precio, img, qty);
         });
       }
-
-      // Build product info panel
-      if (item.nombre && productDetail) {
-        const panel = document.createElement("aside");
-        panel.classList.add("product-inf");
-        panel.innerHTML = `
-          <h2>${item.nombre}</h2>
-          <p>${item.descripcion || ''}</p>
-          <p>${item.valor || ''}</p>
-          <figure>
-            <a href="#" class="agregar-al-carrito primary-button add-to-cart-button"
-              data-nombre="${item.nombre}"
-              data-precio="${(item.valor || '').replace(/\D/g, '')}"
-              data-img="${resolveImg(item.imagen || '')}">
-              <img src="${B}/src/assets/icon/bt_add_to_cart.svg" alt="add to cart">
-              Agregar al carrito
-            </a>
-          </figure>
-        `;
-        productDetail.appendChild(panel);
-
-        panel.querySelector(".agregar-al-carrito").addEventListener("click", (e) => {
-          e.preventDefault();
-          if (typeof window.agregarAlCarrito === "function") {
-            const nombre = item.nombre;
-            const precio = parseInt((item.valor || "").replace(/\D/g, ""));
-            const img = resolveImg(item.imagen || "");
-            window.agregarAlCarrito(nombre, precio, img, 1);
-          }
-        });
-      }
-
-      // Carousel controls
-      const images = document.querySelectorAll(".carousel-images img");
-      let counter = 0;
-      const total = images.length;
-
-      function updateCarousel() {
-        const size = images[0] ? images[0].clientWidth : 0;
-        carouselImages.style.transform = `translateX(${-size * counter}px)`;
-      }
-
-      if (nextBtn) nextBtn.addEventListener("click", () => { counter = (counter + 1) % total; updateCarousel(); });
-      if (prevBtn) prevBtn.addEventListener("click", () => { counter = (counter - 1 + total) % total; updateCarousel(); });
-      window.addEventListener("resize", updateCarousel);
-
-      // Mobile: auto-scroll reset
-      document.addEventListener("DOMContentLoaded", () => {
-        const carousel = document.querySelector(".carousel-images");
-        if (!carousel) return;
-        let isAtEnd = false;
-        carousel.addEventListener("scroll", () => {
-          const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
-          if (carousel.scrollLeft >= maxScrollLeft - 10 && window.innerWidth <= 640 && !isAtEnd) {
-            isAtEnd = true;
-            setTimeout(() => { carousel.scrollTo({ left: 0, behavior: "smooth" }); isAtEnd = false; }, 1200);
-          }
-        });
-      });
     </script>
   </body>
 </html>

@@ -43,12 +43,12 @@ export function actualizarCarritoVisual() {
   contador = contador != null ? contador : document.querySelector(".navbar-shopping-cart a div");
 
   const total = carrito.reduce((acc, item) => acc + item.cantidad, 0);
-  
-  if (contador) {
-    contador.textContent = total;
-  } else {
-    console.warn('⚠️ No se encontró el elemento contador del carrito en el DOM');
-  }
+
+  if (contador) contador.textContent = total;
+
+  // Actualizar badge del carrito flotante
+  const floatBadge = document.getElementById('float-cart-count');
+  if (floatBadge) floatBadge.textContent = total;
 }
 
 // ----------------- RENDER DEL CARRITO -----------------
