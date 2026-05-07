@@ -1,125 +1,105 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hogar</title>
+  <title>Mascotas - DECAYBA</title>
 
-    <link rel="stylesheet" href="../../assets/css/global.css" />
-    <link rel="stylesheet" href="../../assets/css/header.css" />
-    <link rel="stylesheet" href="../../assets/css/home.css" />
-    <link rel="stylesheet" href="/src/assets/css/footer.css" />
-    <link rel="stylesheet" href="../../assets/css/carrito.css" />
-    <link rel="stylesheet" href="../../assets/css/mobile.css">
-    <link rel="stylesheet" href="../../assets/css/belleza.css">
-    <link rel="stylesheet" href="../../assets/css/tituloSugerencias.css">
-    <link rel="stylesheet" href="../../assets/css/detalleprod.css" />
+  <link rel="stylesheet" href="../../assets/css/global.css" />
+  <link rel="stylesheet" href="../../assets/css/header.css" />
+  <link rel="stylesheet" href="../../assets/css/home.css" />
+  <link rel="stylesheet" href="../../assets/css/footer.css" />
+  <link rel="stylesheet" href="../../assets/css/carrito.css" />
+  <link rel="stylesheet" href="../../assets/css/mobile.css">
+  <link rel="stylesheet" href="../../assets/css/belleza.css">
+  <link rel="stylesheet" href="../../assets/css/tituloSugerencias.css">
+  <link rel="stylesheet" href="../../assets/css/detalleprod.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet" />
- 
 </head>
-<body>
- <!-- Contenedor del menú hamburguesa -->
-  <div id="contenedor-hamburguesa"></div>
 
-  <!-- Contenedor del header global -->
+<body>
+  <div id="contenedor-hamburguesa"></div>
   <div id="contenedor-menu"></div>
   <div id="toast" class="toast"></div>
   <nav id="header"></nav>
 
-   <aside class="product-detail" id="product-detail">
-      <a href="./mascotas.html"
-        ><img
-          class="cerrar"
-          src="../../assets/icon/icon_close.png"
-          alt="Volver"
-      /></a>
-      <div class="title-container">
-        <p class="title">Resumen del pedido</p>
-      </div>
-
-      <!-- Carrito -->
-      <div class="my-order-content" id="cart-content"></div>
-
-      <!-- Botón WhatsApp
+  <aside class="product-detail" id="product-detail">
+    <a href="./mascotas.html">
+      <img class="cerrar" src="../../assets/icon/icon_close.png" alt="Volver" />
+    </a>
+    <div class="title-container">
+      <p class="title">Resumen del pedido</p>
+    </div>
+    <div class="my-order-content" id="cart-content"></div>
     <div class="verificar">
-      <a href="#" class="btn-whatsapp" id="btn-whatsapp">WhatsApp</a>
-    </div> -->
+      <a href="../cart/carrito.html" class="btn-carrito" id="btn-carrito">Ver Carrito</a>
+    </div>
+  </aside>
 
-      <!-- Botón Ver Carrito -->
-      <div class="verificar">
-        <a
-          href="/Decayba/src/pages/cart/carrito.html"
-          class="btn-carrito"
-          id="btn-carrito"
-          >Ver Carrito</a
-        >
-      </div>
-    </aside>
-    <h2 class="sugerencias-titulo">Algunas sugerencias para ti</h2>
-<div class="card-container" id="card-container"></div>
+  <h2 class="sugerencias-titulo">Productos para Mascotas</h2>
+  <div class="card-container" id="card-container"></div>
 
-<footer >
-<div class="pieDePagina">
+  <footer>
+    <div class="pieDePagina">
       <div class="izquierdo">
-      <p class="footer-title">SÍGUENOS EN REDES</p>
+        <p class="footer-title">SÍGUENOS EN REDES</p>
         <div class="footer-icons">
-        <a href="https://www.facebook.com/share/1K2zf4bYPw/" target="_blank">
-          <img src="/src/assets/icon/facebook.png" alt="Facebook">
-        </a>
-        <a href="https://www.tiktok.com/@decayba?_d=secCgYIASAHKAESPgo8EytQ1sHK8ySVLp5ckObNcf%2BPwORASCaky%2Blc9%2Fr2jw5T%2FomWY3alMybYLlTm8pjhjwv0AW8uIo84gjkgGgA%3D&_r=1&_svg=1&checksum=8b4ea6491a486d67ab9a1237e8af8b02e1de5c9d6f2bcce14b251e633f041e35&lang=es&sec_uid=MS4wLjABAAAAIUr2Eb9su1Yc_Wk_35hJqp4xxc1ry8VEDYzLT2LcJhNowNmw8Tg6Squqkp0iU7XK&sec_user_id=MS4wLjABAAAAbF3-kfFpa7nEEt-w3HJ9bMKLBsloUIaM9UB3TOKz4lh1pIkUc7LujIunHt6MRl4C&share_app_id=1340&share_author_id=6676508546471412741&share_link_id=643b91d7-52ff-459c-81af-20c33b250ef3&share_region=CO&share_scene=1&sharer_language=es&source=h5_m&timestamp=1762466620&u_code=ei8jjd136fmj1d&ugbiz_name=Account&user_id=7459417132498682885&utm_campaign=client_share&utm_source=copy" target="_blank">
-          <img src="/src/assets/icon/tik-tok.png" alt="TikTok">
-        </a>
-        <a href="https://www.instagram.com/decayba19/?next=https%3A%2F%2Fwww.instagram.com%2Fp%2FB_eyX3hnQAb%2Fc%2F18142595998040329%2F%3F__coig_login%3D1" target="_blank">
-          <img src="/src/assets/icon/instagram.png" alt="Instagram">
-        </a>
-        <a href="https://api.whatsapp.com/send/?phone=573154380079&text&type=phone_number&app_absent=0" target="_blank">
-          <img src="/src/assets/icon/whatsapp.png" alt="WhatsApp">
-        </a>
+          <a href="https://www.facebook.com/share/1K2zf4bYPw/" target="_blank">
+            <img src="../../assets/icon/facebook.png" alt="Facebook">
+          </a>
+          <a href="https://www.tiktok.com/@decayba?_d=secCgYIASAHKAESPgo8EytQ1sHK8ySVLp5ckObNcf%2BPwORASCaky%2Blc9%2Fr2jw5T%2FomWY3alMybYLlTm8pjhjwv0AW8uIo84gjkgGgA%3D&_r=1&_svg=1&checksum=8b4ea6491a486d67ab9a1237e8af8b02e1de5c9d6f2bcce14b251e633f041e35&lang=es&sec_uid=MS4wLjABAAAAIUr2Eb9su1Yc_Wk_35hJqp4xxc1ry8VEDYzLT2LcJhNowNmw8Tg6Squqkp0iU7XK&sec_user_id=MS4wLjABAAAAbF3-kfFpa7nEEt-w3HJ9bMKLBsloUIaM9UB3TOKz4lh1pIkUc7LujIunHt6MRl4C&share_app_id=1340&share_author_id=6676508546471412741&share_link_id=643b91d7-52ff-459c-81af-20c33b250ef3&share_region=CO&share_scene=1&sharer_language=es&source=h5_m&timestamp=1762466620&u_code=ei8jjd136fmj1d&ugbiz_name=Account&user_id=7459417132498682885&utm_campaign=client_share&utm_source=copy" target="_blank">
+            <img src="../../assets/icon/tik-tok.png" alt="TikTok">
+          </a>
+          <a href="https://www.instagram.com/decayba19/?next=https%3A%2F%2Fwww.instagram.com%2Fp%2FB_eyX3hnQAb%2Fc%2F18142595998040329%2F%3F__coig_login%3D1" target="_blank">
+            <img src="../../assets/icon/instagram.png" alt="Instagram">
+          </a>
+          <a href="https://api.whatsapp.com/send/?phone=573154380079&text&type=phone_number&app_absent=0" target="_blank">
+            <img src="../../assets/icon/whatsapp.png" alt="WhatsApp">
+          </a>
+        </div>
+      </div>
+      <div class="derecha">
+        © <span id="year"></span> <strong>DECAYBA</strong> · Hecho con amor ❤
       </div>
     </div>
-     <div class="derecha">
-      © <span id="year"></span> <strong>DECAYBA</strong> · Hecho con amor ❤
-  </div>
-    </div>
-   
   </footer>
-    <script type="module">
-      async function inicializarPagina() {
-        try {
-          // 1. Cargar header PRIMERO
-          const headerResponse = await fetch('/Decayba/src/components/headerglobal.html');
-          const headerHtml = await headerResponse.text();
-          document.getElementById('header').innerHTML = headerHtml;
-          console.log('✅ Header cargado');
 
-          // 2. Cargar menú hamburguesa
-          const { cargarMenuHamburguesa } = await import('/Decayba/src/assets/js/modules/menu-loader.js');
-          await cargarMenuHamburguesa();
-          console.log('✅ Menú hamburguesa cargado');
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 
-          // 3. Inicializar aplicación principal
-          const { renderCart } = await import('/Decayba/src/assets/js/modules/renderCart.js');
-          const { actualizarCarritoVisual } = await import('/Decayba/src/assets/js/modules/carrito.js');
-          const { verDetalleProducto } = await import('/Decayba/src/assets/js/modules/detalleProducto.js');
-          
-          window.verDetalleProducto = verDetalleProducto;
-          renderCart();
-          actualizarCarritoVisual();
-          
-          console.log('✅ Página inicializada');
-        } catch (error) {
-          console.error('❌ Error al inicializar:', error);
-        }
+  <script type="module">
+    async function inicializarPagina() {
+      try {
+        const B = window.location.pathname.startsWith('/Decayba') ? '/Decayba' : '';
+
+        const headerResponse = await fetch(`${B}/src/components/headerglobal.html`, { cache: 'reload' });
+        const headerHtml = (await headerResponse.text()).replaceAll('/Decayba/', `${B}/`);
+        document.getElementById('header').innerHTML = headerHtml;
+
+        const { cargarMenuHamburguesa } = await import(`${B}/src/assets/js/modules/menu-loader.js`);
+        await cargarMenuHamburguesa();
+
+        const { renderCart } = await import(`${B}/src/assets/js/modules/renderCart.js`);
+        const { actualizarCarritoVisual } = await import(`${B}/src/assets/js/modules/carrito.js`);
+        const { verDetalleProducto } = await import(`${B}/src/assets/js/modules/detalleProducto.js`);
+
+        window.verDetalleProducto = verDetalleProducto;
+        renderCart("mascotas");
+        actualizarCarritoVisual();
+      } catch (error) {
+        console.error('❌ Error al inicializar:', error);
       }
+    }
 
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', inicializarPagina);
-      } else {
-        inicializarPagina();
-      }
-    </script>
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', inicializarPagina);
+    } else {
+      inicializarPagina();
+    }
+  </script>
 </body>
+
 </html>
-
-

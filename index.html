@@ -187,15 +187,17 @@
   <script type="module">
     async function inicializarApp() {
       try {
+        const B = window.location.pathname.startsWith('/Decayba') ? '/Decayba' : '';
+
         // 1. Cargar header PRIMERO (crítico para el contador del carrito)
-        const headerResponse = await fetch('./src/components/header.html');
-        const headerHtml = await headerResponse.text();
+        const headerResponse = await fetch('./src/components/header.html', { cache: 'reload' });
+        const headerHtml = (await headerResponse.text()).replaceAll('/Decayba/', `${B}/`);
         document.getElementById('header').innerHTML = headerHtml;
         console.log('✅ Header cargado');
 
         // 2. Cargar menú móvil
-        const menuResponse = await fetch('./src/components/menuMobile.html');
-        const menuHtml = await menuResponse.text();
+        const menuResponse = await fetch('./src/components/menuMobile.html', { cache: 'reload' });
+        const menuHtml = (await menuResponse.text()).replaceAll('/Decayba/', `${B}/`);
         document.getElementById('contenedor-hamburguesa').innerHTML = menuHtml;
         console.log('✅ Menú móvil cargado');
 

@@ -1,6 +1,8 @@
 import { productos } from "../../../services/productos.js";
 import { mostrarToast } from "../utils/toast.js";
 
+const BASE = window.location.pathname.startsWith('/Decayba') ? '/Decayba' : '';
+
 export let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 // ----------------- FUNCIONES PRINCIPALES -----------------
@@ -82,7 +84,7 @@ export function renderCart2() {
           <input type="number" min="1" value="${item.cantidad}" data-index="${index}" class="input-cantidad">
         </label>
       </div>
-      <img src="/Decayba/src/assets/icon/icon_close.png" alt="Eliminar" data-index="${index}" class="btn-remove">
+      <img src="${BASE}/src/assets/icon/icon_close.png" alt="Eliminar" data-index="${index}" class="btn-remove">
     `;
     cartContent.appendChild(div);
   });
@@ -142,14 +144,14 @@ if (btnCarrito) {
     // Si estamos en mobile o no existe aside, ir al carrito
     if (window.innerWidth < 768 || !productDetail) {
       // Usamos ruta relativa para que funcione en producción
-      window.location.href = "./src/pages/cart/carrito.html";
+      window.location.href = `${BASE}/src/pages/cart/carrito.html`;
       return;
     }
 
     // Si carrito vacío, también ir a carrito.html
     if (carrito.length === 0) {
       if (productDetail) productDetail.style.display = "none";
-      window.location.href = "./src/pages/cart/carrito.html";
+      window.location.href = `${BASE}/src/pages/cart/carrito.html`;
       return;
     }
 

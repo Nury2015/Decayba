@@ -320,9 +320,9 @@ export const productos = [
     imgs: [
       "/Decayba/src/assets/img/Cepillo para mascotas/principal.webp",
       "/Decayba/src/assets/img/Cepillo para mascotas/perros y gatos.webp",
-      "img/Cepillo para mascotas/medidas.webp",
-      "img/Cepillo para mascotas/sistema.webp",
-      "img/Cepillo para mascotas/sistema2.webp",
+      "/Decayba/src/assets/img/Cepillo para mascotas/medidas.webp",
+      "/Decayba/src/assets/img/Cepillo para mascotas/sistema.webp",
+      "/Decayba/src/assets/img/Cepillo para mascotas/sistema2.webp",
     ],
   },
   {

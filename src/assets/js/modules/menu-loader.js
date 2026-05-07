@@ -1,16 +1,15 @@
-// src/assets/js/menu-loader.js
 export async function cargarMenuHamburguesa() {
   const contenedor = document.getElementById('contenedor-hamburguesa');
-  if (!contenedor) return; // No hacer nada si no existe el contenedor
+  if (!contenedor) return;
 
-  // Cargar HTML del menú
-  const response = await fetch('../../components/menuMobile.html');
-  const html = await response.text();
-  contenedor.innerHTML = html;
+  const BASE = window.location.pathname.startsWith('/Decayba') ? '/Decayba' : '';
 
- // Esperar un frame para que el DOM se actualice
+  const response = await fetch(`${BASE}/src/components/menuMobile.html`, { cache: 'reload' });
+  const raw = await response.text();
+  contenedor.innerHTML = raw.replaceAll('/Decayba/', `${BASE}/`);
+
   requestAnimationFrame(async () => {
-    const { activarMenuHamburguesa } = await import('./mobile.js');
+    const { activarMenuHamburguesa } = await import(`${BASE}/src/assets/js/modules/mobile.js`);
     activarMenuHamburguesa();
   });
 }
