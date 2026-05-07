@@ -22,8 +22,12 @@ function buildCard(item) {
       ? item.stock
       : Object.values(item.stock).reduce((a, b) => a + b, 0);
 
+  // Usamos data-nombre + data-imagen como clave compuesta (evita el JSON en onclick)
   div.innerHTML = `
-    <a onclick='verDetalleProducto(${JSON.stringify(item)})'>
+    <a class="ver-producto"
+       data-nombre="${item.nombre}"
+       data-imagen="${item.imagen}"
+       style="cursor:pointer;display:block;">
       <img src="${rutaFinal}" alt="${item.nombre}">
     </a>
     <div class="informacion-producto">
@@ -51,6 +55,23 @@ function buildCard(item) {
 }
 
 function attachEvents(container) {
+  // Clic en imagen del producto → navegar al detalle
+  container.querySelectorAll(".ver-producto").forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      const nombre = link.dataset.nombre;
+      const imagen = link.dataset.imagen;
+      // Buscar el producto original en el array (clave compuesta nombre+imagen)
+      const producto = productos.find(
+        (p) => p.nombre === nombre && p.imagen === imagen
+      );
+      if (producto && typeof window.verDetalleProducto === "function") {
+        window.verDetalleProducto(producto);
+      }
+    });
+  });
+
+  // Clic en botón agregar al carrito
   container.querySelectorAll(".agregar-al-carrito").forEach((boton) => {
     boton.addEventListener("click", (e) => {
       e.preventDefault();
