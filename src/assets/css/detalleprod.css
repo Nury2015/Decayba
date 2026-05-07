@@ -36,11 +36,11 @@ body {
 .dp-main-wrap {
   position: relative;
   width: 100%;
-  aspect-ratio: 1 / 1;
+  height: 420px;
   border-radius: 14px;
-  overflow: hidden;
   background: #f8f8f8;
   margin-bottom: 12px;
+  /* Sin overflow:hidden para que object-fit:contain muestre la imagen completa */
 }
 
 .dp-main-img {
@@ -49,6 +49,7 @@ body {
   object-fit: contain;
   display: block;
   transition: opacity 0.2s ease;
+  border-radius: 14px;
 }
 
 .dp-arrow {
@@ -305,11 +306,10 @@ body {
 
   .dp-gallery { max-width: 100%; width: 100%; }
 
-  /* Limitar altura de la imagen principal en móvil */
+  /* Altura fija en móvil para que la imagen siempre se vea completa */
   .dp-main-wrap {
-    aspect-ratio: unset;
-    height: 260px;
-    max-height: 260px;
+    height: 280px;
+    min-height: 280px;
   }
 
   .dp-nombre { font-size: 1.4rem; }
