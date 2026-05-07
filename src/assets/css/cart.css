@@ -145,7 +145,7 @@ img.btn-remove {
 }
 
 /* Estilos responsivos */
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .product-detail {
     width: 100%;
     padding: 15px;

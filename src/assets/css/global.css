@@ -1,3 +1,13 @@
+/* Reset de box-sizing: border-box para todo el sitio */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Evitar scroll horizontal en cualquier página */
+html {
+  overflow-x: hidden;
+}
+
 :root {
     --very-light-pink: #5e5c5c;
     --text-input-field: #F7F7F7;
