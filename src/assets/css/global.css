@@ -4,8 +4,9 @@
 }
 
 /* Evitar scroll horizontal en cualquier página */
-html {
+html, body {
   overflow-x: hidden;
+  max-width: 100%;
 }
 
 :root {
