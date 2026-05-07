@@ -1,6 +1,341 @@
-/* Estilos específicos para el carrito en la página principal */
+/* ═══════════════════════════════════════════════════════════
+   CART PAGE — Diseño moderno
+═══════════════════════════════════════════════════════════ */
 
+/* Fondo gris claro solo en la página del carrito */
+.carrito-bg { background: #f5f5f5; }
 
+/* ── Hero banner ─────────────────────────────────────── */
+.carrito-hero {
+  background: linear-gradient(135deg, #e8f7ec 0%, #f4fbf5 55%, #ffffff 100%);
+  padding: 40px 24px 36px;
+  text-align: center;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.carrito-hero-icon {
+  font-size: 56px;
+  display: block;
+  margin-bottom: 12px;
+  animation: floatCart 3s ease-in-out infinite;
+}
+
+@keyframes floatCart {
+  0%, 100% { transform: translateY(0);   }
+  50%       { transform: translateY(-8px); }
+}
+
+.carrito-hero h1 {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  color: #232830;
+  margin: 0 0 6px;
+}
+
+.carrito-hero p {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 15px;
+  color: #6b6b6b;
+  margin: 0;
+}
+
+/* ── Main two-column layout ──────────────────────────── */
+.contenedor-carrito {
+  display: flex;
+  gap: 28px;
+  max-width: 1100px;
+  margin: 36px auto 48px;
+  padding: 0 24px;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.my-order { flex: 1; min-width: 0; }
+
+/* ── Section title ───────────────────────────────────── */
+.cart-section-title {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #232830;
+  margin: 0 0 12px;
+}
+
+/* ── Select-all bar ─────────────────────────────────── */
+.cabecera {
+  background: white;
+  border-radius: 12px;
+  padding: 12px 16px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  width: 100%;
+}
+
+.title {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #555;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: auto;
+  margin: 0;
+  box-shadow: none;
+}
+
+/* ── Individual cart item ────────────────────────────── */
+.shopping-cart {
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  margin-bottom: 10px;
+  overflow: hidden;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.shopping-cart:hover {
+  box-shadow: 0 6px 20px rgba(0,0,0,0.10);
+  transform: translateY(-2px);
+}
+
+.label-product {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  width: 100%;
+  margin-left: 0;
+  cursor: pointer;
+}
+
+/* Checkbox */
+.label-product input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #4caf77;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+/* Product image */
+.label-product figure {
+  width: 90px;
+  height: 90px;
+  border-radius: 10px;
+  overflow: hidden;
+  flex-shrink: 0;
+  margin: 0;
+  background: #f5f5f5;
+}
+
+.label-product figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Product info */
+.inf-product {
+  flex: 1;
+  min-width: 0;
+  width: auto;
+}
+
+.inf-product p {
+  font-family: 'Quicksand', sans-serif;
+  margin: 0 0 3px;
+  font-size: 14px;
+  color: #444;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
+}
+
+.inf-product p strong {
+  font-weight: 700;
+  font-size: 14.5px;
+  color: #232830;
+}
+
+.inf-product .precio-item {
+  color: #4caf77;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.inf-product small {
+  font-size: 12px;
+  color: #aaa;
+  display: block;
+}
+
+/* Delete button */
+img.btn-remove {
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+  opacity: 0.35;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 3px;
+}
+
+img.btn-remove:hover {
+  opacity: 1;
+  background: #fee2e2;
+  transform: scale(1.15);
+}
+
+/* ── Order summary card ──────────────────────────────── */
+.order {
+  width: 320px;
+  flex-shrink: 0;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  padding: 24px;
+  position: sticky;
+  top: 72px;
+  height: auto;
+  margin: 0;
+}
+
+.resumen-titulo {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  color: #232830;
+  margin: 0 0 20px;
+  padding: 0;
+  text-align: left;
+}
+
+.resumen-box {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.resumen-box p {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 14.5px;
+  color: #555;
+  margin: 0;
+}
+
+.resumen-box .total-line {
+  font-size: 17px;
+  font-weight: 800;
+  color: #232830;
+  padding-top: 12px;
+  margin-top: 4px;
+  border-top: 2px solid #f0f0f0;
+}
+
+/* Shipping progress */
+.shipping-progress-wrap {
+  margin-bottom: 20px;
+}
+
+.shipping-progress {
+  background: #eeeeee;
+  border-radius: 50px;
+  height: 7px;
+  margin-bottom: 8px;
+  overflow: hidden;
+}
+
+.shipping-progress-fill {
+  background: linear-gradient(90deg, #ACD9B2, #4caf77);
+  height: 100%;
+  border-radius: 50px;
+  transition: width 0.5s ease;
+}
+
+.shipping-label {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 12.5px;
+  color: #888;
+  text-align: center;
+  margin: 0;
+}
+
+.shipping-label.free {
+  color: #4caf77;
+  font-weight: 700;
+}
+
+/* Verificar (wrapper del botón) */
+.verificar {
+  display: flex;
+  justify-content: center;
+  margin: 8px 0 0;
+  width: 100%;
+  padding: 0;
+}
+
+/* ── Empty cart state ────────────────────────────────── */
+.carrito-vacio {
+  text-align: center;
+  padding: 56px 24px 44px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+}
+
+.carrito-vacio-icon {
+  font-size: 68px;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.carrito-vacio h3 {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  color: #232830;
+  margin: 0 0 8px;
+}
+
+.carrito-vacio p {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 15px;
+  color: #888;
+  margin: 0 0 28px;
+}
+
+.btn-seguir-comprando {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #232830;
+  color: white;
+  text-decoration: none;
+  padding: 14px 28px;
+  border-radius: 50px;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(35,40,48,0.2);
+  transition: background 0.22s ease, transform 0.22s ease;
+}
+
+.btn-seguir-comprando:hover {
+  background: #4caf77;
+  transform: translateY(-2px);
+}
+
+/* ── Product detail aside (sidebar cart panel) ───────── */
 .product-detail {
   box-sizing: border-box;
   position: absolute;
@@ -16,170 +351,58 @@
   overflow-y: auto;
 }
 
-/* Estilos para los productos en el carrito */
-.shopping-cart {
-  display: grid;
-  grid-template-columns: auto 1fr auto auto;
-  gap: 16px;
-  margin-bottom: 24px;
-  align-items: center;
-}
-
-.shopping-cart figure {
-  margin: 0;
-  width: 107px;
-  height: 107px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  border-radius: 8px;
-  background: var(--text-input-field);
-}
-
-img.btn-remove {
-  cursor: pointer;
-  width: 20px;
-  height: 20px;
-}
-
-.shopping-cart img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
-.shopping-cart p {
-  margin: 0;
-  font-size: var(--md);
-}
-
-.shopping-cart p:nth-child(2) {
-  color: var(--very-light-pink);
-}
-
-.shopping-cart p:nth-child(3) {
-  font-weight: bold;
-}
-
-.title-container {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.title {
-  width: 100%;
-  font-size: var(--lg);
-  font-weight: bold;
-  margin: 0;
-  margin-bottom: 30px;
-  height: 50px;
-  display: flex;
-  justify-items: center;
-  align-items: center;
-   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 🌟 Sombra suave */
-
-}
-
-.title-container img {
-  transform: rotate(180deg);
-  margin-right: 14px;
-  cursor: pointer;
-  width: 10px;
-}
-
-.my-order-content {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 15px;
-}
-
-.gracias {
-  display: flex;
-  justify-content: center;
-  font-size: var(--md);
-  color: var(--black);
-  text-align: center;
-  font-size: var(--lg);
-}
-
-.verificar,
-.detalle-compra {
-  display: flex;
-  justify-content: center;
-  margin: 10px 0;
-  width: 100%;
-}
-
-/* btn-whatsapp styles are in carrito.css */
-
-/* Estilos para el botón de carrito */
-#btn-carrito {
-  background-color: #4a90e2;
-  /* Azul más claro */
-}
-
-#btn-carrito:hover {
-  background-color: #3a7bc8;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-img.btn-remove {
-  cursor: pointer;
-  width: 20px;
-  height: 20px;
-}
-
-.detalle-compra .boton {
-  background-color: var(--hospital-green);
-  color: var(--white);
-}
-
-.detalle-compra .boton:hover {
-  background-color: #9bcaa1;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Estilos responsivos */
+/* ── Responsive ──────────────────────────────────────── */
 @media (max-width: 768px) {
-  .product-detail {
+  .carrito-hero { padding: 28px 20px 24px; }
+  .carrito-hero h1 { font-size: 1.6rem; }
+  .carrito-hero-icon { font-size: 42px; }
+
+  .contenedor-carrito {
+    flex-direction: column;
+    padding: 0 12px;
+    margin-top: 20px;
+    gap: 14px;
+  }
+
+  .my-order { width: 100%; }
+
+  .order {
     width: 100%;
-    padding: 15px;
+    position: static;
+    padding: 16px;
   }
 
-  .boton {
-    font-size: var(--md);
-    height: 46px;
-  }
-
-  /* Imagen más grande en la lista del carrito */
-  .shopping-cart {
-    grid-template-columns: 90px 1fr auto auto;
+  .label-product {
+    padding: 12px 12px;
     gap: 10px;
   }
 
-  .shopping-cart figure {
-    width: 90px;
-    height: 90px;
-  }
-
-  /* Label del ítem: imagen más ancha, texto flexible */
-  .label-product figure img {
-    width: 90px;
-    height: 90px;
-    object-fit: cover;
-    border-radius: 8px;
-  }
-
   .label-product figure {
-    flex-shrink: 0;
-    width: 90px;
-    height: 90px;
+    width: 76px;
+    height: 76px;
+  }
+
+  .inf-product p { font-size: 13px; }
+  .inf-product .precio-item { font-size: 14px; }
+
+  .label-product .inf-product {
     overflow: hidden;
-    border-radius: 8px;
+  }
+
+  .label-product .inf-product p,
+  .label-product .inf-product small {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  img.btn-remove {
+    width: 22px;
+    height: 22px;
+  }
+
+  .product-detail {
+    width: 100%;
+    padding: 15px;
   }
 }
