@@ -1,0 +1,10 @@
+# Nested repository accidentally added as a gitlink
+Decayba/
+
+# OS / editor artifacts
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+
+# Local dev server config (keep .vscode/settings.json tracked for Live Server port)

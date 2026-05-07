@@ -18,6 +18,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="./src/assets/css/features.css" />
+  <link rel="stylesheet" href="./src/assets/css/sections.css" />
 </head>
 
 
@@ -31,6 +32,89 @@
   <nav id="header">
 
   </nav>
+
+  <!-- ═══ HERO ═══════════════════════════════════════════════ -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <div class="hero-badge">🐾 Hecho con amor en Colombia</div>
+      <h1 class="hero-title">Lo mejor para tu<br><span class="hero-accent">mascota</span></h1>
+      <p class="hero-subtitle">Productos cuidadosamente seleccionados para el bienestar, la diversión y la felicidad de tu peludito.</p>
+      <a href="#productos" class="hero-cta">
+        Ver productos <i class="fa-solid fa-arrow-down"></i>
+      </a>
+    </div>
+    <div class="hero-bubbles" aria-hidden="true">
+      <div class="hero-bubble b1">🐶</div>
+      <div class="hero-bubble b2">🐱</div>
+      <div class="hero-bubble b3">🦮</div>
+      <div class="hero-bubble b4">🐾</div>
+    </div>
+  </section>
+
+  <!-- ═══ CATEGORÍAS ══════════════════════════════════════════ -->
+  <section class="categorias-section">
+    <h2 class="sec-title">Explorar categorías</h2>
+    <p class="sec-sub">Encuentra exactamente lo que tu peludito necesita</p>
+    <div class="categorias-grid">
+      <a href="./src/pages/pets/mascotas.html" class="cat-card">
+        <div class="cat-emoji">🐾</div>
+        <strong class="cat-name">Mascotas</strong>
+        <span class="cat-desc">Accesorios, juguetes y cuidado</span>
+      </a>
+      <a href="./src/pages/Toys/juguetes.html" class="cat-card">
+        <div class="cat-emoji">🧸</div>
+        <strong class="cat-name">Juguetes</strong>
+        <span class="cat-desc">Diversión garantizada</span>
+      </a>
+      <a href="./src/pages/home/personalizado.html" class="cat-card">
+        <div class="cat-emoji">🎁</div>
+        <strong class="cat-name">Personalizados</strong>
+        <span class="cat-desc">Regalos únicos y especiales</span>
+      </a>
+      <a href="./src/pages/cosmetic/belleza.html" class="cat-card">
+        <div class="cat-emoji">💅</div>
+        <strong class="cat-name">Belleza</strong>
+        <span class="cat-desc">Cuidado personal</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══ TICKER ══════════════════════════════════════════════ -->
+  <div class="promo-strip" aria-hidden="true">
+    <div class="promo-track">
+      <span><i class="fa-solid fa-truck-fast"></i> Envío gratis en pedidos +$100.000</span>
+      <span class="ps">✦</span>
+      <span><i class="fa-solid fa-shield-halved"></i> Productos garantizados</span>
+      <span class="ps">✦</span>
+      <span><i class="fa-solid fa-heart"></i> Hecho con amor en Colombia</span>
+      <span class="ps">✦</span>
+      <span><i class="fa-solid fa-bolt"></i> Despacho en 24–48 horas</span>
+      <span class="ps">✦</span>
+      <span><i class="fa-solid fa-star"></i> Cientos de clientes felices</span>
+      <span class="ps">✦</span>
+      <span><i class="fa-solid fa-lock"></i> Pagos 100% seguros</span>
+      <span class="ps">✦</span>
+      <!-- duplicate for seamless loop -->
+      <span><i class="fa-solid fa-truck-fast"></i> Envío gratis en pedidos +$100.000</span>
+      <span class="ps">✦</span>
+      <span><i class="fa-solid fa-shield-halved"></i> Productos garantizados</span>
+      <span class="ps">✦</span>
+      <span><i class="fa-solid fa-heart"></i> Hecho con amor en Colombia</span>
+      <span class="ps">✦</span>
+      <span><i class="fa-solid fa-bolt"></i> Despacho en 24–48 horas</span>
+      <span class="ps">✦</span>
+      <span><i class="fa-solid fa-star"></i> Cientos de clientes felices</span>
+      <span class="ps">✦</span>
+      <span><i class="fa-solid fa-lock"></i> Pagos 100% seguros</span>
+      <span class="ps">✦</span>
+    </div>
+  </div>
+
+  <!-- ═══ PRODUCTS HEADER ═════════════════════════════════════ -->
+  <div class="productos-header" id="productos">
+    <h2 class="sec-title">Nuestros productos</h2>
+    <p class="sec-sub">Calidad y cariño en cada artículo 🐶</p>
+  </div>
 
   <section class="main-container">
 
@@ -122,6 +206,65 @@
         <div class="feature-body">
           <h3 class="feature-title">Calidad confiable</h3>
           <p class="feature-text">Cientos de clientes satisfechos nos respaldan</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ FAQ ═════════════════════════════════════════════════ -->
+  <section class="faq-section">
+    <h2 class="sec-title">Preguntas frecuentes</h2>
+    <p class="sec-sub">Todo lo que necesitas saber antes de comprar</p>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>¿Cómo realizo mi pedido?</span>
+          <i class="fa-solid fa-plus faq-ico"></i>
+        </button>
+        <div class="faq-body">
+          <p>Agrega los productos que quieras al carrito y haz clic en "Ver Carrito". Al finalizar te redirigiremos a WhatsApp para confirmar tu pedido directamente con nosotros. ¡Es muy sencillo!</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>¿Cuánto tarda el envío?</span>
+          <i class="fa-solid fa-plus faq-ico"></i>
+        </button>
+        <div class="faq-body">
+          <p>Despachamos entre 24 y 48 horas hábiles después de confirmar tu pedido. El tiempo de entrega varía según tu ciudad dentro de Colombia. Te enviamos el número de guía para rastrear tu paquete.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>¿Cuáles son los métodos de pago?</span>
+          <i class="fa-solid fa-plus faq-ico"></i>
+        </button>
+        <div class="faq-body">
+          <p>Aceptamos transferencias bancarias, Nequi, Daviplata y pago contra entrega en ciudades seleccionadas. Coordinamos el método más cómodo para ti directamente por WhatsApp.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>¿Los productos son seguros para mis mascotas?</span>
+          <i class="fa-solid fa-plus faq-ico"></i>
+        </button>
+        <div class="faq-body">
+          <p>¡Sí! Todos nuestros productos están cuidadosamente seleccionados pensando en el bienestar de tus peluditos. Revisamos materiales, calidad y seguridad antes de ofrecerlos en la tienda.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>¿Puedo hacer devoluciones o cambios?</span>
+          <i class="fa-solid fa-plus faq-ico"></i>
+        </button>
+        <div class="faq-body">
+          <p>Si tu producto llega en mal estado o no cumple tus expectativas, contáctanos por WhatsApp dentro de los 5 días hábiles siguientes a la entrega y lo solucionamos sin complicaciones.</p>
         </div>
       </div>
 
@@ -235,6 +378,17 @@
   <!-- Cargar productos -->
   <script type="module" src="./src/services/productos.js"></script>
 
+  <!-- FAQ accordion -->
+  <script>
+    document.querySelectorAll('.faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('is-open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('is-open'));
+        if (!isOpen) item.classList.add('is-open');
+      });
+    });
+  </script>
 
 </body>
 
