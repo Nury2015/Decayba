@@ -217,41 +217,72 @@ text-align: right;
 }
 
 @media (max-width: 640px) {
-  .informacion-producto div p:nth-child(1) {
-    font-size: 11px;
-    max-width: 105px;
-  }
-
+  /* ── Product grid ── */
   .card-container {
-    grid-template-columns: repeat(2, 150px);
-  }
-
-  .producto-card {
-    width: 140px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 0 10px;
   }
 
   .product-card img {
     width: 100%;
-    height: 140px;
+    height: 160px;
   }
 
-  @media (max-width: 600px){
-
-  .whatsapp-msg{
-    display: none; /* Oculta mensaje en celular */
+  /* ── Card info: stack vertically so icon never overflows ── */
+  .informacion-producto {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 8px 10px 10px;
+    gap: 6px;
   }
 
-  .whatsapp-btn{
+  .card-infor {
+    width: 100%;
+  }
+
+  .informacion-producto div p:nth-child(1) {
+    font-size: 12px;
+    max-width: 100%;
+  }
+
+  .informacion-producto div p:nth-child(2) {
+    font-size: 13px;
+    margin: 2px 0 0;
+  }
+
+  .informacion-producto figure {
+    margin: 0;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .informacion-producto figure img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .input-cantidad {
+    width: 46px;
+    font-size: 12px;
+  }
+
+  /* ── Floating WhatsApp bubble ── */
+  .whatsapp-msg {
+    display: none;
+  }
+
+  .whatsapp-btn {
     font-size: 26px;
     padding: 18px;
   }
 
-}
-
-   .footer-container {
+  /* ── Footer ── */
+  .footer-container {
     flex-direction: column;
     text-align: center;
   }
+
   .footer-right {
     margin-top: 15px;
     text-align: center;

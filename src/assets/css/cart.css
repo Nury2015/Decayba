@@ -113,15 +113,7 @@ img.btn-remove {
   width: 100%;
 }
 
-#btn-whatsapp {
-  background-color: #25D366;
-}
-
-#btn-whatsapp:hover {
-  background-color: #128C7E;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
+/* btn-whatsapp styles are in carrito.css */
 
 /* Estilos para el botón de carrito */
 #btn-carrito {

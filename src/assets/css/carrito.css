@@ -118,21 +118,31 @@ body {
 }
 
 .btn-whatsapp {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 20px;
-  font-size: var(--lg);
-  font-weight: bold;
-  color: var(--white);
-  width: 70%;
-  height: 50px;
-  cursor: pointer;
-  background-color: var(--hospital-green);
+  gap: 10px;
+  background: #25D366;
+  color: #ffffff;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 16px 28px;
+  border-radius: 50px;
   border: none;
-  border-radius: 8px;
   text-decoration: none;
-  text-align: center;
+  cursor: pointer;
+  width: 90%;
+  max-width: 360px;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
+  transition: background 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
+  letter-spacing: 0.2px;
+}
+
+.btn-whatsapp:hover {
+  background: #1ea855;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(37, 211, 102, 0.45);
 }
 
 .btn-carrito {
