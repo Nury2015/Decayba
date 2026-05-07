@@ -307,36 +307,70 @@ body {
 
 @media (max-width: 640px) {
 
-  .label-product {
-    justify-content: left;
-    gap: 12px;
-    width: 311px;
+  /* Todos los contenedores: ancho 100% sin desbordar */
+  .contenedor-carrito {
+    flex-direction: column;
+    padding: 0 12px;
+    box-sizing: border-box;
+  }
+
+  .my-order {
+    width: 100%;
   }
 
   .my-order-container {
-    width: 17rem;
-    padding: 10px 40px;
-  }
-  .contenedor-carrito {
-    flex-direction: column;
-  }
-
-  .mini-cards {
-    grid-template-columns: repeat(auto-fill, 140px);
-  }
-
-  .mini-cards img {
     width: 100%;
-    height: 140px;
+    box-sizing: border-box;
+    padding: 8px 0;
   }
 
-.cabecera{
-  width: 331px;
-}
+  .cabecera {
+    width: 100%;
+    box-sizing: border-box;
+  }
 
-.order{
-  margin-top: 0;
-  margin-left: 40px;
-  height: 407px;
-}
+  .label-product {
+    width: 100%;
+    box-sizing: border-box;
+    justify-content: space-between;
+    gap: 10px;
+    margin-left: 0;
+  }
+
+  .inf-product {
+    flex: 1;
+    min-width: 0;     /* permite truncar texto */
+    width: auto;
+  }
+
+  /* Resumen del pedido */
+  .order {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 16px 0;
+    padding: 16px;
+    height: auto;     /* sin altura fija */
+  }
+
+  .resumen-titulo {
+    font-size: 16px;
+    padding-left: 0;
+    padding-top: 12px;
+  }
+
+  .resumen-box {
+    padding: 8px 0;
+  }
+
+  /* Botón WhatsApp: ancho completo en mobile */
+  .btn-whatsapp {
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+  }
+
+  /* Verificar (contenedor del botón) */
+  .verificar {
+    padding: 0;
+  }
 }
