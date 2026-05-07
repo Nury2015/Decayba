@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,20 +10,36 @@
   <link rel="stylesheet" href="../../assets/css/home.css" />
   <link rel="stylesheet" href="../../assets/css/footer.css" />
   <link rel="stylesheet" href="../../assets/css/carrito.css" />
-  <link rel="stylesheet" href="../../assets/css/hogar.css">
-  <link rel="stylesheet" href="../../assets/css/mobile.css">
-  <link rel="stylesheet" href="../../assets/css/tituloSugerencias.css">
+  <link rel="stylesheet" href="../../assets/css/mobile.css" />
+  <link rel="stylesheet" href="../../assets/css/tituloSugerencias.css" />
   <link rel="stylesheet" href="../../assets/css/detalleprod.css" />
+  <link rel="stylesheet" href="../../assets/css/sections.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet" />
 </head>
-
 <body>
   <div id="contenedor-hamburguesa"></div>
   <div id="contenedor-menu"></div>
   <div id="toast" class="toast"></div>
   <nav id="header"></nav>
 
+  <!-- Hero -->
+  <section class="hero-section hero-personalizado">
+    <div class="hero-content">
+      <div class="hero-badge">🎁 Regalos únicos & especiales</div>
+      <h1 class="hero-title">Detalles que<br><span class="hero-accent">emocionan</span> para siempre</h1>
+      <p class="hero-subtitle">Álbumes y productos 100% personalizados con tu historia, tu foto y los momentos que más quieres recordar.</p>
+      <a href="#productos" class="hero-cta">Ver personalizados <i class="fa-solid fa-arrow-down"></i></a>
+    </div>
+    <div class="hero-bubbles" aria-hidden="true">
+      <div class="hero-bubble b1">🎁</div>
+      <div class="hero-bubble b2">📸</div>
+      <div class="hero-bubble b3">🎨</div>
+      <div class="hero-bubble b4">📖</div>
+    </div>
+  </section>
+
+  <!-- Aside cart -->
   <aside class="product-detail" id="product-detail">
     <a href="./personalizado.html">
       <img class="cerrar" src="../../assets/icon/icon_close.png" alt="Volver" />
@@ -38,12 +53,11 @@
     </div>
   </aside>
 
-  <div class="coming-soon">
-    <h1>🏠 Muy pronto</h1>
-    <p>Próximamente artículos para tu hogar: decoración, cocina, y bienestar.</p>
+  <!-- Products -->
+  <div class="productos-header" id="productos">
+    <h2 class="sec-title">Nuestros Personalizados</h2>
+    <p class="sec-sub">Cada producto es único, igual que tú 🎨</p>
   </div>
-
-  <h2 class="sugerencias-titulo">Algunas sugerencias para ti</h2>
   <div class="card-container" id="card-container"></div>
 
   <footer>
@@ -71,40 +85,29 @@
     </div>
   </footer>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 
   <script type="module">
     async function inicializarPagina() {
       try {
         const B = window.location.pathname.startsWith('/Decayba') ? '/Decayba' : '';
-
         const headerResponse = await fetch(`${B}/src/components/headerglobal.html`, { cache: 'reload' });
-        const headerHtml = (await headerResponse.text()).replaceAll('/Decayba/', `${B}/`);
-        document.getElementById('header').innerHTML = headerHtml;
-
+        document.getElementById('header').innerHTML = (await headerResponse.text()).replaceAll('/Decayba/', `${B}/`);
         const { cargarMenuHamburguesa } = await import(`${B}/src/assets/js/modules/menu-loader.js`);
         await cargarMenuHamburguesa();
-
         const { renderCart } = await import(`${B}/src/assets/js/modules/renderCart.js`);
         const { actualizarCarritoVisual } = await import(`${B}/src/assets/js/modules/carrito.js`);
         const { verDetalleProducto } = await import(`${B}/src/assets/js/modules/detalleProducto.js`);
-
         window.verDetalleProducto = verDetalleProducto;
-        renderCart();
+        renderCart("personalizado");
         actualizarCarritoVisual();
-      } catch (error) {
-        console.error('❌ Error al inicializar:', error);
-      }
+        const container = document.getElementById("card-container");
+        if (container && container.children.length === 0) {
+          container.innerHTML = `<div class="no-productos"><span class="no-prod-icon">🎁</span><h3>Muy pronto</h3><p>Estamos preparando más personalizados increíbles. ¡Vuelve pronto!</p></div>`;
+        }
+      } catch (e) { console.error('❌', e); }
     }
-
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', inicializarPagina);
-    } else {
-      inicializarPagina();
-    }
+    document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', inicializarPagina) : inicializarPagina();
   </script>
 </body>
-
 </html>

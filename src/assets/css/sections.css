@@ -369,6 +369,61 @@ html { scroll-behavior: smooth; }
 }
 
 /* ═══════════════════════════════════════════════════════════════
+   HERO COLOR VARIANTS (per-category pages)
+═══════════════════════════════════════════════════════════════ */
+.hero-belleza {
+  background: linear-gradient(135deg, #fce4ec 0%, #fdf0f3 50%, #ffffff 100%) !important;
+}
+.hero-belleza::before {
+  background: radial-gradient(circle, #f8bbd0 0%, transparent 65%) !important;
+}
+
+.hero-personalizado {
+  background: linear-gradient(135deg, #fff3e0 0%, #fffbf0 50%, #ffffff 100%) !important;
+}
+.hero-personalizado::before {
+  background: radial-gradient(circle, #ffe0b2 0%, transparent 65%) !important;
+}
+
+.hero-juguetes {
+  background: linear-gradient(135deg, #e8eaf6 0%, #f3f4fd 50%, #ffffff 100%) !important;
+}
+.hero-juguetes::before {
+  background: radial-gradient(circle, #c5cae9 0%, transparent 65%) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   EMPTY STATE (no products in category)
+═══════════════════════════════════════════════════════════════ */
+.no-productos {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 64px 24px 48px;
+  color: #888;
+}
+
+.no-prod-icon {
+  font-size: 56px;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.no-productos h3 {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #232830;
+  margin: 0 0 8px;
+}
+
+.no-productos p {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 14.5px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════════
    OVERRIDES (reduce legacy spacing conflicts)
 ═══════════════════════════════════════════════════════════════ */
 .features-section { margin-top: 0 !important; }
