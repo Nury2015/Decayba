@@ -298,17 +298,24 @@ body {
 
   .dp-card {
     flex-direction: column;
-    padding: 20px 16px;
-    gap: 24px;
+    padding: 16px 14px;
+    gap: 20px;
     border-radius: 16px;
   }
 
   .dp-gallery { max-width: 100%; width: 100%; }
 
+  /* Limitar altura de la imagen principal en móvil */
+  .dp-main-wrap {
+    aspect-ratio: unset;
+    height: 260px;
+    max-height: 260px;
+  }
+
   .dp-nombre { font-size: 1.4rem; }
   .dp-precio { font-size: 1.9rem; }
 
-  .dp-thumb { width: 60px; height: 60px; }
+  .dp-thumb { width: 56px; height: 56px; }
 
   .dp-btn-cart { padding: 15px; font-size: 15px; }
 

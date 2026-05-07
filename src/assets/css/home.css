@@ -15,7 +15,8 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
-  overflow: hidden;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .card-container {
@@ -23,6 +24,7 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
   width: 100%;
+  min-width: 0;
   padding: 0 20px;
 }
 
@@ -222,14 +224,18 @@ text-align: right;
   /* ── Product grid: 2 columnas que llenan el ancho ── */
   .main-container {
     flex-direction: column;
-    overflow: hidden;
+    min-width: 0;
+    max-width: 100vw;
   }
 
   .card-container {
-    grid-template-columns: repeat(2, 1fr);
+    /* Usar 100vw en lugar de 100% para que sea siempre el viewport real */
+    width: calc(100vw - 0px);
+    max-width: 100vw;
+    grid-template-columns: repeat(2, calc(50vw - 11px));
     gap: 12px;
     padding: 0 10px;
-    width: 100%;
+    min-width: 0;
   }
 
   .product-card img {

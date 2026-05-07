@@ -3,10 +3,17 @@
   box-sizing: border-box;
 }
 
-/* Evitar scroll horizontal en cualquier página */
-html, body {
+/* Evitar scroll horizontal y fijar ancho al viewport */
+html {
   overflow-x: hidden;
-  max-width: 100%;
+}
+
+body {
+  /* max-width: 100vw impide que body se expanda más allá del viewport
+     aunque un hijo interno tenga contenido más ancho */
+  max-width: 100vw;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 :root {
