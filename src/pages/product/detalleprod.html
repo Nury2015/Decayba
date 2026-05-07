@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detalles del producto</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/global.css" />
+    <link rel="stylesheet" href="../../assets/css/header.css" />
+    <link rel="stylesheet" href="../../assets/css/home.css" />
+    <link rel="stylesheet" href="../../assets/css/footer.css" />
+    <link rel="stylesheet" href="../../assets/css/carrito.css" />
+    <link rel="stylesheet" href="../../assets/css/tituloSugerencias.css" />
+    <link rel="stylesheet" href="../../assets/css/detalleprod.css" />
+  </head>
+
+  <body>
+    <div id="toast" class="toast"></div>
+    <nav id="header"></nav>
+
+    <div class="product-detaill" id="product-detaill">
+      <aside class="imagen">
+        <div class="carousel">
+          <button class="prev">&#10094;</button>
+          <div class="carousel-images" id="carousel"></div>
+          <button class="next">&#10095;</button>
+        </div>
+      </aside>
+    </div>
+    <h2 class="sugerencias-titulo">Algunas sugerencias para ti</h2>
+    <div class="card-container" id="card-container"></div>
+
+    <aside class="product-detail" id="product-detail">
+      <a href="./detalleprod.html"
+        ><img
+          class="cerrar"
+          src="../../assets/icon/icon_close.png"
+          alt="Volver"
+      /></a>
+      <div class="title-container">
+        <p class="title">Resumen del pedido</p>
+      </div>
+
+      <!-- Carrito -->
+      <div class="my-order-content" id="cart-content"></div>
+
+      <!-- Botón WhatsApp
+    <div class="verificar">
+      <a href="#" class="btn-whatsapp" id="btn-whatsapp">WhatsApp</a>
+    </div> -->
+
+      <!-- Botón Ver Carrito -->
+      <div class="verificar">
+        <a
+          href="/Decayba/src/pages/cart/carrito.html"
+          class="btn-carrito"
+          id="btn-carrito"
+          >Ver Carrito</a
+        >
+      </div>
+    </aside>
+
+ <footer >
+<div class="pieDePagina">
+      <div class="izquierdo">
+      <p class="footer-title">SÍGUENOS EN REDES</p>
+        <div class="footer-icons">
+        <a href="https://www.facebook.com/share/1K2zf4bYPw/" target="_blank">
+          <img src="/src/assets/icon/facebook.png" alt="Facebook">
+        </a>
+        <a href="https://www.tiktok.com/@decayba?_d=secCgYIASAHKAESPgo8EytQ1sHK8ySVLp5ckObNcf%2BPwORASCaky%2Blc9%2Fr2jw5T%2FomWY3alMybYLlTm8pjhjwv0AW8uIo84gjkgGgA%3D&_r=1&_svg=1&checksum=8b4ea6491a486d67ab9a1237e8af8b02e1de5c9d6f2bcce14b251e633f041e35&lang=es&sec_uid=MS4wLjABAAAAIUr2Eb9su1Yc_Wk_35hJqp4xxc1ry8VEDYzLT2LcJhNowNmw8Tg6Squqkp0iU7XK&sec_user_id=MS4wLjABAAAAbF3-kfFpa7nEEt-w3HJ9bMKLBsloUIaM9UB3TOKz4lh1pIkUc7LujIunHt6MRl4C&share_app_id=1340&share_author_id=6676508546471412741&share_link_id=643b91d7-52ff-459c-81af-20c33b250ef3&share_region=CO&share_scene=1&sharer_language=es&source=h5_m&timestamp=1762466620&u_code=ei8jjd136fmj1d&ugbiz_name=Account&user_id=7459417132498682885&utm_campaign=client_share&utm_source=copy" target="_blank">
+          <img src="/src/assets/icon/tik-tok.png" alt="TikTok">
+        </a>
+        <a href="https://www.instagram.com/decayba19/?next=https%3A%2F%2Fwww.instagram.com%2Fp%2FB_eyX3hnQAb%2Fc%2F18142595998040329%2F%3F__coig_login%3D1" target="_blank">
+          <img src="/src/assets/icon/instagram.png" alt="Instagram">
+        </a>
+        <a href="https://api.whatsapp.com/send/?phone=573154380079&text&type=phone_number&app_absent=0" target="_blank">
+          <img src="/src/assets/icon/whatsapp.png" alt="WhatsApp">
+        </a>
+      </div>
+    </div>
+     <div class="derecha">
+      © <span id="year"></span> <strong>DECAYBA</strong> · Hecho con amor ❤
+  </div>
+    </div>
+   
+  </footer>
+
+    <script type="module">
+      async function inicializarPagina() {
+        try {
+          // 1. Cargar header PRIMERO
+          const headerResponse = await fetch('/Decayba/src/components/headerglobal.html');
+          const headerHtml = await headerResponse.text();
+          document.getElementById('header').innerHTML = headerHtml;
+          console.log('✅ Header cargado');
+
+          // 2. Inicializar aplicación principal
+          const { renderCart } = await import('/Decayba/src/assets/js/modules/renderCart.js');
+          const { actualizarCarritoVisual } = await import('/Decayba/src/assets/js/modules/carrito.js');
+          const { verDetalleProducto } = await import('/Decayba/src/assets/js/modules/detalleProducto.js');
+          
+          window.verDetalleProducto = verDetalleProducto;
+          renderCart();
+          actualizarCarritoVisual();
+          
+          console.log('✅ Página inicializada');
+        } catch (error) {
+          console.error('❌ Error al inicializar:', error);
+        }
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', inicializarPagina);
+      } else {
+        inicializarPagina();
+      }
+    </script>
+
+    <script>
+      const cart = JSON.parse(localStorage.getItem("carrito")) || [];
+      const carouselImages = document.querySelector(".carousel-images");
+      const prevBtn = document.querySelector(".prev");
+      const nextBtn = document.querySelector(".next");
+      const item =
+        JSON.parse(localStorage.getItem("productoSeleccionado")) || [];
+      const productDetail = document.getElementById("product-detaill");
+      const carrousel = document.getElementById("carousel");
+
+      item.imagenes.forEach((src) => {
+        const div = document.createElement("div");
+        div.classList.add("carousel-item");
+        const rutaFinal = src.replace("./src", "../..");
+        console.log(rutaFinal);
+        div.innerHTML = `
+                 <img src="${rutaFinal}" alt="carrito de compra">       
+            `;
+        carrousel.appendChild(div);
+      });
+
+      const images = document.querySelectorAll(".carousel-images img");
+      const ruta = window.location.pathname;
+      const rutaFinal =
+        ruta.includes("index.html") || ruta === "/" || ruta.includes("Decayba")
+          ? item.imagen
+          : item.imagen.replace("./src", "../..");
+      const div = document.createElement("aside");
+      div.classList.add("product-inf");
+      div.innerHTML = `
+          <h2>${item.nombre}</h2>
+            <p>${item.descripcion}</p>
+                <p>${item.valor}</p>
+
+        
+             <figure>
+          <a href="#" class="agregar-al-carrito primary-button add-to-cart-button"
+            data-nombre="${item.nombre}"
+            data-precio="${item.valor.replace(/\D/g, "")}"
+            data-img="${rutaFinal}">
+            <img src="../../assets/icon/bt_add_to_cart.svg" 
+            alt="add to card">
+            Agregar al carrito
+          </a>
+        </figure>
+          `;
+      productDetail.appendChild(div);
+
+      // carrusel para celular
+      document.addEventListener("DOMContentLoaded", () => {
+        const carousel = document.querySelector(".carousel-images");
+
+        // Solo activar si estamos en pantalla pequeña (celular)
+        function isMobile() {
+          return window.innerWidth <= 640;
+        }
+
+        let isAtEnd = false;
+
+        carousel.addEventListener("scroll", () => {
+          const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
+
+          if (
+            carousel.scrollLeft >= maxScrollLeft - 10 &&
+            isMobile() &&
+            !isAtEnd
+          ) {
+            isAtEnd = true;
+
+            // Esperar un poco antes de volver al inicio
+            setTimeout(() => {
+              carousel.scrollTo({ left: 0, behavior: "smooth" });
+              isAtEnd = false;
+            }, 1200); // puedes ajustar el tiempo aquí
+          }
+        });
+      });
+
+      let counter = 0;
+      const total = document.querySelectorAll(".carousel-images img").length;
+      nextBtn.addEventListener("click", () => {
+        counter = (counter + 1) % total;
+        updateCarousel();
+      });
+
+      prevBtn.addEventListener("click", () => {
+        counter = (counter - 1 + total) % total;
+        updateCarousel();
+      });
+
+      function updateCarousel() {
+        const size = images[0].clientWidth;
+        carouselImages.style.transform = `translateX(${-size * counter}px)`;
+      }
+
+      function actualizarCarritoVisual() {
+        const cartCountDiv = document.querySelector(
+          ".navbar-shopping-cart div"
+        );
+        const totalItems = cart.reduce((acc, item) => acc + item.cantidad, 0);
+        //cartCountDiv.textContent = totalItems;
+      }
+      window.addEventListener("resize", updateCarousel);
+      actualizarCarritoVisual();
+
+      const hamburger = document.getElementById("hamburger");
+      const mobileMenu = document.querySelector(".mobile-menu");
+
+      /*hamburger.addEventListener("click", () => {
+      hamburger.classList.toggle("active");     // Aquí la magia
+      mobileMenu.classList.toggle("active");
+    });*/
+    </script>
+  </body>
+</html>
