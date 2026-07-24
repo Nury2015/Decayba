@@ -21,14 +21,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const mainEl = document.querySelector("#pd-main");
     const thumbsEl = document.querySelector("#pd-thumbs");
+    let currentIndex = 0;
 
-    function showMedia(item) {
+    function showMedia(index) {
+        currentIndex = (index + mediaItems.length) % mediaItems.length;
+        const item = mediaItems[currentIndex];
+
         mainEl.innerHTML = item.type === "video"
             ? `<video src="${item.src}" poster="${product.cover}" controls playsinline></video>`
             : `<img src="${item.src}" alt="${product.name}">`;
-    }
 
-    showMedia(mediaItems[0]);
+        thumbsEl.querySelectorAll(".pd-thumb").forEach((t, i) => t.classList.toggle("active", i === currentIndex));
+    }
 
     thumbsEl.innerHTML = mediaItems.map((item, i) => `
         <div class="pd-thumb ${item.type === "video" ? "is-video" : ""} ${i === 0 ? "active" : ""}" data-index="${i}">
@@ -36,13 +40,14 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
     `).join("");
 
+    showMedia(0);
+
     thumbsEl.querySelectorAll(".pd-thumb").forEach(thumb => {
-        thumb.addEventListener("click", () => {
-            thumbsEl.querySelectorAll(".pd-thumb").forEach(t => t.classList.remove("active"));
-            thumb.classList.add("active");
-            showMedia(mediaItems[+thumb.dataset.index]);
-        });
+        thumb.addEventListener("click", () => showMedia(+thumb.dataset.index));
     });
+
+    document.querySelector("#pd-prev").addEventListener("click", () => showMedia(currentIndex - 1));
+    document.querySelector("#pd-next").addEventListener("click", () => showMedia(currentIndex + 1));
 
     const addBtn = document.querySelector("#pd-add-btn");
     addBtn.addEventListener("click", () => {

@@ -669,7 +669,7 @@ nav ul li a:hover::after {
 
 }
 
-.fav-btn {
+.product .fav-btn {
 
     position: absolute;
     top: 15px;
@@ -697,13 +697,13 @@ nav ul li a:hover::after {
 
 }
 
-.fav-btn:hover {
+.product .fav-btn:hover {
 
     transform: scale(1.1);
 
 }
 
-.fav-btn.active {
+.product .fav-btn.active {
 
     color: #e0245e;
 
@@ -715,7 +715,8 @@ nav ul li a:hover::after {
     inset: 0;
     width: 100%;
     height: 380px;
-    object-fit: cover;
+    object-fit: contain;
+    background: #0b0b0b;
     opacity: 0;
     transition: .35s;
 
@@ -846,7 +847,7 @@ nav ul li a:hover::after {
 
     grid-template-columns: 1fr 1fr;
 
-    min-height: 480px;
+    min-height: 380px;
 
 }
 
@@ -1400,17 +1401,73 @@ footer {
     border-radius: 10px;
     overflow: hidden;
     aspect-ratio: 3 / 4;
-    background: #f2f2f2;
+    background: #0b0b0b;
 
 }
 
-.pd-gallery-main img,
-.pd-gallery-main video {
+.pd-gallery-main img {
 
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
+
+}
+
+.pd-gallery-main video {
+
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+
+}
+
+#pd-main {
+
+    width: 100%;
+    height: 100%;
+
+}
+
+.pd-arrow {
+
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .85);
+    color: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 16px;
+    z-index: 6;
+    transition: .3s;
+
+}
+
+.pd-arrow:hover {
+
+    background: #fff;
+    transform: translateY(-50%) scale(1.08);
+
+}
+
+.pd-arrow-prev {
+
+    left: 15px;
+
+}
+
+.pd-arrow-next {
+
+    right: 15px;
 
 }
 
