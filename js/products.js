@@ -11,7 +11,8 @@ const PRODUCTS = {
             "Página para escritura libre",
             "Disponible también solo como diario de gratitud",
             "Portada y contraportada personalizadas",
-            "Incluye hoja de stickers"
+            "Incluye hoja de stickers",
+            "Personalización con 2 fotos (portada y contraportada)"
         ],
         cover: "img/agenda-agradecimiento/portada.jpg",
         gallery: [
@@ -36,7 +37,8 @@ const PRODUCTS = {
             "Papel grueso de 90 gramos, no se trasluce",
             "Espacios para vacunas, desparasitaciones, citas veterinarias y recuerdos",
             "Incluye hoja especial de stickers de tu peludito",
-            "Tiempo de elaboración: 5 días hábiles"
+            "Tiempo de elaboración: 5 días hábiles",
+            "Personalización con 2 fotos (portada y contraportada)"
         ],
         cover: "img/album-mascota/portada-macho.jpg",
         gallery: [
@@ -59,7 +61,8 @@ const PRODUCTS = {
         details: [
             "21 países con fondos de sus lugares más emblemáticos",
             "Hojas gruesas en papel opalina",
-            "Portada y contraportada personalizadas"
+            "Portada y contraportada personalizadas",
+            "Personalización con 3 fotos"
         ],
         cover: "img/album-viajero/portada.jpg",
         gallery: [
@@ -82,7 +85,8 @@ const PRODUCTS = {
         description: "Cuaderno con portada personalizada a tu gusto. Elige entre varios diseños de portada o propón el tuyo.",
         details: [
             "Papel de 90 gramos",
-            "Portada personalizada"
+            "Portada personalizada",
+            "Personalización con 2 fotos (portada y contraportada)"
         ],
         cover: "img/cuaderno/portada.jpg",
         gallery: [

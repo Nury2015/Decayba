@@ -535,6 +535,94 @@ nav ul li a:hover::after {
 }
 
 /*=========================================
+        CÓMO FUNCIONA
+=========================================*/
+
+.how {
+
+    padding: 100px 0;
+    background: #fafafa;
+
+}
+
+.how h2 {
+
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 50px;
+    margin-bottom: 60px;
+
+}
+
+.how-steps {
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 35px;
+
+}
+
+.how-step {
+
+    position: relative;
+    background: #fff;
+    text-align: center;
+    padding: 50px 25px 35px;
+    border-radius: 8px;
+    transition: .35s;
+
+}
+
+.how-step:hover {
+
+    transform: translateY(-8px);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, .08);
+
+}
+
+.how-number {
+
+    position: absolute;
+    top: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #111;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    font-weight: 600;
+
+}
+
+.how-step i {
+
+    font-size: 34px;
+    margin-bottom: 18px;
+    color: #111;
+
+}
+
+.how-step h3 {
+
+    margin-bottom: 12px;
+    font-size: 19px;
+
+}
+
+.how-step p {
+
+    color: #777;
+    font-size: 14px;
+    line-height: 1.7;
+
+}
+
+/*=========================================
         CATEGORÍAS
 =========================================*/
 
@@ -1993,6 +2081,12 @@ footer {
 
     }
 
+    .how-steps {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
     .gallery {
 
         grid-template-columns: repeat(3, 1fr);
@@ -2074,6 +2168,12 @@ footer {
     }
 
     .products-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .how-steps {
 
         grid-template-columns: 1fr;
 
