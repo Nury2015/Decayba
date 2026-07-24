@@ -5,6 +5,7 @@ const PRODUCTS = {
         price: 140000,
         description: "No es un cuaderno: es una agenda de agradecimiento creada con intención. Un espacio para agradecer, manifestar, escribir y conectar contigo. Elige la versión que más resuene con tu energía.",
         details: [
+            "Tamaño A5 (14.8 x 21 cm)",
             "200 páginas, impresión por ambos lados",
             "80 frases de afirmación, una nueva cada 15 días",
             "Diario de gratitud diario",
@@ -32,6 +33,7 @@ const PRODUCTS = {
         price: 120000,
         description: "Álbum pensado para guardar los momentos más especiales con tu mascota. Es 100% personalizado con la foto, nombre y detalles únicos de tu peludito. Cada página está hecha con amor para que guardes los mejores momentos con tu compañero fiel.",
         details: [
+            "Tamaño A5 (14.8 x 21 cm)",
             "Pasta dura y resistente, personalizada (macho o hembra)",
             "100 hojas a color",
             "Papel grueso de 90 gramos, no se trasluce",
@@ -59,6 +61,7 @@ const PRODUCTS = {
         price: 150000,
         description: "Álbum viajero con 21 países, cada uno con fondos de sus lugares más emblemáticos. Ideal para pegar fotos y recuerdos de cada destino que visitas.",
         details: [
+            "Tamaño A5 (14.8 x 21 cm)",
             "21 países con fondos de sus lugares más emblemáticos",
             "Hojas gruesas en papel opalina",
             "Portada y contraportada personalizadas",
@@ -84,6 +87,7 @@ const PRODUCTS = {
         price: 100000,
         description: "Cuaderno con portada personalizada a tu gusto. Elige entre varios diseños de portada o propón el tuyo.",
         details: [
+            "Tamaño A5 (14.8 x 21 cm)",
             "Papel de 90 gramos",
             "Portada personalizada",
             "Personalización con 2 fotos (portada y contraportada)"
