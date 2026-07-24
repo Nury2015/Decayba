@@ -46,7 +46,7 @@
         <div class="logo">
 
             <a href="index.html">
-                <img src="img/logo.png" alt="Decayba">
+                Decayba
             </a>
 
         </div>
@@ -73,9 +73,15 @@
 
             <i class="fa-solid fa-magnifying-glass"></i>
 
-            <i class="fa-regular fa-heart"></i>
+            <div class="icon-wrap icon-fav">
+                <i class="fa-regular fa-heart"></i>
+                <span class="badge fav-badge"></span>
+            </div>
 
-            <i class="fa-solid fa-bag-shopping"></i>
+            <div class="icon-wrap icon-cart">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span class="badge cart-badge"></span>
+            </div>
 
             <i class="fa-solid fa-bars menu"></i>
 
@@ -83,13 +89,49 @@
 
     </header>
 
+    <!-- PANELES CARRITO / FAVORITOS -->
+
+    <div class="drawer-backdrop"></div>
+
+    <div class="side-drawer" id="cart-drawer">
+
+        <div class="drawer-header">
+            <h3>Tu Pedido</h3>
+            <i class="fa-solid fa-xmark drawer-close"></i>
+        </div>
+
+        <div class="drawer-body" id="cart-items"></div>
+
+        <div class="drawer-footer">
+            <div class="cart-total">
+                <span>Total</span>
+                <span id="cart-total">$0</span>
+            </div>
+            <a href="#" id="cart-whatsapp" class="btn" target="_blank" rel="noopener">
+                Finalizar pedido por WhatsApp
+            </a>
+        </div>
+
+    </div>
+
+    <div class="side-drawer" id="fav-drawer">
+
+        <div class="drawer-header">
+            <h3>Favoritos</h3>
+            <i class="fa-solid fa-xmark drawer-close"></i>
+        </div>
+
+        <div class="drawer-body" id="fav-items"></div>
+
+    </div>
+
     <!-- HERO -->
 
     <section class="hero">
 
         <div class="overlay"></div>
 
-        <img src="img/album-viajero/producto-real.jpg"
+        <img src="img/hero-banner.png"
             alt="Decayba">
 
         <div class="hero-content">
@@ -131,32 +173,32 @@
 
             <div class="cards fade">
 
-                <div class="card">
+                <a href="producto.html?id=agenda-agradecimiento" class="card">
 
                     <img src="img/agenda-agradecimiento/portada.jpg"
                         alt="Agendas personalizadas">
 
                     <h3>Agendas</h3>
 
-                </div>
+                </a>
 
-                <div class="card">
+                <a href="producto.html?id=album-mascota" class="card">
 
                     <img src="img/album-mascota/portada-macho.jpg"
                         alt="Álbumes personalizados">
 
                     <h3>Álbumes</h3>
 
-                </div>
+                </a>
 
-                <div class="card">
+                <a href="producto.html?id=cuaderno" class="card">
 
                     <img src="img/cuaderno/portada.jpg"
                         alt="Cuadernos personalizados">
 
                     <h3>Cuadernos</h3>
 
-                </div>
+                </a>
 
             </div>
 
@@ -178,31 +220,31 @@
 
             <div class="products-grid fade">
 
-                <article class="product">
+                <article class="product" data-id="agenda-agradecimiento">
 
-                    <div class="product-media">
+                    <div class="product-media" data-href="producto.html?id=agenda-agradecimiento">
 
                         <img src="img/agenda-agradecimiento/portada.jpg" alt="Agenda de Agradecimiento">
 
-                        <video src="img/agenda-agradecimiento/promo.mp4" muted loop playsinline preload="metadata"></video>
+                        <video src="img/agenda-agradecimiento/promo.mp4" poster="img/agenda-agradecimiento/portada.jpg" muted loop playsinline preload="metadata"></video>
 
                         <span class="play-icon"><i class="fa-solid fa-play"></i></span>
 
+                        <button class="fav-btn" data-id="agenda-agradecimiento" aria-label="Favorito"><i class="fa-regular fa-heart"></i></button>
+
                     </div>
 
-                    <h3>
-
-                        Agenda de Agradecimiento
-
-                    </h3>
+                    <a href="producto.html?id=agenda-agradecimiento" class="product-title">
+                        <h3>Agenda de Agradecimiento</h3>
+                    </a>
 
                     <span>
 
-                        Desde $XX.XXX
+                        $140.000
 
                     </span>
 
-                    <button>
+                    <button class="add-cart-btn" data-id="agenda-agradecimiento">
 
                         Agregar al carrito
 
@@ -210,31 +252,31 @@
 
                 </article>
 
-                <article class="product">
+                <article class="product" data-id="album-mascota">
 
-                    <div class="product-media">
+                    <div class="product-media" data-href="producto.html?id=album-mascota">
 
                         <img src="img/album-mascota/portada-macho.jpg" alt="Álbum para Mascota">
 
-                        <video src="img/album-mascota/promo-vacunas.mp4" muted loop playsinline preload="metadata"></video>
+                        <video src="img/album-mascota/promo-vacunas.mp4" poster="img/album-mascota/portada-macho.jpg" muted loop playsinline preload="metadata"></video>
 
                         <span class="play-icon"><i class="fa-solid fa-play"></i></span>
 
+                        <button class="fav-btn" data-id="album-mascota" aria-label="Favorito"><i class="fa-regular fa-heart"></i></button>
+
                     </div>
 
-                    <h3>
-
-                        Álbum para Mascota
-
-                    </h3>
+                    <a href="producto.html?id=album-mascota" class="product-title">
+                        <h3>Álbum para Mascota</h3>
+                    </a>
 
                     <span>
 
-                        Desde $XX.XXX
+                        $120.000
 
                     </span>
 
-                    <button>
+                    <button class="add-cart-btn" data-id="album-mascota">
 
                         Agregar al carrito
 
@@ -242,31 +284,31 @@
 
                 </article>
 
-                <article class="product">
+                <article class="product" data-id="album-viajero">
 
-                    <div class="product-media">
+                    <div class="product-media" data-href="producto.html?id=album-viajero">
 
                         <img src="img/album-viajero/portada.jpg" alt="Álbum Viajero">
 
-                        <video src="img/album-viajero/promo.mp4" muted loop playsinline preload="metadata"></video>
+                        <video src="img/album-viajero/promo.mp4" poster="img/album-viajero/portada.jpg" muted loop playsinline preload="metadata"></video>
 
                         <span class="play-icon"><i class="fa-solid fa-play"></i></span>
 
+                        <button class="fav-btn" data-id="album-viajero" aria-label="Favorito"><i class="fa-regular fa-heart"></i></button>
+
                     </div>
 
-                    <h3>
-
-                        Álbum Viajero
-
-                    </h3>
+                    <a href="producto.html?id=album-viajero" class="product-title">
+                        <h3>Álbum Viajero</h3>
+                    </a>
 
                     <span>
 
-                        Desde $XX.XXX
+                        $140.000
 
                     </span>
 
-                    <button>
+                    <button class="add-cart-btn" data-id="album-viajero">
 
                         Agregar al carrito
 
@@ -274,31 +316,31 @@
 
                 </article>
 
-                <article class="product">
+                <article class="product" data-id="cuaderno">
 
-                    <div class="product-media">
+                    <div class="product-media" data-href="producto.html?id=cuaderno">
 
                         <img src="img/cuaderno/portada.jpg" alt="Cuaderno Personalizado">
 
-                        <video src="img/cuaderno/promo.mp4" muted loop playsinline preload="metadata"></video>
+                        <video src="img/cuaderno/promo.mp4" poster="img/cuaderno/portada.jpg" muted loop playsinline preload="metadata"></video>
 
                         <span class="play-icon"><i class="fa-solid fa-play"></i></span>
 
+                        <button class="fav-btn" data-id="cuaderno" aria-label="Favorito"><i class="fa-regular fa-heart"></i></button>
+
                     </div>
 
-                    <h3>
-
-                        Cuaderno Personalizado
-
-                    </h3>
+                    <a href="producto.html?id=cuaderno" class="product-title">
+                        <h3>Cuaderno Personalizado</h3>
+                    </a>
 
                     <span>
 
-                        Desde $XX.XXX
+                        $100.000
 
                     </span>
 
-                    <button>
+                    <button class="add-cart-btn" data-id="cuaderno">
 
                         Agregar al carrito
 
@@ -454,12 +496,12 @@
 
         <div class="gallery">
 
-            <img src="img/ig1.jpg" alt="">
-            <img src="img/ig2.jpg" alt="">
-            <img src="img/ig3.jpg" alt="">
-            <img src="img/ig4.jpg" alt="">
-            <img src="img/ig5.jpg" alt="">
-            <img src="img/ig6.jpg" alt="">
+            <img src="img/album-viajero/producto-real.jpg" alt="">
+            <img src="img/agenda-agradecimiento/portada.jpg" alt="">
+            <img src="img/cuaderno/portada-2.jpg" alt="">
+            <img src="img/album-mascota/portada-hembra.jpg" alt="">
+            <img src="img/agenda-agradecimiento/notas2.jpg" alt="">
+            <img src="img/album-mascota/stikers-hembra.jpg" alt="">
 
         </div>
 
@@ -575,6 +617,8 @@
         <i class="fa-solid fa-arrow-up"></i>
     </div>
 
+    <script src="js/products.js"></script>
+    <script src="js/shop.js"></script>
     <script src="js/app.js"></script>
 
 

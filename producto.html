@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Producto | Decayba</title>
+
+    <link rel="stylesheet" href="index.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;600;700&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+
+    <header id="header">
+
+        <div class="logo">
+
+            <a href="index.html">Decayba</a>
+
+        </div>
+
+        <nav>
+
+            <ul>
+
+                <li><a href="index.html">Inicio</a></li>
+
+                <li><a href="index.html#productos">Productos</a></li>
+
+                <li><a href="nosotros.html">Nosotros</a></li>
+
+                <li><a href="index.html#contacto">Contacto</a></li>
+
+            </ul>
+
+        </nav>
+
+        <div class="menu-backdrop"></div>
+
+        <div class="icons">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <div class="icon-wrap icon-fav">
+                <i class="fa-regular fa-heart"></i>
+                <span class="badge fav-badge"></span>
+            </div>
+
+            <div class="icon-wrap icon-cart">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span class="badge cart-badge"></span>
+            </div>
+
+            <i class="fa-solid fa-bars menu"></i>
+
+        </div>
+
+    </header>
+
+    <div class="drawer-backdrop"></div>
+
+    <div class="side-drawer" id="cart-drawer">
+
+        <div class="drawer-header">
+            <h3>Tu Pedido</h3>
+            <i class="fa-solid fa-xmark drawer-close"></i>
+        </div>
+
+        <div class="drawer-body" id="cart-items"></div>
+
+        <div class="drawer-footer">
+            <div class="cart-total">
+                <span>Total</span>
+                <span id="cart-total">$0</span>
+            </div>
+            <a href="#" id="cart-whatsapp" class="btn" target="_blank" rel="noopener">
+                Finalizar pedido por WhatsApp
+            </a>
+        </div>
+
+    </div>
+
+    <div class="side-drawer" id="fav-drawer">
+
+        <div class="drawer-header">
+            <h3>Favoritos</h3>
+            <i class="fa-solid fa-xmark drawer-close"></i>
+        </div>
+
+        <div class="drawer-body" id="fav-items"></div>
+
+    </div>
+
+    <section class="product-detail">
+
+        <div class="container">
+
+            <a href="index.html#productos" class="pd-back">
+                <i class="fa-solid fa-arrow-left"></i> Volver a productos
+            </a>
+
+            <div class="pd-grid">
+
+                <div class="pd-gallery">
+
+                    <div class="pd-gallery-main" id="pd-main"></div>
+
+                    <div class="pd-thumbs" id="pd-thumbs"></div>
+
+                </div>
+
+                <div class="pd-info">
+
+                    <span class="pd-label">Decayba</span>
+
+                    <h1 id="pd-name"></h1>
+
+                    <span class="pd-price" id="pd-price"></span>
+
+                    <p class="pd-description" id="pd-description"></p>
+
+                    <ul class="pd-details" id="pd-details"></ul>
+
+                    <div class="pd-actions">
+
+                        <button class="btn pd-add-btn" id="pd-add-btn">Agregar al carrito</button>
+
+                        <button class="pd-fav-btn" id="pd-fav-btn" aria-label="Favorito">
+                            <i class="fa-regular fa-heart"></i>
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <footer>
+
+        <div class="footer-container">
+
+            <div>
+
+                <h3>Decayba</h3>
+
+                <p>
+
+                    De calidad y a buen precio, hecho con cariño de familia.
+
+                </p>
+
+            </div>
+
+            <div>
+
+                <h3>Empresa</h3>
+
+                <ul>
+
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="index.html#productos">Productos</a></li>
+                    <li><a href="index.html#contacto">Contacto</a></li>
+
+                </ul>
+
+            </div>
+
+            <div>
+
+                <h3>Ayuda</h3>
+
+                <ul>
+
+                    <li><a href="#">Envíos</a></li>
+                    <li><a href="#">Cambios</a></li>
+                    <li><a href="#">Preguntas</a></li>
+
+                </ul>
+
+            </div>
+
+            <div>
+
+                <h3>Síguenos</h3>
+
+                <div class="social">
+
+                    <i class="fab fa-facebook-f"></i>
+
+                    <i class="fab fa-instagram"></i>
+
+                    <i class="fab fa-tiktok"></i>
+
+                    <i class="fab fa-youtube"></i>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="copy">
+
+            © 2026 Decayba - Todos los derechos reservados.
+
+        </div>
+
+    </footer>
+
+    <div id="top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </div>
+
+    <script src="js/products.js"></script>
+    <script src="js/shop.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/producto.js"></script>
+
+</body>
+
+</html>
