@@ -3,10 +3,15 @@ const PRODUCTS = {
     "agenda-agradecimiento": {
         name: "Agenda de Agradecimiento",
         price: 140000,
-        description: "Agenda de agradecimiento con portada y contraportada personalizadas. 200 páginas impresas por ambos lados, con espacio para afirmaciones diarias, diario de gratitud y notas.",
+        description: "No es un cuaderno: es una agenda de agradecimiento creada con intención. Un espacio para agradecer, manifestar, escribir y conectar contigo. Elige la versión que más resuene con tu energía.",
         details: [
             "200 páginas, impresión por ambos lados",
-            "Portada y contraportada personalizadas"
+            "80 frases de afirmación, una nueva cada 15 días",
+            "Diario de gratitud diario",
+            "Página para escritura libre",
+            "Disponible también solo como diario de gratitud",
+            "Portada y contraportada personalizadas",
+            "Incluye hoja de stickers"
         ],
         cover: "img/agenda-agradecimiento/portada.jpg",
         gallery: [
