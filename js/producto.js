@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const item = mediaItems[currentIndex];
 
         mainEl.innerHTML = item.type === "video"
-            ? `<video src="${item.src}" poster="${product.cover}" controls playsinline></video>`
+            ? `<video src="${item.src}" poster="${product.cover}" controls playsinline preload="metadata"></video>`
             : `<img src="${item.src}" alt="${product.name}">`;
 
         thumbsEl.querySelectorAll(".pd-thumb").forEach((t, i) => t.classList.toggle("active", i === currentIndex));

@@ -1267,6 +1267,8 @@ footer {
 
     display: flex;
 
+    align-items: center;
+
     gap: 18px;
 
     font-size: 22px;
@@ -1371,6 +1373,51 @@ footer {
 .about-image:hover img {
 
     transform: scale(1.08);
+
+}
+
+/*=========================================
+        TÉRMINOS Y CONDICIONES
+=========================================*/
+
+.terms {
+
+    padding: 100px 0;
+
+}
+
+.terms .container {
+
+    max-width: 800px;
+
+}
+
+.terms-item {
+
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid var(--border);
+
+}
+
+.terms-item:last-child {
+
+    border-bottom: none;
+
+}
+
+.terms-item h3 {
+
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    margin-bottom: 12px;
+
+}
+
+.terms-item p {
+
+    color: #666;
+    line-height: 1.9;
 
 }
 
@@ -1651,6 +1698,17 @@ footer {
 
     color: #e0245e;
     border-color: #e0245e;
+
+}
+
+.pd-policy {
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+    color: #999;
+    font-size: 13px;
 
 }
 
