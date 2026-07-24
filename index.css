@@ -170,6 +170,8 @@ nav ul li a:hover::after {
 
     display: flex;
 
+    align-items: center;
+
     gap: 22px;
 
     font-size: 18px;
@@ -193,6 +195,12 @@ nav ul li a:hover::after {
 .icon-wrap {
 
     position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
 
 }
 
@@ -635,6 +643,10 @@ nav ul li a:hover::after {
 
 .product {
 
+    display: flex;
+
+    flex-direction: column;
+
     background: #fff;
 
     border-radius: 8px;
@@ -783,7 +795,7 @@ nav ul li a:hover::after {
 
     width: calc(100% - 50px);
 
-    margin: 0 25px 25px;
+    margin: auto 25px 25px;
 
     padding: 16px;
 
