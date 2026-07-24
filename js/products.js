@@ -29,10 +29,14 @@ const PRODUCTS = {
     "album-mascota": {
         name: "Álbum para Mascota",
         price: 120000,
-        description: "Guarda las vacunas, desparasitaciones y datos importantes de tu mascota, además de un espacio para recordar los momentos compartidos: fecha, lugar, foto y descripción. Portada personalizada, disponible en versión macho o hembra.",
+        description: "Álbum pensado para guardar los momentos más especiales con tu mascota. Es 100% personalizado con la foto, nombre y detalles únicos de tu peludito. Cada página está hecha con amor para que guardes los mejores momentos con tu compañero fiel.",
         details: [
-            "Papel de 90 gramos",
-            "Portada y contraportada personalizadas (macho o hembra)"
+            "Pasta dura y resistente, personalizada (macho o hembra)",
+            "100 hojas a color",
+            "Papel grueso de 90 gramos, no se trasluce",
+            "Espacios para vacunas, desparasitaciones, citas veterinarias y recuerdos",
+            "Incluye hoja especial de stickers de tu peludito",
+            "Tiempo de elaboración: 5 días hábiles"
         ],
         cover: "img/album-mascota/portada-macho.jpg",
         gallery: [
