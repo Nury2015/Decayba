@@ -50,10 +50,11 @@ const PRODUCTS = {
 
     "album-viajero": {
         name: "Álbum Viajero",
-        price: 140000,
-        description: "Álbum viajero en papel opalina para guardar los recuerdos de cada destino que visitas. Portada y contraportada personalizadas.",
+        price: 150000,
+        description: "Álbum viajero con 21 países, cada uno con fondos de sus lugares más emblemáticos. Ideal para pegar fotos y recuerdos de cada destino que visitas.",
         details: [
-            "Papel opalina",
+            "21 países con fondos de sus lugares más emblemáticos",
+            "Hojas gruesas en papel opalina",
             "Portada y contraportada personalizadas"
         ],
         cover: "img/album-viajero/portada.jpg",
