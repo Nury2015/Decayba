@@ -112,11 +112,13 @@ header.active {
 
     font-family: 'Cormorant Garamond', serif;
 
-    font-size: 34px;
+    font-size: 28px;
 
-    font-weight: 700;
+    font-weight: 600;
 
-    letter-spacing: 2px;
+    letter-spacing: 8px;
+
+    text-transform: uppercase;
 
 }
 
@@ -2024,6 +2026,13 @@ footer {
 }
 
 @media(max-width:500px) {
+
+    .logo {
+
+        font-size: 22px;
+        letter-spacing: 4px;
+
+    }
 
     .hero-content h1 {
 
