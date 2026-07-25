@@ -1,0 +1,49 @@
+document.addEventListener("DOMContentLoaded", () => {
+    const grid = document.querySelector("#catalog-grid");
+    if (!grid) return;
+
+    grid.innerHTML = Object.keys(PRODUCTS).map(id => {
+        const p = PRODUCTS[id];
+        const videoTag = p.video
+            ? `<video src="${p.video}" poster="${p.cover}" muted loop playsinline preload="metadata"></video>
+               <span class="play-icon"><i class="fa-solid fa-play"></i></span>`
+            : "";
+
+        return `
+            <article class="product" data-id="${id}">
+
+                <div class="product-media" data-href="producto.html?id=${id}">
+
+                    <img src="${p.cover}" alt="${p.name}">
+
+                    ${videoTag}
+
+                    <button class="fav-btn" data-id="${id}" aria-label="Favorito"><i class="fa-regular fa-heart"></i></button>
+
+                </div>
+
+                <a href="producto.html?id=${id}" class="product-title">
+                    <h3>${p.name}</h3>
+                </a>
+
+                <span>${money(p.price)}</span>
+
+                <button class="add-cart-btn" data-id="${id}">Agregar al carrito</button>
+
+            </article>`;
+    }).join("");
+
+    updateBadges();
+
+    // Reproducir video al pasar el mouse (igual que en el home)
+    grid.querySelectorAll(".product-media").forEach(media => {
+        const video = media.querySelector("video");
+        if (!video) return;
+
+        media.addEventListener("mouseenter", () => video.play());
+        media.addEventListener("mouseleave", () => {
+            video.pause();
+            video.currentTime = 0;
+        });
+    });
+});

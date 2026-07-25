@@ -30,7 +30,7 @@ const PRODUCTS = {
 
     "album-mascota": {
         name: "Álbum para Mascota",
-        price: 120000,
+        price: 100000,
         description: "Álbum pensado para guardar los momentos más especiales con tu mascota. Es 100% personalizado con la foto, nombre y detalles únicos de tu peludito. Cada página está hecha con amor para que guardes los mejores momentos con tu compañero fiel.",
         details: [
             "Tamaño A5 (14.8 x 21 cm)",
@@ -50,8 +50,7 @@ const PRODUCTS = {
             "img/album-mascota/datos-hembra.jpg",
             "img/album-mascota/consultas-hembra.jpg",
             "img/album-mascota/recuerdos-hembra.jpg",
-            "img/album-mascota/contraportada-hembra.jpg",
-            "img/album-mascota/cumple-macho.jpg"
+            "img/album-mascota/contraportada-hembra.jpg"
         ],
         video: "img/album-mascota/promo-macho.mp4"
     },
@@ -102,6 +101,90 @@ const PRODUCTS = {
             "img/cuaderno/hoja.jpg"
         ],
         video: "img/cuaderno/promo.mp4"
+    },
+
+    "album-generico-1": {
+        name: "Álbum Genérico para Mascota #1",
+        price: 90000,
+        description: "Álbum genérico para mascota, sin personalizar. Ideal para veterinarias o para quien quiere un álbum bonito y económico, listo para usar.",
+        details: [
+            "Tamaño A5 (14.8 x 21 cm)",
+            "Diseño de portada fijo (no personalizable)",
+            "Espacios para vacunas, citas, datos y recuerdos"
+        ],
+        cover: "img/album-generico/1.png",
+        gallery: [
+            "img/album-generico/1.png",
+            "img/album-generico/citas.png",
+            "img/album-generico/foto.png",
+            "img/album-generico/hoja-datos.png",
+            "img/album-generico/recuerdos.png",
+            "img/album-generico/vacunas.png"
+        ],
+        video: null
+    },
+
+    "album-generico-2": {
+        name: "Álbum Genérico para Mascota #2",
+        price: 90000,
+        description: "Álbum genérico para mascota, sin personalizar. Ideal para veterinarias o para quien quiere un álbum bonito y económico, listo para usar.",
+        details: [
+            "Tamaño A5 (14.8 x 21 cm)",
+            "Diseño de portada fijo (no personalizable)",
+            "Espacios para vacunas, citas, datos y recuerdos"
+        ],
+        cover: "img/album-generico/2.png",
+        gallery: [
+            "img/album-generico/2.png",
+            "img/album-generico/citas.png",
+            "img/album-generico/foto.png",
+            "img/album-generico/hoja-datos.png",
+            "img/album-generico/recuerdos.png",
+            "img/album-generico/vacunas.png"
+        ],
+        video: null
+    },
+
+    "album-generico-3": {
+        name: "Álbum Genérico para Mascota #3",
+        price: 90000,
+        description: "Álbum genérico para mascota, sin personalizar. Ideal para veterinarias o para quien quiere un álbum bonito y económico, listo para usar.",
+        details: [
+            "Tamaño A5 (14.8 x 21 cm)",
+            "Diseño de portada fijo (no personalizable)",
+            "Espacios para vacunas, citas, datos y recuerdos"
+        ],
+        cover: "img/album-generico/3.png",
+        gallery: [
+            "img/album-generico/3.png",
+            "img/album-generico/citas.png",
+            "img/album-generico/foto.png",
+            "img/album-generico/hoja-datos.png",
+            "img/album-generico/recuerdos.png",
+            "img/album-generico/vacunas.png"
+        ],
+        video: null
+    },
+
+    "album-generico-4": {
+        name: "Álbum Genérico para Mascota #4",
+        price: 90000,
+        description: "Álbum genérico para mascota, sin personalizar. Ideal para veterinarias o para quien quiere un álbum bonito y económico, listo para usar.",
+        details: [
+            "Tamaño A5 (14.8 x 21 cm)",
+            "Diseño de portada fijo (no personalizable)",
+            "Espacios para vacunas, citas, datos y recuerdos"
+        ],
+        cover: "img/album-generico/4.png",
+        gallery: [
+            "img/album-generico/4.png",
+            "img/album-generico/citas.png",
+            "img/album-generico/foto.png",
+            "img/album-generico/hoja-datos.png",
+            "img/album-generico/recuerdos.png",
+            "img/album-generico/vacunas.png"
+        ],
+        video: null
     }
 
 };

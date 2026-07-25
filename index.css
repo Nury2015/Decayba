@@ -534,6 +534,28 @@ nav ul li a:hover::after {
 
 }
 
+.btn-outline {
+
+    background: transparent;
+    color: #111;
+    border: 1px solid #111;
+
+}
+
+.btn-outline:hover {
+
+    background: #111;
+    color: #fff;
+
+}
+
+.see-all {
+
+    text-align: center;
+    margin-top: 50px;
+
+}
+
 /*=========================================
         CÓMO FUNCIONA
 =========================================*/
@@ -648,7 +670,7 @@ nav ul li a:hover::after {
 
     display: grid;
 
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
 
     gap: 35px;
 
@@ -707,6 +729,12 @@ nav ul li a:hover::after {
 
     padding: 120px 0;
     background: #fafafa;
+
+}
+
+.catalog {
+
+    padding: 100px 0;
 
 }
 
@@ -2089,6 +2117,12 @@ footer {
     }
 
     .how-steps {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+    .cards {
 
         grid-template-columns: repeat(2, 1fr);
 

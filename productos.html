@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Producto | Decayba</title>
+    <title>Productos | Decayba</title>
 
     <link rel="stylesheet" href="index.css">
 
@@ -100,67 +100,27 @@
 
     </div>
 
-    <section class="product-detail">
+    <section class="hero hero-page">
+
+        <img src="img/album-generico/1.png" alt="Productos Decayba">
+
+        <div class="overlay"></div>
+
+        <div class="hero-content">
+
+            <h1>Nuestros Productos</h1>
+
+            <p>Todo lo que hacemos, en un solo lugar</p>
+
+        </div>
+
+    </section>
+
+    <section class="catalog">
 
         <div class="container">
 
-            <a href="productos.html" class="pd-back">
-                <i class="fa-solid fa-arrow-left"></i> Volver a productos
-            </a>
-
-            <div class="pd-grid">
-
-                <div class="pd-gallery">
-
-                    <div class="pd-gallery-main">
-
-                        <div id="pd-main"></div>
-
-                        <button class="pd-arrow pd-arrow-prev" id="pd-prev" aria-label="Anterior"><i class="fa-solid fa-chevron-left"></i></button>
-
-                        <button class="pd-arrow pd-arrow-next" id="pd-next" aria-label="Siguiente"><i class="fa-solid fa-chevron-right"></i></button>
-
-                    </div>
-
-                    <div class="pd-thumbs" id="pd-thumbs"></div>
-
-                </div>
-
-                <div class="pd-info">
-
-                    <span class="pd-label">Decayba</span>
-
-                    <h1 id="pd-name"></h1>
-
-                    <span class="pd-price" id="pd-price"></span>
-
-                    <p class="pd-description" id="pd-description"></p>
-
-                    <ul class="pd-details" id="pd-details"></ul>
-
-                    <div class="pd-actions">
-
-                        <button class="btn pd-add-btn" id="pd-add-btn">Agregar al carrito</button>
-
-                        <button class="pd-fav-btn" id="pd-fav-btn" aria-label="Favorito">
-                            <i class="fa-regular fa-heart"></i>
-                        </button>
-
-                    </div>
-
-                    <p class="pd-policy">
-                        <i class="fa-solid fa-circle-info"></i>
-                        Al ser un producto personalizado, no aplican cambios ni devoluciones.
-                    </p>
-
-                    <p class="pd-policy">
-                        <i class="fa-solid fa-hand-holding-dollar"></i>
-                        Puedes pagar 50% para iniciar y 50% antes del envío, o el total de una vez.
-                    </p>
-
-                </div>
-
-            </div>
+            <div class="products-grid" id="catalog-grid"></div>
 
         </div>
 
@@ -245,7 +205,7 @@
     <script src="js/products.js"></script>
     <script src="js/shop.js"></script>
     <script src="js/app.js"></script>
-    <script src="js/producto.js"></script>
+    <script src="js/productos.js"></script>
 
 </body>
 

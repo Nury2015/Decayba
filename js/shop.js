@@ -163,32 +163,35 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".drawer-close").forEach(btn => btn.addEventListener("click", closeDrawers));
     backdrop?.addEventListener("click", closeDrawers);
 
+    // Delegados en document: funcionan tambien con tarjetas creadas por JS (ej. productos.html)
+
     // Click en tarjeta de producto -> ir al detalle (salvo el botón de favorito)
-    document.querySelectorAll(".product-media[data-href]").forEach(media => {
-        media.addEventListener("click", (e) => {
-            if (e.target.closest(".fav-btn")) return;
+    document.addEventListener("click", (e) => {
+        const media = e.target.closest(".product-media[data-href]");
+        if (media && !e.target.closest(".fav-btn")) {
             window.location.href = media.dataset.href;
-        });
+        }
     });
 
     // Agregar al carrito
-    document.querySelectorAll(".add-cart-btn").forEach(btn => {
-        btn.addEventListener("click", (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            addToCart(btn.dataset.id);
-            btn.textContent = "Agregado ✓";
-            setTimeout(() => btn.textContent = "Agregar al carrito", 1200);
-        });
+    document.addEventListener("click", (e) => {
+        const btn = e.target.closest(".add-cart-btn");
+        if (!btn) return;
+        e.preventDefault();
+        e.stopPropagation();
+        addToCart(btn.dataset.id);
+        const original = "Agregar al carrito";
+        btn.textContent = "Agregado ✓";
+        setTimeout(() => btn.textContent = original, 1200);
     });
 
     // Favoritos
-    document.querySelectorAll(".fav-btn").forEach(btn => {
-        btn.addEventListener("click", (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            toggleFavorite(btn.dataset.id);
-        });
+    document.addEventListener("click", (e) => {
+        const btn = e.target.closest(".fav-btn");
+        if (!btn) return;
+        e.preventDefault();
+        e.stopPropagation();
+        toggleFavorite(btn.dataset.id);
     });
 
     // Carrito: +/- y quitar
