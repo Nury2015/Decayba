@@ -122,6 +122,12 @@ header.active {
 
 }
 
+.nav-mark {
+
+    display: none;
+
+}
+
 nav ul {
 
     display: flex;
@@ -2155,6 +2161,27 @@ footer {
         z-index: 1000;
         transition: .4s;
         box-shadow: -15px 0 35px rgba(0, 0, 0, .12);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 60px;
+
+    }
+
+    .nav-mark {
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 64px;
+        height: 64px;
+        border: 1px solid #111;
+        border-radius: 50%;
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 30px;
+        font-weight: 600;
+        margin-bottom: 40px;
+        flex-shrink: 0;
 
     }
 
@@ -2163,7 +2190,7 @@ footer {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        height: 100%;
+        flex: 1;
         gap: 35px;
 
     }
