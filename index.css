@@ -233,6 +233,12 @@ nav ul li a:hover::after {
 
 }
 
+.menu {
+
+    display: none;
+
+}
+
 .icon-wrap {
 
     position: relative;
@@ -2182,6 +2188,12 @@ footer {
     header {
 
         padding: 20px;
+
+    }
+
+    .menu {
+
+        display: block;
 
     }
 
