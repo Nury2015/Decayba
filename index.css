@@ -122,6 +122,39 @@ header.active {
 
 }
 
+.logo a {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.logo-divider {
+
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 5px;
+    letter-spacing: 0;
+
+}
+
+.logo-divider span {
+
+    width: 16px;
+    height: 1px;
+    background: #999;
+
+}
+
+.logo-divider i {
+
+    font-size: 7px;
+    color: #b08d57;
+
+}
+
 .nav-mark {
 
     display: none;
