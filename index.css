@@ -2217,18 +2217,17 @@ footer {
 
     .nav-mark {
 
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 64px;
-        height: 64px;
-        border: 1px solid #111;
-        border-radius: 50%;
-        font-family: 'Cormorant Garamond', serif;
-        font-size: 30px;
-        font-weight: 600;
+        display: block;
+        width: 75%;
+        max-width: 190px;
         margin-bottom: 40px;
         flex-shrink: 0;
+
+    }
+
+    .nav-mark img {
+
+        width: 100%;
 
     }
 
