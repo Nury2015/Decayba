@@ -136,7 +136,8 @@ header.active {
     display: flex;
     align-items: center;
     gap: 6px;
-    margin: 5px 24px 0;
+    width: 65%;
+    margin: 5px auto 0;
     letter-spacing: 0;
 
 }
@@ -144,7 +145,7 @@ header.active {
 .logo-divider span {
 
     flex: 1;
-    height: 1px;
+    height: .5px;
     background: #c9a45c;
 
 }
@@ -2313,12 +2314,6 @@ footer {
 
         font-size: 22px;
         letter-spacing: 4px;
-
-    }
-
-    .logo-divider {
-
-        margin: 5px 16px 0;
 
     }
 
