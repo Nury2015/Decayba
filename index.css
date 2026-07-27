@@ -126,7 +126,8 @@ header.active {
 
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
+    text-align: center;
 
 }
 
@@ -142,16 +143,16 @@ header.active {
 
 .logo-divider span {
 
-    width: 16px;
+    flex: 1;
     height: 1px;
-    background: #999;
+    background: #c9a45c;
 
 }
 
 .logo-divider i {
 
     font-size: 7px;
-    color: #b08d57;
+    color: #d88a9a;
 
 }
 
