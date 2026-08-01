@@ -28,31 +28,86 @@ const PRODUCTS = {
         video: "img/agenda-agradecimiento/promo.mp4"
     },
 
-    "album-mascota": {
-        name: "Álbum para Mascota",
+    "album-mascota-azul": {
+        name: "Álbum de Mascota Azul",
         price: 100000,
-        description: "Álbum pensado para guardar los momentos más especiales con tu mascota. Es 100% personalizado con la foto, nombre y detalles únicos de tu peludito. Cada página está hecha con amor para que guardes los mejores momentos con tu compañero fiel.",
+        description: "Álbum de control de salud y recuerdos para tu mascota, en un diseño azul con huellitas y portada 100% personalizada con su nombre y foto. Incluye espacios para registrar sus datos, vacunas, desparasitaciones, visitas al veterinario y los momentos más especiales que vivan juntos.",
         details: [
             "Tamaño A5 (14.8 x 21 cm)",
-            "Pasta dura y resistente, personalizada (macho o hembra)",
-            "100 hojas a color",
-            "Papel grueso de 90 gramos, no se trasluce",
-            "Espacios para vacunas, desparasitaciones, citas veterinarias y recuerdos",
-            "Incluye hoja especial de stickers de tu peludito",
+            "Pasta dura, personalizada con nombre y foto de tu mascota",
+            "Sección de datos y datos del dueño",
+            "Registro de primeros momentos: primera salida al parque, primer día en casa",
+            "Control de desparasitación y vacunación",
+            "Directorio de veterinarios y control de consultas",
+            "Espacio para huellita y recuerdos",
+            "Incluye hoja de stickers para recortar",
             "Tiempo de elaboración: 5 días hábiles",
             "Personalización con 2 fotos (portada y contraportada)"
         ],
-        cover: "img/album-mascota/portada-macho.jpg",
+        cover: "img/album-mascota-azul/portada.png",
         gallery: [
-            "img/album-mascota/portada-macho.jpg",
-            "img/album-mascota/portada-hembra.jpg",
-            "img/album-mascota/vacunas-macho.jpg",
-            "img/album-mascota/datos-hembra.jpg",
-            "img/album-mascota/consultas-hembra.jpg",
-            "img/album-mascota/recuerdos-hembra.jpg",
-            "img/album-mascota/contraportada-hembra.jpg"
+            "img/album-mascota-azul/portada.png",
+            "img/album-mascota-azul/datos-recuerdos.png",
+            "img/album-mascota-azul/primeros-momentos.png",
+            "img/album-mascota-azul/vacunacion-desparasitacion.png",
+            "img/album-mascota-azul/veterinarios-consultas.png",
+            "img/album-mascota-azul/stickers.jpg"
         ],
-        video: "img/album-mascota/promo-macho.mp4"
+        video: "img/album-mascota-azul/promo.mp4"
+    },
+
+    "album-mascota-rosa": {
+        name: "Álbum de Mascota Rosa",
+        price: 100000,
+        description: "Álbum de control de salud y recuerdos para tu mascota, en un diseño rosa con huellitas y portada 100% personalizada con su nombre y foto. Incluye espacios para registrar sus datos, vacunas, desparasitaciones, visitas al veterinario y los momentos más especiales que vivan juntos.",
+        details: [
+            "Tamaño A5 (14.8 x 21 cm)",
+            "Pasta dura, personalizada con nombre y foto de tu mascota",
+            "Sección de datos y datos del dueño",
+            "Control de desparasitación y vacunación",
+            "Directorio de veterinarios y control de consultas",
+            "Espacio para huellita y recuerdos",
+            "Incluye hoja de stickers para recortar",
+            "Tiempo de elaboración: 5 días hábiles",
+            "Personalización con 2 fotos (portada y contraportada)"
+        ],
+        cover: "img/album-mascota-rosa/contraportada-hembra.jpg",
+        gallery: [
+            "img/album-mascota-rosa/contraportada-hembra.jpg",
+            "img/album-mascota-rosa/portada-warwick.png",
+            "img/album-mascota-rosa/portada-hembra.jpg",
+            "img/album-mascota-rosa/datos-hembra.jpg",
+            "img/album-mascota-rosa/consultas-hembra.jpg",
+            "img/album-mascota-rosa/recuerdos-hembra.jpg",
+            "img/album-mascota-rosa/vacunas-hembra.jpg",
+            "img/album-mascota-rosa/stikers-hembra.jpg"
+        ],
+        video: "img/album-mascota-rosa/promo.mp4"
+    },
+
+    "mascota-fallecida": {
+        name: "Álbum Memorial de Mascota",
+        price: 100000,
+        description: "Álbum para honrar y recordar a tu mascota que ya no está físicamente, pero sigue viva en tu corazón. Con portada 100% personalizada con su nombre y foto, un espacio para escribirle una carta y guardar sus recuerdos, datos y momentos más especiales.",
+        details: [
+            "Tamaño A5 (14.8 x 21 cm)",
+            "Pasta dura, personalizada con nombre y foto de tu mascota",
+            "Espacio para escribirle una carta",
+            "Sección de datos y recuerdos, con espacio para huellita",
+            "Registro de primeros momentos: llegada a casa, primera salida al parque, primer baño, primer juguete favorito",
+            "Incluye hoja de stickers para recortar",
+            "Tiempo de elaboración: 5 días hábiles",
+            "Personalización con 2 fotos (portada y contraportada)"
+        ],
+        cover: "img/mascota-fallecida/portada2.png",
+        gallery: [
+            "img/mascota-fallecida/portada2.png",
+            "img/mascota-fallecida/carta.png",
+            "img/mascota-fallecida/registro2.png",
+            "img/mascota-fallecida/recuerdos2.png",
+            "img/mascota-fallecida/recuerdos3.png"
+        ],
+        video: "img/mascota-fallecida/promo.mp4"
     },
 
     "album-viajero": {

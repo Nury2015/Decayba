@@ -143,6 +143,44 @@ function closeDrawers() {
     document.querySelectorAll(".side-drawer, .drawer-backdrop").forEach(el => el.classList.remove("active"));
 }
 
+// BUSCADOR
+const DIACRITICS_RE = new RegExp("[̀-ͯ]", "g");
+const normalize = (s) => (s || "").toString().normalize("NFD").replace(DIACRITICS_RE, "").toLowerCase();
+
+function renderSearchResults(query) {
+    const wrap = document.querySelector("#search-results");
+    if (!wrap) return;
+
+    const q = normalize(query.trim());
+
+    if (!q) {
+        wrap.innerHTML = "<p class='empty-msg'>Escribe para buscar productos.</p>";
+        return;
+    }
+
+    const matches = Object.keys(PRODUCTS).filter(id => {
+        const p = PRODUCTS[id];
+        return normalize(p.name).includes(q) || normalize(p.description).includes(q);
+    });
+
+    if (matches.length === 0) {
+        wrap.innerHTML = "<p class='empty-msg'>No encontramos productos para tu búsqueda.</p>";
+        return;
+    }
+
+    wrap.innerHTML = matches.map(id => {
+        const p = PRODUCTS[id];
+        return `
+            <a class="fav-item" href="producto.html?id=${id}">
+                <img src="${p.cover}" alt="${p.name}">
+                <div class="cart-item-info">
+                    <h4>${p.name}</h4>
+                    <span>${money(p.price)}</span>
+                </div>
+            </a>`;
+    }).join("");
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     updateBadges();
     renderCart();
@@ -150,6 +188,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const cartDrawer = document.querySelector("#cart-drawer");
     const favDrawer = document.querySelector("#fav-drawer");
+    const searchDrawer = document.querySelector("#search-drawer");
+    const searchInput = document.querySelector("#search-input");
     const backdrop = document.querySelector(".drawer-backdrop");
 
     document.querySelector(".icon-cart")?.addEventListener("click", () => {
@@ -160,6 +200,12 @@ document.addEventListener("DOMContentLoaded", () => {
         renderFavorites();
         openDrawer(favDrawer, backdrop);
     });
+    document.querySelector(".icon-search")?.addEventListener("click", () => {
+        renderSearchResults(searchInput ? searchInput.value : "");
+        openDrawer(searchDrawer, backdrop);
+        searchInput?.focus();
+    });
+    searchInput?.addEventListener("input", () => renderSearchResults(searchInput.value));
     document.querySelectorAll(".drawer-close").forEach(btn => btn.addEventListener("click", closeDrawers));
     backdrop?.addEventListener("click", closeDrawers);
 

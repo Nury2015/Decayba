@@ -78,7 +78,9 @@
 
         <div class="icons">
 
-            <i class="fa-solid fa-magnifying-glass"></i>
+            <div class="icon-wrap icon-search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
 
             <div class="icon-wrap icon-fav">
                 <i class="fa-regular fa-heart"></i>
@@ -129,6 +131,22 @@
         </div>
 
         <div class="drawer-body" id="fav-items"></div>
+
+    </div>
+
+    <div class="side-drawer" id="search-drawer">
+
+        <div class="drawer-header">
+            <h3>Buscar</h3>
+            <i class="fa-solid fa-xmark drawer-close"></i>
+        </div>
+
+        <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="search-input" placeholder="Buscar productos..." autocomplete="off">
+        </div>
+
+        <div class="drawer-body" id="search-results"></div>
 
     </div>
 
@@ -241,9 +259,9 @@
 
                 </a>
 
-                <a href="producto.html?id=album-mascota" class="card">
+                <a href="producto.html?id=album-mascota-azul" class="card">
 
-                    <img src="img/album-mascota/portada-macho.jpg"
+                    <img src="img/album-mascota-azul/portada.png"
                         alt="Álbumes personalizados">
 
                     <h3>Álbumes</h3>
@@ -320,22 +338,22 @@
 
                 </article>
 
-                <article class="product" data-id="album-mascota">
+                <article class="product" data-id="album-mascota-azul">
 
-                    <div class="product-media" data-href="producto.html?id=album-mascota">
+                    <div class="product-media" data-href="producto.html?id=album-mascota-azul">
 
-                        <img src="img/album-mascota/portada-macho.jpg" alt="Álbum para Mascota">
+                        <img src="img/album-mascota-azul/portada.png" alt="Álbum de Mascota Azul">
 
-                        <video src="img/album-mascota/promo-vacunas.mp4" poster="img/album-mascota/portada-macho.jpg" muted loop playsinline preload="metadata"></video>
+                        <video src="img/album-mascota-azul/promo.mp4" poster="img/album-mascota-azul/portada.png" muted loop playsinline preload="metadata"></video>
 
                         <span class="play-icon"><i class="fa-solid fa-play"></i></span>
 
-                        <button class="fav-btn" data-id="album-mascota" aria-label="Favorito"><i class="fa-regular fa-heart"></i></button>
+                        <button class="fav-btn" data-id="album-mascota-azul" aria-label="Favorito"><i class="fa-regular fa-heart"></i></button>
 
                     </div>
 
-                    <a href="producto.html?id=album-mascota" class="product-title">
-                        <h3>Álbum para Mascota</h3>
+                    <a href="producto.html?id=album-mascota-azul" class="product-title">
+                        <h3>Álbum de Mascota Azul</h3>
                     </a>
 
                     <span>
@@ -344,7 +362,7 @@
 
                     </span>
 
-                    <button class="add-cart-btn" data-id="album-mascota">
+                    <button class="add-cart-btn" data-id="album-mascota-azul">
 
                         Agregar al carrito
 
@@ -475,7 +493,7 @@
 
         <div class="collection-image">
 
-            <video src="img/album-mascota/promo-macho.mp4"
+            <video id="collection-video" src="img/album-mascota/como-pasar-vacunas.mp4"
                 poster="img/album-mascota/portada-macho.jpg"
                 controls playsinline></video>
 
@@ -492,6 +510,15 @@
                 descripciones. Cada agenda, álbum o cuaderno se hace
                 pensando en la historia que quieres guardar.
             </p>
+
+            <div class="collection-gallery">
+
+                <img src="img/album-mascota/portada-macho.jpg" alt="Portada personalizada del álbum">
+                <img src="img/album-mascota/cumple-macho.jpg" alt="Página de cumpleaños del álbum">
+                <img src="img/album-mascota/vacunas-macho.jpg" alt="Página de vacunación del álbum">
+                <img src="img/album-mascota/desparasitacion-macho.jpg" alt="Página de desparasitación del álbum">
+
+            </div>
 
             <a href="#productos" class="btn">
                 Ver Productos

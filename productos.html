@@ -57,7 +57,9 @@
 
         <div class="icons">
 
-            <i class="fa-solid fa-magnifying-glass"></i>
+            <div class="icon-wrap icon-search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
 
             <div class="icon-wrap icon-fav">
                 <i class="fa-regular fa-heart"></i>
@@ -106,6 +108,22 @@
         </div>
 
         <div class="drawer-body" id="fav-items"></div>
+
+    </div>
+
+    <div class="side-drawer" id="search-drawer">
+
+        <div class="drawer-header">
+            <h3>Buscar</h3>
+            <i class="fa-solid fa-xmark drawer-close"></i>
+        </div>
+
+        <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="search-input" placeholder="Buscar productos..." autocomplete="off">
+        </div>
+
+        <div class="drawer-body" id="search-results"></div>
 
     </div>
 
