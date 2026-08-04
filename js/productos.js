@@ -1,8 +1,27 @@
+const CATEGORY_LABELS = {
+    agenda: "Agendas",
+    album: "Álbumes",
+    cuaderno: "Cuadernos",
+    viajero: "Álbum Viajero"
+};
+
 document.addEventListener("DOMContentLoaded", () => {
     const grid = document.querySelector("#catalog-grid");
     if (!grid) return;
 
-    grid.innerHTML = Object.keys(PRODUCTS).map(id => {
+    const categoria = new URLSearchParams(window.location.search).get("categoria");
+    const ids = categoria
+        ? Object.keys(PRODUCTS).filter(id => PRODUCTS[id].category === categoria)
+        : Object.keys(PRODUCTS);
+
+    const title = document.querySelector("#catalog-title");
+    const subtitle = document.querySelector("#catalog-subtitle");
+    if (categoria && CATEGORY_LABELS[categoria]) {
+        if (title) title.textContent = CATEGORY_LABELS[categoria];
+        if (subtitle) subtitle.textContent = `Descubre nuestra colección de ${CATEGORY_LABELS[categoria].toLowerCase()}`;
+    }
+
+    grid.innerHTML = ids.map(id => {
         const p = PRODUCTS[id];
         const videoTag = p.video
             ? `<video src="${p.video}" poster="${p.cover}" muted loop playsinline preload="metadata"></video>

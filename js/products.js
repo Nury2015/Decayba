@@ -2,6 +2,7 @@ const PRODUCTS = {
 
     "agenda-agradecimiento": {
         name: "Agenda de Agradecimiento",
+        category: "agenda",
         price: 140000,
         description: "No es un cuaderno: es una agenda de agradecimiento creada con intención. Un espacio para agradecer, manifestar, escribir y conectar contigo. Elige la versión que más resuene con tu energía.",
         details: [
@@ -29,8 +30,9 @@ const PRODUCTS = {
     },
 
     "album-mascota-azul": {
-        name: "Álbum de Mascota Azul",
-        price: 100000,
+        name: "Álbum Personalizado Azul",
+        category: "album",
+        price: 99900,
         description: "Álbum de control de salud y recuerdos para tu mascota, en un diseño azul con huellitas y portada 100% personalizada con su nombre y foto. Incluye espacios para registrar sus datos, vacunas, desparasitaciones, visitas al veterinario y los momentos más especiales que vivan juntos.",
         details: [
             "Tamaño A5 (14.8 x 21 cm)",
@@ -57,8 +59,9 @@ const PRODUCTS = {
     },
 
     "album-mascota-rosa": {
-        name: "Álbum de Mascota Rosa",
-        price: 100000,
+        name: "Álbum Personalizado Rosa",
+        category: "album",
+        price: 99900,
         description: "Álbum de control de salud y recuerdos para tu mascota, en un diseño rosa con huellitas y portada 100% personalizada con su nombre y foto. Incluye espacios para registrar sus datos, vacunas, desparasitaciones, visitas al veterinario y los momentos más especiales que vivan juntos.",
         details: [
             "Tamaño A5 (14.8 x 21 cm)",
@@ -86,8 +89,9 @@ const PRODUCTS = {
     },
 
     "mascota-fallecida": {
-        name: "Álbum Memorial de Mascota",
-        price: 100000,
+        name: "Álbum Personalizado Memorial",
+        category: "album",
+        price: 99900,
         description: "Álbum para honrar y recordar a tu mascota que ya no está físicamente, pero sigue viva en tu corazón. Con portada 100% personalizada con su nombre y foto, un espacio para escribirle una carta y guardar sus recuerdos, datos y momentos más especiales.",
         details: [
             "Tamaño A5 (14.8 x 21 cm)",
@@ -112,6 +116,7 @@ const PRODUCTS = {
 
     "album-viajero": {
         name: "Álbum Viajero",
+        category: "viajero",
         price: 150000,
         description: "Álbum viajero con 21 países, cada uno con fondos de sus lugares más emblemáticos. Ideal para pegar fotos y recuerdos de cada destino que visitas.",
         details: [
@@ -138,6 +143,7 @@ const PRODUCTS = {
 
     "cuaderno": {
         name: "Cuaderno Personalizado",
+        category: "cuaderno",
         price: 100000,
         description: "Cuaderno con portada personalizada a tu gusto. Elige entre varios diseños de portada o propón el tuyo.",
         details: [
@@ -158,86 +164,132 @@ const PRODUCTS = {
         video: "img/cuaderno/promo.mp4"
     },
 
-    "album-generico-1": {
-        name: "Álbum Genérico para Mascota #1",
-        price: 90000,
+    "pastor-blue": {
+        name: "Álbum Genérico Pastor Blue",
+        category: "album",
+        price: 79900,
         description: "Álbum genérico para mascota, sin personalizar. Ideal para veterinarias o para quien quiere un álbum bonito y económico, listo para usar.",
         details: [
             "Tamaño A5 (14.8 x 21 cm)",
             "Diseño de portada fijo (no personalizable)",
-            "Espacios para vacunas, citas, datos y recuerdos"
+            "Espacios para primeros momentos, veterinarios y consultas, vacunación y desparasitación, datos y recuerdos"
         ],
-        cover: "img/album-generico/1.png",
+        cover: "img/album-generica/pastor-blue.png",
         gallery: [
-            "img/album-generico/1.png",
-            "img/album-generico/citas.png",
-            "img/album-generico/foto.png",
-            "img/album-generico/hoja-datos.png",
-            "img/album-generico/recuerdos.png",
-            "img/album-generico/vacunas.png"
+            "img/album-generica/pastor-blue.png",
+            "img/album-generica/primeros-momentos.png",
+            "img/album-generica/veterinarios-consultas.png",
+            "img/album-generica/vacunacion-desparasitacion.png",
+            "img/album-generica/datos-recuerdos.png"
         ],
         video: null
     },
 
-    "album-generico-2": {
-        name: "Álbum Genérico para Mascota #2",
-        price: 90000,
+    "pastor-ros": {
+        name: "Álbum Genérico Pastor Ros",
+        category: "album",
+        price: 79900,
         description: "Álbum genérico para mascota, sin personalizar. Ideal para veterinarias o para quien quiere un álbum bonito y económico, listo para usar.",
         details: [
             "Tamaño A5 (14.8 x 21 cm)",
             "Diseño de portada fijo (no personalizable)",
             "Espacios para vacunas, citas, datos y recuerdos"
         ],
-        cover: "img/album-generico/2.png",
+        cover: "img/album-generica/pastor-ros.png",
         gallery: [
-            "img/album-generico/2.png",
-            "img/album-generico/citas.png",
-            "img/album-generico/foto.png",
-            "img/album-generico/hoja-datos.png",
-            "img/album-generico/recuerdos.png",
-            "img/album-generico/vacunas.png"
+            "img/album-generica/pastor-ros.png",
+            "img/album-generica/foto.png",
+            "img/album-generica/citas.png",
+            "img/album-generica/recuerdos.png",
+            "img/album-generica/vacunas.png",
+            "img/album-generica/hoja-de-datos.png"
         ],
         video: null
     },
 
-    "album-generico-3": {
-        name: "Álbum Genérico para Mascota #3",
-        price: 90000,
+    "border-pur": {
+        name: "Álbum Genérico Border Collie Pur",
+        category: "album",
+        price: 79900,
         description: "Álbum genérico para mascota, sin personalizar. Ideal para veterinarias o para quien quiere un álbum bonito y económico, listo para usar.",
         details: [
             "Tamaño A5 (14.8 x 21 cm)",
             "Diseño de portada fijo (no personalizable)",
             "Espacios para vacunas, citas, datos y recuerdos"
         ],
-        cover: "img/album-generico/3.png",
+        cover: "img/album-generica/border-pur.png",
         gallery: [
-            "img/album-generico/3.png",
-            "img/album-generico/citas.png",
-            "img/album-generico/foto.png",
-            "img/album-generico/hoja-datos.png",
-            "img/album-generico/recuerdos.png",
-            "img/album-generico/vacunas.png"
+            "img/album-generica/border-pur.png",
+            "img/album-generica/foto.png",
+            "img/album-generica/citas.png",
+            "img/album-generica/recuerdos.png",
+            "img/album-generica/vacunas.png",
+            "img/album-generica/hoja-de-datos.png"
         ],
         video: null
     },
 
-    "album-generico-4": {
-        name: "Álbum Genérico para Mascota #4",
-        price: 90000,
+    "golden-blue": {
+        name: "Álbum Genérico Golden Blue",
+        category: "album",
+        price: 79900,
+        description: "Álbum genérico para mascota, sin personalizar. Ideal para veterinarias o para quien quiere un álbum bonito y económico, listo para usar.",
+        details: [
+            "Tamaño A5 (14.8 x 21 cm)",
+            "Diseño de portada fijo (no personalizable)",
+            "Espacios para primeros momentos, veterinarios y consultas, vacunación y desparasitación, datos y recuerdos"
+        ],
+        cover: "img/album-generica/golden-blue.png",
+        gallery: [
+            "img/album-generica/golden-blue.png",
+            "img/album-generica/primeros-momentos.png",
+            "img/album-generica/veterinarios-consultas.png",
+            "img/album-generica/vacunacion-desparasitacion.png",
+            "img/album-generica/datos-recuerdos.png"
+        ],
+        video: null
+    },
+
+    "golden-pur": {
+        name: "Álbum Genérico Golden Pur",
+        category: "album",
+        price: 79900,
         description: "Álbum genérico para mascota, sin personalizar. Ideal para veterinarias o para quien quiere un álbum bonito y económico, listo para usar.",
         details: [
             "Tamaño A5 (14.8 x 21 cm)",
             "Diseño de portada fijo (no personalizable)",
             "Espacios para vacunas, citas, datos y recuerdos"
         ],
-        cover: "img/album-generico/4.png",
+        cover: "img/album-generica/golden-pur.png",
         gallery: [
-            "img/album-generico/4.png",
-            "img/album-generico/citas.png",
-            "img/album-generico/foto.png",
-            "img/album-generico/hoja-datos.png",
-            "img/album-generico/recuerdos.png",
-            "img/album-generico/vacunas.png"
+            "img/album-generica/golden-pur.png",
+            "img/album-generica/foto.png",
+            "img/album-generica/citas.png",
+            "img/album-generica/recuerdos.png",
+            "img/album-generica/vacunas.png",
+            "img/album-generica/hoja-de-datos.png"
+        ],
+        video: null
+    },
+
+    "golden-ros": {
+        name: "Álbum Genérico Golden Ros",
+        category: "album",
+        price: 79900,
+        description: "Álbum genérico para mascota, sin personalizar. Ideal para veterinarias o para quien quiere un álbum bonito y económico, listo para usar.",
+        details: [
+            "Tamaño A5 (14.8 x 21 cm)",
+            "Diseño de portada fijo (no personalizable)",
+            "Espacios para vacunas, citas, datos y recuerdos"
+        ],
+        cover: "img/album-generica/golden-ros.png",
+        gallery: [
+            "img/album-generica/golden-ros.png",
+            "img/album-generica/foto.png",
+            "img/album-generica/citas.png",
+            "img/album-generica/recuerdos.png",
+            "img/album-generica/vacunas.png",
+            "img/album-generica/hoja-de-datos.png"
         ],
         video: null
     }

@@ -103,8 +103,12 @@ function renderCart() {
             waLink.classList.add("disabled");
         } else {
             waLink.classList.remove("disabled");
-            const lines = cart.map(i => `- ${PRODUCTS[i.id]?.name} x${i.qty} (${money((PRODUCTS[i.id]?.price || 0) * i.qty)})`);
-            const text = `Hola Decayba, quiero pedir:\n${lines.join("\n")}\n\nTotal: ${money(total)}`;
+            const lines = cart.map(i => {
+                const p = PRODUCTS[i.id];
+                const imgUrl = p?.cover ? new URL(p.cover, window.location.href).href : "";
+                return `- ${p?.name} x${i.qty} (${money((p?.price || 0) * i.qty)})\n${imgUrl}`;
+            });
+            const text = `Hola Decayba, quiero pedir:\n${lines.join("\n\n")}\n\nTotal: ${money(total)}`;
             waLink.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
         }
     }
