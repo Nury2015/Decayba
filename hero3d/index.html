@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Decayba · Hero 3D (dev preview)</title>
+    <style>
+      /* Reset minimo solo para previsualizar este proyecto aislado.
+         Cuando se incruste en el sitio real, estos estilos no viajan:
+         solo se usa el bundle de JS que monta el <Canvas>. */
+      html, body, #hero3d-root { margin: 0; padding: 0; height: 100%; background: #f7f7f7; }
+    </style>
+  </head>
+  <body>
+    <div id="hero3d-root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

@@ -1,0 +1,7 @@
+node_modules
+.DS_Store
+
+# dist/ SI se commitea a proposito: el sitio principal (index.html, un
+# nivel arriba) no tiene proceso de build, carga estos archivos ya
+# compilados directamente. Cada vez que se cambie algo en src/, hay que
+# correr "npm run build" de nuevo ANTES de subir los cambios a git.

@@ -51,6 +51,11 @@
     <link rel="stylesheet"
         href="index.css">
 
+    <!-- Agenda 3D (proyecto aparte en /hero3d, compilado a mano con
+         "npm run build" ahi dentro — ver hero3d/README.md) -->
+
+    <link rel="stylesheet" href="hero3d/dist/assets/hero3d.css">
+
 </head>
 
 <body>
@@ -184,12 +189,8 @@
 
                 <div class="hero-btns">
 
-                    <a href="productos.html?categoria=agenda" class="btn">
-                        🩷 Personalizar agenda
-                    </a>
-
-                    <a href="productos.html" class="btn btn-outline">
-                        📖 Ver colección
+                    <a href="productos.html" class="btn">
+                        Ver catálogo completo
                     </a>
 
                 </div>
@@ -212,6 +213,14 @@
             </div>
 
         </div>
+
+    </section>
+
+    <!-- AGENDA 3D -->
+
+    <section class="hero3d-section">
+
+        <div id="hero3d-root"></div>
 
     </section>
 
@@ -733,6 +742,9 @@
     <script src="js/products.js"></script>
     <script src="js/shop.js"></script>
     <script src="js/app.js"></script>
+
+    <!-- type="module" se difiere solo (como defer), no bloquea el resto -->
+    <script type="module" src="hero3d/dist/assets/hero3d.js"></script>
 
 
 

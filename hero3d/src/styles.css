@@ -1,0 +1,26 @@
+.hero3d-root {
+  position: relative;
+  width: 100%;
+}
+
+.hero3d-stage {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hero3d-stage canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  touch-action: pan-y; /* deja hacer scroll con el dedo sobre el canvas en mobile */
+}
+
+/* Controla cuanto "dura" (en scroll) la animacion completa: camara +
+   apertura de tapa + las 14 hojas pasando una por una. Mas alto = mas
+   lento/premium, menos alto = mas rapido. 500vh probado a mano. */
+.hero3d-scroll {
+  height: 500vh;
+}
