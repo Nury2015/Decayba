@@ -29,14 +29,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
         mainEl.innerHTML = item.type === "video"
             ? `<video src="${item.src}" poster="${product.cover}" controls playsinline preload="metadata"></video>`
-            : `<img src="${item.src}" alt="${product.name}">`;
+            : `<img src="${item.src}" alt="${product.name}" decoding="async">`;
 
         thumbsEl.querySelectorAll(".pd-thumb").forEach((t, i) => t.classList.toggle("active", i === currentIndex));
     }
 
     thumbsEl.innerHTML = mediaItems.map((item, i) => `
         <div class="pd-thumb ${item.type === "video" ? "is-video" : ""} ${i === 0 ? "active" : ""}" data-index="${i}">
-            <img src="${item.type === "video" ? product.cover : item.src}" alt="">
+            <img src="${item.type === "video" ? product.cover : item.src}" alt="" loading="lazy" decoding="async">
         </div>
     `).join("");
 

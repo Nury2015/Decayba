@@ -8,7 +8,7 @@ function getCart() {
 }
 function saveCart(cart) {
     localStorage.setItem("decayba_cart", JSON.stringify(cart));
-    updateBadges();
+    updateBadges(true);
 }
 function addToCart(id) {
     const cart = getCart();
@@ -33,7 +33,7 @@ function getFavorites() {
 }
 function saveFavorites(favs) {
     localStorage.setItem("decayba_favorites", JSON.stringify(favs));
-    updateBadges();
+    updateBadges(true);
 }
 function toggleFavorite(id) {
     let favs = getFavorites();
@@ -43,17 +43,26 @@ function toggleFavorite(id) {
     return !active;
 }
 
-function updateBadges() {
+function bump(el) {
+    if (!el) return;
+    el.classList.remove("bump");
+    void el.offsetWidth; // reinicia la animación aunque se dispare seguido
+    el.classList.add("bump");
+}
+
+function updateBadges(animate = false) {
     const cartCount = getCart().reduce((sum, i) => sum + i.qty, 0);
     const favCount = getFavorites().length;
 
     document.querySelectorAll(".cart-badge").forEach(b => {
         b.textContent = cartCount;
         b.classList.toggle("show", cartCount > 0);
+        if (animate) bump(b);
     });
     document.querySelectorAll(".fav-badge").forEach(b => {
         b.textContent = favCount;
         b.classList.toggle("show", favCount > 0);
+        if (animate) bump(b);
     });
 
     document.querySelectorAll(".fav-btn").forEach(btn => {
@@ -232,7 +241,11 @@ document.addEventListener("DOMContentLoaded", () => {
         addToCart(btn.dataset.id);
         const original = "Agregar al carrito";
         btn.textContent = "Agregado ✓";
-        setTimeout(() => btn.textContent = original, 1200);
+        btn.classList.add("added");
+        setTimeout(() => {
+            btn.textContent = original;
+            btn.classList.remove("added");
+        }, 1200);
     });
 
     // Favoritos
@@ -242,6 +255,9 @@ document.addEventListener("DOMContentLoaded", () => {
         e.preventDefault();
         e.stopPropagation();
         toggleFavorite(btn.dataset.id);
+        btn.classList.remove("pop");
+        void btn.offsetWidth;
+        btn.classList.add("pop");
     });
 
     // Carrito: +/- y quitar

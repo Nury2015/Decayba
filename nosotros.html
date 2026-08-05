@@ -8,10 +8,19 @@
 
     <title>Nosotros | Decayba</title>
 
-    <link rel="stylesheet" href="index.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/brand/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/brand/favicon-16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/brand/apple-touch-icon.png">
 
-    <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="preload" as="style"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    </noscript>
+
+    <link rel="stylesheet" href="index.css">
 
 </head>
 
@@ -34,7 +43,7 @@
 
     <nav>
 
-        <div class="nav-mark"><img src="img/brand/nav-logo.png" alt="Decayba"></div>
+        <div class="nav-mark"><img src="img/brand/nav-logo.webp" alt="Decayba"></div>
 
         <ul>
 
@@ -126,7 +135,7 @@
 
 <section class="hero hero-page">
 
-    <img src="img/cuaderno/portada-3.jpg" alt="Decayba">
+    <img src="img/cuaderno/portada-3.webp" alt="Decayba" decoding="async" fetchpriority="high">
 
     <div class="overlay"></div>
 
@@ -185,7 +194,7 @@ mostrar y vender lo que hacen con las manos y el corazón.
 
 <div class="about-image fade">
 
-<img src="img/album-mascota-rosa/recuerdos-hembra.jpg" alt="Decayba, hecho a mano">
+<img loading="lazy" decoding="async" src="img/album-mascota-rosa/recuerdos-hembra.webp" alt="Decayba, hecho a mano">
 
 </div>
 

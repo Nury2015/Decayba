@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 <div class="product-media" data-href="producto.html?id=${id}">
 
-                    <img src="${p.cover}" alt="${p.name}">
+                    <img src="${p.cover}" alt="${p.name}" loading="lazy" decoding="async">
 
                     ${videoTag}
 

@@ -13,7 +13,13 @@
     <meta name="description"
         content="Decayba - Agendas, álbumes y cuadernos personalizados, de calidad y a buen precio">
 
-    <!-- Google Fonts -->
+    <!-- Favicon -->
+
+    <link rel="icon" type="image/png" sizes="32x32" href="img/brand/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/brand/favicon-16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/brand/apple-touch-icon.png">
+
+    <!-- Google Fonts (no bloqueante) -->
 
     <link rel="preconnect"
         href="https://fonts.googleapis.com">
@@ -22,15 +28,25 @@
         href="https://fonts.gstatic.com"
         crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;600;700&display=swap"
-        rel="stylesheet">
+    <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;600;700&display=swap"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;600;700&display=swap">
+    </noscript>
 
-    <!-- FontAwesome -->
+    <!-- FontAwesome (no bloqueante) -->
 
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="preload" as="style"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    </noscript>
 
-    <!-- CSS -->
+    <!-- CSS propia: va al final para que gane sobre los defaults de FontAwesome/Fuentes -->
 
     <link rel="stylesheet"
         href="index.css">
@@ -58,7 +74,7 @@
 
         <nav>
 
-            <div class="nav-mark"><img src="img/brand/nav-logo.png" alt="Decayba"></div>
+            <div class="nav-mark"><img src="img/brand/nav-logo.webp" alt="Decayba"></div>
 
             <ul>
 
@@ -154,31 +170,46 @@
 
     <section class="hero">
 
-        <div class="overlay"></div>
+        <div class="hero-inner">
 
-        <img src="img/hero-banner.png"
-            alt="Decayba">
+            <div class="hero-content">
 
-        <div class="hero-content">
+                <span class="hero-eyebrow">Hecho a tu manera</span>
 
-            <h1>
+                <h1>
 
-                Personaliza tu agenda, álbum o cuaderno
+                    Los recuerdos de tu mascota, para siempre.
 
-            </h1>
+                </h1>
 
-            <p>
+                <div class="hero-btns">
 
-                Con tu nombre, tus fotos y tu estilo
+                    <a href="productos.html?categoria=agenda" class="btn">
+                        🩷 Personalizar agenda
+                    </a>
 
-            </p>
+                    <a href="productos.html" class="btn btn-outline">
+                        📖 Ver colección
+                    </a>
 
-            <a href="#productos"
-                class="btn">
+                </div>
 
-                Ver Productos
+            </div>
 
-            </a>
+            <div class="hero-media">
+
+                <img src="img/album-generica/pastor-blue.webp"
+                    alt="Álbum genérico Pastor Blue" decoding="async" fetchpriority="high">
+
+            </div>
+
+            <div class="hero-decor" aria-hidden="true">
+                <i class="fa-solid fa-paw"></i>
+                <i class="fa-solid fa-heart"></i>
+                <i class="fa-solid fa-paw"></i>
+                <i class="fa-solid fa-heart"></i>
+                <i class="fa-solid fa-paw"></i>
+            </div>
 
         </div>
 
@@ -252,7 +283,7 @@
 
                 <a href="productos.html?categoria=agenda" class="card">
 
-                    <img src="img/agenda-agradecimiento/portada.jpg"
+                    <img loading="lazy" decoding="async" src="img/agenda-agradecimiento/portada.webp"
                         alt="Agendas personalizadas">
 
                     <h3>Agendas</h3>
@@ -261,7 +292,7 @@
 
                 <a href="productos.html?categoria=album" class="card">
 
-                    <img src="img/album-mascota-azul/portada.png"
+                    <img loading="lazy" decoding="async" src="img/album-mascota-azul/portada.webp"
                         alt="Álbumes personalizados">
 
                     <h3>Álbumes</h3>
@@ -270,7 +301,7 @@
 
                 <a href="productos.html?categoria=cuaderno" class="card">
 
-                    <img src="img/cuaderno/portada.jpg"
+                    <img loading="lazy" decoding="async" src="img/cuaderno/portada.webp"
                         alt="Cuadernos personalizados">
 
                     <h3>Cuadernos</h3>
@@ -279,7 +310,7 @@
 
                 <a href="producto.html?id=album-viajero" class="card">
 
-                    <img src="img/album-viajero/portada.jpg"
+                    <img loading="lazy" decoding="async" src="img/album-viajero/portada.webp"
                         alt="Álbum Viajero">
 
                     <h3>Álbum Viajero</h3>
@@ -310,9 +341,9 @@
 
                     <div class="product-media" data-href="producto.html?id=agenda-agradecimiento">
 
-                        <img src="img/agenda-agradecimiento/portada.jpg" alt="Agenda de Agradecimiento">
+                        <img loading="lazy" decoding="async" src="img/agenda-agradecimiento/portada.webp" alt="Agenda de Agradecimiento">
 
-                        <video src="img/agenda-agradecimiento/promo.mp4" poster="img/agenda-agradecimiento/portada.jpg" muted loop playsinline preload="metadata"></video>
+                        <video src="img/agenda-agradecimiento/promo.mp4" poster="img/agenda-agradecimiento/portada.webp" muted loop playsinline preload="metadata"></video>
 
                         <span class="play-icon"><i class="fa-solid fa-play"></i></span>
 
@@ -342,9 +373,9 @@
 
                     <div class="product-media" data-href="producto.html?id=album-mascota-azul">
 
-                        <img src="img/album-mascota-azul/portada.png" alt="Álbum Personalizado Azul">
+                        <img loading="lazy" decoding="async" src="img/album-mascota-azul/portada.webp" alt="Álbum Personalizado Azul">
 
-                        <video src="img/album-mascota-azul/promo.mp4" poster="img/album-mascota-azul/portada.png" muted loop playsinline preload="metadata"></video>
+                        <video src="img/album-mascota-azul/promo.mp4" poster="img/album-mascota-azul/portada.webp" muted loop playsinline preload="metadata"></video>
 
                         <span class="play-icon"><i class="fa-solid fa-play"></i></span>
 
@@ -374,9 +405,9 @@
 
                     <div class="product-media" data-href="producto.html?id=album-viajero">
 
-                        <img src="img/album-viajero/portada.jpg" alt="Álbum Viajero">
+                        <img loading="lazy" decoding="async" src="img/album-viajero/portada.webp" alt="Álbum Viajero">
 
-                        <video src="img/album-viajero/promo.mp4" poster="img/album-viajero/portada.jpg" muted loop playsinline preload="metadata"></video>
+                        <video src="img/album-viajero/promo.mp4" poster="img/album-viajero/portada.webp" muted loop playsinline preload="metadata"></video>
 
                         <span class="play-icon"><i class="fa-solid fa-play"></i></span>
 
@@ -406,9 +437,9 @@
 
                     <div class="product-media" data-href="producto.html?id=cuaderno">
 
-                        <img src="img/cuaderno/portada.jpg" alt="Cuaderno Personalizado">
+                        <img loading="lazy" decoding="async" src="img/cuaderno/portada.webp" alt="Cuaderno Personalizado">
 
-                        <video src="img/cuaderno/promo.mp4" poster="img/cuaderno/portada.jpg" muted loop playsinline preload="metadata"></video>
+                        <video src="img/cuaderno/promo.mp4" poster="img/cuaderno/portada.webp" muted loop playsinline preload="metadata"></video>
 
                         <span class="play-icon"><i class="fa-solid fa-play"></i></span>
 
@@ -438,7 +469,7 @@
 
                     <div class="product-media" data-href="producto.html?id=pastor-blue">
 
-                        <img src="img/album-generica/pastor-blue.png" alt="Álbum Genérico Pastor Blue">
+                        <img loading="lazy" decoding="async" src="img/album-generica/pastor-blue.webp" alt="Álbum Genérico Pastor Blue">
 
                         <button class="fav-btn" data-id="pastor-blue" aria-label="Favorito"><i class="fa-regular fa-heart"></i></button>
 
@@ -477,11 +508,37 @@
 
     <section class="promo">
 
-        <div class="container">
+        <div class="promo-marquee">
 
-            <h2>ENVÍO GRATIS</h2>
+            <div class="promo-track">
 
-            <p>A toda Colombia, en todos tus pedidos</p>
+                <span class="promo-item"><i class="fa-solid fa-truck-fast"></i> Envío gratis a toda Colombia</span>
+                <span class="promo-sep">✦</span>
+                <span class="promo-item"><i class="fa-solid fa-shield"></i> Pagos 100% seguros</span>
+                <span class="promo-sep">✦</span>
+                <span class="promo-item"><i class="fa-solid fa-heart"></i> Hecho a mano con cariño</span>
+                <span class="promo-sep">✦</span>
+                <span class="promo-item"><i class="fa-solid fa-eye"></i> Apruebas el diseño antes de imprimir</span>
+                <span class="promo-sep">✦</span>
+                <span class="promo-item"><i class="fa-solid fa-gift"></i> Personaliza con tu nombre y tus fotos</span>
+                <span class="promo-sep">✦</span>
+                <span class="promo-item"><i class="fa-solid fa-truck-fast"></i> 5 días hábiles de elaboración</span>
+                <span class="promo-sep">✦</span>
+
+                <span class="promo-item" aria-hidden="true"><i class="fa-solid fa-truck-fast"></i> Envío gratis a toda Colombia</span>
+                <span class="promo-sep" aria-hidden="true">✦</span>
+                <span class="promo-item" aria-hidden="true"><i class="fa-solid fa-shield"></i> Pagos 100% seguros</span>
+                <span class="promo-sep" aria-hidden="true">✦</span>
+                <span class="promo-item" aria-hidden="true"><i class="fa-solid fa-heart"></i> Hecho a mano con cariño</span>
+                <span class="promo-sep" aria-hidden="true">✦</span>
+                <span class="promo-item" aria-hidden="true"><i class="fa-solid fa-eye"></i> Apruebas el diseño antes de imprimir</span>
+                <span class="promo-sep" aria-hidden="true">✦</span>
+                <span class="promo-item" aria-hidden="true"><i class="fa-solid fa-gift"></i> Personaliza con tu nombre y tus fotos</span>
+                <span class="promo-sep" aria-hidden="true">✦</span>
+                <span class="promo-item" aria-hidden="true"><i class="fa-solid fa-truck-fast"></i> 5 días hábiles de elaboración</span>
+                <span class="promo-sep" aria-hidden="true">✦</span>
+
+            </div>
 
         </div>
 
@@ -494,7 +551,7 @@
         <div class="collection-image">
 
             <video id="collection-video" src="img/album-mascota/como-pasar-vacunas.mp4"
-                poster="img/album-mascota/portada-macho.jpg"
+                poster="img/album-mascota/portada-macho.webp"
                 controls playsinline></video>
 
         </div>
@@ -513,10 +570,10 @@
 
             <div class="collection-gallery">
 
-                <img src="img/album-mascota/portada-macho.jpg" alt="Portada personalizada del álbum">
-                <img src="img/album-mascota/cumple-macho.jpg" alt="Página de cumpleaños del álbum">
-                <img src="img/album-mascota/vacunas-macho.jpg" alt="Página de vacunación del álbum">
-                <img src="img/album-mascota/desparasitacion-macho.jpg" alt="Página de desparasitación del álbum">
+                <img loading="lazy" decoding="async" src="img/album-mascota/portada-macho.webp" alt="Portada personalizada del álbum">
+                <img loading="lazy" decoding="async" src="img/album-mascota/cumple-macho.webp" alt="Página de cumpleaños del álbum">
+                <img loading="lazy" decoding="async" src="img/album-mascota/vacunas-macho.webp" alt="Página de vacunación del álbum">
+                <img loading="lazy" decoding="async" src="img/album-mascota/desparasitacion-macho.webp" alt="Página de desparasitación del álbum">
 
             </div>
 

@@ -16,15 +16,15 @@ const PRODUCTS = {
             "Incluye hoja de stickers",
             "Personalización con 2 fotos (portada y contraportada)"
         ],
-        cover: "img/agenda-agradecimiento/portada.jpg",
+        cover: "img/agenda-agradecimiento/portada.webp",
         gallery: [
-            "img/agenda-agradecimiento/portada.jpg",
-            "img/agenda-agradecimiento/diario-gratitud.jpg",
-            "img/agenda-agradecimiento/afirmaciones-diarias.jpg",
-            "img/agenda-agradecimiento/frase-inicial.jpg",
-            "img/agenda-agradecimiento/notas.jpg",
-            "img/agenda-agradecimiento/notas2.jpg",
-            "img/agenda-agradecimiento/stiker.jpg"
+            "img/agenda-agradecimiento/portada.webp",
+            "img/agenda-agradecimiento/diario-gratitud.webp",
+            "img/agenda-agradecimiento/afirmaciones-diarias.webp",
+            "img/agenda-agradecimiento/frase-inicial.webp",
+            "img/agenda-agradecimiento/notas.webp",
+            "img/agenda-agradecimiento/notas2.webp",
+            "img/agenda-agradecimiento/stiker.webp"
         ],
         video: "img/agenda-agradecimiento/promo.mp4"
     },
@@ -46,14 +46,14 @@ const PRODUCTS = {
             "Tiempo de elaboración: 5 días hábiles",
             "Personalización con 2 fotos (portada y contraportada)"
         ],
-        cover: "img/album-mascota-azul/portada.png",
+        cover: "img/album-mascota-azul/portada.webp",
         gallery: [
-            "img/album-mascota-azul/portada.png",
-            "img/album-mascota-azul/datos-recuerdos.png",
-            "img/album-mascota-azul/primeros-momentos.png",
-            "img/album-mascota-azul/vacunacion-desparasitacion.png",
-            "img/album-mascota-azul/veterinarios-consultas.png",
-            "img/album-mascota-azul/stickers.jpg"
+            "img/album-mascota-azul/portada.webp",
+            "img/album-mascota-azul/datos-recuerdos.webp",
+            "img/album-mascota-azul/primeros-momentos.webp",
+            "img/album-mascota-azul/vacunacion-desparasitacion.webp",
+            "img/album-mascota-azul/veterinarios-consultas.webp",
+            "img/album-mascota-azul/stickers.webp"
         ],
         video: "img/album-mascota-azul/promo.mp4"
     },
@@ -74,16 +74,16 @@ const PRODUCTS = {
             "Tiempo de elaboración: 5 días hábiles",
             "Personalización con 2 fotos (portada y contraportada)"
         ],
-        cover: "img/album-mascota-rosa/contraportada-hembra.jpg",
+        cover: "img/album-mascota-rosa/contraportada-hembra.webp",
         gallery: [
-            "img/album-mascota-rosa/contraportada-hembra.jpg",
-            "img/album-mascota-rosa/portada-warwick.png",
-            "img/album-mascota-rosa/portada-hembra.jpg",
-            "img/album-mascota-rosa/datos-hembra.jpg",
-            "img/album-mascota-rosa/consultas-hembra.jpg",
-            "img/album-mascota-rosa/recuerdos-hembra.jpg",
-            "img/album-mascota-rosa/vacunas-hembra.jpg",
-            "img/album-mascota-rosa/stikers-hembra.jpg"
+            "img/album-mascota-rosa/contraportada-hembra.webp",
+            "img/album-mascota-rosa/portada-warwick.webp",
+            "img/album-mascota-rosa/portada-hembra.webp",
+            "img/album-mascota-rosa/datos-hembra.webp",
+            "img/album-mascota-rosa/consultas-hembra.webp",
+            "img/album-mascota-rosa/recuerdos-hembra.webp",
+            "img/album-mascota-rosa/vacunas-hembra.webp",
+            "img/album-mascota-rosa/stikers-hembra.webp"
         ],
         video: "img/album-mascota-rosa/promo.mp4"
     },
@@ -103,13 +103,13 @@ const PRODUCTS = {
             "Tiempo de elaboración: 5 días hábiles",
             "Personalización con 2 fotos (portada y contraportada)"
         ],
-        cover: "img/mascota-fallecida/portada2.png",
+        cover: "img/mascota-fallecida/portada2.webp",
         gallery: [
-            "img/mascota-fallecida/portada2.png",
-            "img/mascota-fallecida/carta.png",
-            "img/mascota-fallecida/registro2.png",
-            "img/mascota-fallecida/recuerdos2.png",
-            "img/mascota-fallecida/recuerdos3.png"
+            "img/mascota-fallecida/portada2.webp",
+            "img/mascota-fallecida/carta.webp",
+            "img/mascota-fallecida/registro2.webp",
+            "img/mascota-fallecida/recuerdos2.webp",
+            "img/mascota-fallecida/recuerdos3.webp"
         ],
         video: "img/mascota-fallecida/promo.mp4"
     },
@@ -126,17 +126,17 @@ const PRODUCTS = {
             "Portada y contraportada personalizadas",
             "Personalización con 3 fotos"
         ],
-        cover: "img/album-viajero/portada.jpg",
+        cover: "img/album-viajero/portada.webp",
         gallery: [
-            "img/album-viajero/portada.jpg",
-            "img/album-viajero/producto-real.jpg",
-            "img/album-viajero/globo.jpg",
-            "img/album-viajero/colombia.jpg",
-            "img/album-viajero/brasil.jpg",
-            "img/album-viajero/chile.jpg",
-            "img/album-viajero/china.jpg",
-            "img/album-viajero/alemania.jpg",
-            "img/album-viajero/panama.jpg"
+            "img/album-viajero/portada.webp",
+            "img/album-viajero/producto-real.webp",
+            "img/album-viajero/globo.webp",
+            "img/album-viajero/colombia.webp",
+            "img/album-viajero/brasil.webp",
+            "img/album-viajero/chile.webp",
+            "img/album-viajero/china.webp",
+            "img/album-viajero/alemania.webp",
+            "img/album-viajero/panama.webp"
         ],
         video: "img/album-viajero/promo.mp4"
     },
@@ -152,14 +152,14 @@ const PRODUCTS = {
             "Portada personalizada",
             "Personalización con 2 fotos (portada y contraportada)"
         ],
-        cover: "img/cuaderno/portada.jpg",
+        cover: "img/cuaderno/portada.webp",
         gallery: [
-            "img/cuaderno/portada.jpg",
-            "img/cuaderno/portada-2.jpg",
-            "img/cuaderno/portada-3.jpg",
-            "img/cuaderno/portada-4.jpg",
-            "img/cuaderno/portada-5.jpg",
-            "img/cuaderno/hoja.jpg"
+            "img/cuaderno/portada.webp",
+            "img/cuaderno/portada-2.webp",
+            "img/cuaderno/portada-3.webp",
+            "img/cuaderno/portada-4.webp",
+            "img/cuaderno/portada-5.webp",
+            "img/cuaderno/hoja.webp"
         ],
         video: "img/cuaderno/promo.mp4"
     },
@@ -174,13 +174,13 @@ const PRODUCTS = {
             "Diseño de portada fijo (no personalizable)",
             "Espacios para primeros momentos, veterinarios y consultas, vacunación y desparasitación, datos y recuerdos"
         ],
-        cover: "img/album-generica/pastor-blue.png",
+        cover: "img/album-generica/pastor-blue.webp",
         gallery: [
-            "img/album-generica/pastor-blue.png",
-            "img/album-generica/primeros-momentos.png",
-            "img/album-generica/veterinarios-consultas.png",
-            "img/album-generica/vacunacion-desparasitacion.png",
-            "img/album-generica/datos-recuerdos.png"
+            "img/album-generica/pastor-blue.webp",
+            "img/album-generica/primeros-momentos.webp",
+            "img/album-generica/veterinarios-consultas.webp",
+            "img/album-generica/vacunacion-desparasitacion.webp",
+            "img/album-generica/datos-recuerdos.webp"
         ],
         video: null
     },
@@ -195,14 +195,14 @@ const PRODUCTS = {
             "Diseño de portada fijo (no personalizable)",
             "Espacios para vacunas, citas, datos y recuerdos"
         ],
-        cover: "img/album-generica/pastor-ros.png",
+        cover: "img/album-generica/pastor-ros.webp",
         gallery: [
-            "img/album-generica/pastor-ros.png",
-            "img/album-generica/foto.png",
-            "img/album-generica/citas.png",
-            "img/album-generica/recuerdos.png",
-            "img/album-generica/vacunas.png",
-            "img/album-generica/hoja-de-datos.png"
+            "img/album-generica/pastor-ros.webp",
+            "img/album-generica/foto.webp",
+            "img/album-generica/citas.webp",
+            "img/album-generica/recuerdos.webp",
+            "img/album-generica/vacunas.webp",
+            "img/album-generica/hoja-de-datos.webp"
         ],
         video: null
     },
@@ -217,14 +217,14 @@ const PRODUCTS = {
             "Diseño de portada fijo (no personalizable)",
             "Espacios para vacunas, citas, datos y recuerdos"
         ],
-        cover: "img/album-generica/border-pur.png",
+        cover: "img/album-generica/border-pur.webp",
         gallery: [
-            "img/album-generica/border-pur.png",
-            "img/album-generica/foto.png",
-            "img/album-generica/citas.png",
-            "img/album-generica/recuerdos.png",
-            "img/album-generica/vacunas.png",
-            "img/album-generica/hoja-de-datos.png"
+            "img/album-generica/border-pur.webp",
+            "img/album-generica/foto.webp",
+            "img/album-generica/citas.webp",
+            "img/album-generica/recuerdos.webp",
+            "img/album-generica/vacunas.webp",
+            "img/album-generica/hoja-de-datos.webp"
         ],
         video: null
     },
@@ -239,13 +239,13 @@ const PRODUCTS = {
             "Diseño de portada fijo (no personalizable)",
             "Espacios para primeros momentos, veterinarios y consultas, vacunación y desparasitación, datos y recuerdos"
         ],
-        cover: "img/album-generica/golden-blue.png",
+        cover: "img/album-generica/golden-blue.webp",
         gallery: [
-            "img/album-generica/golden-blue.png",
-            "img/album-generica/primeros-momentos.png",
-            "img/album-generica/veterinarios-consultas.png",
-            "img/album-generica/vacunacion-desparasitacion.png",
-            "img/album-generica/datos-recuerdos.png"
+            "img/album-generica/golden-blue.webp",
+            "img/album-generica/primeros-momentos.webp",
+            "img/album-generica/veterinarios-consultas.webp",
+            "img/album-generica/vacunacion-desparasitacion.webp",
+            "img/album-generica/datos-recuerdos.webp"
         ],
         video: null
     },
@@ -260,14 +260,14 @@ const PRODUCTS = {
             "Diseño de portada fijo (no personalizable)",
             "Espacios para vacunas, citas, datos y recuerdos"
         ],
-        cover: "img/album-generica/golden-pur.png",
+        cover: "img/album-generica/golden-pur.webp",
         gallery: [
-            "img/album-generica/golden-pur.png",
-            "img/album-generica/foto.png",
-            "img/album-generica/citas.png",
-            "img/album-generica/recuerdos.png",
-            "img/album-generica/vacunas.png",
-            "img/album-generica/hoja-de-datos.png"
+            "img/album-generica/golden-pur.webp",
+            "img/album-generica/foto.webp",
+            "img/album-generica/citas.webp",
+            "img/album-generica/recuerdos.webp",
+            "img/album-generica/vacunas.webp",
+            "img/album-generica/hoja-de-datos.webp"
         ],
         video: null
     },
@@ -282,14 +282,14 @@ const PRODUCTS = {
             "Diseño de portada fijo (no personalizable)",
             "Espacios para vacunas, citas, datos y recuerdos"
         ],
-        cover: "img/album-generica/golden-ros.png",
+        cover: "img/album-generica/golden-ros.webp",
         gallery: [
-            "img/album-generica/golden-ros.png",
-            "img/album-generica/foto.png",
-            "img/album-generica/citas.png",
-            "img/album-generica/recuerdos.png",
-            "img/album-generica/vacunas.png",
-            "img/album-generica/hoja-de-datos.png"
+            "img/album-generica/golden-ros.webp",
+            "img/album-generica/foto.webp",
+            "img/album-generica/citas.webp",
+            "img/album-generica/recuerdos.webp",
+            "img/album-generica/vacunas.webp",
+            "img/album-generica/hoja-de-datos.webp"
         ],
         video: null
     }
