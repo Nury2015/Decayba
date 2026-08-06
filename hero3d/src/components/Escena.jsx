@@ -21,7 +21,7 @@ import useIsMobile from '../hooks/useIsMobile.js'
  *   pantalla retina, dpr=2 significa dibujar 4x mas pixeles que dpr=1
  *   por el mismo espacio en pantalla.
  */
-export default function Escena() {
+export default function Escena({ onCaptionChange }) {
   const isMobile = useIsMobile()
 
   return (
@@ -35,8 +35,23 @@ export default function Escena() {
     >
       {/* y baja (cerca del centro vertical del libro): si la camara queda
           muy arriba y nunca se inclina hacia abajo, al hacer zoom el
-          libro "se hunde" cada vez mas abajo del cuadro y se corta. */}
-      <PerspectiveCamera makeDefault position={[0, 0.15, 6]} fov={35} near={0.1} far={50} />
+          libro "se hunde" cada vez mas abajo del cuadro y se corta.
+
+          fov mas ancho en mobile: "fov" es el campo de vision VERTICAL;
+          el horizontal sale de combinarlo con el aspect ratio de la
+          pantalla (mas angosta en un celular en vertical = mucho menos
+          campo horizontal con el mismo fov). Con 35 grados, en un celular
+          angosto el ancho del libro no entraba en cuadro y solo se veia
+          el centro (la zona de la foto), cortando los bordes con el
+          texto. 60 grados en mobile le da margen horizontal de sobra sin
+          tocar las distancias de camara ya afinadas para desktop. */}
+      <PerspectiveCamera
+        makeDefault
+        position={[0, 0.15, 6]}
+        fov={isMobile ? 60 : 35}
+        near={0.1}
+        far={50}
+      />
 
       <Luces isMobile={isMobile} />
 
@@ -46,7 +61,7 @@ export default function Escena() {
           simplemente no se ve nada ahi (son archivos locales, no una red
           externa, cargan rapido). */}
       <Suspense fallback={null}>
-        <Agenda />
+        <Agenda onCaptionChange={onCaptionChange} />
       </Suspense>
     </Canvas>
   )

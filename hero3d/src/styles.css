@@ -24,3 +24,55 @@
 .hero3d-scroll {
   height: 500vh;
 }
+
+/* Descripcion de la hoja activa (ver Captions.jsx). Anclada abajo, sobre
+   el canvas, dentro del mismo contenedor sticky para que quede fija
+   mientras se hace scroll. pointer-events:none: es solo lectura, no debe
+   robarle el drag/touch al canvas que esta debajo. */
+.hero3d-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 8%;
+  display: flex;
+  justify-content: center;
+  padding: 0 1.5rem;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.hero3d-caption p {
+  margin: 0;
+  max-width: 26rem;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(0.95rem, 1.6vw, 1.15rem);
+  font-weight: 500;
+  color: #222;
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(4px);
+  border-radius: 999px;
+  padding: 0.65rem 1.4rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  animation: hero3d-caption-in 0.4s ease both;
+}
+
+@keyframes hero3d-caption-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 640px) {
+  .hero3d-caption {
+    bottom: 6%;
+  }
+  .hero3d-caption p {
+    max-width: 20rem;
+  }
+}

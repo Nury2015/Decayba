@@ -88,7 +88,7 @@ const CENTER_TRIM_X = 0.18
  * que esta pegada a la tapa (la de mayor z) — por eso el orden que le
  * pasamos al hook para el stagger va invertido (ultima a primera).
  */
-export default function Agenda() {
+export default function Agenda({ onCaptionChange }) {
   const groupRef = useRef(null)
   const portadaRef = useRef(null)
 
@@ -122,11 +122,16 @@ export default function Agenda() {
     portadaRef,
     // invertido: la hoja pegada a la portada (ultimo indice) es la
     // primera en pasar
-    paginaRefs: paginaRefsOpenOrder
+    paginaRefs: paginaRefsOpenOrder,
+    onCaptionChange
   })
 
   return (
-    <group ref={groupRef} position={[0, 0.2, 0]} rotation={[0.05, -0.18, 0]}>
+    // rotation-x en 0 (antes 0.05): ese tilt, combinado con el giro de
+    // ~100 grados de la tapa/hojas al abrirse, inclinaba el eje de la
+    // bisagra fuera de la vertical y sumaba recorte arriba justo
+    // mientras se abrian. Con 0 el lomo queda perfectamente vertical.
+    <group ref={groupRef} position={[0, 0.2, 0]} rotation={[0, -0.18, 0]}>
       <group position={[-WIDTH / 2 + CENTER_TRIM_X, 0, 0]}>
         {/* Contraportada: identica a la portada pero fija, no se anima */}
         <Portada
@@ -172,8 +177,8 @@ export default function Agenda() {
         </group>
 
         {/* Portada frontal: cerrada por ahora, apoyada encima de toda la pila.
-            coverImage = la foto real del producto, pegada como plano
-            sobre la cara visible. */}
+            coverImage = personalizable: el cliente elige su propia foto y
+            texto (ver Portadarecuerdo.png), no una foto de producto fija. */}
         <group position-z={COVER_THICKNESS + PAGES_DEPTH}>
           <Portada
             ref={portadaRef}
@@ -182,7 +187,7 @@ export default function Agenda() {
             thickness={COVER_THICKNESS}
             color="#f7f3ea"
             rotationY={0}
-            coverImage={tx('hero.webp')}
+            coverImage={tx('portadarecuerdo.png')}
           />
         </group>
       </group>
