@@ -20,10 +20,9 @@
 
 /* Controla cuanto "dura" (en scroll) la animacion completa: camara +
    apertura de tapa + las hojas pasando una por una + la secuencia de la
-   hoja de cumpleanos (foto, typewriter, camara alejandose) + cierre +
-   aparicion del perro. Mas alto = mas lento/premium, menos alto = mas
-   rapido. Subido de 500vh a 800vh para darle aire a las fases nuevas
-   (ver useScrollAnimation.js). */
+   hoja de cumpleanos (foto, typewriter, camara alejandose) + cierre. Mas
+   alto = mas lento/premium, menos alto = mas rapido. Subido de 500vh a
+   800vh para darle aire a las fases nuevas (ver useScrollAnimation.js). */
 .hero3d-scroll {
   height: 800vh;
 }
@@ -75,7 +74,12 @@
 
 @media (max-width: 640px) {
   .hero3d-caption {
-    top: 5%;
+    /* En pixeles fijos, no %: el header del sitio es "position: fixed"
+       (ver index.css) y en mobile mide ~70px de alto (padding 18-20px +
+       logo) -un 5% de la altura de pantalla (~35-40px en un celular
+       comun) queda TAPADO por el header, invisible. 84px deja margen de
+       sobra por debajo de el. */
+    top: 84px;
   }
   .hero3d-caption p {
     max-width: 20rem;
