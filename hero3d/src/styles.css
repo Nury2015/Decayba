@@ -19,21 +19,26 @@
 }
 
 /* Controla cuanto "dura" (en scroll) la animacion completa: camara +
-   apertura de tapa + las 14 hojas pasando una por una. Mas alto = mas
-   lento/premium, menos alto = mas rapido. 500vh probado a mano. */
+   apertura de tapa + las hojas pasando una por una + la secuencia de la
+   hoja de cumpleanos (foto, typewriter, camara alejandose) + cierre +
+   aparicion del perro. Mas alto = mas lento/premium, menos alto = mas
+   rapido. Subido de 500vh a 800vh para darle aire a las fases nuevas
+   (ver useScrollAnimation.js). */
 .hero3d-scroll {
-  height: 500vh;
+  height: 800vh;
 }
 
-/* Descripcion de la hoja activa (ver Captions.jsx). Anclada abajo, sobre
-   el canvas, dentro del mismo contenedor sticky para que quede fija
-   mientras se hace scroll. pointer-events:none: es solo lectura, no debe
-   robarle el drag/touch al canvas que esta debajo. */
+/* Descripcion de la hoja activa (ver Captions.jsx). Anclada ARRIBA (no
+   abajo: ahi la tapan el boton flotante de WhatsApp y la flecha de
+   "volver arriba" del sitio), sobre el canvas, dentro del mismo
+   contenedor sticky para que quede fija mientras se hace scroll.
+   pointer-events:none: es solo lectura, no debe robarle el drag/touch al
+   canvas que esta debajo. */
 .hero3d-caption {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 8%;
+  top: 6%;
   display: flex;
   justify-content: center;
   padding: 0 1.5rem;
@@ -70,7 +75,7 @@
 
 @media (max-width: 640px) {
   .hero3d-caption {
-    bottom: 6%;
+    top: 5%;
   }
   .hero3d-caption p {
     max-width: 20rem;

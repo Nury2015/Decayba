@@ -1,6 +1,7 @@
 import { useMemo, useRef, createRef } from 'react'
 import Portada from './Portada.jsx'
 import Pagina from './Pagina.jsx'
+import HojaCumple from './HojaCumple.jsx'
 import useScrollAnimation from '../hooks/useScrollAnimation.js'
 import { tx } from '../textures.js'
 
@@ -27,6 +28,16 @@ const PAGE_CONTENT = [
 const PAGE_COUNT = PAGE_CONTENT.length
 const PAGE_THICKNESS = 0.012
 const PAGE_GAP = 0.001 // pequeno espacio de aire entre hojas, como papel real apilado
+
+// Hoja "Mi primer cumpleanos" (pages/37.webp): lleva contenido animado
+// extra (HojaCumple.jsx - foto + typewriter), ver useScrollAnimation.js
+// para el detalle de las fases. Dos indices distintos a proposito:
+//  - CUMPLE_PHYSICAL_INDEX: posicion dentro de este array "paginas" (se
+//    llena al reves, ver el useMemo de abajo) -> se usa para inyectar el
+//    JSX de HojaCumple en la hoja correcta.
+//  - El indice de ORDEN DE APERTURA (0..PAGE_COUNT-1) es distinto y lo
+//    calcula useScrollAnimation.js a partir de PAGE_CONTENT directamente.
+const CUMPLE_PHYSICAL_INDEX = PAGE_COUNT - 1 - PAGE_CONTENT.indexOf('37')
 
 const WIDTH = 1.6
 const HEIGHT = 2.1
@@ -91,6 +102,9 @@ const CENTER_TRIM_X = 0.18
 export default function Agenda({ onCaptionChange }) {
   const groupRef = useRef(null)
   const portadaRef = useRef(null)
+  // api que expone HojaCumple.jsx (fotoGroupRef + setFecha/setLugar/
+  // setDescripcion) para que useScrollAnimation.js pueda animarla
+  const hojaCumpleApiRef = useRef({})
 
   const paginas = useMemo(
     () =>
@@ -123,7 +137,8 @@ export default function Agenda({ onCaptionChange }) {
     // invertido: la hoja pegada a la portada (ultimo indice) es la
     // primera en pasar
     paginaRefs: paginaRefsOpenOrder,
-    onCaptionChange
+    onCaptionChange,
+    hojaCumpleApiRef
   })
 
   return (
@@ -153,7 +168,18 @@ export default function Agenda({ onCaptionChange }) {
             zOffset={p.zOffset}
             rotationY={0}
             image={p.image}
-          />
+          >
+            {i === CUMPLE_PHYSICAL_INDEX && (
+              <HojaCumple
+                width={WIDTH - 0.03}
+                height={HEIGHT - 0.03}
+                thickness={PAGE_THICKNESS}
+                registerApi={(api) => {
+                  hojaCumpleApiRef.current = api
+                }}
+              />
+            )}
+          </Pagina>
         ))}
 
         {/* Lomo espiral: pequenos aritos a lo largo del borde izquierdo (x=0),

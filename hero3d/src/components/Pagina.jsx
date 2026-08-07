@@ -14,6 +14,10 @@ import { RoundedBox, useTexture } from '@react-three/drei'
  *     stickers, etc.), pegada como plano sobre la cara frontal — mismo
  *     truco que coverImage en Portada.jsx. Si no se pasa, la hoja queda
  *     en blanco (papel liso).
+ *   - children: contenido 3D EXTRA sobre la cara frontal, encima de
+ *     "image" (ej. la foto+textos animados de HojaCumple.jsx). Al vivir
+ *     dentro de este mismo grupo-bisagra, hereda gratis la rotacion de
+ *     apertura/cierre de la hoja — no hace falta logica aparte.
  *
  * Por que solo una cara tiene imagen: en un libro real, cada hoja tiene
  * un frente y un dorso. Aca solo modelamos el frente con contenido (la
@@ -29,7 +33,8 @@ const Pagina = forwardRef(function Pagina(
     zOffset = 0,
     color = '#fdfaf4',
     rotationY = 0,
-    image = null
+    image = null,
+    children = null
   },
   ref
 ) {
@@ -48,6 +53,7 @@ const Pagina = forwardRef(function Pagina(
       </RoundedBox>
 
       {image && <PageArt width={width} height={height} z={thickness + 0.0005} image={image} />}
+      {children}
     </group>
   )
 })
