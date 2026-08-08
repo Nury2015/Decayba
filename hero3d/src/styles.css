@@ -27,12 +27,17 @@
   height: 800vh;
 }
 
-/* Descripcion de la hoja activa (ver Captions.jsx). Anclada ARRIBA (no
-   abajo: ahi la tapan el boton flotante de WhatsApp y la flecha de
-   "volver arriba" del sitio), sobre el canvas, dentro del mismo
-   contenedor sticky para que quede fija mientras se hace scroll.
-   pointer-events:none: es solo lectura, no debe robarle el drag/touch al
-   canvas que esta debajo. */
+/* Descripcion de la hoja activa (ver Captions.jsx), sobre el canvas,
+   dentro del mismo contenedor sticky para que quede fija mientras se
+   hace scroll. pointer-events:none: es solo lectura, no debe robarle el
+   drag/touch al canvas que esta debajo.
+
+   Mobile: anclada ARRIBA (no abajo: ahi la tapan el boton flotante de
+   WhatsApp y la flecha de "volver arriba" del sitio).
+   Desktop (>640px): la agenda 3D ocupa el centro de la pantalla, asi
+   que una caption centrada arriba quedaba tapada/perdida sobre ella -
+   se mueve al costado derecho, centrada verticalmente, donde no
+   compite con el modelo 3D. */
 .hero3d-caption {
   position: absolute;
   left: 0;
@@ -46,29 +51,57 @@
 }
 
 .hero3d-caption p {
+  position: relative;
   margin: 0;
   max-width: 26rem;
   text-align: center;
   font-family: 'Poppins', sans-serif;
   font-size: clamp(0.95rem, 1.6vw, 1.15rem);
-  font-weight: 500;
-  color: #222;
-  background: rgba(255, 255, 255, 0.82);
-  backdrop-filter: blur(4px);
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(120deg, #d88a9a, #c9a45c, #d88a9a);
+  background-size: 220% 220%;
+  border: 2px solid rgba(255, 255, 255, 0.55);
   border-radius: 999px;
-  padding: 0.65rem 1.4rem;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  animation: hero3d-caption-in 0.4s ease both;
+  padding: 0.7rem 1.5rem;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 8px 24px rgba(216, 138, 154, 0.45);
+  animation:
+    hero3d-caption-in 0.4s ease both,
+    hero3d-caption-glow 3.5s ease-in-out infinite,
+    hero3d-caption-shift 6s ease-in-out infinite;
 }
 
 @keyframes hero3d-caption-in {
   from {
     opacity: 0;
-    transform: translateY(6px);
+    transform: translateY(6px) scale(0.96);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Gradiente "vivo": el fondo se desliza suavemente entre rosa y dorado. */
+@keyframes hero3d-caption-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Brillo pulsante alrededor del globo para llamar la atencion sin
+   moverlo de lugar (el texto cambia con el scroll, no queremos que
+   ademas "salte"). */
+@keyframes hero3d-caption-glow {
+  0%, 100% {
+    box-shadow: 0 8px 24px rgba(216, 138, 154, 0.45);
+  }
+  50% {
+    box-shadow: 0 8px 32px rgba(201, 164, 92, 0.75);
   }
 }
 
@@ -83,5 +116,21 @@
   }
   .hero3d-caption p {
     max-width: 20rem;
+  }
+}
+
+@media (min-width: 641px) {
+  .hero3d-caption {
+    top: 50%;
+    left: auto;
+    right: 4%;
+    transform: translateY(-50%);
+    justify-content: flex-end;
+    max-width: 22rem;
+    padding: 0;
+  }
+  .hero3d-caption p {
+    text-align: left;
+    max-width: 22rem;
   }
 }
