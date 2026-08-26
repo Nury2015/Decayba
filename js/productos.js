@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
             : "";
 
         const soldOutBadge = p.soldOut ? `<span class="sold-out-badge">Agotado</span>` : "";
+        const lowStockBadge = (!p.soldOut && p.stockNote) ? `<span class="low-stock-badge">Pocas unidades</span>` : "";
         const cartBtn = p.soldOut
             ? `<button class="add-cart-btn" disabled>Agotado</button>`
             : `<button class="add-cart-btn" data-id="${id}">Agregar al carrito</button>`;
@@ -40,6 +41,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     ${videoTag}
 
                     ${soldOutBadge}
+
+                    ${lowStockBadge}
 
                     <button class="fav-btn" data-id="${id}" aria-label="Favorito"><i class="fa-regular fa-heart"></i></button>
 

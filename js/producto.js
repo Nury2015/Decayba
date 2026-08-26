@@ -24,6 +24,8 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector("#pd-price").textContent = money(product.price);
     if (product.soldOut) {
         document.querySelector("#pd-name").insertAdjacentHTML("afterend", `<span class="sold-out-badge">Agotado</span>`);
+    } else if (product.stockNote) {
+        document.querySelector("#pd-name").insertAdjacentHTML("afterend", `<span class="low-stock-badge">${product.stockNote}</span>`);
     }
     document.querySelector("#pd-description").textContent = product.description;
     document.querySelector("#pd-details").innerHTML = product.details.map(d => `<li>${d}</li>`).join("");
@@ -163,6 +165,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 : "";
 
             const soldOutBadge = p.soldOut ? `<span class="sold-out-badge">Agotado</span>` : "";
+            const lowStockBadge = (!p.soldOut && p.stockNote) ? `<span class="low-stock-badge">Pocas unidades</span>` : "";
             const cartBtn = p.soldOut
                 ? `<button class="add-cart-btn" disabled>Agotado</button>`
                 : `<button class="add-cart-btn" data-id="${pid}">Agregar al carrito</button>`;
@@ -177,6 +180,8 @@ document.addEventListener("DOMContentLoaded", () => {
                         ${videoTag}
 
                         ${soldOutBadge}
+
+                        ${lowStockBadge}
 
                         <button class="fav-btn" data-id="${pid}" aria-label="Favorito"><i class="fa-regular fa-heart"></i></button>
 

@@ -1526,6 +1526,33 @@ nav ul li a:hover::after {
 
 }
 
+.low-stock-badge {
+
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    z-index: 5;
+    background: #e8a33d;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 30px;
+
+}
+
+.pd-info .low-stock-badge {
+
+    position: static;
+    display: inline-block;
+    margin: 10px 0 0;
+    text-transform: none;
+    letter-spacing: 0;
+
+}
+
 .product.is-sold-out .product-media img {
 
     opacity: .55;
