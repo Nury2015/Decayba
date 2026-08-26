@@ -224,12 +224,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Delegados en document: funcionan tambien con tarjetas creadas por JS (ej. productos.html)
 
-    // Click en tarjeta de producto -> ir al detalle (salvo el botón de favorito)
+    // Click en cualquier parte de la tarjeta -> ir al detalle
+    // (salvo botones/links propios, que ya manejan su propia navegación)
     document.addEventListener("click", (e) => {
-        const media = e.target.closest(".product-media[data-href]");
-        if (media && !e.target.closest(".fav-btn")) {
-            window.location.href = media.dataset.href;
-        }
+        if (e.target.closest(".fav-btn, .add-cart-btn, a")) return;
+        const card = e.target.closest("[data-href]");
+        if (card) window.location.href = card.dataset.href;
     });
 
     // Agregar al carrito

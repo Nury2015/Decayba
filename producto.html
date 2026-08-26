@@ -33,6 +33,12 @@
 
     <link rel="stylesheet" href="index.css">
 
+    <!-- Agenda 3D (proyecto aparte en /hero3d, compilado a mano con
+         "npm run build" ahi dentro — ver hero3d/README.md).
+         Solo se muestra/carga para productos de álbum personalizado, ver js/producto.js -->
+
+    <link rel="stylesheet" href="hero3d/dist/assets/hero3d.css">
+
 </head>
 
 <body>
@@ -60,9 +66,20 @@
 
                 <li><a href="index.html">Inicio</a></li>
 
-                <li><a href="productos.html">Productos</a></li>
+                <li class="has-submenu">
+                    <button type="button" class="submenu-toggle">Categorías <i class="fa-solid fa-chevron-down"></i></button>
+                    <ul class="submenu">
+                        <li><a href="productos.html#cat-album-generico">Álbumes Genéricos</a></li>
+                        <li><a href="productos.html#cat-album-personalizado">Álbumes Personalizados</a></li>
+                        <li><a href="productos.html#cat-cuaderno">Cuadernos</a></li>
+                        <li><a href="productos.html#cat-agenda">Agendas de Agradecimiento</a></li>
+                        <li><a href="productos.html#cat-viajero">Álbum Viajero</a></li>
+                        <li><a href="productos.html#cat-juguetes">Juguetes</a></li>
+                        <li><a href="productos.html#cat-aseo">Aseo</a></li>
+                    </ul>
+                </li>
 
-                <li><a href="nosotros.html">Nosotros</a></li>
+                <!-- <li><a href="nosotros.html">Nosotros</a></li> -->
 
                 <li><a href="index.html#contacto">Contacto</a></li>
 
@@ -217,6 +234,14 @@
         <button class="lightbox-arrow lightbox-next" id="pd-lightbox-next" aria-label="Siguiente"><i class="fa-solid fa-chevron-right"></i></button>
     </div>
 
+    <!-- AGENDA 3D: se muestra solo para álbumes personalizados (ver js/producto.js) -->
+
+    <section class="hero3d-section" id="hero3d-section" style="display:none;">
+
+        <div id="hero3d-root"></div>
+
+    </section>
+
     <section class="related-products">
 
         <div class="container">
@@ -267,7 +292,7 @@
 
                 <ul>
 
-                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <!-- <li><a href="nosotros.html">Nosotros</a></li> -->
                     <li><a href="productos.html">Productos</a></li>
                     <li><a href="index.html#contacto">Contacto</a></li>
 

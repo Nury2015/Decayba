@@ -8,11 +8,32 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
 
+    // AGENDA 3D: solo se carga (bundle pesado) y se muestra en álbumes personalizados
+    if (product.category === "album-personalizado") {
+        const hero3dSection = document.querySelector("#hero3d-section");
+        if (hero3dSection) hero3dSection.style.display = "";
+
+        const hero3dScript = document.createElement("script");
+        hero3dScript.type = "module";
+        hero3dScript.src = "hero3d/dist/assets/hero3d.js";
+        document.body.appendChild(hero3dScript);
+    }
+
     document.title = `${product.name} | Decayba`;
     document.querySelector("#pd-name").textContent = product.name;
     document.querySelector("#pd-price").textContent = money(product.price);
+    if (product.soldOut) {
+        document.querySelector("#pd-name").insertAdjacentHTML("afterend", `<span class="sold-out-badge">Agotado</span>`);
+    }
     document.querySelector("#pd-description").textContent = product.description;
     document.querySelector("#pd-details").innerHTML = product.details.map(d => `<li>${d}</li>`).join("");
+
+    // Políticas de "sin cambios ni devoluciones" y pago 50/50: solo aplican
+    // a productos personalizados (álbumes, agendas, cuadernos, viajero),
+    // no a aseo ni juguetes (son productos de stock, no hechos a pedido)
+    if (product.category === "aseo" || product.category === "juguetes") {
+        document.querySelectorAll(".pd-policy").forEach(el => el.style.display = "none");
+    }
 
     const mediaItems = [
         ...product.gallery.map(src => ({ type: "image", src })),
@@ -102,11 +123,17 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     const addBtn = document.querySelector("#pd-add-btn");
-    addBtn.addEventListener("click", () => {
-        addToCart(id);
-        addBtn.textContent = "Agregado ✓";
-        setTimeout(() => addBtn.textContent = "Agregar al carrito", 1200);
-    });
+    if (product.soldOut) {
+        addBtn.textContent = "Agotado";
+        addBtn.disabled = true;
+        addBtn.classList.add("is-sold-out");
+    } else {
+        addBtn.addEventListener("click", () => {
+            addToCart(id);
+            addBtn.textContent = "Agregado ✓";
+            setTimeout(() => addBtn.textContent = "Agregar al carrito", 1200);
+        });
+    }
 
     const favBtn = document.querySelector("#pd-fav-btn");
     function refreshFavBtn() {
@@ -126,7 +153,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const otherIds = Object.keys(PRODUCTS).filter(pid => pid !== id);
         const sameCategory = otherIds.filter(pid => PRODUCTS[pid].category === product.category);
         const rest = otherIds.filter(pid => PRODUCTS[pid].category !== product.category);
-        const relatedIds = [...sameCategory, ...rest].slice(0, 4);
+        const relatedIds = [...sameCategory, ...rest]; // todos los productos, misma categoría primero
 
         relatedGrid.innerHTML = relatedIds.map(pid => {
             const p = PRODUCTS[pid];
@@ -135,14 +162,21 @@ document.addEventListener("DOMContentLoaded", () => {
                    <span class="play-icon"><i class="fa-solid fa-play"></i></span>`
                 : "";
 
+            const soldOutBadge = p.soldOut ? `<span class="sold-out-badge">Agotado</span>` : "";
+            const cartBtn = p.soldOut
+                ? `<button class="add-cart-btn" disabled>Agotado</button>`
+                : `<button class="add-cart-btn" data-id="${pid}">Agregar al carrito</button>`;
+
             return `
-                <article class="product" data-id="${pid}">
+                <article class="product${p.soldOut ? " is-sold-out" : ""}" data-id="${pid}" data-href="producto.html?id=${pid}">
 
                     <div class="product-media" data-href="producto.html?id=${pid}">
 
                         <img src="${p.cover}" alt="${p.name}">
 
                         ${videoTag}
+
+                        ${soldOutBadge}
 
                         <button class="fav-btn" data-id="${pid}" aria-label="Favorito"><i class="fa-regular fa-heart"></i></button>
 
@@ -154,7 +188,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     <span>${money(p.price)}</span>
 
-                    <button class="add-cart-btn" data-id="${pid}">Agregar al carrito</button>
+                    ${cartBtn}
 
                 </article>`;
         }).join("");

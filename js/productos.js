@@ -1,8 +1,13 @@
+const CATEGORY_ORDER = ["album-generico", "album-personalizado", "cuaderno", "agenda", "viajero", "juguetes", "aseo"];
+
 const CATEGORY_LABELS = {
-    agenda: "Agendas",
-    album: "Álbumes",
-    cuaderno: "Cuadernos",
-    viajero: "Álbum Viajero"
+    "album-generico": "Álbum Genérico",
+    "album-personalizado": "Álbum Personalizado",
+    "cuaderno": "Cuadernos",
+    "agenda": "Agendas de Agradecimiento",
+    "viajero": "Álbum Viajero",
+    "juguetes": "Juguetes",
+    "aseo": "Aseo"
 };
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -10,32 +15,31 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!grid) return;
 
     const categoria = new URLSearchParams(window.location.search).get("categoria");
-    const ids = categoria
-        ? Object.keys(PRODUCTS).filter(id => PRODUCTS[id].category === categoria)
-        : Object.keys(PRODUCTS);
-
     const title = document.querySelector("#catalog-title");
     const subtitle = document.querySelector("#catalog-subtitle");
-    if (categoria && CATEGORY_LABELS[categoria]) {
-        if (title) title.textContent = CATEGORY_LABELS[categoria];
-        if (subtitle) subtitle.textContent = `Descubre nuestra colección de ${CATEGORY_LABELS[categoria].toLowerCase()}`;
-    }
 
-    grid.innerHTML = ids.map(id => {
+    function productCard(id) {
         const p = PRODUCTS[id];
         const videoTag = p.video
             ? `<video src="${p.video}" poster="${p.cover}" muted loop playsinline preload="metadata"></video>
                <span class="play-icon"><i class="fa-solid fa-play"></i></span>`
             : "";
 
+        const soldOutBadge = p.soldOut ? `<span class="sold-out-badge">Agotado</span>` : "";
+        const cartBtn = p.soldOut
+            ? `<button class="add-cart-btn" disabled>Agotado</button>`
+            : `<button class="add-cart-btn" data-id="${id}">Agregar al carrito</button>`;
+
         return `
-            <article class="product" data-id="${id}">
+            <article class="product${p.soldOut ? " is-sold-out" : ""}" data-id="${id}" data-href="producto.html?id=${id}">
 
                 <div class="product-media" data-href="producto.html?id=${id}">
 
                     <img src="${p.cover}" alt="${p.name}" loading="lazy" decoding="async">
 
                     ${videoTag}
+
+                    ${soldOutBadge}
 
                     <button class="fav-btn" data-id="${id}" aria-label="Favorito"><i class="fa-regular fa-heart"></i></button>
 
@@ -47,10 +51,48 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 <span>${money(p.price)}</span>
 
-                <button class="add-cart-btn" data-id="${id}">Agregar al carrito</button>
+                ${cartBtn}
 
             </article>`;
-    }).join("");
+    }
+
+    // Un solo producto queda centrado (mitad de ancho), varios se acomodan de a 4 por renglón
+    function gridFor(ids) {
+        if (ids.length === 0) {
+            return `<p class="category-empty">Próximamente</p>`;
+        }
+
+        const modifier = ids.length === 1 ? "grid-single" : "grid-4";
+        return `<div class="products-grid ${modifier}">${ids.map(productCard).join("")}</div>`;
+    }
+
+    if (categoria) {
+
+        // Vista filtrada por una sola categoría (enlaces desde el inicio)
+        const ids = Object.keys(PRODUCTS).filter(id => PRODUCTS[id].category === categoria);
+
+        if (title) title.textContent = CATEGORY_LABELS[categoria] || "Productos";
+        if (subtitle) subtitle.textContent = `Descubre nuestra colección de ${(CATEGORY_LABELS[categoria] || "").toLowerCase()}`;
+
+        grid.innerHTML = gridFor(ids);
+
+    } else {
+
+        // Vista general: todas las categorías, una sección por cada una
+        grid.innerHTML = CATEGORY_ORDER.map(cat => {
+            const ids = Object.keys(PRODUCTS).filter(id => PRODUCTS[id].category === cat);
+
+            return `
+                <div class="category-block" id="cat-${cat}">
+
+                    <h2 class="category-title">${CATEGORY_LABELS[cat]}</h2>
+
+                    ${gridFor(ids)}
+
+                </div>`;
+        }).join("");
+
+    }
 
     updateBadges();
 

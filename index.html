@@ -51,11 +51,6 @@
     <link rel="stylesheet"
         href="index.css">
 
-    <!-- Agenda 3D (proyecto aparte en /hero3d, compilado a mano con
-         "npm run build" ahi dentro — ver hero3d/README.md) -->
-
-    <link rel="stylesheet" href="hero3d/dist/assets/hero3d.css">
-
 </head>
 
 <body>
@@ -85,9 +80,20 @@
 
                 <li><a href="index.html">Inicio</a></li>
 
-                <li><a href="productos.html">Productos</a></li>
+                <li class="has-submenu">
+                    <button type="button" class="submenu-toggle">Categorías <i class="fa-solid fa-chevron-down"></i></button>
+                    <ul class="submenu">
+                        <li><a href="productos.html#cat-album-generico">Álbumes Genéricos</a></li>
+                        <li><a href="productos.html#cat-album-personalizado">Álbumes Personalizados</a></li>
+                        <li><a href="productos.html#cat-cuaderno">Cuadernos</a></li>
+                        <li><a href="productos.html#cat-agenda">Agendas de Agradecimiento</a></li>
+                        <li><a href="productos.html#cat-viajero">Álbum Viajero</a></li>
+                        <li><a href="productos.html#cat-juguetes">Juguetes</a></li>
+                        <li><a href="productos.html#cat-aseo">Aseo</a></li>
+                    </ul>
+                </li>
 
-                <li><a href="nosotros.html">Nosotros</a></li>
+                <!-- <li><a href="nosotros.html">Nosotros</a></li> -->
 
                 <li><a href="#contacto">Contacto</a></li>
 
@@ -216,114 +222,47 @@
 
     </section>
 
-    <!-- AGENDA 3D -->
+    <!-- CATEGORÍAS (círculos) -->
 
-    <section class="hero3d-section">
-
-        <div id="hero3d-root"></div>
-
-    </section>
-
-    <!-- CÓMO FUNCIONA -->
-
-    <section class="how">
+    <section class="categories-strip">
 
         <div class="container">
 
-            <h2>Cómo Funciona</h2>
+            <div class="hero-categories">
 
-            <div class="how-steps fade">
-
-                <div class="how-step">
-
-                    <span class="how-number">1</span>
-                    <i class="fa-solid fa-gift"></i>
-                    <h3>Elige tu producto</h3>
-                    <p>Agenda, álbum para mascota, álbum viajero o cuaderno.</p>
-
-                </div>
-
-                <div class="how-step">
-
-                    <span class="how-number">2</span>
-                    <i class="fa-solid fa-camera"></i>
-                    <h3>Envíanos tus fotos</h3>
-                    <p>2 fotos personalizadas (3 para el Álbum Viajero) y los datos que quieras en tu portada.</p>
-
-                </div>
-
-                <div class="how-step">
-
-                    <span class="how-number">3</span>
-                    <i class="fa-solid fa-eye"></i>
-                    <h3>Apruebas el diseño</h3>
-                    <p>Te mostramos tu producto antes de imprimirlo y antes de enviarlo.</p>
-
-                </div>
-
-                <div class="how-step">
-
-                    <span class="how-number">4</span>
-                    <i class="fa-solid fa-truck-fast"></i>
-                    <h3>Lo recibes</h3>
-                    <p>5 días hábiles de elaboración + envío gratis a toda Colombia.</p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- CATEGORÍAS -->
-
-    <section class="categories">
-
-        <div class="container">
-
-            <h2>
-
-                Explora
-
-            </h2>
-
-            <div class="cards fade">
-
-                <a href="productos.html?categoria=agenda" class="card">
-
-                    <img loading="lazy" decoding="async" src="img/agenda-agradecimiento/portada.webp"
-                        alt="Agendas personalizadas">
-
-                    <h3>Agendas</h3>
-
+                <a href="productos.html#cat-album-generico" class="hero-cat">
+                    <span class="hero-cat-circle"><img src="img/album-generica/pastor-blue.webp" alt="" loading="lazy" decoding="async"></span>
+                    <span>Genéricos</span>
                 </a>
 
-                <a href="productos.html?categoria=album" class="card">
-
-                    <img loading="lazy" decoding="async" src="img/album-mascota-azul/portada.webp"
-                        alt="Álbumes personalizados">
-
-                    <h3>Álbumes</h3>
-
+                <a href="productos.html#cat-album-personalizado" class="hero-cat">
+                    <span class="hero-cat-circle"><img src="img/album-mascota-azul/portada.webp" alt="" loading="lazy" decoding="async"></span>
+                    <span>Personalizados</span>
                 </a>
 
-                <a href="productos.html?categoria=cuaderno" class="card">
-
-                    <img loading="lazy" decoding="async" src="img/cuaderno/portada.webp"
-                        alt="Cuadernos personalizados">
-
-                    <h3>Cuadernos</h3>
-
+                <a href="productos.html#cat-cuaderno" class="hero-cat">
+                    <span class="hero-cat-circle"><img src="img/cuaderno/portada.webp" alt="" loading="lazy" decoding="async"></span>
+                    <span>Cuadernos</span>
                 </a>
 
-                <a href="producto.html?id=album-viajero" class="card">
+                <a href="productos.html#cat-agenda" class="hero-cat">
+                    <span class="hero-cat-circle"><img src="img/agenda-agradecimiento/portada.webp" alt="" loading="lazy" decoding="async"></span>
+                    <span>Agendas</span>
+                </a>
 
-                    <img loading="lazy" decoding="async" src="img/album-viajero/portada.webp"
-                        alt="Álbum Viajero">
+                <a href="productos.html#cat-viajero" class="hero-cat">
+                    <span class="hero-cat-circle"><img src="img/album-viajero/portada.webp" alt="" loading="lazy" decoding="async"></span>
+                    <span>Viajero</span>
+                </a>
 
-                    <h3>Álbum Viajero</h3>
+                <a href="productos.html#cat-juguetes" class="hero-cat">
+                    <span class="hero-cat-circle"><img src="img/juguetes/frisbi/principal.webp" alt="" loading="lazy" decoding="async"></span>
+                    <span>Juguetes</span>
+                </a>
 
+                <a href="productos.html#cat-aseo" class="hero-cat">
+                    <span class="hero-cat-circle"><img src="img/aseo/cepillojabon/principal.webp" alt="" loading="lazy" decoding="async"></span>
+                    <span>Aseo</span>
                 </a>
 
             </div>
@@ -332,7 +271,7 @@
 
     </section>
 
-    <!-- PRODUCTOS -->
+    <!-- PRODUCTOS DESTACADOS -->
 
     <section id="productos" class="products">
 
@@ -346,39 +285,7 @@
 
             <div class="products-grid fade">
 
-                <article class="product" data-id="agenda-agradecimiento">
-
-                    <div class="product-media" data-href="producto.html?id=agenda-agradecimiento">
-
-                        <img loading="lazy" decoding="async" src="img/agenda-agradecimiento/portada.webp" alt="Agenda de Agradecimiento">
-
-                        <video src="img/agenda-agradecimiento/promo.mp4" poster="img/agenda-agradecimiento/portada.webp" muted loop playsinline preload="metadata"></video>
-
-                        <span class="play-icon"><i class="fa-solid fa-play"></i></span>
-
-                        <button class="fav-btn" data-id="agenda-agradecimiento" aria-label="Favorito"><i class="fa-regular fa-heart"></i></button>
-
-                    </div>
-
-                    <a href="producto.html?id=agenda-agradecimiento" class="product-title">
-                        <h3>Agenda de Agradecimiento</h3>
-                    </a>
-
-                    <span>
-
-                        $140.000
-
-                    </span>
-
-                    <button class="add-cart-btn" data-id="agenda-agradecimiento">
-
-                        Agregar al carrito
-
-                    </button>
-
-                </article>
-
-                <article class="product" data-id="album-mascota-azul">
+                <article class="product" data-id="album-mascota-azul" data-href="producto.html?id=album-mascota-azul">
 
                     <div class="product-media" data-href="producto.html?id=album-mascota-azul">
 
@@ -410,71 +317,7 @@
 
                 </article>
 
-                <article class="product" data-id="album-viajero">
-
-                    <div class="product-media" data-href="producto.html?id=album-viajero">
-
-                        <img loading="lazy" decoding="async" src="img/album-viajero/portada.webp" alt="Álbum Viajero">
-
-                        <video src="img/album-viajero/promo.mp4" poster="img/album-viajero/portada.webp" muted loop playsinline preload="metadata"></video>
-
-                        <span class="play-icon"><i class="fa-solid fa-play"></i></span>
-
-                        <button class="fav-btn" data-id="album-viajero" aria-label="Favorito"><i class="fa-regular fa-heart"></i></button>
-
-                    </div>
-
-                    <a href="producto.html?id=album-viajero" class="product-title">
-                        <h3>Álbum Viajero</h3>
-                    </a>
-
-                    <span>
-
-                        $150.000
-
-                    </span>
-
-                    <button class="add-cart-btn" data-id="album-viajero">
-
-                        Agregar al carrito
-
-                    </button>
-
-                </article>
-
-                <article class="product" data-id="cuaderno">
-
-                    <div class="product-media" data-href="producto.html?id=cuaderno">
-
-                        <img loading="lazy" decoding="async" src="img/cuaderno/portada.webp" alt="Cuaderno Personalizado">
-
-                        <video src="img/cuaderno/promo.mp4" poster="img/cuaderno/portada.webp" muted loop playsinline preload="metadata"></video>
-
-                        <span class="play-icon"><i class="fa-solid fa-play"></i></span>
-
-                        <button class="fav-btn" data-id="cuaderno" aria-label="Favorito"><i class="fa-regular fa-heart"></i></button>
-
-                    </div>
-
-                    <a href="producto.html?id=cuaderno" class="product-title">
-                        <h3>Cuaderno Personalizado</h3>
-                    </a>
-
-                    <span>
-
-                        $100.000
-
-                    </span>
-
-                    <button class="add-cart-btn" data-id="cuaderno">
-
-                        Agregar al carrito
-
-                    </button>
-
-                </article>
-
-                <article class="product" data-id="pastor-blue">
+                <article class="product" data-id="pastor-blue" data-href="producto.html?id=pastor-blue">
 
                     <div class="product-media" data-href="producto.html?id=pastor-blue">
 
@@ -502,11 +345,238 @@
 
                 </article>
 
+                <article class="product" data-id="pastor-ros" data-href="producto.html?id=pastor-ros">
+
+                    <div class="product-media" data-href="producto.html?id=pastor-ros">
+
+                        <img loading="lazy" decoding="async" src="img/album-generica/pastor-ros.webp" alt="Álbum Genérico Pastor Ros">
+
+                        <button class="fav-btn" data-id="pastor-ros" aria-label="Favorito"><i class="fa-regular fa-heart"></i></button>
+
+                    </div>
+
+                    <a href="producto.html?id=pastor-ros" class="product-title">
+                        <h3>Álbum Genérico Pastor Ros</h3>
+                    </a>
+
+                    <span>
+
+                        $79.900
+
+                    </span>
+
+                    <button class="add-cart-btn" data-id="pastor-ros">
+
+                        Agregar al carrito
+
+                    </button>
+
+                </article>
+
+                <article class="product" data-id="golden-pur" data-href="producto.html?id=golden-pur">
+
+                    <div class="product-media" data-href="producto.html?id=golden-pur">
+
+                        <img loading="lazy" decoding="async" src="img/album-generica/golden-pur.webp" alt="Álbum Genérico Golden Pur">
+
+                        <button class="fav-btn" data-id="golden-pur" aria-label="Favorito"><i class="fa-regular fa-heart"></i></button>
+
+                    </div>
+
+                    <a href="producto.html?id=golden-pur" class="product-title">
+                        <h3>Álbum Genérico Golden Pur</h3>
+                    </a>
+
+                    <span>
+
+                        $79.900
+
+                    </span>
+
+                    <button class="add-cart-btn" data-id="golden-pur">
+
+                        Agregar al carrito
+
+                    </button>
+
+                </article>
+
+                <article class="product" data-id="border-pur" data-href="producto.html?id=border-pur">
+
+                    <div class="product-media" data-href="producto.html?id=border-pur">
+
+                        <img loading="lazy" decoding="async" src="img/album-generica/border-pur.webp" alt="Álbum Genérico Border Collie Pur">
+
+                        <button class="fav-btn" data-id="border-pur" aria-label="Favorito"><i class="fa-regular fa-heart"></i></button>
+
+                    </div>
+
+                    <a href="producto.html?id=border-pur" class="product-title">
+                        <h3>Álbum Genérico Border Collie Pur</h3>
+                    </a>
+
+                    <span>
+
+                        $79.900
+
+                    </span>
+
+                    <button class="add-cart-btn" data-id="border-pur">
+
+                        Agregar al carrito
+
+                    </button>
+
+                </article>
+
+                <article class="product" data-id="agenda-agradecimiento" data-href="producto.html?id=agenda-agradecimiento">
+
+                    <div class="product-media" data-href="producto.html?id=agenda-agradecimiento">
+
+                        <img loading="lazy" decoding="async" src="img/agenda-agradecimiento/portada.webp" alt="Agenda de Agradecimiento">
+
+                        <video src="img/agenda-agradecimiento/promo.mp4" poster="img/agenda-agradecimiento/portada.webp" muted loop playsinline preload="metadata"></video>
+
+                        <span class="play-icon"><i class="fa-solid fa-play"></i></span>
+
+                        <button class="fav-btn" data-id="agenda-agradecimiento" aria-label="Favorito"><i class="fa-regular fa-heart"></i></button>
+
+                    </div>
+
+                    <a href="producto.html?id=agenda-agradecimiento" class="product-title">
+                        <h3>Agenda de Agradecimiento</h3>
+                    </a>
+
+                    <span>
+
+                        $140.000
+
+                    </span>
+
+                    <button class="add-cart-btn" data-id="agenda-agradecimiento">
+
+                        Agregar al carrito
+
+                    </button>
+
+                </article>
+
+                <article class="product" data-id="frisbee-disco-volador" data-href="producto.html?id=frisbee-disco-volador">
+
+                    <div class="product-media" data-href="producto.html?id=frisbee-disco-volador">
+
+                        <img loading="lazy" decoding="async" src="img/juguetes/frisbi/principal.webp" alt="Frisbee Disco Volador para Mascotas">
+
+                        <button class="fav-btn" data-id="frisbee-disco-volador" aria-label="Favorito"><i class="fa-regular fa-heart"></i></button>
+
+                    </div>
+
+                    <a href="producto.html?id=frisbee-disco-volador" class="product-title">
+                        <h3>Frisbee Disco Volador para Mascotas</h3>
+                    </a>
+
+                    <span>
+
+                        $40.000
+
+                    </span>
+
+                    <button class="add-cart-btn" data-id="frisbee-disco-volador">
+
+                        Agregar al carrito
+
+                    </button>
+
+                </article>
+
+                <article class="product" data-id="cepillo-bano-silicona" data-href="producto.html?id=cepillo-bano-silicona">
+
+                    <div class="product-media" data-href="producto.html?id=cepillo-bano-silicona">
+
+                        <img loading="lazy" decoding="async" src="img/aseo/cepillojabon/principal.webp" alt="Cepillo de Baño Suave para Mascotas">
+
+                        <button class="fav-btn" data-id="cepillo-bano-silicona" aria-label="Favorito"><i class="fa-regular fa-heart"></i></button>
+
+                    </div>
+
+                    <a href="producto.html?id=cepillo-bano-silicona" class="product-title">
+                        <h3>Cepillo de Baño Suave para Mascotas</h3>
+                    </a>
+
+                    <span>
+
+                        $15.000
+
+                    </span>
+
+                    <button class="add-cart-btn" data-id="cepillo-bano-silicona">
+
+                        Agregar al carrito
+
+                    </button>
+
+                </article>
+
             </div>
 
             <div class="see-all">
 
+                <button type="button" class="btn" id="load-more-products"
+                    data-ids="cuaderno,album-viajero,cepillo-recargable-naranja,pelotas-masticar-sonido">
+                    Ver más productos
+                </button>
+
                 <a href="productos.html" class="btn btn-outline">Ver Catálogo Completo</a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- BENEFICIOS -->
+
+    <section class="benefits">
+
+        <div class="container fade">
+
+            <div class="benefit">
+
+                <i class="fa-solid fa-truck-fast"></i>
+
+                <h3>Envíos Rápidos</h3>
+
+                <p>Entrega a toda Colombia.</p>
+
+            </div>
+
+            <div class="benefit">
+
+                <i class="fa-solid fa-eye"></i>
+
+                <h3>Revisas Antes</h3>
+
+                <p>Te mostramos tu producto antes de imprimirlo y antes de enviarlo.</p>
+
+            </div>
+
+            <div class="benefit">
+
+                <i class="fa-solid fa-shield"></i>
+
+                <h3>Compra Segura</h3>
+
+                <p>Pagos protegidos.</p>
+
+            </div>
+
+            <div class="benefit">
+
+                <i class="fa-solid fa-star"></i>
+
+                <h3>Calidad Premium</h3>
+
+                <p>Materiales de primera.</p>
 
             </div>
 
@@ -580,7 +650,7 @@
             <div class="collection-gallery">
 
                 <img loading="lazy" decoding="async" src="img/album-mascota/portada-macho.webp" alt="Portada personalizada del álbum">
-                <img loading="lazy" decoding="async" src="img/album-mascota/cumple-macho.webp" alt="Página de cumpleaños del álbum">
+                <img loading="lazy" decoding="async" class="crop-right" src="img/album-mascota/cumple-macho.webp" alt="Página de cumpleaños del álbum">
                 <img loading="lazy" decoding="async" src="img/album-mascota/vacunas-macho.webp" alt="Página de vacunación del álbum">
                 <img loading="lazy" decoding="async" src="img/album-mascota/desparasitacion-macho.webp" alt="Página de desparasitación del álbum">
 
@@ -594,49 +664,125 @@
 
     </section>
 
-    <!-- BENEFICIOS -->
+    <!-- CÓMO FUNCIONA -->
 
-    <section class="benefits">
+    <section class="how">
 
-        <div class="container fade">
+        <div class="container">
 
-            <div class="benefit">
+            <h2>Cómo Funciona</h2>
 
-                <i class="fa-solid fa-truck-fast"></i>
+            <div class="how-steps fade">
 
-                <h3>Envíos Rápidos</h3>
+                <div class="how-step">
 
-                <p>Entrega a toda Colombia.</p>
+                    <span class="how-number">1</span>
+                    <i class="fa-solid fa-gift"></i>
+                    <h3>Elige tu producto</h3>
+                    <p>Agenda, álbum para mascota, álbum viajero o cuaderno.</p>
+
+                </div>
+
+                <div class="how-step">
+
+                    <span class="how-number">2</span>
+                    <i class="fa-solid fa-camera"></i>
+                    <h3>Envíanos tus fotos</h3>
+                    <p>2 fotos personalizadas (3 para el Álbum Viajero) y los datos que quieras en tu portada.</p>
+
+                </div>
+
+                <div class="how-step">
+
+                    <span class="how-number">3</span>
+                    <i class="fa-solid fa-eye"></i>
+                    <h3>Apruebas el diseño</h3>
+                    <p>Te mostramos tu producto antes de imprimirlo y antes de enviarlo.</p>
+
+                </div>
+
+                <div class="how-step">
+
+                    <span class="how-number">4</span>
+                    <i class="fa-solid fa-truck-fast"></i>
+                    <h3>Lo recibes</h3>
+                    <p>5 días hábiles de elaboración + envío gratis a toda Colombia.</p>
+
+                </div>
 
             </div>
 
-            <div class="benefit">
+        </div>
 
-                <i class="fa-solid fa-eye"></i>
+    </section>
 
-                <h3>Revisas Antes</h3>
+    <!-- TESTIMONIOS
+         Para agregar uno nuevo: copia una tarjeta completa (<div class="testimonial-card">...</div>),
+         pon la captura en img/testimonios/ y actualiza el src y el <p class="testimonial-name"> -->
 
-                <p>Te mostramos tu producto antes de imprimirlo y antes de enviarlo.</p>
+    <section class="testimonials">
 
-            </div>
+        <div class="container">
 
-            <div class="benefit">
+            <span>Historias reales</span>
 
-                <i class="fa-solid fa-shield"></i>
+            <h2>Lo que nos cuentan</h2>
 
-                <h3>Compra Segura</h3>
+            <p class="testimonials-subtitle">
+                Fragmentos de conversaciones reales con clientes que ya recibieron su pedido
+            </p>
 
-                <p>Pagos protegidos.</p>
+            <div class="testimonials-grid fade">
 
-            </div>
+                <div class="testimonial-card">
 
-            <div class="benefit">
+                    <div class="testimonial-shot">
+                        <img src="img/testimonios/isabel.jpeg" alt="Captura de WhatsApp de Isabel" loading="lazy" decoding="async">
+                    </div>
 
-                <i class="fa-solid fa-star"></i>
+                    <p class="testimonial-name">Isabel</p>
 
-                <h3>Calidad Premium</h3>
+                </div>
 
-                <p>Materiales de primera.</p>
+                <div class="testimonial-card">
+
+                    <div class="testimonial-shot">
+                        <img src="img/testimonios/jaime.jpeg" alt="Captura de WhatsApp de Jaime" loading="lazy" decoding="async">
+                    </div>
+
+                    <p class="testimonial-name">Jaime</p>
+
+                </div>
+
+                <div class="testimonial-card">
+
+                    <div class="testimonial-shot">
+                        <img src="img/testimonios/jeison gomez.jpeg" alt="Captura de WhatsApp de Jeison Gómez" loading="lazy" decoding="async">
+                    </div>
+
+                    <p class="testimonial-name">Jeison Gómez</p>
+
+                </div>
+
+                <div class="testimonial-card">
+
+                    <div class="testimonial-shot">
+                        <img src="img/testimonios/laura.jpeg" alt="Captura de WhatsApp de Laura" loading="lazy" decoding="async">
+                    </div>
+
+                    <p class="testimonial-name">Laura</p>
+
+                </div>
+
+                <div class="testimonial-card">
+
+                    <div class="testimonial-shot">
+                        <img src="img/testimonios/maria paula.jpeg" alt="Captura de WhatsApp de María Paula" loading="lazy" decoding="async">
+                    </div>
+
+                    <p class="testimonial-name">María Paula</p>
+
+                </div>
 
             </div>
 
@@ -686,7 +832,7 @@
 
                 <ul>
 
-                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <!-- <li><a href="nosotros.html">Nosotros</a></li> -->
                     <li><a href="productos.html">Productos</a></li>
                     <li><a href="#contacto">Contacto</a></li>
 
@@ -742,9 +888,6 @@
     <script src="js/products.js"></script>
     <script src="js/shop.js"></script>
     <script src="js/app.js"></script>
-
-    <!-- type="module" se difiere solo (como defer), no bloquea el resto -->
-    <script type="module" src="hero3d/dist/assets/hero3d.js"></script>
 
 
 

@@ -18,6 +18,7 @@ function closeMenu() {
     nav?.classList.remove('active');
     backdrop?.classList.remove('active');
     menuBtn?.classList.replace('fa-xmark', 'fa-bars');
+    document.querySelectorAll('.has-submenu.open').forEach(el => el.classList.remove('open'));
 }
 
 function toggleMenu() {
@@ -31,6 +32,22 @@ menuBtn?.addEventListener('click', toggleMenu);
 backdrop?.addEventListener('click', closeMenu);
 nav?.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
 
+// SUBMENÚ "CATEGORÍAS" (dropdown en desktop, acordeón en mobile)
+document.querySelectorAll('.has-submenu > .submenu-toggle').forEach(toggle => {
+    toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const parent = toggle.closest('.has-submenu');
+        const isOpen = parent.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', isOpen);
+    });
+});
+
+document.addEventListener('click', (e) => {
+    if (!e.target.closest('.has-submenu')) {
+        document.querySelectorAll('.has-submenu.open').forEach(el => el.classList.remove('open'));
+    }
+});
+
 // BOTÓN VOLVER ARRIBA
 const topBtn = document.querySelector('#top');
 
@@ -41,6 +58,51 @@ function toggleTopButton() {
 toggleTopButton();
 window.addEventListener('scroll', toggleTopButton);
 topBtn?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+// "VER MÁS PRODUCTOS" en home: agrega más tarjetas sin salir de la página
+const loadMoreBtn = document.querySelector('#load-more-products');
+
+loadMoreBtn?.addEventListener('click', () => {
+    const grid = document.querySelector('#productos .products-grid');
+    const ids = (loadMoreBtn.dataset.ids || '').split(',').filter(Boolean);
+
+    const cardsHtml = ids.map(id => {
+        const p = PRODUCTS[id];
+        if (!p) return '';
+
+        const videoTag = p.video
+            ? `<video src="${p.video}" poster="${p.cover}" muted loop playsinline preload="metadata"></video>
+               <span class="play-icon"><i class="fa-solid fa-play"></i></span>`
+            : '';
+
+        return `
+            <article class="product" data-id="${id}" data-href="producto.html?id=${id}">
+
+                <div class="product-media" data-href="producto.html?id=${id}">
+
+                    <img src="${p.cover}" alt="${p.name}" loading="lazy" decoding="async">
+
+                    ${videoTag}
+
+                    <button class="fav-btn" data-id="${id}" aria-label="Favorito"><i class="fa-regular fa-heart"></i></button>
+
+                </div>
+
+                <a href="producto.html?id=${id}" class="product-title">
+                    <h3>${p.name}</h3>
+                </a>
+
+                <span>${money(p.price)}</span>
+
+                <button class="add-cart-btn" data-id="${id}">Agregar al carrito</button>
+
+            </article>`;
+    }).join('');
+
+    grid?.insertAdjacentHTML('beforeend', cardsHtml);
+    updateBadges();
+    loadMoreBtn.remove();
+});
 
 // ANIMACIÓN DE APARICIÓN AL HACER SCROLL
 const fadeEls = document.querySelectorAll('.fade');
