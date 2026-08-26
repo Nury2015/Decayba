@@ -104,6 +104,13 @@ loadMoreBtn?.addEventListener('click', () => {
     loadMoreBtn.remove();
 });
 
+// PREGUNTAS FRECUENTES (acordeón)
+document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+        btn.closest('.faq-item').classList.toggle('open');
+    });
+});
+
 // ZOOM en las capturas de testimonios
 const tmLightbox = document.querySelector('#tm-lightbox');
 
