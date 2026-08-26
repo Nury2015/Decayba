@@ -7,7 +7,7 @@ const CATEGORY_LABELS = {
     "agenda": "Agendas de Agradecimiento",
     "viajero": "Álbum Viajero",
     "juguetes": "Juguetes",
-    "aseo": "Aseo"
+    "aseo": "Higiene y Cuidado"
 };
 
 document.addEventListener("DOMContentLoaded", () => {
