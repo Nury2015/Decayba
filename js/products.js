@@ -520,6 +520,7 @@ const PRODUCTS = {
         name: "Bolsa de Entrenamiento para Mascota",
         category: "aseo",
         price: 40000,
+        soldOut: true,
         description: "Riñonera para premios de perro con dispensador de bolsas para desechos incorporado. Bolsa de entrenamiento y alimentación de poliéster, gran capacidad y diseño con clip para llevar.",
         details: [],
         cover: "img/juguetes/bolsa-entrenamiento/principal.webp",
