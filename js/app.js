@@ -104,6 +104,49 @@ loadMoreBtn?.addEventListener('click', () => {
     loadMoreBtn.remove();
 });
 
+// ZOOM en las capturas de testimonios
+const tmLightbox = document.querySelector('#tm-lightbox');
+
+if (tmLightbox) {
+    const tmLightboxImg = document.querySelector('#tm-lightbox-img');
+    const tmShots = Array.from(document.querySelectorAll('.testimonial-shot img'));
+    let tmIndex = 0;
+
+    function openTmLightbox(index) {
+        tmIndex = (index + tmShots.length) % tmShots.length;
+        tmLightboxImg.src = tmShots[tmIndex].src;
+        tmLightboxImg.alt = tmShots[tmIndex].alt;
+        tmLightbox.classList.add('active');
+    }
+    function closeTmLightbox() {
+        tmLightbox.classList.remove('active');
+    }
+
+    tmShots.forEach((img, i) => {
+        img.closest('.testimonial-shot').style.cursor = 'zoom-in';
+        img.closest('.testimonial-shot').addEventListener('click', () => openTmLightbox(i));
+    });
+
+    tmLightbox.addEventListener('click', (e) => {
+        if (e.target !== tmLightboxImg) closeTmLightbox();
+    });
+    document.querySelector('#tm-lightbox-close')?.addEventListener('click', closeTmLightbox);
+    document.querySelector('#tm-lightbox-prev')?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        openTmLightbox(tmIndex - 1);
+    });
+    document.querySelector('#tm-lightbox-next')?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        openTmLightbox(tmIndex + 1);
+    });
+    document.addEventListener('keydown', (e) => {
+        if (!tmLightbox.classList.contains('active')) return;
+        if (e.key === 'Escape') closeTmLightbox();
+        if (e.key === 'ArrowLeft') openTmLightbox(tmIndex - 1);
+        if (e.key === 'ArrowRight') openTmLightbox(tmIndex + 1);
+    });
+}
+
 // ANIMACIÓN DE APARICIÓN AL HACER SCROLL
 const fadeEls = document.querySelectorAll('.fade');
 
