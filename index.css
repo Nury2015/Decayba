@@ -807,6 +807,7 @@ nav ul li a:hover::after {
     align-items: center;
     gap: 12px;
     flex: 1;
+    min-width: 0;
     text-align: center;
     font-size: 14px;
     font-weight: 500;
@@ -817,9 +818,9 @@ nav ul li a:hover::after {
 .hero-cat-circle {
 
     display: block;
-    width: 190px;
-    height: 190px;
-    max-width: 100%;
+    width: 100%;
+    max-width: 190px;
+    aspect-ratio: 1 / 1;
     border-radius: 50%;
     overflow: hidden;
     border: 2px solid #fff;
@@ -3289,14 +3290,7 @@ footer {
     .hero-cat {
 
         flex: 0 0 auto;
-        width: 90px;
-
-    }
-
-    .hero-cat-circle {
-
-        width: 120px;
-        height: 120px;
+        width: 110px;
 
     }
 
