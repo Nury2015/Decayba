@@ -2,6 +2,12 @@ const WHATSAPP_NUMBER = "573154380079";
 
 const money = (n) => "$" + n.toLocaleString("es-CO");
 
+// Tope de cantidad por producto en el carrito: usa el "stock" del producto
+// si está definido (ej. el pulpo con stock:1), y si no, un tope general
+// para evitar pedidos absurdos (ej. 30 unidades de algo que no hay).
+const DEFAULT_MAX_QTY = 5;
+const maxQtyFor = (id) => PRODUCTS[id]?.stock ?? DEFAULT_MAX_QTY;
+
 // CARRITO Y FAVORITOS (localStorage)
 function getCart() {
     return JSON.parse(localStorage.getItem("decayba_cart") || "[]");
@@ -13,9 +19,9 @@ function saveCart(cart) {
 function addToCart(id) {
     const cart = getCart();
     const item = cart.find(i => i.id === id);
-    const max = PRODUCTS[id]?.stock; // tope opcional para productos con poca existencia
+    const max = maxQtyFor(id);
     if (item) {
-        if (max === undefined || item.qty < max) item.qty += 1;
+        if (item.qty < max) item.qty += 1;
     } else {
         cart.push({ id, qty: 1 });
     }
@@ -23,8 +29,7 @@ function addToCart(id) {
 }
 function setQty(id, qty) {
     let cart = getCart();
-    const max = PRODUCTS[id]?.stock;
-    if (max !== undefined) qty = Math.min(qty, max);
+    qty = Math.min(qty, maxQtyFor(id));
     if (qty <= 0) cart = cart.filter(i => i.id !== id);
     else {
         const item = cart.find(i => i.id === id);
@@ -91,7 +96,9 @@ function renderCart() {
         wrap.innerHTML = cart.map(item => {
             const p = PRODUCTS[item.id];
             if (!p) return "";
-            const atMax = p.stock !== undefined && item.qty >= p.stock;
+            const max = maxQtyFor(item.id);
+            const atMax = item.qty >= max;
+            const maxNote = p.stock !== undefined ? "Última unidad disponible" : "Cantidad máxima por pedido";
             return `
                 <div class="cart-item">
                     <img src="${p.cover}" alt="${p.name}">
@@ -103,7 +110,7 @@ function renderCart() {
                             <span>${item.qty}</span>
                             <button class="qty-btn" data-id="${item.id}" data-delta="1" ${atMax ? "disabled" : ""}>+</button>
                         </div>
-                        ${atMax ? `<small class="qty-max-note">Última unidad disponible</small>` : ""}
+                        ${atMax ? `<small class="qty-max-note">${maxNote}</small>` : ""}
                     </div>
                     <button class="remove-btn" data-id="${item.id}"><i class="fa-solid fa-trash"></i></button>
                 </div>`;

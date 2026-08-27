@@ -3484,7 +3484,53 @@ footer {
 
     .products-grid {
 
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+
+    }
+
+    .products-grid .product img,
+    .products-grid .product-media video {
+
+        height: 210px;
+
+    }
+
+    .products-grid .product h3 {
+
+        margin: 15px 15px 6px;
+        font-size: 14px;
+
+    }
+
+    .products-grid .product span {
+
+        margin-left: 15px;
+        font-size: 15px;
+        margin-bottom: 12px;
+
+    }
+
+    .products-grid .product button {
+
+        width: calc(100% - 30px);
+        margin: auto 15px 15px;
+        padding: 12px;
+        font-size: 12px;
+
+    }
+
+    /* La animación de aparición al hacer scroll puede quedar pegada en
+       "invisible" en algunos celulares (el IntersectionObserver no llega
+       a disparar). En mobile se desactiva y todo se muestra directo. */
+    .fade,
+    .products-grid.fade .product,
+    .cards.fade .card,
+    .how-steps.fade .how-step {
+
+        opacity: 1;
+        transform: none;
+        transition: none;
 
     }
 
