@@ -3503,7 +3503,7 @@ footer {
 
     }
 
-    .products-grid .product span {
+    .products-grid .product > span {
 
         margin-left: 15px;
         font-size: 15px;
@@ -3511,7 +3511,7 @@ footer {
 
     }
 
-    .products-grid .product button {
+    .products-grid .product .add-cart-btn {
 
         width: calc(100% - 30px);
         margin: auto 15px 15px;
