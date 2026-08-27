@@ -354,6 +354,7 @@ const PRODUCTS = {
         category: "juguetes",
         price: 20000,
         stockNote: "¡Última unidad! Solo queda 1, color amarillo",
+        stock: 1,
         description: "Juguete de pulpo de peluche con sonido, resistente al mordisco y suave para masticar. Ideal para razas medianas y pequeñas, con efectos de sonido interactivos.",
         details: [],
         cover: "img/aseo/pulpo/principal.webp",

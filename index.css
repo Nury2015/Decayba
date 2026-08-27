@@ -555,6 +555,22 @@ nav ul li a:hover::after {
 
 }
 
+.qty-btn:disabled {
+
+    opacity: .4;
+    cursor: not-allowed;
+
+}
+
+.qty-max-note {
+
+    display: block;
+    margin-top: 6px;
+    color: #e8a33d;
+    font-size: 11px;
+
+}
+
 .qty-btn:hover {
 
     background: #f2f2f2;

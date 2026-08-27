@@ -13,12 +13,18 @@ function saveCart(cart) {
 function addToCart(id) {
     const cart = getCart();
     const item = cart.find(i => i.id === id);
-    if (item) item.qty += 1;
-    else cart.push({ id, qty: 1 });
+    const max = PRODUCTS[id]?.stock; // tope opcional para productos con poca existencia
+    if (item) {
+        if (max === undefined || item.qty < max) item.qty += 1;
+    } else {
+        cart.push({ id, qty: 1 });
+    }
     saveCart(cart);
 }
 function setQty(id, qty) {
     let cart = getCart();
+    const max = PRODUCTS[id]?.stock;
+    if (max !== undefined) qty = Math.min(qty, max);
     if (qty <= 0) cart = cart.filter(i => i.id !== id);
     else {
         const item = cart.find(i => i.id === id);
@@ -85,6 +91,7 @@ function renderCart() {
         wrap.innerHTML = cart.map(item => {
             const p = PRODUCTS[item.id];
             if (!p) return "";
+            const atMax = p.stock !== undefined && item.qty >= p.stock;
             return `
                 <div class="cart-item">
                     <img src="${p.cover}" alt="${p.name}">
@@ -94,8 +101,9 @@ function renderCart() {
                         <div class="qty-control">
                             <button class="qty-btn" data-id="${item.id}" data-delta="-1">-</button>
                             <span>${item.qty}</span>
-                            <button class="qty-btn" data-id="${item.id}" data-delta="1">+</button>
+                            <button class="qty-btn" data-id="${item.id}" data-delta="1" ${atMax ? "disabled" : ""}>+</button>
                         </div>
+                        ${atMax ? `<small class="qty-max-note">Última unidad disponible</small>` : ""}
                     </div>
                     <button class="remove-btn" data-id="${item.id}"><i class="fa-solid fa-trash"></i></button>
                 </div>`;
