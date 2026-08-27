@@ -166,6 +166,12 @@ header.active {
 
 }
 
+.nav-close {
+
+    display: none;
+
+}
+
 nav ul {
 
     display: flex;
@@ -1992,19 +1998,9 @@ nav ul li a:hover::after {
 .collection-gallery img {
 
     width: 100%;
-    aspect-ratio: 3 / 4;
+    aspect-ratio: 3 / 2;
     object-fit: cover;
     border-radius: 6px;
-
-}
-
-/* La foto de "cumpleaños" es un spread de las dos páginas del álbum
-   (apaisada), no una sola página vertical como las demás: el recorte
-   centrado por defecto corta el contenido, así que se ancla a la derecha
-   para mostrar la página con la info en vez del lomo espiral */
-.collection-gallery img.crop-right {
-
-    object-position: right center;
 
 }
 
@@ -3319,25 +3315,38 @@ footer {
         position: fixed;
         top: 0;
         right: -100%;
-        width: 270px;
+        width: 100%;
         height: 100vh;
         background: #fff;
         z-index: 1000;
         transition: .4s;
-        box-shadow: -15px 0 35px rgba(0, 0, 0, .12);
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding-top: 60px;
+        justify-content: center;
+        gap: 55px;
+
+    }
+
+    .nav-close {
+
+        display: block;
+        position: absolute;
+        top: 25px;
+        right: 25px;
+        background: none;
+        border: none;
+        font-size: 26px;
+        color: #111;
+        cursor: pointer;
 
     }
 
     .nav-mark {
 
         display: block;
-        width: 75%;
-        max-width: 190px;
-        margin-bottom: 40px;
+        width: 45%;
+        max-width: 150px;
         flex-shrink: 0;
 
     }
@@ -3353,8 +3362,20 @@ footer {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        flex: 1;
-        gap: 35px;
+        gap: 40px;
+
+    }
+
+    nav ul li a,
+    .submenu-toggle {
+
+        font-size: 28px;
+
+    }
+
+    .submenu li a {
+
+        font-size: 18px;
 
     }
 

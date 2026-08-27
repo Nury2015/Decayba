@@ -30,6 +30,7 @@ function toggleMenu() {
 
 menuBtn?.addEventListener('click', toggleMenu);
 backdrop?.addEventListener('click', closeMenu);
+document.querySelector('#nav-close')?.addEventListener('click', closeMenu);
 nav?.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
 
 // SUBMENÚ "CATEGORÍAS" (dropdown en desktop, acordeón en mobile)
