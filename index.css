@@ -3323,7 +3323,8 @@ footer {
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
+        padding: 90px 20px 40px;
         gap: 55px;
 
     }
