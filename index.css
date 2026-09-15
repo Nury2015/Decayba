@@ -2568,6 +2568,7 @@ footer {
     border-radius: 10px;
     overflow: hidden;
     aspect-ratio: 3 / 4;
+    max-height: 65vh;
     background: #0b0b0b;
 
 }
@@ -2641,6 +2642,7 @@ footer {
 .pd-thumbs {
 
     display: flex;
+    justify-content: safe center;
     gap: 12px;
     margin-top: 15px;
     overflow-x: auto;
