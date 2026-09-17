@@ -19,12 +19,7 @@ const PRODUCTS = {
         cover: "img/agenda-agradecimiento/portada.webp",
         gallery: [
             "img/agenda-agradecimiento/portada.webp",
-            "img/agenda-agradecimiento/diario-gratitud.webp",
-            "img/agenda-agradecimiento/afirmaciones-diarias.webp",
-            "img/agenda-agradecimiento/frase-inicial.webp",
-            "img/agenda-agradecimiento/notas.webp",
-            "img/agenda-agradecimiento/notas2.webp",
-            "img/agenda-agradecimiento/stiker.webp"
+            "img/agenda-agradecimiento/opciones-portada.webp"
         ],
         video: "img/agenda-agradecimiento/promo.mp4"
     },
@@ -48,12 +43,7 @@ const PRODUCTS = {
         ],
         cover: "img/album-mascota-azul/portada.webp",
         gallery: [
-            "img/album-mascota-azul/portada.webp",
-            "img/album-mascota-azul/datos-recuerdos.webp",
-            "img/album-mascota-azul/primeros-momentos.webp",
-            "img/album-mascota-azul/vacunacion-desparasitacion.webp",
-            "img/album-mascota-azul/veterinarios-consultas.webp",
-            "img/album-mascota-azul/stickers.webp"
+            "img/album-mascota-azul/portada.webp"
         ],
         video: "img/album-mascota-azul/promo.mp4"
     },
@@ -78,12 +68,7 @@ const PRODUCTS = {
         gallery: [
             "img/album-mascota-rosa/portada-hembra.webp",
             "img/album-mascota-rosa/portada-warwick.webp",
-            "img/album-mascota-rosa/contraportada-hembra.webp",
-            "img/album-mascota-rosa/datos-hembra.webp",
-            "img/album-mascota-rosa/consultas-hembra.webp",
-            "img/album-mascota-rosa/recuerdos-hembra.webp",
-            "img/album-mascota-rosa/vacunas-hembra.webp",
-            "img/album-mascota-rosa/stikers-hembra.webp"
+            "img/album-mascota-rosa/contraportada-hembra.webp"
         ],
         video: "img/album-mascota-rosa/promo.mp4"
     },
@@ -105,11 +90,7 @@ const PRODUCTS = {
         ],
         cover: "img/mascota-fallecida/portada2.webp",
         gallery: [
-            "img/mascota-fallecida/portada2.webp",
-            "img/mascota-fallecida/carta.webp",
-            "img/mascota-fallecida/registro2.webp",
-            "img/mascota-fallecida/recuerdos2.webp",
-            "img/mascota-fallecida/recuerdos3.webp"
+            "img/mascota-fallecida/portada2.webp"
         ],
         video: "img/mascota-fallecida/promo.mp4"
     },
@@ -129,14 +110,7 @@ const PRODUCTS = {
         cover: "img/album-viajero/portada.webp",
         gallery: [
             "img/album-viajero/portada.webp",
-            "img/album-viajero/producto-real.webp",
-            "img/album-viajero/globo.webp",
-            "img/album-viajero/colombia.webp",
-            "img/album-viajero/brasil.webp",
-            "img/album-viajero/chile.webp",
-            "img/album-viajero/china.webp",
-            "img/album-viajero/alemania.webp",
-            "img/album-viajero/panama.webp"
+            "img/album-viajero/producto-real.webp"
         ],
         video: "img/album-viajero/promo.mp4"
     },
@@ -158,8 +132,7 @@ const PRODUCTS = {
             "img/cuaderno/portada-2.webp",
             "img/cuaderno/portada-3.webp",
             "img/cuaderno/portada-4.webp",
-            "img/cuaderno/portada-5.webp",
-            "img/cuaderno/hoja.webp"
+            "img/cuaderno/portada-5.webp"
         ],
         video: "img/cuaderno/promo.mp4"
     },
@@ -177,21 +150,7 @@ const PRODUCTS = {
         cover: "img/album-generica/pastor-blue.webp",
         gallery: [
             "img/album-generica/pastor-blue.webp",
-            "img/album-generica/contraportada-blue.webp",
-            "img/album-generica/hojas-blue-pur/pagina-01.webp",
-            "img/album-generica/hojas-blue-pur/pagina-02.webp",
-            "img/album-generica/hojas-blue-pur/pagina-03.webp",
-            "img/album-generica/hojas-blue-pur/pagina-04.webp",
-            "img/album-generica/hojas-blue-pur/pagina-05.webp",
-            "img/album-generica/hojas-blue-pur/pagina-06.webp",
-            "img/album-generica/hojas-blue-pur/pagina-07.webp",
-            "img/album-generica/hojas-blue-pur/pagina-08.webp",
-            "img/album-generica/hojas-blue-pur/pagina-09.webp",
-            "img/album-generica/hojas-blue-pur/pagina-10.webp",
-            "img/album-generica/hojas-blue-pur/pagina-11.webp",
-            "img/album-generica/hojas-blue-pur/pagina-12.webp",
-            "img/album-generica/hojas-blue-pur/pagina-13.webp",
-            "img/album-generica/hojas-blue-pur/pagina-39.webp"
+            "img/album-generica/contraportada-blue.webp"
         ],
         video: null
     },
@@ -209,26 +168,7 @@ const PRODUCTS = {
         cover: "img/album-generica/pastor-ros.webp",
         gallery: [
             "img/album-generica/pastor-ros.webp",
-            "img/album-generica/contraportada-ros.webp",
-            "img/album-generica/hojas-rosa/pagina-04.webp",
-            "img/album-generica/hojas-rosa/pagina-05.webp",
-            "img/album-generica/hojas-rosa/pagina-07.webp",
-            "img/album-generica/hojas-rosa/pagina-08.webp",
-            "img/album-generica/hojas-rosa/pagina-09.webp",
-            "img/album-generica/hojas-rosa/pagina-10.webp",
-            "img/album-generica/hojas-rosa/pagina-15.webp",
-            "img/album-generica/hojas-rosa/pagina-18.webp",
-            "img/album-generica/hojas-rosa/pagina-32.webp",
-            "img/album-generica/hojas-rosa/pagina-33.webp",
-            "img/album-generica/hojas-rosa/pagina-34.webp",
-            "img/album-generica/hojas-rosa/pagina-35.webp",
-            "img/album-generica/hojas-rosa/pagina-36.webp",
-            "img/album-generica/hojas-rosa/pagina-37.webp",
-            "img/album-generica/hojas-rosa/pagina-38.webp",
-            "img/album-generica/hojas-rosa/pagina-40.webp",
-            "img/album-generica/hojas-rosa/pagina-41.webp",
-            "img/album-generica/hojas-rosa/pagina-42.webp",
-            "img/album-generica/hojas-rosa/pagina-43.webp"
+            "img/album-generica/contraportada-ros.webp"
         ],
         video: null
     },
@@ -246,21 +186,7 @@ const PRODUCTS = {
         cover: "img/album-generica/border-pur.webp",
         gallery: [
             "img/album-generica/border-pur.webp",
-            "img/album-generica/contraportada-pur.webp",
-            "img/album-generica/hojas-blue-pur/pagina-01.webp",
-            "img/album-generica/hojas-blue-pur/pagina-02.webp",
-            "img/album-generica/hojas-blue-pur/pagina-03.webp",
-            "img/album-generica/hojas-blue-pur/pagina-04.webp",
-            "img/album-generica/hojas-blue-pur/pagina-05.webp",
-            "img/album-generica/hojas-blue-pur/pagina-06.webp",
-            "img/album-generica/hojas-blue-pur/pagina-07.webp",
-            "img/album-generica/hojas-blue-pur/pagina-08.webp",
-            "img/album-generica/hojas-blue-pur/pagina-09.webp",
-            "img/album-generica/hojas-blue-pur/pagina-10.webp",
-            "img/album-generica/hojas-blue-pur/pagina-11.webp",
-            "img/album-generica/hojas-blue-pur/pagina-12.webp",
-            "img/album-generica/hojas-blue-pur/pagina-13.webp",
-            "img/album-generica/hojas-blue-pur/pagina-39.webp"
+            "img/album-generica/contraportada-pur.webp"
         ],
         video: null
     },
@@ -278,21 +204,7 @@ const PRODUCTS = {
         cover: "img/album-generica/golden-blue.webp",
         gallery: [
             "img/album-generica/golden-blue.webp",
-            "img/album-generica/contraportada-blue.webp",
-            "img/album-generica/hojas-blue-pur/pagina-01.webp",
-            "img/album-generica/hojas-blue-pur/pagina-02.webp",
-            "img/album-generica/hojas-blue-pur/pagina-03.webp",
-            "img/album-generica/hojas-blue-pur/pagina-04.webp",
-            "img/album-generica/hojas-blue-pur/pagina-05.webp",
-            "img/album-generica/hojas-blue-pur/pagina-06.webp",
-            "img/album-generica/hojas-blue-pur/pagina-07.webp",
-            "img/album-generica/hojas-blue-pur/pagina-08.webp",
-            "img/album-generica/hojas-blue-pur/pagina-09.webp",
-            "img/album-generica/hojas-blue-pur/pagina-10.webp",
-            "img/album-generica/hojas-blue-pur/pagina-11.webp",
-            "img/album-generica/hojas-blue-pur/pagina-12.webp",
-            "img/album-generica/hojas-blue-pur/pagina-13.webp",
-            "img/album-generica/hojas-blue-pur/pagina-39.webp"
+            "img/album-generica/contraportada-blue.webp"
         ],
         video: null
     },
@@ -310,21 +222,7 @@ const PRODUCTS = {
         cover: "img/album-generica/golden-pur.webp",
         gallery: [
             "img/album-generica/golden-pur.webp",
-            "img/album-generica/contraportada-pur.webp",
-            "img/album-generica/hojas-blue-pur/pagina-01.webp",
-            "img/album-generica/hojas-blue-pur/pagina-02.webp",
-            "img/album-generica/hojas-blue-pur/pagina-03.webp",
-            "img/album-generica/hojas-blue-pur/pagina-04.webp",
-            "img/album-generica/hojas-blue-pur/pagina-05.webp",
-            "img/album-generica/hojas-blue-pur/pagina-06.webp",
-            "img/album-generica/hojas-blue-pur/pagina-07.webp",
-            "img/album-generica/hojas-blue-pur/pagina-08.webp",
-            "img/album-generica/hojas-blue-pur/pagina-09.webp",
-            "img/album-generica/hojas-blue-pur/pagina-10.webp",
-            "img/album-generica/hojas-blue-pur/pagina-11.webp",
-            "img/album-generica/hojas-blue-pur/pagina-12.webp",
-            "img/album-generica/hojas-blue-pur/pagina-13.webp",
-            "img/album-generica/hojas-blue-pur/pagina-39.webp"
+            "img/album-generica/contraportada-pur.webp"
         ],
         video: null
     },
@@ -342,26 +240,7 @@ const PRODUCTS = {
         cover: "img/album-generica/golden-ros.webp",
         gallery: [
             "img/album-generica/golden-ros.webp",
-            "img/album-generica/contraportada-ros.webp",
-            "img/album-generica/hojas-rosa/pagina-04.webp",
-            "img/album-generica/hojas-rosa/pagina-05.webp",
-            "img/album-generica/hojas-rosa/pagina-07.webp",
-            "img/album-generica/hojas-rosa/pagina-08.webp",
-            "img/album-generica/hojas-rosa/pagina-09.webp",
-            "img/album-generica/hojas-rosa/pagina-10.webp",
-            "img/album-generica/hojas-rosa/pagina-15.webp",
-            "img/album-generica/hojas-rosa/pagina-18.webp",
-            "img/album-generica/hojas-rosa/pagina-32.webp",
-            "img/album-generica/hojas-rosa/pagina-33.webp",
-            "img/album-generica/hojas-rosa/pagina-34.webp",
-            "img/album-generica/hojas-rosa/pagina-35.webp",
-            "img/album-generica/hojas-rosa/pagina-36.webp",
-            "img/album-generica/hojas-rosa/pagina-37.webp",
-            "img/album-generica/hojas-rosa/pagina-38.webp",
-            "img/album-generica/hojas-rosa/pagina-40.webp",
-            "img/album-generica/hojas-rosa/pagina-41.webp",
-            "img/album-generica/hojas-rosa/pagina-42.webp",
-            "img/album-generica/hojas-rosa/pagina-43.webp"
+            "img/album-generica/contraportada-ros.webp"
         ],
         video: null
     },

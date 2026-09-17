@@ -1998,9 +1998,19 @@ nav ul li a:hover::after {
 .collection-gallery img {
 
     width: 100%;
-    aspect-ratio: 3 / 2;
+    aspect-ratio: 3 / 4;
     object-fit: cover;
     border-radius: 6px;
+
+}
+
+/* Aviso de derechos: el interior solo se muestra en video */
+.collection-note {
+
+    margin: -25px 0 30px;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #999;
 
 }
 
@@ -2818,6 +2828,19 @@ footer {
     margin-top: 20px;
     color: #999;
     font-size: 13px;
+
+}
+
+.pd-copyright {
+
+    align-items: flex-start;
+    line-height: 1.6;
+
+}
+
+.pd-copyright i {
+
+    margin-top: 3px;
 
 }
 
