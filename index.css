@@ -2559,7 +2559,7 @@ footer {
 .pd-grid {
 
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: min(48.75vh, 45%) 1fr;
     gap: 60px;
     align-items: start;
 
@@ -2575,6 +2575,8 @@ footer {
 .pd-gallery-main {
 
     position: relative;
+    max-width: 48.75vh;
+    margin-inline: auto;
     border-radius: 10px;
     overflow: hidden;
     aspect-ratio: 3 / 4;
