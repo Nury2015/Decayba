@@ -152,7 +152,7 @@ const PRODUCTS = {
             "img/album-generica/pastor-blue.webp",
             "img/album-generica/contraportada-blue.webp"
         ],
-        video: null
+        video: "img/album-generica/generica.mp4"
     },
 
     "pastor-ros": {
@@ -170,7 +170,7 @@ const PRODUCTS = {
             "img/album-generica/pastor-ros.webp",
             "img/album-generica/contraportada-ros.webp"
         ],
-        video: null
+        video: "img/album-generica/generica.mp4"
     },
 
     "border-pur": {
@@ -188,7 +188,7 @@ const PRODUCTS = {
             "img/album-generica/border-pur.webp",
             "img/album-generica/contraportada-pur.webp"
         ],
-        video: null
+        video: "img/album-generica/generica.mp4"
     },
 
     "golden-blue": {
@@ -206,7 +206,7 @@ const PRODUCTS = {
             "img/album-generica/golden-blue.webp",
             "img/album-generica/contraportada-blue.webp"
         ],
-        video: null
+        video: "img/album-generica/generica.mp4"
     },
 
     "golden-pur": {
@@ -224,7 +224,7 @@ const PRODUCTS = {
             "img/album-generica/golden-pur.webp",
             "img/album-generica/contraportada-pur.webp"
         ],
-        video: null
+        video: "img/album-generica/generica.mp4"
     },
 
     "golden-ros": {
@@ -242,7 +242,7 @@ const PRODUCTS = {
             "img/album-generica/golden-ros.webp",
             "img/album-generica/contraportada-ros.webp"
         ],
-        video: null
+        video: "img/album-generica/generica.mp4"
     },
 
     "peluche-pato-perro": {
