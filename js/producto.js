@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const mediaItems = [
         ...product.gallery.map(src => ({ type: "image", src })),
-        ...(product.video ? [{ type: "video", src: product.video }] : [])
+        ...productVideos(product).map(src => ({ type: "video", src }))
     ];
 
     const mainEl = document.querySelector("#pd-main");
@@ -159,8 +159,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         relatedGrid.innerHTML = relatedIds.map(pid => {
             const p = PRODUCTS[pid];
-            const videoTag = p.video
-                ? `<video src="${p.video}" poster="${p.cover}" muted loop playsinline preload="metadata"></video>
+            const cardVideo = productVideos(p)[0];
+
+            const videoTag = cardVideo
+                ? `<video src="${cardVideo}" poster="${p.cover}" muted loop playsinline preload="metadata"></video>
                    <span class="play-icon"><i class="fa-solid fa-play"></i></span>`
                 : "";
 

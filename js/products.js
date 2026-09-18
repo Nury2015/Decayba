@@ -45,7 +45,12 @@ const PRODUCTS = {
         gallery: [
             "img/album-mascota-azul/portada.webp"
         ],
-        video: "img/album-mascota-azul/promo.mp4"
+        video: [
+            "img/album-mascota-azul/promo.mp4",
+            "img/album-mascota/descripcion-album.mp4",
+            "img/album-mascota/como-pegar-vacunas.mp4",
+            "img/album-mascota/promocion-chistosa.mp4"
+        ]
     },
 
     "album-mascota-rosa": {
@@ -615,3 +620,11 @@ const PRODUCTS = {
     }
 
 };
+
+// Un producto puede tener un video ("promo.mp4"), varios (["a.mp4", "b.mp4"])
+// o ninguno (null). Esto siempre devuelve un arreglo, para no repetir la
+// comprobacion en el home, el catalogo y la ficha de producto.
+function productVideos(product) {
+    if (!product || !product.video) return [];
+    return Array.isArray(product.video) ? product.video : [product.video];
+}

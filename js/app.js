@@ -71,8 +71,10 @@ loadMoreBtn?.addEventListener('click', () => {
         const p = PRODUCTS[id];
         if (!p) return '';
 
-        const videoTag = p.video
-            ? `<video src="${p.video}" poster="${p.cover}" muted loop playsinline preload="metadata"></video>
+        const cardVideo = productVideos(p)[0];
+
+        const videoTag = cardVideo
+            ? `<video src="${cardVideo}" poster="${p.cover}" muted loop playsinline preload="metadata"></video>
                <span class="play-icon"><i class="fa-solid fa-play"></i></span>`
             : '';
 
