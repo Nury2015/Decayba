@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function productCard(id) {
         const p = PRODUCTS[id];
-        const cardVideo = productVideos(p)[0];
+        const cardVideo = productVideos(p)[0]?.src;
 
         const videoTag = cardVideo
             ? `<video src="${cardVideo}" poster="${p.cover}" muted loop playsinline preload="metadata"></video>
@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const video = media.querySelector("video");
         if (!video) return;
 
-        media.addEventListener("mouseenter", () => video.play());
+        media.addEventListener("mouseenter", () => video.play().catch(() => { }));
         media.addEventListener("mouseleave", () => {
             video.pause();
             video.currentTime = 0;

@@ -1917,7 +1917,11 @@ nav ul li a:hover::after {
 
     max-width: 100%;
 
-    max-height: 100%;
+    /* El video es vertical (9:16). Sin un tope en pixeles se mostraba a su
+       alto real (850px) y estiraba toda la seccion fuera de la pantalla:
+       "max-height: 100%" no sirve aqui porque el alto del padre lo decide
+       el propio contenido. */
+    max-height: min(620px, 75vh);
 
     display: block;
 
@@ -3253,6 +3257,14 @@ footer {
     .collection {
 
         grid-template-columns: 1fr;
+
+    }
+
+    /* En una sola columna el video puede ocupar casi todo el ancho del
+       telefono, asi que se le deja mas alto que en escritorio. */
+    .collection-image video {
+
+        max-height: 80vh;
 
     }
 

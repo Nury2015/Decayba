@@ -71,7 +71,7 @@ loadMoreBtn?.addEventListener('click', () => {
         const p = PRODUCTS[id];
         if (!p) return '';
 
-        const cardVideo = productVideos(p)[0];
+        const cardVideo = productVideos(p)[0]?.src;
 
         const videoTag = cardVideo
             ? `<video src="${cardVideo}" poster="${p.cover}" muted loop playsinline preload="metadata"></video>
@@ -171,24 +171,12 @@ const fadeObserver = new IntersectionObserver((entries) => {
 
 fadeEls.forEach(el => fadeObserver.observe(el));
 
-// COLECCIÓN: video de "cómo pasar las vacunas"
-const vacunasBtn = document.querySelector('#btn-vacunas-video');
-const collectionVideo = document.querySelector('#collection-video');
-
-vacunasBtn?.addEventListener('click', () => {
-    if (!collectionVideo) return;
-    collectionVideo.src = vacunasBtn.dataset.video;
-    collectionVideo.poster = vacunasBtn.dataset.poster;
-    collectionVideo.load();
-    collectionVideo.play();
-});
-
 // VIDEO DE PRODUCTO: reproducir al pasar el mouse
 document.querySelectorAll('.product-media').forEach(media => {
     const video = media.querySelector('video');
     if (!video) return;
 
-    media.addEventListener('mouseenter', () => video.play());
+    media.addEventListener('mouseenter', () => video.play().catch(() => { }));
     media.addEventListener('mouseleave', () => {
         video.pause();
         video.currentTime = 0;

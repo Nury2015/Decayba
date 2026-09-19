@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const mediaItems = [
         ...product.gallery.map(src => ({ type: "image", src })),
-        ...productVideos(product).map(src => ({ type: "video", src }))
+        ...productVideos(product).map(v => ({ type: "video", src: v.src, label: v.label }))
     ];
 
     const mainEl = document.querySelector("#pd-main");
@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     thumbsEl.innerHTML = mediaItems.map((item, i) => `
-        <div class="pd-thumb ${item.type === "video" ? "is-video" : ""} ${i === 0 ? "active" : ""}" data-index="${i}">
+        <div class="pd-thumb ${item.type === "video" ? "is-video" : ""} ${i === 0 ? "active" : ""}" data-index="${i}" title="${item.label || ""}">
             <img src="${item.type === "video" ? product.cover : item.src}" alt="" loading="lazy" decoding="async">
         </div>
     `).join("");
@@ -159,7 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         relatedGrid.innerHTML = relatedIds.map(pid => {
             const p = PRODUCTS[pid];
-            const cardVideo = productVideos(p)[0];
+            const cardVideo = productVideos(p)[0]?.src;
 
             const videoTag = cardVideo
                 ? `<video src="${cardVideo}" poster="${p.cover}" muted loop playsinline preload="metadata"></video>
@@ -206,7 +206,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const video = media.querySelector("video");
             if (!video) return;
 
-            media.addEventListener("mouseenter", () => video.play());
+            media.addEventListener("mouseenter", () => video.play().catch(() => { }));
             media.addEventListener("mouseleave", () => {
                 video.pause();
                 video.currentTime = 0;
