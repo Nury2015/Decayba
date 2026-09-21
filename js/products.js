@@ -45,12 +45,7 @@ const PRODUCTS = {
         gallery: [
             "img/album-mascota-azul/portada.webp"
         ],
-        video: [
-            { src: "img/album-mascota-azul/promo.mp4", label: "Video del producto" },
-            { src: "img/album-mascota/descripcion-album-ia.mp4", label: "El álbum por dentro" },
-            { src: "img/album-mascota/como-pegar-vacunas.mp4", label: "Cómo pegar las vacunas" },
-            { src: "img/album-mascota/promocion-chistosa.mp4", label: "Cómo llega y cómo se usa" }
-        ]
+        video: "img/album-mascota/descripcion-album-ia.mp4"
     },
 
     "album-mascota-rosa": {
