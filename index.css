@@ -35,6 +35,10 @@ html {
 
     scroll-behavior: smooth;
 
+    /* El header es fijo, asi que al saltar a #regalos, #productos o
+       #contacto el titulo quedaba tapado debajo de el. */
+    scroll-padding-top: 110px;
+
 }
 
 body {

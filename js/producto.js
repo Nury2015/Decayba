@@ -153,7 +153,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // producto está mirando la persona, así no toca preguntárselo.
     const waFloat = document.querySelector(".whatsapp-float");
     if (waFloat) {
-        const text = `Hola Decayba 👋 Estoy viendo el ${product.name} (${money(product.price)}) y quiero más información.`;
+        const text = `Hola Decayba, estoy viendo el ${product.name} (${money(product.price)}) y quiero más información.`;
         waFloat.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
     }
 
