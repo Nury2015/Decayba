@@ -18,48 +18,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const title = document.querySelector("#catalog-title");
     const subtitle = document.querySelector("#catalog-subtitle");
 
-    function productCard(id) {
-        const p = PRODUCTS[id];
-        const cardVideo = productVideos(p)[0]?.src;
-
-        const videoTag = cardVideo
-            ? `<video src="${cardVideo}" poster="${p.cover}" muted loop playsinline preload="metadata"></video>
-               <span class="play-icon"><i class="fa-solid fa-play"></i></span>`
-            : "";
-
-        const soldOutBadge = p.soldOut ? `<span class="sold-out-badge">Agotado</span>` : "";
-        const lowStockBadge = (!p.soldOut && p.stockNote) ? `<span class="low-stock-badge">Pocas unidades</span>` : "";
-        const cartBtn = p.soldOut
-            ? `<button class="add-cart-btn" disabled>Agotado</button>`
-            : `<button class="add-cart-btn" data-id="${id}">Agregar al carrito</button>`;
-
-        return `
-            <article class="product${p.soldOut ? " is-sold-out" : ""}" data-id="${id}" data-href="producto.html?id=${id}">
-
-                <div class="product-media" data-href="producto.html?id=${id}">
-
-                    <img src="${p.cover}" alt="${p.name}" loading="lazy" decoding="async">
-
-                    ${videoTag}
-
-                    ${soldOutBadge}
-
-                    ${lowStockBadge}
-
-                    <button class="fav-btn" data-id="${id}" aria-label="Favorito"><i class="fa-regular fa-heart"></i></button>
-
-                </div>
-
-                <a href="producto.html?id=${id}" class="product-title">
-                    <h3>${p.name}</h3>
-                </a>
-
-                <span>${money(p.price)}</span>
-
-                ${cartBtn}
-
-            </article>`;
-    }
+    // La plantilla de tarjeta vive en app.js (productCardHtml), para que el
+    // home, el catalogo y las sugerencias no se desincronicen.
+    const productCard = productCardHtml;
 
     // Un solo producto queda centrado (mitad de ancho), varios se acomodan de a 4 por renglón
     function gridFor(ids) {

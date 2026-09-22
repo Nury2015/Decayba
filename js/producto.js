@@ -165,48 +165,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const rest = otherIds.filter(pid => PRODUCTS[pid].category !== product.category);
         const relatedIds = [...sameCategory, ...rest]; // todos los productos, misma categoría primero
 
-        relatedGrid.innerHTML = relatedIds.map(pid => {
-            const p = PRODUCTS[pid];
-            const cardVideo = productVideos(p)[0]?.src;
-
-            const videoTag = cardVideo
-                ? `<video src="${cardVideo}" poster="${p.cover}" muted loop playsinline preload="metadata"></video>
-                   <span class="play-icon"><i class="fa-solid fa-play"></i></span>`
-                : "";
-
-            const soldOutBadge = p.soldOut ? `<span class="sold-out-badge">Agotado</span>` : "";
-            const lowStockBadge = (!p.soldOut && p.stockNote) ? `<span class="low-stock-badge">Pocas unidades</span>` : "";
-            const cartBtn = p.soldOut
-                ? `<button class="add-cart-btn" disabled>Agotado</button>`
-                : `<button class="add-cart-btn" data-id="${pid}">Agregar al carrito</button>`;
-
-            return `
-                <article class="product${p.soldOut ? " is-sold-out" : ""}" data-id="${pid}" data-href="producto.html?id=${pid}">
-
-                    <div class="product-media" data-href="producto.html?id=${pid}">
-
-                        <img src="${p.cover}" alt="${p.name}">
-
-                        ${videoTag}
-
-                        ${soldOutBadge}
-
-                        ${lowStockBadge}
-
-                        <button class="fav-btn" data-id="${pid}" aria-label="Favorito"><i class="fa-regular fa-heart"></i></button>
-
-                    </div>
-
-                    <a href="producto.html?id=${pid}" class="product-title">
-                        <h3>${p.name}</h3>
-                    </a>
-
-                    <span>${money(p.price)}</span>
-
-                    ${cartBtn}
-
-                </article>`;
-        }).join("");
+        relatedGrid.innerHTML = relatedIds.map(productCardHtml).join("");
 
         updateBadges();
 

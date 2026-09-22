@@ -9,8 +9,20 @@ const DEFAULT_MAX_QTY = 5;
 const maxQtyFor = (id) => PRODUCTS[id]?.stock ?? DEFAULT_MAX_QTY;
 
 // CARRITO Y FAVORITOS (localStorage)
+// Lee una lista guardada descartando lo que ya no existe en el catalogo:
+// un producto retirado seguia contando en el globito del carrito aunque no
+// apareciera en la lista. Si el dato esta corrupto, se empieza de cero.
+function readStored(key) {
+    try {
+        const raw = JSON.parse(localStorage.getItem(key) || "[]");
+        return Array.isArray(raw) ? raw : [];
+    } catch {
+        return [];
+    }
+}
+
 function getCart() {
-    return JSON.parse(localStorage.getItem("decayba_cart") || "[]");
+    return readStored("decayba_cart").filter(i => i && PRODUCTS[i.id]);
 }
 function saveCart(cart) {
     localStorage.setItem("decayba_cart", JSON.stringify(cart));
@@ -40,7 +52,7 @@ function setQty(id, qty) {
 }
 
 function getFavorites() {
-    return JSON.parse(localStorage.getItem("decayba_favorites") || "[]");
+    return readStored("decayba_favorites").filter(id => PRODUCTS[id]);
 }
 function saveFavorites(favs) {
     localStorage.setItem("decayba_favorites", JSON.stringify(favs));
@@ -138,6 +150,24 @@ function renderCart() {
     }
 }
 
+// Fila compacta de producto: la comparten favoritos y el buscador.
+// Marca los agotados, que antes salian igual que los disponibles.
+function miniRow(id) {
+    const p = PRODUCTS[id];
+    if (!p) return "";
+    const estado = p.soldOut
+        ? `<span class="mini-sold-out">Agotado</span>`
+        : `<span>${money(p.price)}</span>`;
+    return `
+            <a class="fav-item${p.soldOut ? " is-sold-out" : ""}" href="producto.html?id=${id}">
+                <img src="${p.cover}" alt="${p.name}">
+                <div class="cart-item-info">
+                    <h4>${p.name}</h4>
+                    ${estado}
+                </div>
+            </a>`;
+}
+
 // PANEL DE FAVORITOS
 function renderFavorites() {
     const wrap = document.querySelector("#fav-items");
@@ -149,18 +179,7 @@ function renderFavorites() {
         return;
     }
 
-    wrap.innerHTML = favs.map(id => {
-        const p = PRODUCTS[id];
-        if (!p) return "";
-        return `
-            <a class="fav-item" href="producto.html?id=${id}">
-                <img src="${p.cover}" alt="${p.name}">
-                <div class="cart-item-info">
-                    <h4>${p.name}</h4>
-                    <span>${money(p.price)}</span>
-                </div>
-            </a>`;
-    }).join("");
+    wrap.innerHTML = favs.map(miniRow).join("");
 }
 
 function openDrawer(panel, backdrop) {
@@ -196,17 +215,7 @@ function renderSearchResults(query) {
         return;
     }
 
-    wrap.innerHTML = matches.map(id => {
-        const p = PRODUCTS[id];
-        return `
-            <a class="fav-item" href="producto.html?id=${id}">
-                <img src="${p.cover}" alt="${p.name}">
-                <div class="cart-item-info">
-                    <h4>${p.name}</h4>
-                    <span>${money(p.price)}</span>
-                </div>
-            </a>`;
-    }).join("");
+    wrap.innerHTML = matches.map(miniRow).join("");
 }
 
 document.addEventListener("DOMContentLoaded", () => {

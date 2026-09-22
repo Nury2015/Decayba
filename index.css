@@ -336,6 +336,22 @@ nav ul li a:hover::after {
 
     display: none;
 
+    /* Es un <button> para poder abrirlo con teclado; se le quita el
+       aspecto de boton pero conserva el icono de FontAwesome. */
+    background: none;
+    border: 0;
+    padding: 0;
+    color: inherit;
+    cursor: pointer;
+
+}
+
+.menu:focus-visible {
+
+    outline: 2px solid #111;
+    outline-offset: 4px;
+    border-radius: 4px;
+
 }
 
 .icon-wrap {
@@ -347,6 +363,23 @@ nav ul li a:hover::after {
     align-items: center;
 
     justify-content: center;
+
+    /* Son <button> para que funcionen con teclado y lector de pantalla;
+       hay que quitarles el aspecto de boton del navegador. */
+    background: none;
+    border: 0;
+    padding: 0;
+    color: inherit;
+    font-size: inherit;
+    cursor: pointer;
+
+}
+
+.icon-wrap:focus-visible {
+
+    outline: 2px solid #111;
+    outline-offset: 4px;
+    border-radius: 4px;
 
 }
 
@@ -510,6 +543,28 @@ nav ul li a:hover::after {
     align-items: center;
     padding: 18px 0;
     border-bottom: 1px solid var(--border);
+
+}
+
+/* Agotado en las filas de favoritos y del buscador: antes se veian igual
+   que un producto disponible, con su precio y todo. */
+.fav-item.is-sold-out img {
+
+    opacity: .5;
+
+}
+
+.mini-sold-out {
+
+    display: inline-block;
+    background: #111;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 30px;
 
 }
 
@@ -1721,6 +1776,19 @@ nav ul li a:hover::after {
 .product-media:hover .play-icon {
 
     opacity: 0;
+
+}
+
+/* En pantallas tactiles no existe "pasar el mouse", asi que el video de la
+   tarjeta nunca arranca: el icono de play prometia algo que no pasaba.
+   El video completo sigue estando en la ficha del producto. */
+@media (hover: none) {
+
+    .product-media .play-icon {
+
+        display: none;
+
+    }
 
 }
 

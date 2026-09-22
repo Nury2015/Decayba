@@ -14,18 +14,24 @@ const menuBtn = document.querySelector('.menu');
 const nav = document.querySelector('nav');
 const backdrop = document.querySelector('.menu-backdrop');
 
+function setMenuButton(isOpen) {
+    menuBtn?.classList.toggle('fa-bars', !isOpen);
+    menuBtn?.classList.toggle('fa-xmark', isOpen);
+    menuBtn?.setAttribute('aria-expanded', String(isOpen));
+    menuBtn?.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
+}
+
 function closeMenu() {
     nav?.classList.remove('active');
     backdrop?.classList.remove('active');
-    menuBtn?.classList.replace('fa-xmark', 'fa-bars');
+    setMenuButton(false);
     document.querySelectorAll('.has-submenu.open').forEach(el => el.classList.remove('open'));
 }
 
 function toggleMenu() {
     const isOpen = nav?.classList.toggle('active');
     backdrop?.classList.toggle('active', isOpen);
-    menuBtn?.classList.toggle('fa-bars', !isOpen);
-    menuBtn?.classList.toggle('fa-xmark', isOpen);
+    setMenuButton(isOpen);
 }
 
 menuBtn?.addEventListener('click', toggleMenu);
@@ -60,9 +66,10 @@ toggleTopButton();
 window.addEventListener('scroll', toggleTopButton);
 topBtn?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-// Tarjeta de producto del home, igual a las que estan escritas a mano
-// en index.html. Se arma desde PRODUCTS para que el nombre y el precio
-// nunca queden desfasados.
+// Tarjeta de producto. Es la UNICA plantilla: la usan el home, el
+// catalogo y las sugerencias de la ficha. Antes habia tres copias casi
+// iguales y la del home se quedo sin el manejo de "Agotado", asi que
+// dejaba pedir cosas que no hay.
 function productCardHtml(id) {
     const p = PRODUCTS[id];
     if (!p) return '';
@@ -71,17 +78,27 @@ function productCardHtml(id) {
 
     const videoTag = cardVideo
         ? `<video src="${cardVideo}" poster="${p.cover}" muted loop playsinline preload="metadata"></video>
-               <span class="play-icon"><i class="fa-solid fa-play"></i></span>`
+                    <span class="play-icon"><i class="fa-solid fa-play"></i></span>`
         : '';
 
+    const soldOutBadge = p.soldOut ? `<span class="sold-out-badge">Agotado</span>` : '';
+    const lowStockBadge = (!p.soldOut && p.stockNote) ? `<span class="low-stock-badge">Pocas unidades</span>` : '';
+    const cartBtn = p.soldOut
+        ? `<button class="add-cart-btn" disabled>Agotado</button>`
+        : `<button class="add-cart-btn" data-id="${id}">Agregar al carrito</button>`;
+
     return `
-            <article class="product" data-id="${id}" data-href="producto.html?id=${id}">
+            <article class="product${p.soldOut ? ' is-sold-out' : ''}" data-id="${id}" data-href="producto.html?id=${id}">
 
                 <div class="product-media" data-href="producto.html?id=${id}">
 
                     <img src="${p.cover}" alt="${p.name}" loading="lazy" decoding="async">
 
                     ${videoTag}
+
+                    ${soldOutBadge}
+
+                    ${lowStockBadge}
 
                     <button class="fav-btn" data-id="${id}" aria-label="Favorito"><i class="fa-regular fa-heart"></i></button>
 
@@ -93,7 +110,7 @@ function productCardHtml(id) {
 
                 <span>${money(p.price)}</span>
 
-                <button class="add-cart-btn" data-id="${id}">Agregar al carrito</button>
+                ${cartBtn}
 
             </article>`;
 }
