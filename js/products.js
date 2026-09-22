@@ -620,6 +620,14 @@ const PRODUCTS = {
 // o ninguno (null). Cada video puede ser una ruta suelta o { src, label }.
 // Esto siempre devuelve un arreglo de { src, label }, para no repetir la
 // comprobacion en el home, el catalogo y la ficha de producto.
+// Direccion de la ficha de un producto. Cada uno tiene su propia pagina
+// (producto-<id>.html, generada por build-productos.js) para que al
+// compartir el link por WhatsApp se vea SU foto y SU nombre, no una vista
+// previa generica. Si cambias esto, corre build-productos.js.
+function productUrl(id) {
+    return "producto-" + id + ".html";
+}
+
 function productVideos(product) {
     if (!product || !product.video) return [];
     const list = Array.isArray(product.video) ? product.video : [product.video];

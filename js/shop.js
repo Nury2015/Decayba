@@ -165,7 +165,7 @@ function miniRow(id) {
         ? `<span class="mini-sold-out">Agotado</span>`
         : `<span>${money(p.price)}</span>`;
     return `
-            <a class="fav-item${p.soldOut ? " is-sold-out" : ""}" href="producto.html?id=${id}">
+            <a class="fav-item${p.soldOut ? " is-sold-out" : ""}" href="${productUrl(id)}">
                 <img src="${p.cover}" alt="${p.name}">
                 <div class="cart-item-info">
                     <h4>${p.name}</h4>

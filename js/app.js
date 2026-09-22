@@ -88,9 +88,9 @@ function productCardHtml(id) {
         : `<button class="add-cart-btn" data-id="${id}">Agregar al carrito</button>`;
 
     return `
-            <article class="product${p.soldOut ? ' is-sold-out' : ''}" data-id="${id}" data-href="producto.html?id=${id}">
+            <article class="product${p.soldOut ? ' is-sold-out' : ''}" data-id="${id}" data-href="${productUrl(id)}">
 
-                <div class="product-media" data-href="producto.html?id=${id}">
+                <div class="product-media" data-href="${productUrl(id)}">
 
                     <img src="${p.cover}" alt="${p.name}" loading="lazy" decoding="async">
 
@@ -104,7 +104,7 @@ function productCardHtml(id) {
 
                 </div>
 
-                <a href="producto.html?id=${id}" class="product-title">
+                <a href="${productUrl(id)}" class="product-title">
                     <h3>${p.name}</h3>
                 </a>
 

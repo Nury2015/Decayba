@@ -1,5 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const id = new URLSearchParams(location.search).get("id");
+    // En las paginas generadas (producto-<id>.html) el id viene marcado en el
+    // HTML; producto.html?id=... sigue sirviendo para los links ya compartidos.
+    const id = document.documentElement.dataset.product
+        || new URLSearchParams(location.search).get("id");
     const product = PRODUCTS[id];
     const container = document.querySelector(".product-detail .container");
 
