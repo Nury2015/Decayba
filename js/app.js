@@ -60,25 +60,21 @@ toggleTopButton();
 window.addEventListener('scroll', toggleTopButton);
 topBtn?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-// "VER MÁS PRODUCTOS" en home: agrega más tarjetas sin salir de la página
-const loadMoreBtn = document.querySelector('#load-more-products');
+// Tarjeta de producto del home, igual a las que estan escritas a mano
+// en index.html. Se arma desde PRODUCTS para que el nombre y el precio
+// nunca queden desfasados.
+function productCardHtml(id) {
+    const p = PRODUCTS[id];
+    if (!p) return '';
 
-loadMoreBtn?.addEventListener('click', () => {
-    const grid = document.querySelector('#productos .products-grid');
-    const ids = (loadMoreBtn.dataset.ids || '').split(',').filter(Boolean);
+    const cardVideo = productVideos(p)[0]?.src;
 
-    const cardsHtml = ids.map(id => {
-        const p = PRODUCTS[id];
-        if (!p) return '';
-
-        const cardVideo = productVideos(p)[0]?.src;
-
-        const videoTag = cardVideo
-            ? `<video src="${cardVideo}" poster="${p.cover}" muted loop playsinline preload="metadata"></video>
+    const videoTag = cardVideo
+        ? `<video src="${cardVideo}" poster="${p.cover}" muted loop playsinline preload="metadata"></video>
                <span class="play-icon"><i class="fa-solid fa-play"></i></span>`
-            : '';
+        : '';
 
-        return `
+    return `
             <article class="product" data-id="${id}" data-href="producto.html?id=${id}">
 
                 <div class="product-media" data-href="producto.html?id=${id}">
@@ -100,9 +96,50 @@ loadMoreBtn?.addEventListener('click', () => {
                 <button class="add-cart-btn" data-id="${id}">Agregar al carrito</button>
 
             </article>`;
-    }).join('');
+}
 
-    grid?.insertAdjacentHTML('beforeend', cardsHtml);
+// Reproducir el video al pasar el mouse. Hay que volver a llamarla cada vez
+// que se agregan tarjetas nuevas: los listeners no se heredan y antes las
+// tarjetas de "Ver más productos" se quedaban sin video.
+function wireHoverVideos(root = document) {
+    root.querySelectorAll('.product-media').forEach(media => {
+        const video = media.querySelector('video');
+        if (!video || media.dataset.hoverReady) return;
+        media.dataset.hoverReady = '1';
+
+        media.addEventListener('mouseenter', () => video.play().catch(() => { }));
+        media.addEventListener('mouseleave', () => {
+            video.pause();
+            video.currentTime = 0;
+        });
+    });
+}
+
+// "PARA REGALAR" en home: productos que ya existen, agrupados como ideas
+// de regalo. Los ids salen del data-ids de la seccion en index.html.
+const giftGrid = document.querySelector('#gift-grid');
+
+if (giftGrid) {
+    const ids = (giftGrid.dataset.ids || '').split(',').map(s => s.trim()).filter(id => PRODUCTS[id]);
+
+    if (ids.length) {
+        giftGrid.innerHTML = ids.map(productCardHtml).join('');
+        wireHoverVideos(giftGrid);
+    } else {
+        // Sin productos validos la seccion quedaria vacia con solo el titulo
+        giftGrid.closest('section')?.remove();
+    }
+}
+
+// "VER MÁS PRODUCTOS" en home: agrega más tarjetas sin salir de la página
+const loadMoreBtn = document.querySelector('#load-more-products');
+
+loadMoreBtn?.addEventListener('click', () => {
+    const grid = document.querySelector('#productos .products-grid');
+    const ids = (loadMoreBtn.dataset.ids || '').split(',').filter(Boolean);
+
+    grid?.insertAdjacentHTML('beforeend', ids.map(productCardHtml).join(''));
+    wireHoverVideos(grid);
     updateBadges();
     loadMoreBtn.remove();
 });
@@ -172,13 +209,4 @@ const fadeObserver = new IntersectionObserver((entries) => {
 fadeEls.forEach(el => fadeObserver.observe(el));
 
 // VIDEO DE PRODUCTO: reproducir al pasar el mouse
-document.querySelectorAll('.product-media').forEach(media => {
-    const video = media.querySelector('video');
-    if (!video) return;
-
-    media.addEventListener('mouseenter', () => video.play().catch(() => { }));
-    media.addEventListener('mouseleave', () => {
-        video.pause();
-        video.currentTime = 0;
-    });
-});
+wireHoverVideos();

@@ -1305,6 +1305,30 @@ nav ul li a:hover::after {
 
 }
 
+/* PARA REGALAR: usa la misma rejilla que "Productos Destacados", pero en
+   fondo blanco para que no parezcan la misma seccion repetida. */
+.gifts {
+
+    background: #fff;
+
+}
+
+.gifts h2 {
+
+    margin-bottom: 15px;
+
+}
+
+.gifts-intro {
+
+    text-align: center;
+    max-width: 560px;
+    margin: 0 auto 60px;
+    color: #666;
+    line-height: 1.8;
+
+}
+
 .lightbox {
 
     position: fixed;

@@ -149,6 +149,14 @@ document.addEventListener("DOMContentLoaded", () => {
         refreshFavBtn();
     });
 
+    // BOTÓN FLOTANTE DE WHATSAPP: en la ficha, el mensaje ya dice qué
+    // producto está mirando la persona, así no toca preguntárselo.
+    const waFloat = document.querySelector(".whatsapp-float");
+    if (waFloat) {
+        const text = `Hola Decayba 👋 Estoy viendo el ${product.name} (${money(product.price)}) y quiero más información.`;
+        waFloat.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+    }
+
     // SUGERENCIAS: primero misma categoría, luego relleno con el resto
     const relatedGrid = document.querySelector("#related-grid");
     if (relatedGrid) {
