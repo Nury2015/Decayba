@@ -228,6 +228,21 @@
 
                     <ul class="pd-details" id="pd-details"></ul>
 
+                    <!-- Personalización: producto.js lo muestra solo en los
+                         productos que se hacen a pedido. Lo que se escriba
+                         aquí viaja en el mensaje de WhatsApp. -->
+                    <div class="pd-custom" id="pd-custom" hidden>
+
+                        <label for="pd-custom-input">
+                            Nombre de tu mascota
+                            <span>(opcional, lo puedes definir después por WhatsApp)</span>
+                        </label>
+
+                        <input type="text" id="pd-custom-input" maxlength="60"
+                            placeholder="Ej: Oreo" autocomplete="off">
+
+                    </div>
+
                     <div class="pd-actions">
 
                         <button class="btn pd-add-btn" id="pd-add-btn">Agregar al carrito</button>

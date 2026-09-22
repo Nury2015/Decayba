@@ -28,14 +28,18 @@ function saveCart(cart) {
     localStorage.setItem("decayba_cart", JSON.stringify(cart));
     updateBadges(true);
 }
-function addToCart(id) {
+// "note" es el dato de personalizacion (por ahora, el nombre de la
+// mascota). Viaja con el producto hasta el mensaje de WhatsApp, para no
+// tener que preguntarlo despues en el chat.
+function addToCart(id, note = "") {
     const cart = getCart();
     const item = cart.find(i => i.id === id);
     const max = maxQtyFor(id);
     if (item) {
         if (item.qty < max) item.qty += 1;
+        if (note) item.note = note;
     } else {
-        cart.push({ id, qty: 1 });
+        cart.push(note ? { id, qty: 1, note } : { id, qty: 1 });
     }
     saveCart(cart);
 }
@@ -117,6 +121,7 @@ function renderCart() {
                     <div class="cart-item-info">
                         <h4>${p.name}</h4>
                         <span>${money(p.price)}</span>
+                        ${item.note ? `<small class="cart-item-note">Para: ${item.note}</small>` : ""}
                         <div class="qty-control">
                             <button class="qty-btn" data-id="${item.id}" data-delta="-1">-</button>
                             <span>${item.qty}</span>
@@ -142,7 +147,8 @@ function renderCart() {
             const lines = cart.map(i => {
                 const p = PRODUCTS[i.id];
                 const imgUrl = p?.cover ? new URL(p.cover, window.location.href).href : "";
-                return `- ${p?.name} x${i.qty} (${money((p?.price || 0) * i.qty)})\n${imgUrl}`;
+                const nota = i.note ? `\n  Nombre: ${i.note}` : "";
+                return `- ${p?.name} x${i.qty} (${money((p?.price || 0) * i.qty)})${nota}\n${imgUrl}`;
             });
             const text = `Hola Decayba, quiero pedir:\n${lines.join("\n\n")}\n\nTotal: ${money(total)}`;
             waLink.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;

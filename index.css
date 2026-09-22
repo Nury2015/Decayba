@@ -2869,6 +2869,61 @@ footer {
 
 }
 
+/* Personalización en la ficha: el dato viaja en el pedido de WhatsApp */
+.pd-custom {
+
+    margin-bottom: 22px;
+
+}
+
+.pd-custom label {
+
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 8px;
+
+}
+
+.pd-custom label span {
+
+    display: block;
+    font-weight: 400;
+    font-size: 12px;
+    color: #999;
+    margin-top: 2px;
+
+}
+
+.pd-custom input {
+
+    width: 100%;
+    max-width: 340px;
+    padding: 13px 16px;
+    font-family: inherit;
+    font-size: 14px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: #fff;
+
+}
+
+.pd-custom input:focus {
+
+    outline: none;
+    border-color: #111;
+
+}
+
+.cart-item-note {
+
+    display: block;
+    font-size: 12px;
+    color: #777;
+    margin-top: 2px;
+
+}
+
 .pd-actions {
 
     display: flex;

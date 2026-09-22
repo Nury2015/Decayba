@@ -124,6 +124,15 @@ document.addEventListener("DOMContentLoaded", () => {
         if (e.key === "ArrowRight") showLightboxAt(nextImageIndex(currentIndex, 1));
     });
 
+    // Campo de personalizacion: solo en lo que se hace a pedido, no en
+    // juguetes ni aseo (de stock) ni en los albumes genericos (portada fija).
+    const customWrap = document.querySelector("#pd-custom");
+    const customInput = document.querySelector("#pd-custom-input");
+    const esPersonalizable = product.category !== "aseo"
+        && product.category !== "juguetes"
+        && product.category !== "album-generico";
+    if (customWrap && esPersonalizable && !product.soldOut) customWrap.hidden = false;
+
     const addBtn = document.querySelector("#pd-add-btn");
     if (product.soldOut) {
         addBtn.textContent = "Agotado";
@@ -131,7 +140,7 @@ document.addEventListener("DOMContentLoaded", () => {
         addBtn.classList.add("is-sold-out");
     } else {
         addBtn.addEventListener("click", () => {
-            addToCart(id);
+            addToCart(id, customWrap && !customWrap.hidden ? customInput.value.trim() : "");
             addBtn.textContent = "Agregado ✓";
             setTimeout(() => addBtn.textContent = "Agregar al carrito", 1200);
         });
