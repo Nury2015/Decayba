@@ -83,9 +83,11 @@ function productCardHtml(id) {
 
     const soldOutBadge = p.soldOut ? `<span class="sold-out-badge">Agotado</span>` : '';
     const lowStockBadge = (!p.soldOut && p.stockNote) ? `<span class="low-stock-badge">Pocas unidades</span>` : '';
+    // El contenido lo pone shop.js: boton de agregar, o el control de
+    // cantidad si el producto ya esta en el carrito.
     const cartBtn = p.soldOut
         ? `<button class="add-cart-btn" disabled>Agotado</button>`
-        : `<button class="add-cart-btn" data-id="${id}">Agregar al carrito</button>`;
+        : `<div class="card-cart" data-id="${id}">${cardCartHtml(id)}</div>`;
 
     return `
             <article class="product${p.soldOut ? ' is-sold-out' : ''}" data-id="${id}" data-href="${productUrl(id)}">

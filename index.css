@@ -1851,6 +1851,71 @@ nav ul li a:hover::after {
 
 }
 
+/* ===== Control de cantidad en la tarjeta =====
+   Al agregar al carrito, el botón se cambia por  −  1  +  . El contenedor
+   hereda el sitio que tenía el botón (el "auto" de arriba lo empuja al
+   final de la tarjeta) para que la tarjeta no cambie de alto. */
+
+.card-cart {
+
+    margin: auto 25px 25px;
+
+}
+
+.product .card-cart .add-cart-btn {
+
+    width: 100%;
+    margin: 0;
+
+}
+
+.card-qty {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #111;
+    background: #fff;
+
+}
+
+/* 15 + 15 de relleno + 18 de línea + 2 del borde = 50px: el mismo alto
+   que tenía el botón (16 + 16 + 18). */
+.product .card-qty-btn {
+
+    width: 54px;
+    flex: 0 0 54px;
+    margin: 0;
+    padding: 15px 0;
+    background: none;
+    color: #111;
+    font-size: 18px;
+    line-height: 1;
+
+}
+
+.product .card-qty-btn:hover:not(:disabled) {
+
+    background: #f2f2f2;
+
+}
+
+.product .card-qty-btn:disabled {
+
+    opacity: .3;
+    cursor: not-allowed;
+
+}
+
+.card-qty-n {
+
+    flex: 1;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 600;
+
+}
+
 @keyframes btn-pulse {
 
     0% { transform: scale(1); }
@@ -3723,12 +3788,44 @@ footer {
 
     }
 
+    /* Esta regla es para el botón suelto de "Agotado"; el de agregar va
+       dentro de .card-cart, que es el que lleva el margen. */
     .products-grid .product .add-cart-btn {
 
         width: calc(100% - 30px);
         margin: auto 15px 15px;
         padding: 12px;
         font-size: 12px;
+
+    }
+
+    .products-grid .product .card-cart {
+
+        margin: auto 15px 15px;
+
+    }
+
+    .products-grid .product .card-cart .add-cart-btn {
+
+        width: 100%;
+        margin: 0;
+
+    }
+
+    /* 11 + 11 + 16 + 2 del borde = 40px, casi el mismo alto que el botón
+       en mobile (12 + 12 + 14). */
+    .products-grid .product .card-qty-btn {
+
+        width: 44px;
+        flex: 0 0 44px;
+        padding: 11px 0;
+        font-size: 16px;
+
+    }
+
+    .card-qty-n {
+
+        font-size: 13px;
 
     }
 

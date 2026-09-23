@@ -70,6 +70,35 @@ function toggleFavorite(id) {
     return !active;
 }
 
+// CONTROL DE CANTIDAD EN LA TARJETA
+// Mientras el producto no esta en el carrito se ve "Agregar al carrito".
+// Apenas se agrega, el boton se cambia por  -  1  +  : antes el boton
+// quedaba igual despues de hacer clic y parecia que no habia agregado nada.
+// Si la cantidad baja a cero, vuelve el boton.
+function cardCartHtml(id) {
+    const qty = getCart().find(i => i.id === id)?.qty || 0;
+
+    if (qty === 0) {
+        return `<button class="add-cart-btn" data-id="${id}">Agregar al carrito</button>`;
+    }
+
+    const max = maxQtyFor(id);
+    return `
+        <div class="card-qty">
+            <button class="card-qty-btn" data-id="${id}" data-delta="-1" aria-label="Quitar uno">&minus;</button>
+            <span class="card-qty-n" aria-live="polite">${qty}</span>
+            <button class="card-qty-btn" data-id="${id}" data-delta="1" ${qty >= max ? "disabled" : ""} aria-label="Agregar uno">+</button>
+        </div>`;
+}
+
+// Un mismo producto puede estar en varias rejillas de la pagina (destacados,
+// para regalar, sugerencias), asi que se refrescan todas.
+function refreshCardCarts() {
+    document.querySelectorAll(".card-cart").forEach(el => {
+        el.innerHTML = cardCartHtml(el.dataset.id);
+    });
+}
+
 function bump(el) {
     if (!el) return;
     el.classList.remove("bump");
@@ -91,6 +120,8 @@ function updateBadges(animate = false) {
         b.classList.toggle("show", favCount > 0);
         if (animate) bump(b);
     });
+
+    refreshCardCarts();
 
     document.querySelectorAll(".fav-btn").forEach(btn => {
         const active = getFavorites().includes(btn.dataset.id);
@@ -257,7 +288,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Click en cualquier parte de la tarjeta -> ir al detalle
     // (salvo botones/links propios, que ya manejan su propia navegación)
     document.addEventListener("click", (e) => {
-        if (e.target.closest(".fav-btn, .add-cart-btn, a")) return;
+        if (e.target.closest(".fav-btn, .add-cart-btn, .card-cart, a")) return;
         const card = e.target.closest("[data-href]");
         if (card) window.location.href = card.dataset.href;
     });
@@ -268,14 +299,20 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!btn) return;
         e.preventDefault();
         e.stopPropagation();
+        // No hace falta el "Agregado ✓": updateBadges cambia este boton por
+        // el control de cantidad, que ya deja claro que quedo agregado.
         addToCart(btn.dataset.id);
-        const original = "Agregar al carrito";
-        btn.textContent = "Agregado ✓";
-        btn.classList.add("added");
-        setTimeout(() => {
-            btn.textContent = original;
-            btn.classList.remove("added");
-        }, 1200);
+    });
+
+    // Mas / menos en la tarjeta
+    document.addEventListener("click", (e) => {
+        const btn = e.target.closest(".card-qty-btn");
+        if (!btn) return;
+        e.preventDefault();
+        e.stopPropagation();
+        const id = btn.dataset.id;
+        const actual = getCart().find(i => i.id === id)?.qty || 0;
+        setQty(id, actual + parseInt(btn.dataset.delta, 10));
     });
 
     // Favoritos
