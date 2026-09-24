@@ -1372,19 +1372,19 @@ nav ul li a:hover::after {
 
 }
 
-.gifts h2 {
+/* El bloque de video y texto reutiliza los estilos de "Personaliza el
+   tuyo" (.collection) para que las dos secciones se vean hermanas. */
+.gifts-hero {
 
-    margin-bottom: 15px;
+    margin-bottom: 90px;
 
 }
 
-.gifts-intro {
+/* En la otra seccion este aviso va pegado debajo de la galeria de
+   portadas; aca no hay galeria, asi que no hay que subirlo. */
+.gifts-hero .collection-note {
 
-    text-align: center;
-    max-width: 560px;
-    margin: 0 auto 60px;
-    color: #666;
-    line-height: 1.8;
+    margin: 0 0 30px;
 
 }
 
