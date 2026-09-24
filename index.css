@@ -3016,6 +3016,12 @@ footer {
    cuando lo que tiene adentro es el  -  1  +  . */
 .pd-cart {
 
+    /* Este div tambien es .card-cart, que en la tarjeta lleva
+       "margin: auto 25px 25px" para empujar el boton al fondo. Aqui ese
+       margen sobra: el "auto" de arriba pegaba la casilla al techo y el
+       corazon, que si se centra, quedaba mas abajo. El espacio de la ficha
+       lo ponen el gap de .pd-actions y el margen de .pd-policy. */
+    margin: 0;
     flex: 1;
 
 }
@@ -3039,14 +3045,14 @@ footer {
 
 }
 
-/* 15 + 15 de relleno + 18 de linea + 2 del borde = 50px: el mismo alto
-   que el boton de agregar. */
+/* 18 + 18 de relleno + 18 de linea + 2 del borde = 56px: el mismo alto
+   que el corazon de al lado y que el boton de agregar. */
 .pd-cart .card-qty-btn {
 
     width: 46px;
     flex: 0 0 46px;
     margin: 0;
-    padding: 15px 0;
+    padding: 18px 0;
     border: none;
     background: none;
     color: #111;
