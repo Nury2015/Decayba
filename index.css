@@ -1590,7 +1590,7 @@ nav ul li a:hover::after {
 
 .product img {
 
-    height: 380px;
+    height: 320px;
 
     object-fit: cover;
 
@@ -1740,7 +1740,7 @@ nav ul li a:hover::after {
     position: absolute;
     inset: 0;
     width: 100%;
-    height: 380px;
+    height: 320px;
     object-fit: contain;
     background: #0b0b0b;
     opacity: 0;
@@ -1802,7 +1802,11 @@ nav ul li a:hover::after {
 
 }
 
-.product span {
+/* Solo el precio, que es hijo directo. Antes esto era ".product span" y se
+   colaba en el numero del control de cantidad y en las etiquetas de
+   "Agotado" y "Pocas unidades": les ponia 20px y un margen que las corria
+   de su sitio. */
+.product > span {
 
     margin-left: 25px;
 
@@ -3006,11 +3010,19 @@ footer {
 
 }
 
-/* En la ficha, el control de cantidad ocupa el mismo lugar que el botón:
-   el contenedor hereda el "flex: 1" y el alto sale del mismo relleno. */
+/* En la ficha, el boton de agregar ocupa todo el ancho que le deja el
+   corazon. El control de cantidad no: una casilla chica se lee mejor que
+   una barra de lado a lado, asi que el contenedor deja de estirarse
+   cuando lo que tiene adentro es el  -  1  +  . */
 .pd-cart {
 
     flex: 1;
+
+}
+
+.pd-cart:has(.card-qty) {
+
+    flex: 0 0 auto;
 
 }
 
@@ -3023,21 +3035,23 @@ footer {
 .pd-cart .card-qty {
 
     border-radius: 3px;
-    height: 100%;
+    width: 150px;
 
 }
 
+/* 15 + 15 de relleno + 18 de linea + 2 del borde = 50px: el mismo alto
+   que el boton de agregar. */
 .pd-cart .card-qty-btn {
 
-    width: 60px;
-    flex: 0 0 60px;
+    width: 46px;
+    flex: 0 0 46px;
     margin: 0;
     padding: 15px 0;
     border: none;
     background: none;
     color: #111;
     font-family: inherit;
-    font-size: 20px;
+    font-size: 18px;
     line-height: 1;
     cursor: pointer;
 
@@ -3674,14 +3688,14 @@ footer {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 40px;
+        gap: 30px;
 
     }
 
     nav ul li a,
     .submenu-toggle {
 
-        font-size: 28px;
+        font-size: 20px;
 
     }
 
