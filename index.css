@@ -3006,6 +3006,62 @@ footer {
 
 }
 
+/* En la ficha, el control de cantidad ocupa el mismo lugar que el botón:
+   el contenedor hereda el "flex: 1" y el alto sale del mismo relleno. */
+.pd-cart {
+
+    flex: 1;
+
+}
+
+.pd-cart .pd-add-btn {
+
+    width: 100%;
+
+}
+
+.pd-cart .card-qty {
+
+    border-radius: 3px;
+    height: 100%;
+
+}
+
+.pd-cart .card-qty-btn {
+
+    width: 60px;
+    flex: 0 0 60px;
+    margin: 0;
+    padding: 15px 0;
+    border: none;
+    background: none;
+    color: #111;
+    font-family: inherit;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+
+}
+
+.pd-cart .card-qty-btn:hover:not(:disabled) {
+
+    background: #f2f2f2;
+
+}
+
+.pd-cart .card-qty-btn:disabled {
+
+    opacity: .3;
+    cursor: not-allowed;
+
+}
+
+.pd-cart .card-qty-n {
+
+    font-size: 16px;
+
+}
+
 .pd-fav-btn {
 
     width: 56px;

@@ -43,6 +43,17 @@ function addToCart(id, note = "") {
     }
     saveCart(cart);
 }
+// El nombre de la mascota se puede escribir despues de haber agregado el
+// producto; sin esto, ese campo quedaria sin efecto.
+function setNote(id, note) {
+    const cart = getCart();
+    const item = cart.find(i => i.id === id);
+    if (!item) return;
+    if (note) item.note = note; else delete item.note;
+    saveCart(cart);
+    renderCart();
+}
+
 function setQty(id, qty) {
     let cart = getCart();
     qty = Math.min(qty, maxQtyFor(id));
@@ -75,11 +86,11 @@ function toggleFavorite(id) {
 // Apenas se agrega, el boton se cambia por  -  1  +  : antes el boton
 // quedaba igual despues de hacer clic y parecia que no habia agregado nada.
 // Si la cantidad baja a cero, vuelve el boton.
-function cardCartHtml(id) {
+function cardCartHtml(id, clasesBoton = "add-cart-btn") {
     const qty = getCart().find(i => i.id === id)?.qty || 0;
 
     if (qty === 0) {
-        return `<button class="add-cart-btn" data-id="${id}">Agregar al carrito</button>`;
+        return `<button class="${clasesBoton}" data-id="${id}">Agregar al carrito</button>`;
     }
 
     const max = maxQtyFor(id);
@@ -95,7 +106,8 @@ function cardCartHtml(id) {
 // para regalar, sugerencias), asi que se refrescan todas.
 function refreshCardCarts() {
     document.querySelectorAll(".card-cart").forEach(el => {
-        el.innerHTML = cardCartHtml(el.dataset.id);
+        if (!el.dataset.id) return;
+        el.innerHTML = cardCartHtml(el.dataset.id, el.dataset.btnClass || undefined);
     });
 }
 
@@ -301,7 +313,11 @@ document.addEventListener("DOMContentLoaded", () => {
         e.stopPropagation();
         // No hace falta el "Agregado ✓": updateBadges cambia este boton por
         // el control de cantidad, que ya deja claro que quedo agregado.
-        addToCart(btn.dataset.id);
+        // En la ficha, el contenedor dice de que campo sacar el nombre.
+        const wrap = btn.closest(".card-cart");
+        const campo = wrap?.dataset.noteFrom ? document.querySelector("#" + wrap.dataset.noteFrom) : null;
+        const nota = campo && !campo.closest("[hidden]") ? campo.value.trim() : "";
+        addToCart(btn.dataset.id, nota);
     });
 
     // Mas / menos en la tarjeta

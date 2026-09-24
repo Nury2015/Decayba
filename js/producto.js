@@ -136,18 +136,28 @@ document.addEventListener("DOMContentLoaded", () => {
         && product.category !== "album-generico";
     if (customWrap && esPersonalizable && !product.soldOut) customWrap.hidden = false;
 
-    const addBtn = document.querySelector("#pd-add-btn");
+    const pdCart = document.querySelector("#pd-cart");
+
     if (product.soldOut) {
+        // Se deja el botón quieto, sin data-id: así no lo agarra ni el clic
+        // de agregar ni el refresco del control de cantidad, los dos de shop.js.
+        const addBtn = document.querySelector("#pd-add-btn");
         addBtn.textContent = "Agotado";
         addBtn.disabled = true;
+        addBtn.classList.remove("add-cart-btn");
         addBtn.classList.add("is-sold-out");
-    } else {
-        addBtn.addEventListener("click", () => {
-            addToCart(id, customWrap && !customWrap.hidden ? customInput.value.trim() : "");
-            addBtn.textContent = "Agregado ✓";
-            setTimeout(() => addBtn.textContent = "Agregar al carrito", 1200);
-        });
+    } else if (pdCart) {
+        // El contenedor guarda de qué producto es y shop.js hace el resto.
+        // Hay que volver a pintarlo: shop.js ya lo había hecho al cargar la
+        // página, cuando todavía no se sabía el id. Si el producto ya venía
+        // en el carrito, aquí aparece el control en vez del botón.
+        pdCart.dataset.id = id;
+        refreshCardCarts();
     }
+
+    // Si el nombre se escribe después de haber agregado el producto, se
+    // guarda igual en el pedido.
+    customInput?.addEventListener("input", () => setNote(id, customInput.value.trim()));
 
     const favBtn = document.querySelector("#pd-fav-btn");
     function refreshFavBtn() {

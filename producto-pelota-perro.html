@@ -247,7 +247,15 @@
 
                     <div class="pd-actions">
 
-                        <button class="btn pd-add-btn" id="pd-add-btn">Agregar al carrito</button>
+                        <!-- shop.js cambia esto por el control de cantidad
+                             cuando el producto ya esta en el carrito -->
+                        <div class="card-cart pd-cart" id="pd-cart"
+                            data-btn-class="btn pd-add-btn add-cart-btn"
+                            data-note-from="pd-custom-input">
+
+                            <button class="btn pd-add-btn add-cart-btn" id="pd-add-btn">Agregar al carrito</button>
+
+                        </div>
 
                         <button class="pd-fav-btn" id="pd-fav-btn" aria-label="Favorito">
                             <i class="fa-regular fa-heart"></i>
