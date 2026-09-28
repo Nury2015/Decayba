@@ -13,6 +13,7 @@
  */
 
 const fs = require('fs');
+const { tituloSeo } = require('./seo');
 const vm = require('vm');
 
 const PAGINAS = ['index.html', 'productos.html', 'producto.html', 'nosotros.html', 'terminos.html'];
@@ -47,7 +48,7 @@ for (const [id, p] of Object.entries(P)) {
     if (!fs.existsSync(f)) { fallo('falta', f, '- corre: node build-productos.js'); continue; }
     const s = fs.readFileSync(f, 'utf8');
     // El nombre guardado en la vista previa tiene que ser el nombre de hoy
-    if (!s.includes(`content="${p.name.replace(/&/g, '&amp;')} | Decayba"`)) {
+    if (!s.includes(`content="${tituloSeo(p).replace(/&/g, '&amp;')}"`)) {
         fallo(f, 'quedó con otro nombre - corre: node build-productos.js');
         desactualizadas++;
     }

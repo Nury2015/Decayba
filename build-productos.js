@@ -23,6 +23,7 @@ const fs = require('fs');
 const path = require('path');
 const vm = require('vm');
 const { execFileSync } = require('child_process');
+const { tituloSeo, descripcionSeo } = require('./seo');
 
 const SITIO = 'https://decayba.com';
 const CREMA = '#faf6ee';
@@ -81,10 +82,16 @@ for (const [id, p] of Object.entries(PRODUCTS)) {
     if (ogRelativa) conImagen++;
     const imagen = `${SITIO}/${ogRelativa || 'img/hero-banner.webp'}`;
 
-    const titulo = `${p.name} | Decayba`;
+    const titulo = tituloSeo(p);
+
     // La descripción de vista previa arranca con el precio: es lo primero que
     // quiere saber quien recibe el link por WhatsApp.
     const desc = `${pesos(p.price)} — ${p.description}`.slice(0, 200);
+
+    // La de Google es otra cosa: ahí no gana el precio sino la palabra que la
+    // clienta buscó, y saber que el envío le llega. La regla vive en seo.js,
+    // porque revisar.js tiene que comprobar exactamente lo mismo.
+    const descSeo = descripcionSeo(p);
 
     let html = plantilla;
 
@@ -101,7 +108,7 @@ for (const [id, p] of Object.entries(PRODUCTS)) {
     );
     html = html.replace(
         /<meta name="description" content="[^"]*">/,
-        `<meta name="description" content="${escapar(desc)}">`
+        `<meta name="description" content="${escapar(descSeo)}">`
     );
     html = html.replace(
         /<!-- Nota: estas etiquetas[\s\S]*?-->\s*/,
@@ -142,7 +149,39 @@ for (const [id, p] of Object.entries(PRODUCTS)) {
 
     // Una sola dirección buena para cada producto, para que Google no vea
     // producto.html?id=X y producto-X.html como dos páginas repetidas.
-    html = html.replace('</head>', `    <link rel="canonical" href="${url}">\n\n</head>`);
+    // Datos estructurados. Con esto Google puede mostrar el precio y si hay
+    // existencias debajo del resultado, en vez de un link pelado. El "<" va
+    // escapado para que ningun texto del catalogo cierre el <script> antes
+    // de tiempo.
+    const datos = {
+        '@context': 'https://schema.org',
+        '@type': 'Product',
+        name: p.name,
+        description: p.description,
+        image: [imagen],
+        sku: id,
+        brand: { '@type': 'Brand', name: 'Decayba' },
+        offers: {
+            '@type': 'Offer',
+            url,
+            priceCurrency: 'COP',
+            price: p.price,
+            availability: p.soldOut
+                ? 'https://schema.org/OutOfStock'
+                : 'https://schema.org/InStock',
+            itemCondition: 'https://schema.org/NewCondition',
+            seller: { '@type': 'Organization', name: 'Decayba' }
+        }
+    };
+    // El "<" se cambia por su escape \u003c: así ningún texto del catálogo
+    // puede cerrar el <script> antes de tiempo. String.raw deja pasar la
+    // barra invertida tal cual, sin tener que duplicarla.
+    const MENOR = String.raw`\u003c`;
+    const jsonLd = JSON.stringify(datos, null, 4).split('<').join(MENOR);
+
+    html = html.replace('</head>',
+        `    <link rel="canonical" href="${url}">\n\n` +
+        `    <script type="application/ld+json">\n${jsonLd}\n    </script>\n\n</head>`);
 
     fs.writeFileSync(archivo, html);
     generadas.push({ id, archivo, url, name: p.name });
