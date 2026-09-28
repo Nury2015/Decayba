@@ -16,6 +16,18 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-TN4XWP5X');</script>
 
+    <!-- Google Analytics (GA4). Va directo y no dentro de Tag Manager, para
+         que empiece a contar sin depender de configurar el contenedor. Si
+         algún día se agrega tambien desde Tag Manager, hay que quitarlo de
+         aquí: si no, cada visita se cuenta dos veces. -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YJGB6KT5PB"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-YJGB6KT5PB');
+    </script>
+
     <title>Álbum Genérico Golden Blue para Mascotas | Decayba</title>
 
     <meta name="description" content="Álbum genérico para mascota, sin personalizar. Ideal para veterinarias o para quien quiere un álbum bonito y… Envío gratis a toda Colombia. Decayba, Popayán.">
