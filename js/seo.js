@@ -22,11 +22,12 @@ const YA_LO_DICE = /mascota|perro|cachorr|canin/i;
 const CIUDAD = 'Popayán';
 const COLA_SEO = `Envío gratis a toda Colombia. Decayba, ${CIUDAD}.`;
 
+function esDeMascota(p) {
+    return CATEGORIAS_MASCOTA.has(p.category) && !YA_LO_DICE.test(p.name);
+}
+
 function tituloSeo(p) {
-    const gancho = CATEGORIAS_MASCOTA.has(p.category) && !YA_LO_DICE.test(p.name)
-        ? ' para Mascotas'
-        : '';
-    return `${p.name}${gancho} | Decayba`;
+    return `${p.name}${esDeMascota(p) ? ' para Mascotas' : ''} | Decayba`;
 }
 
 // Google corta la descripción cerca de los 160 caracteres. La cola lleva la
@@ -42,4 +43,21 @@ function descripcionSeo(p) {
     return `${recortar(p.description, 158 - COLA_SEO.length)} ${COLA_SEO}`;
 }
 
-module.exports = { CIUDAD, COLA_SEO, tituloSeo, descripcionSeo, recortar };
+// El texto alternativo de una foto: lo que lee Google Imágenes para saber
+// qué hay en ella, y lo que oye quien navega con lector de pantalla. Antes
+// era solo el nombre del producto, que no dice "mascota" por ningún lado.
+// Si el archivo se llama portada o contraportada, también se dice: es
+// gratis y le da a Google una foto más concreta que indexar.
+function altSeo(p, src) {
+    let cara = '';
+    if (src && /contraportada/i.test(src)) cara = ', contraportada';
+    else if (src && /portada/i.test(src)) cara = ', portada';
+    return `${p.name}${esDeMascota(p) ? ' para mascota' : ''}${cara}`;
+}
+
+// Este archivo lo usan los dos lados: node (build-productos.js y
+// revisar.js) y el navegador, que lo carga como <script> para armar los
+// textos alt. En el navegador no existe "module", por eso se comprueba.
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { CIUDAD, COLA_SEO, esDeMascota, tituloSeo, descripcionSeo, altSeo, recortar };
+}

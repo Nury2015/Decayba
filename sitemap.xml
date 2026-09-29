@@ -1,39 +1,223 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
     <url><loc>https://decayba.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
     <url><loc>https://decayba.com/productos.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
     <url><loc>https://decayba.com/nosotros.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
     <url><loc>https://decayba.com/terminos.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
-    <url><loc>https://decayba.com/producto-agenda-agradecimiento.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-    <url><loc>https://decayba.com/producto-album-mascota-azul.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-    <url><loc>https://decayba.com/producto-album-mascota-rosa.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-    <url><loc>https://decayba.com/producto-mascota-fallecida.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-    <url><loc>https://decayba.com/producto-album-viajero.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-    <url><loc>https://decayba.com/producto-cuaderno.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-    <url><loc>https://decayba.com/producto-pastor-blue.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-    <url><loc>https://decayba.com/producto-pastor-ros.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-    <url><loc>https://decayba.com/producto-border-pur.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-    <url><loc>https://decayba.com/producto-golden-blue.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-    <url><loc>https://decayba.com/producto-golden-pur.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-    <url><loc>https://decayba.com/producto-golden-ros.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-    <url><loc>https://decayba.com/producto-peluche-pato-perro.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-    <url><loc>https://decayba.com/producto-frisbee-disco-volador.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-    <url><loc>https://decayba.com/producto-pelotas-masticar-sonido.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-    <url><loc>https://decayba.com/producto-peluche-pulpo.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-    <url><loc>https://decayba.com/producto-disco-volador-entrenamiento.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-    <url><loc>https://decayba.com/producto-boton-comunicacion-x4.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-    <url><loc>https://decayba.com/producto-boton-comunicacion-x6.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-    <url><loc>https://decayba.com/producto-boton-comunicacion.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-    <url><loc>https://decayba.com/producto-pelota-perro.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-    <url><loc>https://decayba.com/producto-cepillo-mascota.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-    <url><loc>https://decayba.com/producto-distribuidor-bolsas.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-    <url><loc>https://decayba.com/producto-tapete-entrenamiento-bano.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-    <url><loc>https://decayba.com/producto-bolsa-entrenamiento.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-    <url><loc>https://decayba.com/producto-cepillo-bano-silicona.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-    <url><loc>https://decayba.com/producto-cepillo-recargable-naranja.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-    <url><loc>https://decayba.com/producto-cepillo-recargable-morado.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-    <url><loc>https://decayba.com/producto-comedero-elevado-perro.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-    <url><loc>https://decayba.com/producto-bolsas-excremento.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-    <url><loc>https://decayba.com/producto-balsamo-hidratante.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-    <url><loc>https://decayba.com/producto-cepillo-dientes-mascota.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://decayba.com/producto-agenda-agradecimiento.html</loc><changefreq>monthly</changefreq><priority>0.8</priority>
+        <image:image><image:loc>https://decayba.com/img/agenda-agradecimiento/portada.webp</image:loc><image:title>Agenda de Agradecimiento, portada</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/agenda-agradecimiento/opciones-portada.webp</image:loc><image:title>Agenda de Agradecimiento, portada</image:title></image:image>
+    </url>
+    <url><loc>https://decayba.com/producto-album-mascota-azul.html</loc><changefreq>monthly</changefreq><priority>0.8</priority>
+        <image:image><image:loc>https://decayba.com/img/album-mascota-azul/portada.webp</image:loc><image:title>Álbum Personalizado Azul para mascota, portada</image:title></image:image>
+    </url>
+    <url><loc>https://decayba.com/producto-album-mascota-rosa.html</loc><changefreq>monthly</changefreq><priority>0.8</priority>
+        <image:image><image:loc>https://decayba.com/img/album-mascota-rosa/portada-hembra.webp</image:loc><image:title>Álbum Personalizado Rosa para mascota, portada</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/album-mascota-rosa/portada-warwick.webp</image:loc><image:title>Álbum Personalizado Rosa para mascota, portada</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/album-mascota-rosa/contraportada-hembra.webp</image:loc><image:title>Álbum Personalizado Rosa para mascota, contraportada</image:title></image:image>
+    </url>
+    <url><loc>https://decayba.com/producto-mascota-fallecida.html</loc><changefreq>monthly</changefreq><priority>0.8</priority>
+        <image:image><image:loc>https://decayba.com/img/mascota-fallecida/portada2.webp</image:loc><image:title>Álbum Personalizado Memorial para mascota, portada</image:title></image:image>
+    </url>
+    <url><loc>https://decayba.com/producto-album-viajero.html</loc><changefreq>monthly</changefreq><priority>0.8</priority>
+        <image:image><image:loc>https://decayba.com/img/album-viajero/portada.webp</image:loc><image:title>Álbum Viajero, portada</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/album-viajero/producto-real.webp</image:loc><image:title>Álbum Viajero</image:title></image:image>
+    </url>
+    <url><loc>https://decayba.com/producto-cuaderno.html</loc><changefreq>monthly</changefreq><priority>0.8</priority>
+        <image:image><image:loc>https://decayba.com/img/cuaderno/portada.webp</image:loc><image:title>Cuaderno Personalizado, portada</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/cuaderno/portada-2.webp</image:loc><image:title>Cuaderno Personalizado, portada</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/cuaderno/portada-3.webp</image:loc><image:title>Cuaderno Personalizado, portada</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/cuaderno/portada-4.webp</image:loc><image:title>Cuaderno Personalizado, portada</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/cuaderno/portada-5.webp</image:loc><image:title>Cuaderno Personalizado, portada</image:title></image:image>
+    </url>
+    <url><loc>https://decayba.com/producto-pastor-blue.html</loc><changefreq>monthly</changefreq><priority>0.8</priority>
+        <image:image><image:loc>https://decayba.com/img/album-generica/pastor-blue.webp</image:loc><image:title>Álbum Genérico Pastor Blue para mascota</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/album-generica/contraportada-blue.webp</image:loc><image:title>Álbum Genérico Pastor Blue para mascota, contraportada</image:title></image:image>
+    </url>
+    <url><loc>https://decayba.com/producto-pastor-ros.html</loc><changefreq>monthly</changefreq><priority>0.8</priority>
+        <image:image><image:loc>https://decayba.com/img/album-generica/pastor-ros.webp</image:loc><image:title>Álbum Genérico Pastor Ros para mascota</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/album-generica/contraportada-ros.webp</image:loc><image:title>Álbum Genérico Pastor Ros para mascota, contraportada</image:title></image:image>
+    </url>
+    <url><loc>https://decayba.com/producto-border-pur.html</loc><changefreq>monthly</changefreq><priority>0.8</priority>
+        <image:image><image:loc>https://decayba.com/img/album-generica/border-pur.webp</image:loc><image:title>Álbum Genérico Border Collie Pur para mascota</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/album-generica/contraportada-pur.webp</image:loc><image:title>Álbum Genérico Border Collie Pur para mascota, contraportada</image:title></image:image>
+    </url>
+    <url><loc>https://decayba.com/producto-golden-blue.html</loc><changefreq>monthly</changefreq><priority>0.8</priority>
+        <image:image><image:loc>https://decayba.com/img/album-generica/golden-blue.webp</image:loc><image:title>Álbum Genérico Golden Blue para mascota</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/album-generica/contraportada-blue.webp</image:loc><image:title>Álbum Genérico Golden Blue para mascota, contraportada</image:title></image:image>
+    </url>
+    <url><loc>https://decayba.com/producto-golden-pur.html</loc><changefreq>monthly</changefreq><priority>0.8</priority>
+        <image:image><image:loc>https://decayba.com/img/album-generica/golden-pur.webp</image:loc><image:title>Álbum Genérico Golden Pur para mascota</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/album-generica/contraportada-pur.webp</image:loc><image:title>Álbum Genérico Golden Pur para mascota, contraportada</image:title></image:image>
+    </url>
+    <url><loc>https://decayba.com/producto-golden-ros.html</loc><changefreq>monthly</changefreq><priority>0.8</priority>
+        <image:image><image:loc>https://decayba.com/img/album-generica/golden-ros.webp</image:loc><image:title>Álbum Genérico Golden Ros para mascota</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/album-generica/contraportada-ros.webp</image:loc><image:title>Álbum Genérico Golden Ros para mascota, contraportada</image:title></image:image>
+    </url>
+    <url><loc>https://decayba.com/producto-peluche-pato-perro.html</loc><changefreq>monthly</changefreq><priority>0.8</priority>
+        <image:image><image:loc>https://decayba.com/img/aseo/peluche/perroabrazando.webp</image:loc><image:title>Peluche para Perro con Sonido</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/aseo/peluche/peluche.webp</image:loc><image:title>Peluche para Perro con Sonido</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/aseo/peluche/medidas.webp</image:loc><image:title>Peluche para Perro con Sonido</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/aseo/peluche/perrocon.webp</image:loc><image:title>Peluche para Perro con Sonido</image:title></image:image>
+    </url>
+    <url><loc>https://decayba.com/producto-frisbee-disco-volador.html</loc><changefreq>monthly</changefreq><priority>0.8</priority>
+        <image:image><image:loc>https://decayba.com/img/juguetes/frisbi/principal.webp</image:loc><image:title>Frisbee Disco Volador para Mascotas</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/juguetes/frisbi/perro.webp</image:loc><image:title>Frisbee Disco Volador para Mascotas</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/juguetes/frisbi/medidas.webp</image:loc><image:title>Frisbee Disco Volador para Mascotas</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/juguetes/frisbi/perrocon.webp</image:loc><image:title>Frisbee Disco Volador para Mascotas</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/juguetes/frisbi/azul.webp</image:loc><image:title>Frisbee Disco Volador para Mascotas</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/juguetes/frisbi/morado.webp</image:loc><image:title>Frisbee Disco Volador para Mascotas</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/juguetes/frisbi/naranja.webp</image:loc><image:title>Frisbee Disco Volador para Mascotas</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/juguetes/frisbi/verde.webp</image:loc><image:title>Frisbee Disco Volador para Mascotas</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/juguetes/frisbi/amarillo.webp</image:loc><image:title>Frisbee Disco Volador para Mascotas</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/juguetes/frisbi/rojo.webp</image:loc><image:title>Frisbee Disco Volador para Mascotas</image:title></image:image>
+    </url>
+    <url><loc>https://decayba.com/producto-pelotas-masticar-sonido.html</loc><changefreq>monthly</changefreq><priority>0.8</priority>
+        <image:image><image:loc>https://decayba.com/img/juguetes/docepelotas/principal.webp</image:loc><image:title>Juguetes para Masticar con Sonido para Cachorros</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/juguetes/docepelotas/imagenconperro.webp</image:loc><image:title>Juguetes para Masticar con Sonido para Cachorros</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/juguetes/docepelotas/pito.webp</image:loc><image:title>Juguetes para Masticar con Sonido para Cachorros</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/juguetes/docepelotas/medidas.webp</image:loc><image:title>Juguetes para Masticar con Sonido para Cachorros</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/juguetes/docepelotas/perrocon.webp</image:loc><image:title>Juguetes para Masticar con Sonido para Cachorros</image:title></image:image>
+    </url>
+    <url><loc>https://decayba.com/producto-peluche-pulpo.html</loc><changefreq>monthly</changefreq><priority>0.8</priority>
+        <image:image><image:loc>https://decayba.com/img/aseo/pulpo/principal.webp</image:loc><image:title>Peluche Pulpo para Mascotas</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/aseo/pulpo/manoconpelu.webp</image:loc><image:title>Peluche Pulpo para Mascotas</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/aseo/pulpo/colores.webp</image:loc><image:title>Peluche Pulpo para Mascotas</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/aseo/pulpo/medidas.webp</image:loc><image:title>Peluche Pulpo para Mascotas</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/aseo/pulpo/resistente.webp</image:loc><image:title>Peluche Pulpo para Mascotas</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/aseo/pulpo/sonido.webp</image:loc><image:title>Peluche Pulpo para Mascotas</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/aseo/pulpo/sonido2.webp</image:loc><image:title>Peluche Pulpo para Mascotas</image:title></image:image>
+    </url>
+    <url><loc>https://decayba.com/producto-disco-volador-entrenamiento.html</loc><changefreq>monthly</changefreq><priority>0.8</priority>
+        <image:image><image:loc>https://decayba.com/img/juguetes/disco-volador/principal.webp</image:loc><image:title>Disco Volador de Entrenamiento para Mascotas</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/juguetes/disco-volador/medidas.webp</image:loc><image:title>Disco Volador de Entrenamiento para Mascotas</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/juguetes/disco-volador/unidad.webp</image:loc><image:title>Disco Volador de Entrenamiento para Mascotas</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/juguetes/disco-volador/unidaddos.webp</image:loc><image:title>Disco Volador de Entrenamiento para Mascotas</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/juguetes/disco-volador/naranja.webp</image:loc><image:title>Disco Volador de Entrenamiento para Mascotas</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/juguetes/disco-volador/rojo.webp</image:loc><image:title>Disco Volador de Entrenamiento para Mascotas</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/juguetes/disco-volador/verde.webp</image:loc><image:title>Disco Volador de Entrenamiento para Mascotas</image:title></image:image>
+    </url>
+    <url><loc>https://decayba.com/producto-boton-comunicacion-x4.html</loc><changefreq>monthly</changefreq><priority>0.8</priority>
+        <image:image><image:loc>https://decayba.com/img/juguetes/boton/cuatro.webp</image:loc><image:title>4 Botones de Comunicación para Mascota</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/juguetes/boton/principal.webp</image:loc><image:title>4 Botones de Comunicación para Mascota</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/juguetes/boton/botonHabla.webp</image:loc><image:title>4 Botones de Comunicación para Mascota</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/juguetes/boton/perrosboton.webp</image:loc><image:title>4 Botones de Comunicación para Mascota</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/juguetes/boton/perroboton.webp</image:loc><image:title>4 Botones de Comunicación para Mascota</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/juguetes/boton/funcion.webp</image:loc><image:title>4 Botones de Comunicación para Mascota</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/juguetes/boton/medidas.webp</image:loc><image:title>4 Botones de Comunicación para Mascota</image:title></image:image>
+    </url>
+    <url><loc>https://decayba.com/producto-boton-comunicacion-x6.html</loc><changefreq>monthly</changefreq><priority>0.8</priority>
+        <image:image><image:loc>https://decayba.com/img/juguetes/boton/seis.webp</image:loc><image:title>6 Botones de Comunicación para Mascota</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/juguetes/boton/principal.webp</image:loc><image:title>6 Botones de Comunicación para Mascota</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/juguetes/boton/perroboton.webp</image:loc><image:title>6 Botones de Comunicación para Mascota</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/juguetes/boton/perrosboton.webp</image:loc><image:title>6 Botones de Comunicación para Mascota</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/juguetes/boton/funcion.webp</image:loc><image:title>6 Botones de Comunicación para Mascota</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/juguetes/boton/botonHabla.webp</image:loc><image:title>6 Botones de Comunicación para Mascota</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/juguetes/boton/medidas.webp</image:loc><image:title>6 Botones de Comunicación para Mascota</image:title></image:image>
+    </url>
+    <url><loc>https://decayba.com/producto-boton-comunicacion.html</loc><changefreq>monthly</changefreq><priority>0.8</priority>
+        <image:image><image:loc>https://decayba.com/img/juguetes/boton/principal.webp</image:loc><image:title>Botón de Comunicación para Mascota</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/juguetes/boton/azul.webp</image:loc><image:title>Botón de Comunicación para Mascota</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/juguetes/boton/naranja.webp</image:loc><image:title>Botón de Comunicación para Mascota</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/juguetes/boton/rojo.webp</image:loc><image:title>Botón de Comunicación para Mascota</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/juguetes/boton/rosa.webp</image:loc><image:title>Botón de Comunicación para Mascota</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/juguetes/boton/botonHabla.webp</image:loc><image:title>Botón de Comunicación para Mascota</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/juguetes/boton/perrosboton.webp</image:loc><image:title>Botón de Comunicación para Mascota</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/juguetes/boton/perroboton.webp</image:loc><image:title>Botón de Comunicación para Mascota</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/juguetes/boton/funcion.webp</image:loc><image:title>Botón de Comunicación para Mascota</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/juguetes/boton/medidas.webp</image:loc><image:title>Botón de Comunicación para Mascota</image:title></image:image>
+    </url>
+    <url><loc>https://decayba.com/producto-pelota-perro.html</loc><changefreq>monthly</changefreq><priority>0.8</priority>
+        <image:image><image:loc>https://decayba.com/img/aseo/pelotas/principal.webp</image:loc><image:title>Pelota para Perro</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/aseo/pelotas/perrocon.webp</image:loc><image:title>Pelota para Perro</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/aseo/pelotas/cerca.webp</image:loc><image:title>Pelota para Perro</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/aseo/pelotas/medidas.webp</image:loc><image:title>Pelota para Perro</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/aseo/pelotas/mojada.webp</image:loc><image:title>Pelota para Perro</image:title></image:image>
+    </url>
+    <url><loc>https://decayba.com/producto-cepillo-mascota.html</loc><changefreq>monthly</changefreq><priority>0.8</priority>
+        <image:image><image:loc>https://decayba.com/img/aseo/cepillo/pelo.webp</image:loc><image:title>Cepillo para Mascotas</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/aseo/cepillo/prrincipal.webp</image:loc><image:title>Cepillo para Mascotas</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/aseo/cepillo/princi.webp</image:loc><image:title>Cepillo para Mascotas</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/aseo/cepillo/medidas.webp</image:loc><image:title>Cepillo para Mascotas</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/aseo/cepillo/boton.webp</image:loc><image:title>Cepillo para Mascotas</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/aseo/cepillo/rosado.webp</image:loc><image:title>Cepillo para Mascotas</image:title></image:image>
+    </url>
+    <url><loc>https://decayba.com/producto-distribuidor-bolsas.html</loc><changefreq>monthly</changefreq><priority>0.8</priority>
+        <image:image><image:loc>https://decayba.com/img/aseo/contenedorbolsa/principal.webp</image:loc><image:title>Distribuidor de Bolsas + Rollo de Bolsas para mascota</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/aseo/contenedorbolsa/princi.webp</image:loc><image:title>Distribuidor de Bolsas + Rollo de Bolsas para mascota</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/aseo/contenedorbolsa/medidas.webp</image:loc><image:title>Distribuidor de Bolsas + Rollo de Bolsas para mascota</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/aseo/contenedorbolsa/cafeprinci.webp</image:loc><image:title>Distribuidor de Bolsas + Rollo de Bolsas para mascota</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/aseo/contenedorbolsa/imagenpresen.webp</image:loc><image:title>Distribuidor de Bolsas + Rollo de Bolsas para mascota</image:title></image:image>
+    </url>
+    <url><loc>https://decayba.com/producto-tapete-entrenamiento-bano.html</loc><changefreq>monthly</changefreq><priority>0.8</priority>
+        <image:image><image:loc>https://decayba.com/img/aseo/tepete/principal.webp</image:loc><image:title>Tapete Entrenador de Baño para Perros</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/aseo/tepete/especifica.webp</image:loc><image:title>Tapete Entrenador de Baño para Perros</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/aseo/tepete/medidas.webp</image:loc><image:title>Tapete Entrenador de Baño para Perros</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/aseo/tepete/medid.webp</image:loc><image:title>Tapete Entrenador de Baño para Perros</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/aseo/tepete/medidagrande.webp</image:loc><image:title>Tapete Entrenador de Baño para Perros</image:title></image:image>
+    </url>
+    <url><loc>https://decayba.com/producto-bolsa-entrenamiento.html</loc><changefreq>monthly</changefreq><priority>0.8</priority>
+        <image:image><image:loc>https://decayba.com/img/juguetes/bolsa-entrenamiento/principal.webp</image:loc><image:title>Bolsa de Entrenamiento para Mascota</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/juguetes/bolsa-entrenamiento/partes.webp</image:loc><image:title>Bolsa de Entrenamiento para Mascota</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/juguetes/bolsa-entrenamiento/medidas.webp</image:loc><image:title>Bolsa de Entrenamiento para Mascota</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/juguetes/bolsa-entrenamiento/bolsa.webp</image:loc><image:title>Bolsa de Entrenamiento para Mascota</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/juguetes/bolsa-entrenamiento/amboslados.webp</image:loc><image:title>Bolsa de Entrenamiento para Mascota</image:title></image:image>
+    </url>
+    <url><loc>https://decayba.com/producto-cepillo-bano-silicona.html</loc><changefreq>monthly</changefreq><priority>0.8</priority>
+        <image:image><image:loc>https://decayba.com/img/aseo/cepillojabon/principal.webp</image:loc><image:title>Cepillo de Baño Suave para Mascotas</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/aseo/cepillojabon/jabon.webp</image:loc><image:title>Cepillo de Baño Suave para Mascotas</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/aseo/cepillojabon/medidas.webp</image:loc><image:title>Cepillo de Baño Suave para Mascotas</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/aseo/cepillojabon/perros.webp</image:loc><image:title>Cepillo de Baño Suave para Mascotas</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/aseo/cepillojabon/suave.webp</image:loc><image:title>Cepillo de Baño Suave para Mascotas</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/aseo/cepillojabon/tapa.webp</image:loc><image:title>Cepillo de Baño Suave para Mascotas</image:title></image:image>
+    </url>
+    <url><loc>https://decayba.com/producto-cepillo-recargable-naranja.html</loc><changefreq>monthly</changefreq><priority>0.8</priority>
+        <image:image><image:loc>https://decayba.com/img/aseo/cepillo-recargable/principal.webp</image:loc><image:title>Cepillo Recargable para Mascota - Naranja</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/aseo/cepillo-recargable/perros-y-gatos.webp</image:loc><image:title>Cepillo Recargable para Mascota - Naranja</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/aseo/cepillo-recargable/medidas.webp</image:loc><image:title>Cepillo Recargable para Mascota - Naranja</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/aseo/cepillo-recargable/sistema.webp</image:loc><image:title>Cepillo Recargable para Mascota - Naranja</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/aseo/cepillo-recargable/sistema2.webp</image:loc><image:title>Cepillo Recargable para Mascota - Naranja</image:title></image:image>
+    </url>
+    <url><loc>https://decayba.com/producto-cepillo-recargable-morado.html</loc><changefreq>monthly</changefreq><priority>0.8</priority>
+        <image:image><image:loc>https://decayba.com/img/aseo/cepillovapormorado/vapor.webp</image:loc><image:title>Cepillo Recargable para Mascota - Morado (Vapor)</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/aseo/cepillovapormorado/principal.webp</image:loc><image:title>Cepillo Recargable para Mascota - Morado (Vapor)</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/aseo/cepillovapormorado/medidas.webp</image:loc><image:title>Cepillo Recargable para Mascota - Morado (Vapor)</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/aseo/cepillovapormorado/girarmanija.webp</image:loc><image:title>Cepillo Recargable para Mascota - Morado (Vapor)</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/aseo/cepillovapormorado/gato.webp</image:loc><image:title>Cepillo Recargable para Mascota - Morado (Vapor)</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/aseo/cepillovapormorado/cepillando.webp</image:loc><image:title>Cepillo Recargable para Mascota - Morado (Vapor)</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/aseo/cepillovapormorado/cargador.webp</image:loc><image:title>Cepillo Recargable para Mascota - Morado (Vapor)</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/aseo/cepillovapormorado/agua.webp</image:loc><image:title>Cepillo Recargable para Mascota - Morado (Vapor)</image:title></image:image>
+    </url>
+    <url><loc>https://decayba.com/producto-comedero-elevado-perro.html</loc><changefreq>monthly</changefreq><priority>0.8</priority>
+        <image:image><image:loc>https://decayba.com/img/comedero/principal.webp</image:loc><image:title>Comedero Elevado para Perro</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/comedero/perrocon.webp</image:loc><image:title>Comedero Elevado para Perro</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/comedero/caracteristicas.webp</image:loc><image:title>Comedero Elevado para Perro</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/comedero/negro.webp</image:loc><image:title>Comedero Elevado para Perro</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/comedero/partes.webp</image:loc><image:title>Comedero Elevado para Perro</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/comedero/taza.webp</image:loc><image:title>Comedero Elevado para Perro</image:title></image:image>
+    </url>
+    <url><loc>https://decayba.com/producto-bolsas-excremento.html</loc><changefreq>monthly</changefreq><priority>0.8</priority>
+        <image:image><image:loc>https://decayba.com/img/aseo/bolsas/principal.webp</image:loc><image:title>Bolsas para Excrementos de Perro</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/aseo/bolsas/division.webp</image:loc><image:title>Bolsas para Excrementos de Perro</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/aseo/bolsas/medidas.webp</image:loc><image:title>Bolsas para Excrementos de Perro</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/aseo/bolsas/perrocon.webp</image:loc><image:title>Bolsas para Excrementos de Perro</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/aseo/bolsas/bolsa.webp</image:loc><image:title>Bolsas para Excrementos de Perro</image:title></image:image>
+    </url>
+    <url><loc>https://decayba.com/producto-balsamo-hidratante.html</loc><changefreq>monthly</changefreq><priority>0.8</priority>
+        <image:image><image:loc>https://decayba.com/img/aseo/balsamo/principal.webp</image:loc><image:title>Bálsamo Hidratante para Huellas y Nariz para mascota</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/aseo/balsamo/gatoyperro.webp</image:loc><image:title>Bálsamo Hidratante para Huellas y Nariz para mascota</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/aseo/balsamo/medidas.webp</image:loc><image:title>Bálsamo Hidratante para Huellas y Nariz para mascota</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/aseo/balsamo/caja.webp</image:loc><image:title>Bálsamo Hidratante para Huellas y Nariz para mascota</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/aseo/balsamo/perrocon.webp</image:loc><image:title>Bálsamo Hidratante para Huellas y Nariz para mascota</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/aseo/balsamo/princi.webp</image:loc><image:title>Bálsamo Hidratante para Huellas y Nariz para mascota</image:title></image:image>
+    </url>
+    <url><loc>https://decayba.com/producto-cepillo-dientes-mascota.html</loc><changefreq>monthly</changefreq><priority>0.8</priority>
+        <image:image><image:loc>https://decayba.com/img/aseo/cepillodientes/principal.webp</image:loc><image:title>Cepillo de Dientes para Mascotas (3 Piezas)</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/aseo/cepillodientes/perrocon.webp</image:loc><image:title>Cepillo de Dientes para Mascotas (3 Piezas)</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/aseo/cepillodientes/medidas.webp</image:loc><image:title>Cepillo de Dientes para Mascotas (3 Piezas)</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/aseo/cepillodientes/dientes.webp</image:loc><image:title>Cepillo de Dientes para Mascotas (3 Piezas)</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/aseo/cepillodientes/flexible.webp</image:loc><image:title>Cepillo de Dientes para Mascotas (3 Piezas)</image:title></image:image>
+        <image:image><image:loc>https://decayba.com/img/aseo/cepillodientes/cerca.webp</image:loc><image:title>Cepillo de Dientes para Mascotas (3 Piezas)</image:title></image:image>
+    </url>
 </urlset>

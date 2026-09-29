@@ -94,7 +94,7 @@ function productCardHtml(id) {
 
                 <div class="product-media" data-href="${productUrl(id)}">
 
-                    <img src="${p.cover}" alt="${p.name}" loading="lazy" decoding="async">
+                    <img src="${p.cover}" alt="${altSeo(p, p.cover)}" loading="lazy" decoding="async">
 
                     ${videoTag}
 

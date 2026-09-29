@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         mainEl.innerHTML = item.type === "video"
             ? `<video src="${item.src}" poster="${product.cover}" controls playsinline preload="metadata"></video>`
-            : `<img src="${item.src}" alt="${product.name}" decoding="async">`;
+            : `<img src="${item.src}" alt="${altSeo(product, item.src)}" decoding="async">`;
 
         thumbsEl.querySelectorAll(".pd-thumb").forEach((t, i) => t.classList.toggle("active", i === currentIndex));
     }

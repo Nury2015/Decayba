@@ -23,7 +23,7 @@ const fs = require('fs');
 const path = require('path');
 const vm = require('vm');
 const { execFileSync } = require('child_process');
-const { tituloSeo, descripcionSeo } = require('./seo');
+const { tituloSeo, descripcionSeo, altSeo } = require('./js/seo');
 
 const SITIO = 'https://decayba.com';
 const CREMA = '#faf6ee';
@@ -184,7 +184,11 @@ for (const [id, p] of Object.entries(PRODUCTS)) {
         `    <script type="application/ld+json">\n${jsonLd}\n    </script>\n\n</head>`);
 
     fs.writeFileSync(archivo, html);
-    generadas.push({ id, archivo, url, name: p.name });
+    // Portada y galeria, sin repetir: son las fotos que van al sitemap.
+    const imagenes = [...new Set([p.cover, ...(p.gallery || [])])]
+        .map(src => ({ src, alt: altSeo(p, src) }));
+
+    generadas.push({ id, archivo, url, name: p.name, imagenes });
 }
 
 // --- Sitemap ---
@@ -195,18 +199,33 @@ const fijas = [
     { loc: `${SITIO}/terminos.html`, freq: 'yearly', pri: '0.3' },
 ];
 
+// Las fotos de cada producto van dentro de su <url>. Es la forma de decirle
+// a Google "estas son mis imágenes", para salir en Google Imágenes cuando
+// busquen "álbum para mascota". El <image:title> lleva el mismo texto que
+// el alt de la página, para que las dos cosas digan lo mismo.
+// Solo portada y contraportada: las hojas interiores no se publican.
+const fotos = (g) => (g.imagenes || [])
+    .map(im => `\n        <image:image>` +
+               `<image:loc>${SITIO}/${im.src}</image:loc>` +
+               `<image:title>${escapar(im.alt)}</image:title>` +
+               `</image:image>`)
+    .join('');
+
 const filas = [
     ...fijas.map(u => `    <url><loc>${u.loc}</loc><changefreq>${u.freq}</changefreq><priority>${u.pri}</priority></url>`),
-    ...generadas.map(g => `    <url><loc>${g.url}</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>`),
+    ...generadas.map(g => `    <url><loc>${g.url}</loc><changefreq>monthly</changefreq><priority>0.8</priority>${fotos(g)}\n    </url>`),
 ];
+
+const totalFotos = generadas.reduce((s, g) => s + (g.imagenes || []).length, 0);
 
 fs.writeFileSync('sitemap.xml',
     '<?xml version="1.0" encoding="UTF-8"?>\n' +
-    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n' +
+    '        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n' +
     filas.join('\n') + '\n' +
     '</urlset>\n'
 );
 
 console.log(`\n${generadas.length} páginas de producto generadas`);
 console.log(`${conImagen} imágenes de vista previa en ${OG_DIR}/`);
-console.log(`sitemap.xml actualizado con ${filas.length} direcciones`);
+console.log(`sitemap.xml actualizado con ${filas.length} direcciones y ${totalFotos} fotos`);

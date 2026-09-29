@@ -13,7 +13,7 @@
  */
 
 const fs = require('fs');
-const { tituloSeo } = require('./seo');
+const { tituloSeo } = require('./js/seo');
 const vm = require('vm');
 
 const PAGINAS = ['index.html', 'productos.html', 'producto.html', 'nosotros.html', 'terminos.html'];
