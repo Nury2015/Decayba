@@ -4091,3 +4091,101 @@ footer {
     }
 
 }
+/*=========================================
+        AVISO DE DATOS Y COOKIES
+=========================================*/
+
+/* Una barra discreta abajo, solo en la primera visita. Mientras está, los
+   dos botones flotantes suben lo que mida, para no quedar tapados. */
+
+.aviso-datos {
+
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1200;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    padding: 16px 25px;
+    background: var(--cream);
+    border-top: 1px solid var(--cream-alt);
+    box-shadow: 0 -8px 25px rgba(0, 0, 0, .06);
+
+}
+
+.aviso-datos p {
+
+    margin: 0;
+    max-width: 620px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #555;
+
+}
+
+.aviso-datos a {
+
+    color: #111;
+    text-decoration: underline;
+
+}
+
+.aviso-datos button {
+
+    flex-shrink: 0;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 3px;
+    background: #111;
+    color: #fff;
+    font-family: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    transition: .3s;
+
+}
+
+.aviso-datos button:hover {
+
+    background: #444;
+
+}
+
+/* El alto lo mide app.js y lo deja en --alto-aviso, porque el texto ocupa
+   una línea o tres según el ancho. Los 15px son el aire entre el botón
+   flotante y el aviso. */
+body.con-aviso .whatsapp-float,
+body.con-aviso #top {
+
+    bottom: calc(var(--alto-aviso, 0px) + 15px);
+
+}
+
+@media(max-width:600px) {
+
+    .aviso-datos {
+
+        gap: 12px;
+        padding: 14px 18px;
+
+    }
+
+    .aviso-datos p {
+
+        font-size: 13px;
+
+    }
+
+    .aviso-datos button {
+
+        width: 100%;
+
+    }
+
+}

@@ -229,3 +229,45 @@ fadeEls.forEach(el => fadeObserver.observe(el));
 
 // VIDEO DE PRODUCTO: reproducir al pasar el mouse
 wireHoverVideos();
+
+// AVISO DE DATOS: sale una sola vez, en la primera visita.
+// Google Analytics guarda cookies, y la Ley 1581 pide avisarlo. No es un
+// muro: la tienda funciona igual sin tocarlo; el boton solo lo quita para
+// que no vuelva a salir. Se guarda en el mismo navegador, como el carrito.
+const CLAVE_AVISO = 'decayba_aviso_datos';
+
+function mostrarAvisoDatos() {
+    // En modo incognito leer localStorage puede reventar. Si no se puede
+    // recordar que ya lo vio, es mejor no mostrarlo que mostrarlo siempre.
+    let visto;
+    try { visto = localStorage.getItem(CLAVE_AVISO); } catch (e) { visto = '1'; }
+    if (visto) return;
+
+    const aviso = document.createElement('div');
+    aviso.className = 'aviso-datos';
+    aviso.setAttribute('role', 'region');
+    aviso.setAttribute('aria-label', 'Aviso de datos');
+    aviso.innerHTML = `
+        <p>
+            Usamos cookies para saber cuánta gente visita la tienda. No te
+            identificamos. Los detalles están en
+            <a href="terminos.html#cookies">términos y condiciones</a>.
+        </p>
+        <button type="button">Entendido</button>`;
+
+    document.body.appendChild(aviso);
+    document.body.classList.add('con-aviso');
+    // El alto se mide aqui y no se fija en la CSS, porque el texto ocupa
+    // una linea o tres segun el ancho de la pantalla. Los botones
+    // flotantes suben justo lo que mide.
+    document.body.style.setProperty('--alto-aviso', aviso.offsetHeight + 'px');
+
+    aviso.querySelector('button').addEventListener('click', () => {
+        try { localStorage.setItem(CLAVE_AVISO, '1'); } catch (e) { }
+        aviso.remove();
+        document.body.classList.remove('con-aviso');
+        document.body.style.removeProperty('--alto-aviso');
+    });
+}
+
+mostrarAvisoDatos();
